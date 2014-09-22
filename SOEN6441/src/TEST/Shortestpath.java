@@ -1,64 +1,37 @@
 package TEST;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import tilemap.Tile;
+import tilemap.TileMap;
 
-public class Test3 {
-	final static int TRIED = 2;
-    final static int PATH = 3;
+public class Shortestpath {
+	final static int TRIED = 8;
+    final static int PATH = 9;
+    private TileMap tileMap;
+    private int[][] gridMap;
 
-    // @formatter:off
-    private static int[][] GRID = { 
-        { 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1 },
-        { 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1 },
-        { 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0 },
-        { 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1 },
-        { 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1 },
-        { 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3 } 
-    };
-    // @formatter:off
+    private int row;
+    private int col;
 
     public static void main(String[] args) {
-        Test3 maze = new Test3(GRID);
+        Shortestpath maze = new Shortestpath(GRID);
         boolean solved = maze.solve();
         System.out.println("Solved: " + solved);
         System.out.println(maze.toString());
     }
 
-    private int[][] grid;
-    private int height;
-    private int width;
 
-    private int[][] map;
-
-    public Test3(int[][] grid) {
-        this.grid = grid;
-        this.height = grid.length;
-        this.width = grid[0].length;
+    public Shortestpath(TileMap tileMap) {
+        this.tileMap = tileMap;
+        this.row     = tileMap.getMapRow();
+        this.col     = tileMap.getMapCol();
 
         this.map = new int[height][width];
     }
 
     public boolean solve() {
-        return traverse(3,3);
+        return traverse(0,0);
     }
 
     private boolean traverse(int i, int j) {
@@ -138,4 +111,6 @@ public class Test3 {
         return s;
     }
 
+
+	
 }

@@ -13,14 +13,26 @@ public class Tile {
 	private int tileWidth;
 	private int tileHeight;
 	
-	
+	public Tile(){
+		
+	}
+	public Tile(int tileType,Image image, int tileX, int tileY, 
+			int tileWidth, int tileHeight){
+		this.setTileImage(image);
+		this.setTileX(tileX);
+		this.setTileY(tileY);
+		this.setTileWidth(tileWidth);
+		this.setTileHeight(tileHeight);
+		this.tileType = tileType;
+	}
 	public Tile(int tileType){
 		this.tileType = tileType;
 		
 		
 	}
 	
-	public void setTheRest(Image image, int tileX, int tileY, int tileWidth, int tileHeight){
+	public void setTheRest(Image image, int tileX, int tileY, 
+			int tileWidth, int tileHeight){
 		this.setTileImage(image);
 		this.setTileX(tileX);
 		this.setTileY(tileY);

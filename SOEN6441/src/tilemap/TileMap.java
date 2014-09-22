@@ -4,6 +4,7 @@ import gameState.SelectMapState;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
@@ -34,21 +35,27 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	private int upperOffSet;
 	private int lowerOffSet;
 	private Point selectedTile;
+	private boolean isTowerSelected;
+	//game path defined by the SelectMapState
+	
+	
 	//images for the map
-	public static Image grass       = LoadImage.loadImage("/images/grass.png");
-	public static Image pavement    = LoadImage.loadImage("/images/pavement.png");
-	public static Image entrance    = LoadImage.loadImage("/images/entrance.png");
-	public static Image exit        = LoadImage.loadImage("/images/destination.png");	
+	public static final Image grass       = LoadImage.loadImage("/images/grass.png");
+	public static final Image pavement    = LoadImage.loadImage("/images/pavement.png");
+	public static final Image entrance    = LoadImage.loadImage("/images/entrance.png");
+	public static final Image exit        = LoadImage.loadImage("/images/destination.png");	
 	//towers
-	public static Image arrowTower  = LoadImage.loadImage("/images/arrowtower.png");
-	public static Image cannonTower = LoadImage.loadImage("/images/cannontower.png");
-	public static Image iceTower    = LoadImage.loadImage("/images/icetower.png");
-	public static Image magicTower  = LoadImage.loadImage("/images/magictower.png");
+	public static final Image arrowTower  = LoadImage.loadImage("/images/arrowtower.png");
+	public static final Image cannonTower = LoadImage.loadImage("/images/cannontower.png");
+	public static final Image iceTower    = LoadImage.loadImage("/images/icetower.png");
+	public static final Image magicTower  = LoadImage.loadImage("/images/magictower.png");
 			
 	//monster
-	public static Image monster1    = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
-	public static Image monster2    = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
-		
+	public static final Image monster1    = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
+	public static final Image monster2    = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
+	
+	//coins 
+	public static final Image coin        = LoadImage.loadImage("/images/coins.png");
 		
 	//numbers 
 	public static final int GRASS       = 0;
@@ -62,45 +69,49 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public static final int MONSTER1    = 8;
 	public static final int MONSTER2    = 9;
 		
-	public TileMap(String path){
-	loadMap(path);	
+	public TileMap(){
 	offSetX     = 0;
 	offSetY     = 100;
 	upperOffSet = 100;
 	lowerOffSet = 100;
-	cellWidth  = GamePanel.WIDTH / mapCol;
-	//top 100 for menu below 100 for buttons
-	cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;
+	this.isTowerSelected = true;
 	}
 	//Load map
-	private void loadMap(String path){
-		BufferedReader br = null;
-		try {
-			String line;
-			int rowTemp = 0;
-			br = new BufferedReader(new FileReader(path));
-			mapRow = Integer.parseInt(br.readLine().trim());
-			mapCol = Integer.parseInt(br.readLine().trim());
-			map = new Tile[mapRow][mapCol];
-			while ((line = br.readLine()) != null) {
-				//System.out.println(line);
-				String[] temp = line.split(" ");
-				for(int i = 0; i< temp.length; i++){
-					map[rowTemp][i] = new Tile(Integer.parseInt(temp[i]));	
-				}
-				rowTemp++;
-			}
- 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
+	public Tile[][] loadMap(String path){
+		
+			BufferedReader br = null;
 			try {
-				if (br != null)br.close();
-			} catch (IOException ex) {
-				ex.printStackTrace();
+				String line;
+				int rowTemp = 0;
+				br = new BufferedReader(new FileReader(path));
+				mapRow = Integer.parseInt(br.readLine().trim());
+				mapCol = Integer.parseInt(br.readLine().trim());
+				cellWidth  = GamePanel.WIDTH / mapCol;
+				//top 100 for menu below 100 for buttons
+				cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;
+				map = new Tile[mapRow][mapCol];
+				while ((line = br.readLine()) != null) {
+					//System.out.println(line);
+					String[] temp = line.split(" ");
+					for(int i = 0; i< temp.length; i++){
+						map[rowTemp][i] = new Tile(Integer.parseInt(temp[i]));	
+					}
+					rowTemp++;
+				}
+	 
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (br != null)br.close();
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
 			}
-		}
- 
+					
+		
+		return map;
+		
 	}
 	public Tile[][] getMap(){
 		return this.map;
@@ -152,7 +163,16 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	//draw menu
 	
-
+	private void drawTopMenu(Graphics2D g){
+		g.drawImage(arrowTower, 1, 5, 40, 40, null);
+		g.drawImage(cannonTower, 1,48,40,40,null);
+		g.drawImage(iceTower, 42, 5 ,40,40,null);
+		g.drawImage(magicTower, 42, 48, 40,40,null);
+		g.drawImage(coin, 700, 0, 30, 30, null);
+		
+		
+		
+	}
 	private void drawMap(Graphics2D g){
 		for(int i = 0; i<mapRow; i++){
 			for(int j = 0;j<mapCol; j++){
@@ -264,8 +284,25 @@ public class TileMap implements MouseMotionListener,MouseListener{
 			
 		}
 	}
+	//draw bottom menu
+	private void drawBottomMenu(Graphics2D g){
+		g.setColor(Color.GREEN);
+		g.fillRect(0, 500, 400, 100);
+		g.setFont(new Font("Arial",Font.BOLD,30));
+		g.setColor(Color.RED);
+		String firstLine = "To be continued...";
+		g.drawString(firstLine, 10, 550);
+		g.setColor(Color.MAGENTA);
+		g.fillRect(450, 500, 80, 40);
+		g.setColor(Color.YELLOW);
+		String pause = "Pause";
+		g.setFont(new Font("Arial",Font.BOLD,20));
+		g.drawString(pause, 455, 520);
+		
+			
+	}
 	//clear the screen
-	public void clearScreen(Graphics2D g){
+	private void clearScreen(Graphics2D g){
 		g.setColor(Color.BLACK);
 	    g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT);
 	}
@@ -273,8 +310,12 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public void draw(Graphics2D g) {
 		//clear screen
 		clearScreen(g); 
+		//draw top menu
+		drawTopMenu(g);
 		//draw map
 		drawMap(g);	
+		//draw bottom menu
+		drawBottomMenu(g);
 
 		
 	}
@@ -295,6 +336,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	        int row =  temp / cellHeight;
 	        System.out.println("this is x: "+row);
 	        System.out.println("this is y: "+column);
+	        //this should be in tower.class
 	        selectedTile = new Point(column, row);
 	        if(selectedTile != null &&
 	        		map[selectedTile.y][selectedTile.x].getTileType() == GRASS){

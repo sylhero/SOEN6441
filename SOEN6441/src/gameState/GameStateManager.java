@@ -13,21 +13,23 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	private ArrayList<GameState> gameStates;
 	private int currentState;
 	public static final int MENUSTATE = 0;
-	public static final int GAMESTART = 1;
-	public static final int LOADGAME  = 2;
-	public static final int CREATEMAP = 3;
-	public static final int EXIT		  = 4;
-	public static final int SELECTMAP  = 5;
+	public static final int SELECTMAP = 1;
+	public static final int GAMESTART = 2;
+	public static final int LOADGAME  = 3;
+	public static final int CREATEMAP = 4;
+	public static final int EXIT		  = 5;
+	
 	public GameStateManager(){
 		gameStates = new ArrayList<>();
 		currentState = MENUSTATE;
 		gameStates.add(new MenuState(this));
 		gameStates.add(new SelectMapState(this));
+		gameStates.add(new PlayState(this));
 	}
 	//switch to other stages
-	public void switchState(int state){
+	public void switchState(int state, String mapPath){
 		currentState = state;
-		gameStates.get(currentState).init();
+		gameStates.get(currentState).init(mapPath);
 		
 	}
 	public boolean pauseGame(){

@@ -42,7 +42,7 @@ public class MenuState extends GameState{
 	
 	//constructor
 	public MenuState(GameStateManager gsm){
-		background = LoadImage.loadImage("/images/menubg.gif");
+		background = LoadImage.loadImage("/images/menubackground.jpg");
 		myTitleFont = new Font("Arial",Font.BOLD,26);
 		myButtonFont = new Font("Arial",Font.BOLD,12);
 		this.gsm = gsm;
@@ -51,7 +51,7 @@ public class MenuState extends GameState{
 
 
 	@Override
-	public void init() {
+	public void init(String path) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -206,7 +206,7 @@ public class MenuState extends GameState{
 				mouseX <= startGameButton.x + startGameButton.width &&
 				mouseY >= startGameButton.y && 
 				mouseY <= startGameButton.y +startGameButton.height){
-			gsm.switchState(GameStateManager.GAMESTART);
+			gsm.switchState(GameStateManager.SELECTMAP,null);
 		}
 		
 	}
@@ -242,9 +242,7 @@ public class MenuState extends GameState{
 
 	@Override
 	public void resume() {
-		 synchronized(this) {
-		        this.notify();
-		    }
+		
 		
 	}
 

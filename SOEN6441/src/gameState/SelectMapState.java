@@ -4,17 +4,16 @@ import entity.MonsterTest;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Rectangle2D;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.File;
 
-import tilemap.Tile;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 /*
@@ -22,31 +21,20 @@ import usefulfunctions.LoadImage;
  */
 public class SelectMapState extends GameState{
 	
-	private TileMap tileMap;
-	
-	//monster
-	private MonsterTest[] monster;
-	//pause
 	private boolean isPaused;
-	//control the speed
-	private int a;
+	private Font myTitleFont;
+	private Image backGroundImage;
+	private Image mapIcon;
+	//private Image effect;
 	
 	public SelectMapState(GameStateManager gsm){
 		this.gsm = gsm;
-		isPaused = false;
-		tileMap = new TileMap("/Users/yulongsong/Documents/workspace/SOEN6441/resources/gamemaps/testMap1.map");
-		monster = new MonsterTest[10];
-		initializeMonsters();
+		myTitleFont = new Font("Arial",Font.BOLD,26);
+		this.backGroundImage = LoadImage.loadImage("/images/selectmapbackground.jpg");
+		this.mapIcon = LoadImage.loadImage("/images/mapicon.png");
+		//this.effect  = LoadImage.loadImageIcon("/images/effect1.gif").getImage();
 		
 	}
-	//initialize the monsters
-	
-	private void initializeMonsters(){
-		for(int i = 0; i<10; i++){
-			monster[i] = new MonsterTest(tileMap);
-		}
-	}
-	
 	
 	@Override
 	public void mouseDragged(MouseEvent e) {
@@ -72,23 +60,35 @@ public class SelectMapState extends GameState{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		int x = e.getX();
 		int y = e.getY();
 		System.out.println(x);
 		System.out.println(y);
-		if(x >= 0 && x <= 30 && y >=0 && y<=30 ){
-			this.pause(true);
-		}
-		if(x > 30 && x <= 60 && y >=0 && y<=30 ){
-			this.pause(false);
-		}
-		
-		if(isPaused == false){
-		tileMap.mousePressed(e);
+		if(x >= 360 && x <= 440 && y >=400 && y<=480 ){
+			
+			showFileChooserDemo();
+			
 		}
 	}
-
+	private void showFileChooserDemo(){
+	      
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("MAP FILE", "map");
+		chooser.setFileFilter(filter);
+		chooser.setCurrentDirectory(new File("/Users/yulongsong/Documents/workspace/SOEN6441/resources/gamemaps/"));
+		int returnValue = chooser.showOpenDialog(null);
+		if(returnValue == JFileChooser.APPROVE_OPTION){
+			java.io.File file = chooser.getSelectedFile();
+			System.out.println(file.getAbsolutePath());
+			//set the tilemap path
+			String path = file.getAbsolutePath();
+			gsm.switchState(GameStateManager.GAMESTART,path);
+		} else if(returnValue == JFileChooser.CANCEL_OPTION){
+			//cancel set none
+			
+		}
+	       
+	   }
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -109,29 +109,28 @@ public class SelectMapState extends GameState{
 	}
 
 	@Override
-	public void init() {
-		// TODO Auto-generated method stub
+	public void init(String path) {
+		
 		
 	}
 
 	@Override
 	public void update() {
-		if(a > 50){
-			monster[1].update();
-		}
-		monster[0].update();
-		a++;
+		
 	}
 
 	
 	@Override
 	public void draw(Graphics2D g) {
-		//clear screen
-		tileMap.clearScreen(g);
-		tileMap.draw(g);
-		monster[0].draw(g);
-		monster[1].draw(g);
-		
+		g.drawImage(backGroundImage, 0,0,GamePanel.WIDTH,GamePanel.HEIGHT, null);
+		g.setFont(myTitleFont);
+		g.setColor(Color.RED);
+		String title = "Select your Map";
+		FontMetrics tfm = g.getFontMetrics();
+		g.drawString(title, (GamePanel.WIDTH-tfm.stringWidth(title))/2, 60);
+		g.drawImage(mapIcon, 360,400,80,80, null);
+		//g.drawImage(effect,400,300,60,60, null);
+	
 	}
 	
 
