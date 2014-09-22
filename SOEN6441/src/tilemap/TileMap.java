@@ -1,6 +1,4 @@
 package tilemap;
-
-import gameState.SelectMapState;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
@@ -14,6 +12,9 @@ import java.awt.event.MouseMotionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import usefulfunctions.LoadImage;
 /*
@@ -38,6 +39,9 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	private boolean isTowerSelected;
 	//game path defined by the SelectMapState
 	
+	//image for menu background
+	
+	public static final Image menuBackground = LoadImage.loadImage("/images/submenubackground.png");
 	
 	//images for the map
 	public static final Image grass       = LoadImage.loadImage("/images/grass.png");
@@ -164,14 +168,28 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	//draw menu
 	
 	private void drawTopMenu(Graphics2D g){
+		
+		g.setColor(Color.GRAY);
+		g.fillRect(1, 1, GamePanel.WIDTH-2, upperOffSet-2);
+		g.setColor(Color.BLACK);
+		g.drawRect(0, 0, GamePanel.WIDTH-1, upperOffSet-2);
 		g.drawImage(arrowTower, 1, 5, 40, 40, null);
 		g.drawImage(cannonTower, 1,48,40,40,null);
 		g.drawImage(iceTower, 42, 5 ,40,40,null);
 		g.drawImage(magicTower, 42, 48, 40,40,null);
 		g.drawImage(coin, 700, 0, 30, 30, null);
+		drawTime(g);
 		
-		
-		
+	}
+	
+	//draw time
+	private void drawTime(Graphics2D g){
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		Date date = new Date();
+		String time = (dateFormat.format(date)).toString();
+		//System.out.println(time);
+		g.setColor(Color.RED);
+		g.drawString(time,550,50); //2014/08/06 15:59:48
 	}
 	private void drawMap(Graphics2D g){
 		for(int i = 0; i<mapRow; i++){

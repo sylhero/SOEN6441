@@ -169,7 +169,7 @@ public class MenuState extends GameState{
 				mouseX <= loadGameButton.x + loadGameButton.width &&
 				mouseY >= loadGameButton.y && 
 				mouseY <= loadGameButton.y +loadGameButton.height){
-			loadHover = false;
+			startHover = false;
 			loadHover = true;
 			createHover = false;
 			exitHover = false;
