@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
@@ -26,6 +27,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 	private volatile boolean gameOver = false;
 	private volatile boolean isPaused = false;
 	private GameStateManager gsm;
+	//private JButton button;
 	
 	public GamePanel(){
 		this.setPreferredSize(new Dimension(WIDTH ,HEIGHT));	
