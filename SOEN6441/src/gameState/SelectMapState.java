@@ -34,7 +34,7 @@ public class SelectMapState extends GameState{
 	public SelectMapState(GameStateManager gsm){
 		this.gsm = gsm;
 		isPaused = false;
-		tileMap = new TileMap("/Users/yulongsong/Documents/workspace/SOEN6441/resources/gamemaps/testMap1.map");
+		tileMap = new TileMap("E:/workspace/SOEN6441/SOEN6441/resources/gamemaps/testMap1.map");
 		monster = new MonsterTest[10];
 		initializeMonsters();
 		
