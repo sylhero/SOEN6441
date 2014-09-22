@@ -14,10 +14,18 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
 import usefulfunctions.LoadImage;
-
+/**
+ * 
+ * @author yulongsong
+ * This is the first state of the game
+ * This class extends the GameState 
+ * 
+ */
 public class MenuState extends GameState{
+	//background image
 	private Image background;
-	private Font myTitleFont;
+	//title image
+	private Image title;
 	private Font myButtonFont;
 	private boolean startHover;
 	private boolean loadHover;
@@ -42,8 +50,8 @@ public class MenuState extends GameState{
 	
 	//constructor
 	public MenuState(GameStateManager gsm){
-		background = LoadImage.loadImage("/images/menubackground.jpg");
-		myTitleFont = new Font("Arial",Font.BOLD,26);
+		background   = LoadImage.loadImage("/images/menubackground.jpg");
+		title        = LoadImage.loadImage("/images/title.png");
 		myButtonFont = new Font("Arial",Font.BOLD,12);
 		this.gsm = gsm;
 	}
@@ -67,11 +75,10 @@ public class MenuState extends GameState{
 		//draw background
 		
 		g.drawImage(background,0,0,GamePanel.WIDTH,GamePanel.HEIGHT, null);
-		g.setFont(myTitleFont);
-		g.setColor(Color.RED);
-		String title = "Tower Defense";
-		FontMetrics tfm = g.getFontMetrics();
-		g.drawString(title, (GamePanel.WIDTH-tfm.stringWidth(title))/2, 60);
+		
+		//draw the title
+		
+		g.drawImage(title, GamePanel.WIDTH / 2 - 150, 40, 300, 60, null);
 		//draw the start button
 		//draw button background
 		if(!startHover){

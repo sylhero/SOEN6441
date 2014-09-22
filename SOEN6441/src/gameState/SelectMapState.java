@@ -1,35 +1,27 @@
 package gameState;
 
-import entity.MonsterTest;
 import gamepanel.GamePanel;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.io.File;
-
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
-import tilemap.TileMap;
 import usefulfunctions.LoadImage;
-/*
- * this class is for testing purpose
+/**
+ * 
+ * @author yulongsong
+ * this class is for selecting map
  */
 public class SelectMapState extends GameState{
-	
-	private boolean isPaused;
-	private Font myTitleFont;
 	private Image backGroundImage;
+	private Image titleImage;
 	private Image mapIcon;
 	//private Image effect;
 	
 	public SelectMapState(GameStateManager gsm){
 		this.gsm = gsm;
-		myTitleFont = new Font("Arial",Font.BOLD,26);
+		titleImage = LoadImage.loadImage("/images/selectmaptitle.png");
 		this.backGroundImage = LoadImage.loadImage("/images/selectmapbackground.jpg");
 		this.mapIcon = LoadImage.loadImage("/images/mapicon.png");
 		//this.effect  = LoadImage.loadImageIcon("/images/effect1.gif").getImage();
@@ -123,11 +115,7 @@ public class SelectMapState extends GameState{
 	@Override
 	public void draw(Graphics2D g) {
 		g.drawImage(backGroundImage, 0,0,GamePanel.WIDTH,GamePanel.HEIGHT, null);
-		g.setFont(myTitleFont);
-		g.setColor(Color.RED);
-		String title = "Select your Map";
-		FontMetrics tfm = g.getFontMetrics();
-		g.drawString(title, (GamePanel.WIDTH-tfm.stringWidth(title))/2, 60);
+		g.drawImage(titleImage, GamePanel.WIDTH / 2 - 150, 40, 300, 60, null);
 		g.drawImage(mapIcon, 360,400,80,80, null);
 		//g.drawImage(effect,400,300,60,60, null);
 	
@@ -137,24 +125,23 @@ public class SelectMapState extends GameState{
 
 
 
-	@Override
-	public void pause(boolean result) {
-		this.isPaused = result;
-		
-	}
-	@Override 
-	public boolean pause(){
-		return this.isPaused;
-		
-	}
-
+	
 
 
 	@Override
 	public void resume() {
-		 synchronized(this) {
-		        this.notify();
-		    }
+		 
+	}
+
+	@Override
+	public boolean pause() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void pause(boolean result) {
+		// TODO Auto-generated method stub
 		
 	}
 

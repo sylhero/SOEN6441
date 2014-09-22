@@ -1,12 +1,16 @@
 package gameState;
 
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author yulongsong
+ * This class is the controller of switching 
+ * between states
+ */
 
 public class GameStateManager implements MouseMotionListener,MouseListener{
 

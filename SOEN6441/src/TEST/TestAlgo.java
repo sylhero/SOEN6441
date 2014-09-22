@@ -217,9 +217,7 @@ public class TestAlgo {
     
 	
 	public static void main(String[] Args){
-		TestAlgo test = new TestAlgo(new TileMap("/Users/yulongsong/Documents/workspace/SOEN6441/resources/gamemaps/testMap1.map"));
-		//test.printpossiblePath();
-		test.printResultPath();
+		
 		
 	}
 
