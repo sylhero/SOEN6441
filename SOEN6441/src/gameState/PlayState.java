@@ -1,5 +1,7 @@
 package gameState;
-
+/*
+ * 
+ */
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
@@ -7,9 +9,7 @@ import java.awt.event.MouseEvent;
 import entity.MonsterTest;
 import tilemap.Tile;
 import tilemap.TileMap;
-/*
- * not implement yet just ignore
- */
+
 public class PlayState extends GameState{
 	private TileMap  tileMap;
 
@@ -40,7 +40,7 @@ public class PlayState extends GameState{
 		
 		isPaused = false;
 
-		tileMap = new TileMap();
+		tileMap = TileMap.getTileMap();
 
 	}
 

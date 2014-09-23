@@ -22,7 +22,7 @@ import usefulfunctions.LoadImage;
  * towers, description, money
  * map
  * console buttons(start, save/load)
- * 
+ * singleton design pattern
  * 
  */
 public class TileMap implements MouseMotionListener,MouseListener{
@@ -37,6 +37,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	private int lowerOffSet;
 	private Point selectedTile;
 	private boolean isTowerSelected;
+	private static TileMap tileMap = new TileMap();
 	//game path defined by the SelectMapState
 	
 	//image for menu background
@@ -72,8 +73,8 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public static final int MAGICTOWER  = 7;
 	public static final int MONSTER1    = 8;
 	public static final int MONSTER2    = 9;
-		
-	public TileMap(){
+	//private constructor	
+	private TileMap(){
 	offSetX     = 0;
 	offSetY     = 100;
 	upperOffSet = 100;
@@ -155,6 +156,10 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	
 	public Point getSelectedTile() {
 		return selectedTile;
+	}
+	//return the TileMap instance
+	public static TileMap getTileMap(){
+		return tileMap;
 	}
 	
 	
