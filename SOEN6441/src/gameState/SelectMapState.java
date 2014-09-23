@@ -1,12 +1,16 @@
 package gameState;
 
 import gamepanel.GamePanel;
+
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.io.File;
+
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 import usefulfunctions.LoadImage;
 /**
  * 
@@ -14,6 +18,8 @@ import usefulfunctions.LoadImage;
  * this class is for selecting map
  */
 public class SelectMapState extends GameState{
+	private boolean isPaused;
+	private Font myTitleFont;
 	private Image backGroundImage;
 	private Image titleImage;
 	private Image mapIcon;
