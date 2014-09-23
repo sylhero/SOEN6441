@@ -1,4 +1,8 @@
 package tilemap;
+import entity.ArrowTower;
+import entity.CannonTower;
+import entity.IceTower;
+import entity.MagicTower;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
@@ -16,6 +20,7 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import currency.Coin;
 import usefulfunctions.LoadImage;
 /*
  * the entire map consists three parts
@@ -50,29 +55,29 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public static final Image entrance    = LoadImage.loadImage("/images/entrance.png");
 	public static final Image exit        = LoadImage.loadImage("/images/destination.png");	
 	//towers
-	public static final Image arrowTower  = LoadImage.loadImage("/images/arrowtower.png");
-	public static final Image cannonTower = LoadImage.loadImage("/images/cannontower.png");
-	public static final Image iceTower    = LoadImage.loadImage("/images/icetower.png");
-	public static final Image magicTower  = LoadImage.loadImage("/images/magictower.png");
-			
+//	public static final Image arrowTower  = LoadImage.loadImage("/images/arrowtower.png");
+//	public static final Image cannonTower = LoadImage.loadImage("/images/cannontower.png");
+//	public static final Image iceTower    = LoadImage.loadImage("/images/icetower.png");
+//	public static final Image magicTower  = LoadImage.loadImage("/images/magictower.png");
+//			
 	//monster
-	public static final Image monster1    = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
-	public static final Image monster2    = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
-	
+//	public static final Image monster1    = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
+//	public static final Image monster2    = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
+//	
 	//coins 
-	public static final Image coin        = LoadImage.loadImage("/images/coins.png");
-		
+//	public static final Image coin        = LoadImage.loadImage("/images/coins.png");
+//		
 	//numbers 
 	public static final int GRASS       = 0;
 	public static final int ENTRANCE    = 1;
 	public static final int PAVEMENT    = 2;
 	public static final int EXIT        = 3;
-	public static final int ARROWTOWER  = 4;
-	public static final int CANNONTOWER = 5;
-	public static final int ICETOWER    = 6;
-	public static final int MAGICTOWER  = 7;
-	public static final int MONSTER1    = 8;
-	public static final int MONSTER2    = 9;
+//	public static final int ARROWTOWER  = 4;
+//	public static final int CANNONTOWER = 5;
+//	public static final int ICETOWER    = 6;
+//	public static final int MAGICTOWER  = 7;
+//	public static final int MONSTER1    = 8;
+//	public static final int MONSTER2    = 9;
 	//private constructor	
 	private TileMap(){
 	offSetX     = 0;
@@ -178,11 +183,11 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		g.fillRect(1, 1, GamePanel.WIDTH-2, upperOffSet-2);
 		g.setColor(Color.BLACK);
 		g.drawRect(0, 0, GamePanel.WIDTH-1, upperOffSet-2);
-		g.drawImage(arrowTower, 1, 5, 40, 40, null);
-		g.drawImage(cannonTower, 1,48,40,40,null);
-		g.drawImage(iceTower, 42, 5 ,40,40,null);
-		g.drawImage(magicTower, 42, 48, 40,40,null);
-		g.drawImage(coin, 700, 0, 30, 30, null);
+		g.drawImage(ArrowTower.arrowTower, 1, 5, 40, 40, null);
+		g.drawImage(CannonTower.cannonTower, 1,48,40,40,null);
+		g.drawImage(IceTower.iceTower, 42, 5 ,40,40,null);
+		g.drawImage(MagicTower.magicTower, 42, 48, 40,40,null);
+		g.drawImage(Coin.coinImage, 700, 0, 30, 30, null);
 		drawTime(g);
 		
 	}
@@ -204,7 +209,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 				
 				case GRASS: 
 					
-					map[i][j].setTheRest(grass, offSetX + j * cellWidth,
+					map[i][j] = new Tile(GRASS,grass, offSetX + j * cellWidth,
 							offSetY + i * cellHeight, cellWidth, cellHeight);
 					g.drawImage(map[i][j].getTileImage(),map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
@@ -212,7 +217,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 					break;
 				
 				case ENTRANCE:
-					map[i][j].setTheRest(entrance, offSetX + j * cellWidth,
+					map[i][j] = new Tile(ENTRANCE,entrance, offSetX + j * cellWidth,
 							offSetY + i * cellHeight, cellWidth, cellHeight);
 					//draw the background
 					g.drawImage(grass,map[i][j].getTileX(),
@@ -226,7 +231,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 					
 				case PAVEMENT:
 					
-					map[i][j].setTheRest(pavement, offSetX + j * cellWidth,
+					map[i][j] = new Tile(PAVEMENT,pavement, offSetX + j * cellWidth,
 							offSetY + i * cellHeight, cellWidth, cellHeight);
 					g.drawImage(map[i][j].getTileImage(),map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
@@ -235,7 +240,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 				
 				case EXIT:
 					
-					map[i][j].setTheRest(exit, offSetX + j * cellWidth,
+					map[i][j] = new Tile(EXIT,exit, offSetX + j * cellWidth,
 							offSetY + i * cellHeight, cellWidth, cellHeight);
 					
 					//same as the entrance draw background
@@ -248,10 +253,8 @@ public class TileMap implements MouseMotionListener,MouseListener{
 							map[i][j].getTileHeight(), null);
 					break;
 				
-				case ARROWTOWER:
+				case ArrowTower.ARROWTOWERTYPE:
 					
-					map[i][j].setTheRest(arrowTower, offSetX + j * cellWidth,
-							offSetY + i * cellHeight, cellWidth, cellHeight);
 					//draw the background
 					g.drawImage(grass,map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
@@ -261,10 +264,9 @@ public class TileMap implements MouseMotionListener,MouseListener{
 							map[i][j].getTileHeight(), null);
 					break;
 					
-				case ICETOWER:
+				case IceTower.ICETOWERTYPE:
 					
-					map[i][j].setTheRest(iceTower, offSetX + j * cellWidth,
-							offSetY + i * cellHeight, cellWidth, cellHeight);
+					
 					//draw the background
 					g.drawImage(grass,map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
@@ -273,10 +275,10 @@ public class TileMap implements MouseMotionListener,MouseListener{
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);
 					break;
-				case MAGICTOWER:
 					
-					map[i][j].setTheRest(magicTower, offSetX + j * cellWidth,
-							offSetY + i * cellHeight, cellWidth, cellHeight);
+				case MagicTower.MAGICTOWERTYPE:
+					
+					
 					//draw the background
 					g.drawImage(grass,map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
@@ -286,10 +288,8 @@ public class TileMap implements MouseMotionListener,MouseListener{
 							map[i][j].getTileHeight(), null);
 					break;
 				
-				case CANNONTOWER:
+				case CannonTower.CANNONTOWERTYPE:
 					
-					map[i][j].setTheRest(cannonTower, offSetX + j * cellWidth,
-							offSetY + i * cellHeight, cellWidth, cellHeight);
 					//draw the background
 					g.drawImage(grass,map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
@@ -306,6 +306,18 @@ public class TileMap implements MouseMotionListener,MouseListener{
 			}
 			
 		}
+	}
+	public int getUpperOffSet() {
+		return upperOffSet;
+	}
+	public void setUpperOffSet(int upperOffSet) {
+		this.upperOffSet = upperOffSet;
+	}
+	public int getLowerOffSet() {
+		return lowerOffSet;
+	}
+	public void setLowerOffSet(int lowerOffSet) {
+		this.lowerOffSet = lowerOffSet;
 	}
 	//draw bottom menu
 	private void drawBottomMenu(Graphics2D g){
@@ -361,10 +373,10 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	        System.out.println("this is y: "+column);
 	        //this should be in tower.class
 	        selectedTile = new Point(column, row);
-	        if(selectedTile != null &&
-	        		map[selectedTile.y][selectedTile.x].getTileType() == GRASS){
-				map[selectedTile.y][selectedTile.x].setTileType(MAGICTOWER);
-			}
+//	        if(selectedTile != null &&
+//	        		map[selectedTile.y][selectedTile.x].getTileType() == GRASS){
+//				map[selectedTile.y][selectedTile.x].setTileType(MAGICTOWER);
+//			}
 			
 		}
 		

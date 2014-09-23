@@ -6,12 +6,12 @@ import java.awt.Image;
 
 
 public class Tile {
-	private int tileType;
-	private Image tileImage;
-	private int tileX;
-	private int tileY;
-	private int tileWidth;
-	private int tileHeight;
+	protected int tileType;
+	protected Image tileImage;
+	protected int tileX;
+	protected int tileY;
+	protected int tileWidth;
+	protected int tileHeight;
 	
 	public Tile(){
 		
@@ -31,14 +31,7 @@ public class Tile {
 		
 	}
 	
-	public void setTheRest(Image image, int tileX, int tileY, 
-			int tileWidth, int tileHeight){
-		this.setTileImage(image);
-		this.setTileX(tileX);
-		this.setTileY(tileY);
-		this.setTileWidth(tileWidth);
-		this.setTileHeight(tileHeight);
-	}
+
 	public int getTileType() {
 		return tileType;
 	}

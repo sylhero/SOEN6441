@@ -1,12 +1,13 @@
-package gameState;
-/*
- * 
- */
+package gamestate;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 
+import entity.ArrowTower;
 import entity.MonsterTest;
+import gamepanel.GamePanel;
 import tilemap.Tile;
 import tilemap.TileMap;
 
@@ -111,7 +112,29 @@ public class PlayState extends GameState{
 			this.isArrowTower = false;
 		}
 		
+		int tempX = e.getX();
+		int tempY = e.getY();
 		
+		if(tempY >= tileMap.getUpperOffSet() && 
+				tempY <= GamePanel.HEIGHT - tileMap.getLowerOffSet()){
+			int  column = tempX / tileMap.getCellWidth();
+			int temp = tempY - tileMap.getUpperOffSet();
+	        int row =  temp / tileMap.getCellHeight();
+	        System.out.println("this is x: "+row);
+	        System.out.println("this is y: "+column);
+	        //this should be in tower.class
+	  
+	        Point selectedTile = new Point(column, row);
+	        if(selectedTile != null &&
+	        		map[selectedTile.y][selectedTile.x].getTileType() == TileMap.GRASS){
+				
+	        		int tileX = map[selectedTile.y][selectedTile.x].getTileX();
+	        		int tileY = map[selectedTile.y][selectedTile.x].getTileY();
+	        		int tileWidth = map[selectedTile.y][selectedTile.x].getTileWidth();
+	        		int tileHeight = map[selectedTile.y][selectedTile.x].getTileHeight();
+	        		map[selectedTile.y][selectedTile.x] = new ArrowTower(tileX,tileY,tileWidth,tileHeight);
+			}
+		}
 		
 	}
 

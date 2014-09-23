@@ -1,6 +1,6 @@
 package gamepanel;
 
-import gameState.GameStateManager;
+import gamestate.GameStateManager;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

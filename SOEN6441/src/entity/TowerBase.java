@@ -1,109 +1,109 @@
 package entity;
 
-import tilemap.Tile;
+import java.awt.Image;
 
+import tilemap.Tile;
+import usefulfunctions.LoadImage;
+/**
+ * 
+ * @author xunrong xia
+ * this is the abstract class for all the towers
+ * 
+ */
 public abstract class TowerBase extends Tile implements Entity{
-	private int level;
-	private double cost;
-	private double refund; //0-1 it is a percentage
-	private float range; // radius
-	private int power; 
-	private int towerSpeed;
-	private boolean groupAttack;
-	private double upgradeCostRate;
-	private int towerTpye; // is it same as tile's tpye
+	protected int level;
+	protected int cost;
+	protected double refundRate; //0-1 it is a percentage
+	protected int range; // radius
+	protected int power; 
+	protected int towerSpeed;
+	protected boolean groupAttack;
+	protected int upgradeCost;
+	protected Tile[][] map;
 	
-	public TowerBase(){
-		level = 1;
-		refund = 0.5;
-		groupAttack = false;
-		upgradeCostRate = 0.3;
+	
+	public void UpgradeLevel(){
+		level += 1;
 	}
-	
-	public int UpgradeLevel(){
-		int oldLevel = getLevel();
-		int newLevel = oldLevel + 1;
-		return newLevel;		
-	}
-	
-	public double RefundCost(){
-		double refundRate = getRefund();
-		double cost = getCost();
-		double refCost = cost*refundRate;
-		return refCost;		
-	} 
-	
-	public double UpgradeCost(){
-		double upRate = getUpgradeCostRate();
-		double cost = getCost();
-		double upCost = cost*upRate;
-		return upCost;		
-	}
-	
-	public void Upgrade(){
-		level = UpgradeLevel();
-		cost = cost + UpgradeCost();
-	}
-	
-	public double RangeArea(){
-		double r = getRange();
-		double area = 3.14*r*r;
-		return area;
-	}
-	
+
+
 	public int getLevel() {
 		return level;
 	}
+
+
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	public double getCost() {
+
+
+	public int getCost() {
 		return cost;
 	}
-	public void setCost(double cost) {
+
+
+	public void setCost(int cost) {
 		this.cost = cost;
 	}
-	public double getRefund() {
-		return refund;
+
+
+	public double getRefundRate() {
+		return refundRate;
 	}
-	public void setRefund(double d) {
-		this.refund = d;
+
+
+	public void setRefundRate(double refundRate) {
+		this.refundRate = refundRate;
 	}
-	public float getRange() {
+
+
+	public int getRange() {
 		return range;
 	}
-	public void setRange(float range) {
+
+
+	public void setRange(int range) {
 		this.range = range;
 	}
+
+
 	public int getPower() {
 		return power;
 	}
+
+
 	public void setPower(int power) {
 		this.power = power;
 	}
-	public int getSpeed() {//entity interface
+
+
+	public int getTowerSpeed() {
 		return towerSpeed;
 	}
+
+
 	public void setTowerSpeed(int towerSpeed) {
 		this.towerSpeed = towerSpeed;
 	}
+
+
 	public boolean isGroupAttack() {
 		return groupAttack;
 	}
+
+
 	public void setGroupAttack(boolean groupAttack) {
 		this.groupAttack = groupAttack;
 	}
-	public double getUpgradeCostRate() {
-		return upgradeCostRate;
-	}
-	public void setUpgradeCostRate(double upgradeCostRate) {
-		this.upgradeCostRate = upgradeCostRate;
-	}
-	public int getTowerTpye() {
-		return towerTpye;
-	}
-	public void setTowerTpye(int towerTpye) {
-		this.towerTpye = towerTpye;
+
+
+	public int getUpgradeCost() {
+		return upgradeCost;
 	}
 
+
+	public void setUpgradeCost(int upgradeCost) {
+		this.upgradeCost = upgradeCost;
+	}
+	
 }
