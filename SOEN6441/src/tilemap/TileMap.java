@@ -3,6 +3,8 @@ import entity.ArrowTower;
 import entity.CannonTower;
 import entity.IceTower;
 import entity.MagicTower;
+import entity.TowerBase;
+import entity.TowerFactory;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
@@ -31,18 +33,25 @@ import usefulfunctions.LoadImage;
  * 
  */
 public class TileMap implements MouseMotionListener,MouseListener{
+	
+	//the map
 	private Tile[][] map;
 	private int mapRow;
 	private int mapCol;
 	private int cellWidth;
 	private int cellHeight;
+	//start point
 	private int offSetX;
 	private int offSetY;
+	//padding
 	private int upperOffSet;
 	private int lowerOffSet;
+	
 	private Point selectedTile;
 	private boolean isTowerSelected;
 	private static TileMap tileMap = new TileMap();
+	private TowerFactory towerFactory;	
+	private TowerBase arrowTower;
 	//game path defined by the SelectMapState
 	
 	//image for menu background

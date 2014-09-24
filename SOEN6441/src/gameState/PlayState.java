@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 
 import entity.ArrowTower;
 import entity.MonsterTest;
+import entity.TowerBase;
+import entity.TowerFactory;
 import gamepanel.GamePanel;
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -21,6 +23,8 @@ public class PlayState extends GameState{
 	private boolean isArrowTower;
 	private boolean isArrowTowerEntered;
 	private boolean isDrawTowerDetail;
+	
+	
 
 	//monster
 
@@ -42,6 +46,8 @@ public class PlayState extends GameState{
 		isPaused = false;
 
 		tileMap = TileMap.getTileMap();
+		
+		
 
 	}
 
@@ -100,7 +106,7 @@ public class PlayState extends GameState{
 
 
 	}
-	//detect arrowTower
+	//detect arrowTower icon
 	private void arrowTowerPressed(MouseEvent e){
 		int x = e.getX();
 
@@ -108,35 +114,43 @@ public class PlayState extends GameState{
 		
 		if(x >= 1 && x<=41 && y >= 5 && y <= 45){
 			this.isArrowTower = true;
-		}else{
-			this.isArrowTower = false;
 		}
 		
+		
+		
+	}
+	//set the arrow tower on map
+	private void setArrowTowerOnMap(MouseEvent e){
 		int tempX = e.getX();
 		int tempY = e.getY();
-		
+		System.out.println(isArrowTower);
 		if(tempY >= tileMap.getUpperOffSet() && 
-				tempY <= GamePanel.HEIGHT - tileMap.getLowerOffSet()){
+				tempY <= GamePanel.HEIGHT - tileMap.getLowerOffSet() &&
+				isArrowTower){
 			int  column = tempX / tileMap.getCellWidth();
 			int temp = tempY - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
 	        System.out.println("this is x: "+row);
 	        System.out.println("this is y: "+column);
 	        //this should be in tower.class
-	  
+	        
 	        Point selectedTile = new Point(column, row);
-	        if(selectedTile != null &&
+	        if(selectedTile != null && 
 	        		map[selectedTile.y][selectedTile.x].getTileType() == TileMap.GRASS){
-				
+				//get the original size
 	        		int tileX = map[selectedTile.y][selectedTile.x].getTileX();
 	        		int tileY = map[selectedTile.y][selectedTile.x].getTileY();
 	        		int tileWidth = map[selectedTile.y][selectedTile.x].getTileWidth();
 	        		int tileHeight = map[selectedTile.y][selectedTile.x].getTileHeight();
+	        		//set the tile to arrow tower
 	        		map[selectedTile.y][selectedTile.x] = new ArrowTower(tileX,tileY,tileWidth,tileHeight);
-			}
+	        		//click once set once
+	        		this.isArrowTower = false;
+	        }
 		}
 		
 	}
+	
 
 	//detect pause
 	private void pausePressed(MouseEvent e){
@@ -174,6 +188,7 @@ public class PlayState extends GameState{
 	public void mousePressed(MouseEvent e) {
 		
 		arrowTowerPressed(e);
+		setArrowTowerOnMap(e);
 	
 
 	}
@@ -224,7 +239,7 @@ public class PlayState extends GameState{
 		// TODO Auto-generated method stub
 		
 	}
-	private void drawArrowTower(Graphics2D g){
+	private void drawArrowTowerSelect(Graphics2D g){
 		g.setColor(Color.red);
 		g.drawRect(1, 5, 41, 43);
 	}
@@ -241,7 +256,7 @@ public class PlayState extends GameState{
 		//first draw map
 		tileMap.draw(g);
 		if(isArrowTower){
-			drawArrowTower(g);
+			drawArrowTowerSelect(g);
 		}
 		if(isArrowTowerEntered){
 			drawArrowTowerDescription(g);

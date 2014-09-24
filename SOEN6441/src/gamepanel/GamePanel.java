@@ -108,7 +108,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 	               }
 	           }
 	        
-		System.out.println(isPaused);
+		//System.out.println(isPaused);
 	}
 		
 	//check gameover
