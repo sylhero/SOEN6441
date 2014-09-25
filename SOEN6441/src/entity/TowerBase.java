@@ -10,7 +10,8 @@ import usefulfunctions.LoadImage;
  * this is the abstract class for all the towers
  * 
  */
-public abstract class TowerBase extends Tile implements Entity{
+public abstract class TowerBase extends Tile implements TowerInterface{
+	protected String name;
 	protected int level;
 	protected int cost;
 	protected double refundRate; //0-1 it is a percentage
@@ -19,7 +20,30 @@ public abstract class TowerBase extends Tile implements Entity{
 	protected int towerSpeed;
 	protected boolean groupAttack;
 	protected int upgradeCost;
+	protected String specialEffect;
+	protected int value;
+	public int getValue() {
+		return value;
+	}
+
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+
+	public String getSpecialEffect() {
+		return specialEffect;
+	}
+
+
+	public void setSpecialEffect(String specialEffect) {
+		this.specialEffect = specialEffect;
+	}
+
+
 	protected Tile[][] map;
+	
 	
 	
 	public void UpgradeLevel(){
@@ -87,7 +111,7 @@ public abstract class TowerBase extends Tile implements Entity{
 	}
 
 
-	public boolean isGroupAttack() {
+	public boolean getGroupAttack() {
 		return groupAttack;
 	}
 
@@ -105,5 +129,16 @@ public abstract class TowerBase extends Tile implements Entity{
 	public void setUpgradeCost(int upgradeCost) {
 		this.upgradeCost = upgradeCost;
 	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 }

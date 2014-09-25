@@ -7,11 +7,11 @@ import java.awt.Image;
 import usefulfunctions.LoadImage;
 
 public class Coin {
-	private int coin;
+	private volatile int coin;
 	public static final Image coinImage = LoadImage.loadImage("/images/coins.png"); 
 	private static Coin coinObject = new Coin();
 	private Coin(){
-		coin = 300;	
+		coin = 30;	
 	}
 	
 	public static Coin getCoinObject(){
@@ -48,7 +48,7 @@ public class Coin {
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
 		String coinString = String.valueOf(coin);
-		g.drawString(coinString, 740, 2);
+		g.drawString(coinString, 740, 25);
 	}
 	
 

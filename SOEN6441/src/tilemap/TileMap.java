@@ -186,20 +186,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	//draw menu
 	
-	private void drawTopMenu(Graphics2D g){
-		
-		g.setColor(Color.GRAY);
-		g.fillRect(1, 1, GamePanel.WIDTH-2, upperOffSet-2);
-		g.setColor(Color.BLACK);
-		g.drawRect(0, 0, GamePanel.WIDTH-1, upperOffSet-2);
-		g.drawImage(ArrowTower.arrowTower, 1, 5, 40, 40, null);
-		g.drawImage(CannonTower.cannonTower, 1,48,40,40,null);
-		g.drawImage(IceTower.iceTower, 42, 5 ,40,40,null);
-		g.drawImage(MagicTower.magicTower, 42, 48, 40,40,null);
-		g.drawImage(Coin.coinImage, 700, 0, 30, 30, null);
-		drawTime(g);
-		
-	}
+	
 	
 	//draw time
 	private void drawTime(Graphics2D g){
@@ -328,23 +315,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public void setLowerOffSet(int lowerOffSet) {
 		this.lowerOffSet = lowerOffSet;
 	}
-	//draw bottom menu
-	private void drawBottomMenu(Graphics2D g){
-		g.setColor(Color.GREEN);
-		g.fillRect(0, 500, 400, 100);
-		g.setFont(new Font("Arial",Font.BOLD,30));
-		g.setColor(Color.RED);
-		String firstLine = "To be continued...";
-		g.drawString(firstLine, 10, 550);
-		g.setColor(Color.MAGENTA);
-		g.fillRect(450, 500, 80, 40);
-		g.setColor(Color.YELLOW);
-		String pause = "Pause";
-		g.setFont(new Font("Arial",Font.BOLD,20));
-		g.drawString(pause, 455, 520);
-		
-			
-	}
+	
 	//clear the screen
 	private void clearScreen(Graphics2D g){
 		g.setColor(Color.BLACK);
@@ -354,13 +325,11 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public void draw(Graphics2D g) {
 		//clear screen
 		clearScreen(g); 
-		//draw top menu
-		drawTopMenu(g);
+		//draw time
+		//drawTime(g);
 		//draw map
 		drawMap(g);	
-		//draw bottom menu
-		drawBottomMenu(g);
-
+		
 		
 	}
 	@Override
