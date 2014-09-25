@@ -263,8 +263,8 @@ public class PlayState extends GameState{
 		}
 
 	}
-	//detect if the upgrade button is clicked
-	private void pressedUpgrade(MouseEvent e){
+	//detect if the sell button is clicked
+	private void pressedSell(MouseEvent e){
 		int tempX = e.getX();
 		int tempY = e.getY();
 		if(tempX >= 600 && tempX <= 660 &&
@@ -286,8 +286,8 @@ public class PlayState extends GameState{
 		}
 			
 		}
-		//detect if the sell button is clicked
-		private void pressedSell(MouseEvent e){
+		//detect if the upgrade button is clicked
+		private void pressedUpgrade(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
 			if(tempX >= 600 && tempX <= 660 &&
@@ -315,6 +315,7 @@ public class PlayState extends GameState{
 		setArrowTowerOnMap(e);
 		inspectTowerOnMap(e);
 		pressedUpgrade(e);
+		pressedSell(e);
 	
 
 	}
