@@ -268,7 +268,7 @@ public class PlayState extends GameState{
 		int tempX = e.getX();
 		int tempY = e.getY();
 		if(tempX >= 600 && tempX <= 660 &&
-				tempY >= 50 && tempY <= 90){
+				tempY >= 50 && tempY <= 90 && isPressedTowerOnMap){
 			//calculate row and column 
 			// TODO should the tile object has these parameters?
 			int column = selectedTower.getTileX() / tileMap.getCellWidth();
