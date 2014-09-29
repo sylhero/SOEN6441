@@ -214,6 +214,16 @@ public class MenuState extends GameState{
 				mouseY >= startGameButton.y && 
 				mouseY <= startGameButton.y +startGameButton.height){
 			gsm.switchState(GameStateManager.SELECTMAP,null);
+		}else if (mouseX >= createMapButton.x &&
+				mouseX <= createMapButton.x + createMapButton.width &&
+				mouseY >= createMapButton.y && 
+				mouseY <= createMapButton.y +createMapButton.height){
+			gsm.switchState(GameStateManager.CREATEMAP, null);
+		}else if ( mouseX >= exitButton.x &&
+				mouseX <= exitButton.x + exitButton.width &&
+				mouseY >= exitButton.y && 
+				mouseY <= exitButton.y +exitButton.height){
+			System.exit(0);
 		}
 		
 	}

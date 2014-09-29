@@ -19,8 +19,8 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	public static final int MENUSTATE = 0;
 	public static final int SELECTMAP = 1;
 	public static final int GAMESTART = 2;
-	public static final int LOADGAME  = 3;
-	public static final int CREATEMAP = 4;
+	public static final int CREATEMAP = 3;
+	public static final int LOADGAME  = 4;
 	public static final int EXIT		  = 5;
 	
 	public GameStateManager(){
@@ -29,6 +29,7 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 		gameStates.add(new MenuState(this));
 		gameStates.add(new SelectMapState(this));
 		gameStates.add(new PlayState(this));
+		gameStates.add(new CreateMapState(this));
 	}
 	//switch to other stages
 	public void switchState(int state, String mapPath){
