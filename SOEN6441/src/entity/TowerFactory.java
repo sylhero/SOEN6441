@@ -18,15 +18,15 @@ public class TowerFactory {
 		}
 		/*else if (towerType.equalsIgnoreCase("cannonTower"))
 		{
-			result = new Tower();
+			result = new CannonTower();
 		}
 		else if (towerType.equalsIgnoreCase("iceTower"))
 		{
-			result = new Tower();
+			result = new IceTower();
 		}
 		else if(towerType.equalsIgnoreCase("magicTower"))
 		{
-			result = new Tower();
+			result = new MagicTower();
 		}*/
 		return result;
 		
