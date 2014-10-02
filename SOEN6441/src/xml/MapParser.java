@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -12,6 +15,8 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
+
+import tilemap.Tile;
 
 /**
  * @author Hongrui Guan
@@ -23,26 +28,39 @@ public class MapParser {
 
 	private Element xmlFile;
 
-	public boolean createXMLFile(Integer[][] mapInformation, String mapName)
+	public boolean createXMLFile(Tile[][] mapInformation, String mapName)
 			throws IOException {
-		// TODO catch exception
+		// TODO not finish!!!!!!!!
 		Document document = DocumentHelper.createDocument();
 		Element mapFile = document.addElement("map");
 		Element fileName = mapFile.addElement("fileName");
 		fileName.setText(mapName);
-		Element mapWidth = mapFile.addElement("row");
-		mapWidth.setText(mapInformation[0][0].toString());
-		Element mapHeight = mapFile.addElement("column");
-		mapHeight.setText(mapInformation[1][0].toString());
+		Element mapRow = mapFile.addElement("mapRow");
+		mapRow.setText(String.valueOf(mapInformation.length));
+		Element mapColumn = mapFile.addElement("mapColumn");
+		mapColumn.setText(String.valueOf(mapInformation[0].length));
 		Element mapData = mapFile.addElement("mapData");
-		String temp = "";
-		for (int i = 0; i < mapInformation[0][0]; i++) {
-			for (int j = 0; j < mapInformation[1][0]; j++) {
-				temp += mapInformation[i + 2][j].toString();
+		
+		int mapSize = mapInformation.length*mapInformation[0].length;
+		Element[] tiles = new Element[mapSize];
+		for (int i = 0; i < mapInformation.length; i++) {
+			for (int j = 0; j < mapInformation[0].length; j++) {
+				int coordinate = i*mapInformation[0].length+j;
+				tiles[coordinate] = mapData.addElement("tile");
+				tiles[coordinate].addAttribute("id", String.valueOf(coordinate+1));
+				Element tileType = tiles[coordinate].addElement("tileType");
+				tileType.setText(String.valueOf(mapInformation[i][j].getTileType()));
+				Element tileX = tiles[coordinate].addElement("tileX");
+				tileX.setText(String.valueOf(mapInformation[i][j].getTileX()));
+				Element tileY = tiles[coordinate].addElement("tileY");
+				tileY.setText(String.valueOf(mapInformation[i][j].getTileY()));
+				Element tileWidth = tiles[coordinate].addElement("tileWidth");
+				tileWidth.setText(String.valueOf(mapInformation[i][j].getTileWidth()));
+				Element tileHeight = tiles[coordinate].addElement("tileHeight");
+				tileHeight.setText(String.valueOf(mapInformation[i][j].getTileHeight()));
+				
 			}
 		}
-		// System.out.print(temp);
-		mapData.setText(temp);
 		Date createDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yymmddhhmm");
 		String mapDate = dateFormat.format(createDate);
@@ -70,26 +88,33 @@ public class MapParser {
 		return mapName;
 	}
 
-	public Integer[][] getMapData() throws NumberFormatException,
-			DocumentException {
-		int row = Integer.parseInt(xmlFile.elementText("row"));
-		int column = Integer.parseInt(xmlFile.elementText("column"));
-		Integer[][] mapData = new Integer[row + 2][column];
-		mapData[0][0] = row;
-		mapData[1][0] = column;
-		System.out.println("map height is equal to " + mapData[0][0]);
-		System.out.println("map width is equal to " + mapData[1][0]);
+	public Tile[][] getMapData() throws NumberFormatException,
+	DocumentException {
+		int row = Integer.parseInt(xmlFile.elementText("mapRow"));
+		int column = Integer.parseInt(xmlFile.elementText("mapColumn"));
+		Tile[][] tiles = new Tile[row][column];
+
+		Element mapData = xmlFile.element("mapData");
+		List<Element> tileData = mapData.elements("tile");
+		System.out.println("tile size is "+tileData.size());
+		
+		System.out.println("map height is equal to " + row);
+		System.out.println("map width is equal to " + column);
 		System.out.println("map data is: ");
+		
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
-				String temp = String.valueOf(xmlFile.elementText("mapData")
-						.charAt(column * i + j));
-				mapData[i + 2][j] = Integer.parseInt(temp);
-				System.out.print(mapData[i + 2][j]);
+				tiles[i][j] = new Tile();
+				tiles[i][j].setTileType((Integer.parseInt(tileData.get(i*column+j).elementText("tileType"))));
+				tiles[i][j].setTileX((Integer.parseInt(tileData.get(i*column+j).elementText("tileX"))));
+				tiles[i][j].setTileY((Integer.parseInt(tileData.get(i*column+j).elementText("tileY"))));
+				tiles[i][j].setTileWidth((Integer.parseInt(tileData.get(i*column+j).elementText("tileWidth"))));
+				tiles[i][j].setTileHeight((Integer.parseInt(tileData.get(i*column+j).elementText("tileHeight"))));
+				
 			}
 		}
 
-		return mapData;
+		return tiles;
 	}
 
 
