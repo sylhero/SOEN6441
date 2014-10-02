@@ -1,5 +1,6 @@
 package xml;
 
+import java.awt.Image;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 import tilemap.Tile;
+import usefulfunctions.LoadImage;
 
 /**
  * @author Hongrui Guan
@@ -90,6 +92,15 @@ public class MapParser {
 
 	public Tile[][] getMapData() throws NumberFormatException,
 	DocumentException {
+		Image grass       = LoadImage.loadImage("/images/grass.png");
+		Image pavement    = LoadImage.loadImage("/images/pavement.png");
+		Image entrance    = LoadImage.loadImage("/images/entrance.png");
+		Image exit        = LoadImage.loadImage("/images/destination.png");	
+		final int GRASS       = 0;
+		final int ENTRANCE    = 1;
+		final int PAVEMENT    = 2;
+		final int EXIT        = 3;
+		
 		int row = Integer.parseInt(xmlFile.elementText("mapRow"));
 		int column = Integer.parseInt(xmlFile.elementText("mapColumn"));
 		Tile[][] tiles = new Tile[row][column];
@@ -106,6 +117,22 @@ public class MapParser {
 			for (int j = 0; j < column; j++) {
 				tiles[i][j] = new Tile();
 				tiles[i][j].setTileType((Integer.parseInt(tileData.get(i*column+j).elementText("tileType"))));
+				switch(tiles[i][j].getTileType()) {
+				
+				case GRASS:
+					tiles[i][j].setTileImage(grass);
+					break;
+				case ENTRANCE:
+					tiles[i][j].setTileImage(entrance);
+					break;
+				case PAVEMENT:
+					tiles[i][j].setTileImage(pavement);
+					break;
+				case EXIT:
+					tiles[i][j].setTileImage(exit);
+					break;
+					
+				}
 				tiles[i][j].setTileX((Integer.parseInt(tileData.get(i*column+j).elementText("tileX"))));
 				tiles[i][j].setTileY((Integer.parseInt(tileData.get(i*column+j).elementText("tileY"))));
 				tiles[i][j].setTileWidth((Integer.parseInt(tileData.get(i*column+j).elementText("tileWidth"))));
