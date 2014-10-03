@@ -3,9 +3,10 @@ package entity;
 import tilemap.Tile;
 
 /**
+ * This is the abstract class for all kinds of towers.
+ * This class includes the common attributes of tower. And it extends Tile class.
  * 
- * @author xunrong xia
- * this is the abstract class for all the towers
+ * @author Xunrong Xia
  * 
  */
 
@@ -21,6 +22,7 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	protected int upgradeCost;
 	protected String specialEffect;
 	protected int value;
+	
 	public int getValue() {
 		return value;
 	}

@@ -8,10 +8,10 @@ import org.junit.Test;
 import currency.Coin;
 
 /**
- * 
- * @author Xunrong Xia
  * This is a test class of Coin class
  * test method increaseCurrency(), and decreaseCurrency()
+ * 
+ * @author Xunrong Xia
  */
 
 public class CoinTest {

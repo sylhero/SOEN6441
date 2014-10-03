@@ -1,6 +1,11 @@
 package entity;
 
-
+/**
+ * The tower part uses Factory Pattern. This is the Factory class. 
+ *  
+ * @author Xunrong Xia
+ *
+ */
 public class TowerFactory {
 	public TowerFactory(){
 		
@@ -16,7 +21,7 @@ public class TowerFactory {
 		{
 			result = new ArrowTower();
 		}
-		/*else if (towerType.equalsIgnoreCase("cannonTower"))
+		else if (towerType.equalsIgnoreCase("cannonTower"))
 		{
 			result = new CannonTower();
 		}
@@ -27,7 +32,7 @@ public class TowerFactory {
 		else if(towerType.equalsIgnoreCase("magicTower"))
 		{
 			result = new MagicTower();
-		}*/
+		}
 		return result;
 		
 	}

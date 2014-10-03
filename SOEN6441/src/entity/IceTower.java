@@ -5,7 +5,11 @@ import java.awt.Image;
 
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
-
+/**
+ * This is one kind of tower named Ice Tower. 
+ * The Ice Tower has its own image and type and other common attributes.
+ * 
+ */
 public class IceTower extends TowerBase {
 	public static final Image iceTower  = LoadImage.loadImage("/images/icetower.png");
 	public static final int ICETOWERTYPE  = 6;

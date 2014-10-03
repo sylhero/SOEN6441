@@ -5,10 +5,18 @@ import java.awt.Image;
 
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
+/**
+ * This is one kind of tower named Magic Tower. 
+ * The magic tower has its own image and type and other common attributes.
+ * 
+ */
 
 public class MagicTower extends TowerBase{
 	public static final Image magicTower  = LoadImage.loadImage("/images/magictower.png");
 	public static final int MAGICTOWERTYPE  = 7;
+	/**
+	 * This is the constructor with no parameter, assign the initial value of the attributes.
+	 */
 	public MagicTower(){
 		super.name = "Magic Tower";
 		super.map = TileMap.getTileMap().getMap();
@@ -25,6 +33,15 @@ public class MagicTower extends TowerBase{
 		super.value = level * upgradeCost + cost;
 		super.specialEffect = "None";
 	}
+	/**
+	 * This constructor can assign the value of tile's attributes besides the tower's common attributes.
+	 * 
+	 * @param tileX The X coordinate of the tile
+	 * @param tileY The Y coordinate of the tile
+	 * @param tileWidth The width of the tile
+	 * @param tileHeight The height of the tile
+	 */
+	
 	public MagicTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
 		super.name = "Magic Tower";
@@ -52,7 +69,9 @@ public class MagicTower extends TowerBase{
 	public void draw(Graphics2D g){
 		
 	}
-	
+	/**
+	 * When a tower be upgraded, its power, level and upgradeCose would be increased. 
+	 */
 	@Override
 	public void upgrade() {
 		this.power += 5;

@@ -5,6 +5,11 @@ import java.awt.Image;
 
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
+/**
+ * This is one kind of tower named Cannon Tower. 
+ * The cannon tower has its own image and type and other common attributes.
+ * 
+ */
 
 public class CannonTower extends TowerBase{
 	public static final Image cannonTower  = LoadImage.loadImage("/images/cannontower.png");
