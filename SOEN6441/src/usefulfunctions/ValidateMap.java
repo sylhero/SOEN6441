@@ -99,8 +99,6 @@ public class ValidateMap {
 		// with the path indicated by true values.
 		// if result is false, there is no path to the exit
 		
-		flag = result;
-		
 		return result;
 	}
 	
