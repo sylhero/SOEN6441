@@ -4,24 +4,34 @@ import tilemap.Tile;
 import tilemap.TileMap;
 
 /**
+ * The ValidateMap class implemented three functions which being used to check
+ * entry, exit and path of user-defined map.
  * 
  * @author Yichen LI
- *
+ * @version 1.0.3
  *
  */
+
 public class ValidateMap {
 
 	private static int entranceCount = 0;
 	private static int exitCount = 0;
 	
-	private int entryX, entryY, exitX, exitY;
-	private int width, height;
-	private int localMap [][];
-	private boolean correctPath [][];
-	private boolean wasHere [][];
+	private static int entryX, entryY, exitX, exitY;
+	private static int width, height;
+	private static int localMap [][];
+	private static boolean correctPath [][];
+	private static boolean wasHere [][];
 	
 	//======================================validate the entry point==========================================
 	
+	/**
+	 * This function helps to validate whether only one entry exists.
+	 * 
+	 * @param map which contains tiles information
+	 * @return a boolean which indicates if an entry validates  
+	 * 
+	 */
 	public static boolean validateEntrace(Tile [][] map)
 	{
 		
@@ -44,6 +54,15 @@ public class ValidateMap {
 	
 	//=========================================validate the exit point==============================================
 	
+	/**
+	 * This function helps to validate whether only one exit exists.  
+	 * 
+	 * @param map which contains tiles information
+	 * @return a boolean which indicates if an exit validates  
+	 * 
+	 */
+	
+	
 	public static boolean validateExit(Tile [][] map)
 	{
 		for (int i = 0; i < map.length; i++)
@@ -63,7 +82,15 @@ public class ValidateMap {
 	
 	//==========================================validate the path ========================================================
 	
-	public boolean validatePath(Tile [][] map)
+	/**
+	 * This function helps to validate whether a user-defined path reaches the exit. 
+	 * 
+	 * @param map which contains tiles information
+	 * @return a boolean which indicates if a user-defined path reaches the exit 
+	 * 
+	 */
+	
+	public static boolean validatePath(Tile [][] map)
 	{
 		init(map); // initialize parameters 
 		
@@ -72,11 +99,20 @@ public class ValidateMap {
 		// with the path indicated by true values.
 		// if result is false, there is no path to the exit
 		
+		flag = result;
+		
 		return result;
 	}
 	
+	/**
+	 * This function recursively check if a user-defined path validates.
+	 * 
+	 * @param entryX and entryY coordinates 
+	 * @return a boolean which indicates if a user-defined path reaches the exit 
+	 * 
+	 */
 	
-	private boolean recursiveSolve(int x, int y) {
+	private static boolean recursiveSolve(int x, int y) {
 	
 		if(x == exitX && y == exitY) return true; // if reached the exit
 		if(localMap[x][y] == TileMap.GRASS || wasHere[x][y])  return false; // if encountered grass or already been here
@@ -114,8 +150,14 @@ public class ValidateMap {
 		return false;
 	}
 
+	/**
+	 * This function initializes member variables.  
+	 * 
+	 * @param map which contains tiles information 
+	 * 
+	 */
 
-	private void init(Tile [][]map) {
+	private static void init(Tile [][]map) {
 			
 		for(int row = 0; row < map.length; ++row)
 			for(int col = 0; col < map[row].length; ++col)
@@ -156,8 +198,14 @@ public class ValidateMap {
 		
 	}
 
-	// copy values from map to localMap
-	private void generate(Tile [][] map) {
+	/**
+	 * This function copies [][]map to [][]localMap.  
+	 * 
+	 * @param map which contains tiles information 
+	 * 
+	 */
+	
+	private static void generate(Tile [][] map) {
 		
 		for(int row = 0; row < map.length; ++row)
 			for(int col = 0; col < map[row].length; ++col)
@@ -166,77 +214,19 @@ public class ValidateMap {
 			}
 	}
 	
+	/**
+	 * This function returns correctPath array.
+	 * 
+	 * @return a boolean two dimensions array which contains correctPath information
+	 * 
+	 */
 	
-	
-	public static void main(String args[])
+	public static boolean [][] getCorrectPath()
 	{
-		
-
+		return correctPath;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	public static boolean validatePath(int row, int column)
-	{
-		
-		boolean done = false;
-		
-		if(valide (row, column))
-		{
-			pathGrid[row][column] = CHECKED; // indicate the tile is checked
-			
-			if(pathGrid[row][column] == TileMap.EXIT || (row == pathGrid.length - 1 && column == pathGrid[0].length - 1))
-				done = true;
-			else
-			{
-				done = validatePath(row + 1, column);  // down	
-				if(!done)
-					done = validatePath(row, column + 1); // right
-				if(!done)
-					done = validatePath(row - 1, column); // up
-				if(!done)
-					done = validatePath(row, column - 1); // left
-			}
-			
-			if(done) // the location is part of the path
-				pathGrid[row][column] = VALID_PATH; 
-			
-		}
-		return done;
-		
-	}
 
-	
-	//---------------------------------------------
-	// determine if specific location is valid
-	//---------------------------------------------
-
-	private static boolean valide(int row, int column) 
-	{
-		boolean result = false;
-		
-		// check if the tile is in the bounds of the map
-		if(row >= 0 && row < pathGrid.length && column >= 0 && column < pathGrid[row].length)
-		{
-			// check if the tile is not blocked and not previously checked
-			if(pathGrid[row][column] == TileMap.PAVEMENT)
-				result = true;
-		}
-				
-		return result;
-	}*/
 }
 
 
