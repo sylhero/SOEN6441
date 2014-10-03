@@ -20,10 +20,13 @@ import tilemap.Tile;
 import usefulfunctions.LoadImage;
 
 /**
+ * This class implements XML write and parse functions.
+ * This class will use for saving a customized map into a XML file and transform XML file
+ * for reloading an existing map on the map editor panel
+ *  
  * @author Hongrui Guan
  * @date 2014-09-24 
- * This class created for both saving a customized map into a XML File
- * and parsing XML File for reloading an existing map on the map editor panel
+ *
  */
 public class MapParser {
 
@@ -31,7 +34,13 @@ public class MapParser {
 	
 	private int row;
 	private int column;
-
+	/**
+	 * This method saves a map information to a XML file.
+	 * 
+	 * @param mapInformation All tiles information in the map. 
+	 * @param mapName The map name that user named for
+	 * @return Return true if XML file creating succeed
+	 * */
 	public boolean createXMLFile(Tile[][] mapInformation, String mapName){
 	
 		Document document = DocumentHelper.createDocument();
@@ -64,6 +73,7 @@ public class MapParser {
 				
 			}
 		}
+		//System clock will be added into the file name to make its unique.
 		Date createDate = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yymmddhhmm");
 		String mapDate = dateFormat.format(createDate);
@@ -72,6 +82,13 @@ public class MapParser {
 				+ ".xml");
 	}
 
+	/**
+	 * This method loads XML file and gets the root element of XML file. 
+	 * This method should be invoked before methods getMapName and getMapData.
+	 * The root element will be saved as a property of class.
+	 * 
+	 * @param mapDirectory
+	 */
 	public void loadXMLFile(String mapDirectory){
 		SAXReader reader = new SAXReader();
 		try{
@@ -89,7 +106,11 @@ public class MapParser {
 		
 
 	}
-
+	/**
+	 * This method acquires map name from the root element of XML file.
+	 * 
+	 * @return mapName The map name will be returned as a string.
+	 * */
 	public String getMapName(){
 		String mapName = xmlFile.elementText("fileName");
 
@@ -98,7 +119,11 @@ public class MapParser {
 		return mapName;
 	}
 	
-
+	/**
+	 * This method acquires map data from the root element of XML file.
+	 * 
+	 * @return tiles All tiles will be returned as a Tile array.
+	 * */
 	public Tile[][] getMapData(){
 		
 
@@ -155,6 +180,14 @@ public class MapParser {
 		return tiles;
 	}
 
+	/**
+	 * This method write a format XML file.
+	 * This method will be invoked on method createXMLFile.
+	 * 
+	 * @param xmlDocument 
+	 * @param mapDirectory
+	 * @return Return true if xml file creating succeed
+	 * */
 
 	private boolean writeFormatXML(Document xmlDocument, String mapDirectory)
 			 {
