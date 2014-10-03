@@ -34,7 +34,7 @@ public class ValidateMap {
 	 */
 	public static boolean validateEntrace(Tile [][] map)
 	{
-		
+		boolean result = false;
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[i].length; j++)
 			{			
@@ -44,10 +44,15 @@ public class ValidateMap {
 				}	
 		}
 		
-		if(entranceCount == 1) // if only one entrance exists
-			return true;
-		else 
-			return false;
+		if(entranceCount == 1) {// if only one entrance exists
+			entranceCount = 0;
+			result = true;
+			}
+		else{
+			entranceCount = 0;
+			result = false;
+		}
+			return result;
 		
 	}
 	
@@ -65,6 +70,7 @@ public class ValidateMap {
 	
 	public static boolean validateExit(Tile [][] map)
 	{
+		boolean result = false;
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[i].length; j++)
 			{			
@@ -74,10 +80,15 @@ public class ValidateMap {
 				}	
 		}
 		
-		if(exitCount == 1)  // if only one exit exists
-			return true;
-		else 
-			return false;
+		if(exitCount == 1){  // if only one exit exists
+			result = true;
+			exitCount = 0;
+		}
+		else {
+			result = false;
+			exitCount = 0;
+		}
+			return result;
 	}
 	
 	//==========================================validate the path ========================================================

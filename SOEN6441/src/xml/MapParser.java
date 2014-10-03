@@ -74,12 +74,11 @@ public class MapParser {
 			}
 		}
 		//System clock will be added into the file name to make its unique.
-		Date createDate = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yymmddhhmm");
-		String mapDate = dateFormat.format(createDate);
+//		Date createDate = new Date();
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("yymmddhhmm");
+//		String mapDate = dateFormat.format(createDate);
 		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/";
-		return this.writeFormatXML(document, userPath + mapName + mapDate
-				+ ".xml");
+		return this.writeFormatXML(document, userPath + mapName + ".xml");
 	}
 
 	/**

@@ -14,6 +14,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import tilemap.Tile;
 import tilemap.TileMap;
+import usefulfunctions.ValidateMap;
 import xml.MapParser;
 /**
  * 
@@ -52,6 +53,9 @@ public class CreateMapState extends GameState{
 	private MapParser mapParser;
 	
 	
+	
+	
+	
 	public CreateMapState(GameStateManager gsm){
 		this.gsm     = gsm;
 		mapName      = null;
@@ -64,6 +68,8 @@ public class CreateMapState extends GameState{
 		font         = new Font("Arial",Font.BOLD,12);
 		
 		mapParser    = new MapParser();
+		
+		
 		
 	}
 
@@ -272,26 +278,63 @@ public class CreateMapState extends GameState{
 		}
 	       
 	   }
+	//print path
+	
+	private void printPath(boolean [][] path){
+		for(int i = 0; i<mapRow; i++){
+			for(int j = 0;j<mapColumn; j++){
+				if(path[i][j] == true){
+					System.out.printf("%d  %d\n",i,j);
+				}
+			}
+			}
+	}
+	
+	
 	/*
 	 * detect generate button
 	 */
 	private void generatePressed(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
-
+		
+		
 		//generate map
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH && 
 				y >= 7*buttonHeight + 35+18 && y <=  
 				8*buttonHeight + 35+18){
-			if(map != null){
-				mapParser.createXMLFile(map, mapName);
+			
+			if(map == null){
+				JOptionPane.showMessageDialog(null,"MAP IS NULL ERROR!");
+			}else{
+				boolean isEntrance    = ValidateMap.validateEntrace(map);
+				boolean isExit        = ValidateMap.validateExit(map);
+				boolean isCorrectPath = ValidateMap.validatePath(map);
+				if(isEntrance == false ){
+					JOptionPane.showMessageDialog(null,"NO ENTRANCE ERROR!");
+					
+				}
+				else if(isExit == false ){
+					JOptionPane.showMessageDialog(null,"NO EXIT ERROR!");
+					
+				}
+				else if(isCorrectPath == false ){
+					JOptionPane.showMessageDialog(null,"NO PATH ERROR!");
+				}
+				else if(isEntrance && isExit && isCorrectPath){
+					mapParser.createXMLFile(map, mapName);
+					System.out.println("generate");
+					//init
+					printPath(ValidateMap.getCorrectPath());
+					init(null);
+				}
+				
+				
 			}
-			System.out.println("generate");
 			
 			
-			//init
-			init(null);
+			
 		}
 		
 	}

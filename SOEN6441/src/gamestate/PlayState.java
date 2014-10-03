@@ -385,9 +385,8 @@ public class PlayState extends GameState{
 
 	@Override
 	public void init(String path) {
-		//initialize the map based on the previous map selection
 		this.mapPath = path;
-		//path = "/Users/yulongsong/Documents/workspace/SOEN6441/resources/gamemaps/fdfd1422021022.xml";
+		
 		this.map = tileMap.loadMap(path);
 		
 	}
