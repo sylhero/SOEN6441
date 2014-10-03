@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class MapParser {
 
 	public boolean createXMLFile(Tile[][] mapInformation, String mapName)
 			throws IOException {
-		// TODO not finish!!!!!!!!
+		// TODO catch exception
 		Document document = DocumentHelper.createDocument();
 		Element mapFile = document.addElement("map");
 		Element fileName = mapFile.addElement("fileName");
@@ -72,11 +71,11 @@ public class MapParser {
 	}
 
 	public void loadXMLFile(String mapDirectory) throws DocumentException {
-		// TODO catch exception
 		
 		SAXReader reader = new SAXReader();
 		Document xmlDocument = reader.read(mapDirectory);
 
+		// TODO check if xml file is empty
 		Element xmlRoot = xmlDocument.getRootElement();
 		this.xmlFile = xmlRoot;
 
@@ -85,13 +84,15 @@ public class MapParser {
 	public String getMapName() throws DocumentException {
 		String mapName = xmlFile.elementText("fileName");
 
-		System.out.println("map name is:" + mapName);
+		System.out.println("map name is " + mapName);
 
 		return mapName;
 	}
 
 	public Tile[][] getMapData() throws NumberFormatException,
 	DocumentException {
+		
+
 		Image grass       = LoadImage.loadImage("/images/grass.png");
 		Image pavement    = LoadImage.loadImage("/images/pavement.png");
 		Image entrance    = LoadImage.loadImage("/images/entrance.png");
@@ -111,7 +112,7 @@ public class MapParser {
 		
 		System.out.println("map height is equal to " + row);
 		System.out.println("map width is equal to " + column);
-		System.out.println("map data is: ");
+		System.out.println("map data is");
 		
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
@@ -133,11 +134,12 @@ public class MapParser {
 					break;
 					
 				}
+				
 				tiles[i][j].setTileX((Integer.parseInt(tileData.get(i*column+j).elementText("tileX"))));
 				tiles[i][j].setTileY((Integer.parseInt(tileData.get(i*column+j).elementText("tileY"))));
 				tiles[i][j].setTileWidth((Integer.parseInt(tileData.get(i*column+j).elementText("tileWidth"))));
 				tiles[i][j].setTileHeight((Integer.parseInt(tileData.get(i*column+j).elementText("tileHeight"))));
-				
+				System.out.println("Tile Type:"+tiles[i][j].getTileType()+",Tile Image:"+tiles[i][j].getTileImage().toString());
 			}
 		}
 
@@ -147,7 +149,6 @@ public class MapParser {
 
 	private boolean writeFormatXML(Document xmlDocument, String mapDirectory)
 			throws IOException {
-		// TODO catch exception
 		boolean isTrue = false;
 		XMLWriter writer = null;
 		OutputFormat format = OutputFormat.createPrettyPrint();
@@ -159,5 +160,4 @@ public class MapParser {
 
 		return isTrue;
 	}
-
 }
