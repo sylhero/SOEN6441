@@ -51,7 +51,7 @@ public class ValidateMapTest {
 	public void testValidatePath() {
 		//boolean result = validateMap.validateEntrace(validMapTest);
 		//assertNotSame(false, result);
-		result = validateMap.validatePath(0,0);
+		//result = validateMap.validatePath(0,0);
 		assertEquals(false, result);
 		//fail("Not yet implemented");
 	}

@@ -10,30 +10,45 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
-
-import javax.swing.JButton;
 import javax.swing.JPanel;
-
+/**
+ * 
+ * @author yulongsong
+ * this is the jpanel for drawing
+ * the content of the jpanel is controlled 
+ * by the GameStateManager
+ */
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel implements Runnable,MouseMotionListener,MouseListener{
+	//window size
 	public static final int WIDTH  = 800;
 	public static final int HEIGHT = 600;
-	//public static final int SCALE  = 2;
+	//delay for animation
 	public static int DELAY  = 20;
+	//thread for palying game
 	public static Thread gameThread;
+	// graphics object
 	private Graphics2D graphicsObject;
+	//image object for drawing
 	private Image drawingImage;
+	//game controller
 	private volatile boolean running = false;
 	private volatile boolean gameOver = false;
 	private volatile boolean isPaused = false;
+	//game state manager
 	private GameStateManager gsm;
 	//private JButton button;
-	
+	/*
+	 * constructor
+	 */
 	public GamePanel(){
 		this.setPreferredSize(new Dimension(WIDTH ,HEIGHT));	
 		setFocusable(true);
 		requestFocus();
 	}
+	/*
+	 * initialize the arguments
+	 */
 	public void init(){
 		running = true;
 		drawingImage = new BufferedImage(WIDTH ,HEIGHT ,BufferedImage.TYPE_INT_RGB);
@@ -42,6 +57,11 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		this.addMouseMotionListener(this);
 		this.addMouseListener(this);
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see javax.swing.JComponent#addNotify()
+	 */
+	@Override
 	public void addNotify(){
 		super.addNotify();
 		init();
@@ -53,7 +73,10 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 	
 	
 	
-	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -86,18 +109,24 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		
 	}
 	
-	//pause game true or false
-	public synchronized boolean pauseGame(){
-		notify();
+	/*
+	 * pause game
+	 */
+	public boolean pauseGame(){
 		return gsm.pauseGame();
 		
 		
 	}
+	/*
+	 * resume game, may not need in the future
+	 */
 	public void resume(){
 		gsm.resumeGame();
 	}
 	
-	//check pause
+	/*
+	 * check pause
+	 */
 	
 	public void checkPause(){
 		isPaused = this.pauseGame();
@@ -111,12 +140,16 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		//System.out.println(isPaused);
 	}
 		
-	//check gameover
+	/*
+	 * check game over
+	 */
 	
 	public void checkGameOver(){
 		
 	}
-	
+	/*
+	 * update the animation
+	 */
 	public void gameUpdate(){
 		// this is the first function being executed
 		if(!gameOver && running){
@@ -126,12 +159,17 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		}
 		
 	}
-	
+	/*
+	 * game render
+	 */
 	public void gameRender(){
 		
 		gsm.draw(graphicsObject);
 		
 	}
+	/*
+	 * draw to the screen
+	 */
 	public void drawToScreen(){
 		Graphics g2 = getGraphics();
 		g2.drawImage(drawingImage, 0, 0,

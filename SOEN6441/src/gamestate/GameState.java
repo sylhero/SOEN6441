@@ -3,7 +3,11 @@ package gamestate;
 import java.awt.Graphics2D;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
+/**
+ * 
+ * @author yulongsong
+ * abstract class for every game state to extend
+ */
 public abstract class GameState implements MouseMotionListener,MouseListener{
 	protected GameStateManager gsm;
 	public abstract boolean pause();

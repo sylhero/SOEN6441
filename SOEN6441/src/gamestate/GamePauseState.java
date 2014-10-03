@@ -2,8 +2,10 @@ package gamestate;
 
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
-/*
- * not implement yet just ignore
+/**
+ * 
+ * @author yulongsong
+ * not implement yet, just ignore
  */
 public class GamePauseState extends GameState{
 	private boolean isPaused;

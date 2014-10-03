@@ -5,7 +5,14 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 
 import usefulfunctions.LoadImage;
-
+/**
+ * 
+ * @author kunwang
+ * this class is the coin class 
+ * so far it can only increase and decrease the money
+ * 
+ *
+ */
 public class Coin {
 	private volatile int coin;
 	public static final Image coinImage = LoadImage.loadImage("/images/coins.png"); 

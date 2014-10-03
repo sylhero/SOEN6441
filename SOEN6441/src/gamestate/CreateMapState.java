@@ -1,20 +1,25 @@
 package gamestate;
 
-import entity.ArrowTower;
-import entity.CannonTower;
-import entity.IceTower;
-import entity.MagicTower;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import tilemap.Tile;
 import tilemap.TileMap;
+import xml.MapParser;
+/**
+ * 
+ * @author yulongsong
+ * 
+ */
 
 public class CreateMapState extends GameState{
 	//map parameters
@@ -35,14 +40,18 @@ public class CreateMapState extends GameState{
 	private boolean isEntrance;
 	private boolean isExit;
 	private boolean isGrass;
+	private boolean isLoaded;
+	
 	//font
 	private Font font;
+	
 	//map
 	private Tile[][] map;
 	
+	//map parser
+	private MapParser mapParser;
 	
 	
-
 	public CreateMapState(GameStateManager gsm){
 		this.gsm     = gsm;
 		mapName      = null;
@@ -54,6 +63,8 @@ public class CreateMapState extends GameState{
 		
 		font         = new Font("Arial",Font.BOLD,12);
 		
+		mapParser    = new MapParser();
+		
 	}
 
 	@Override
@@ -64,11 +75,9 @@ public class CreateMapState extends GameState{
         int row =  y / cellHeight;
         int tileX = map[row][column].getTileX();
         int tileY = map[row][column].getTileY();
-        
-        System.out.println(column);
-        System.out.println(row);
-		
+			
 		if(isPavement && x >=0 && x <= GamePanel.WIDTH - menuWidth){	
+			
 		        
 		        map[row][column] = new Tile(TileMap.PAVEMENT,TileMap.pavement, 
 		        		tileX,tileY,cellWidth, cellHeight);
@@ -92,7 +101,13 @@ public class CreateMapState extends GameState{
 		// TODO Auto-generated method stub
 		
 	}
-	private void setMapButton(MouseEvent e){
+	
+	
+	
+	/*
+	 * detect set name button
+	 */
+	private void setNamePressed(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
 		
@@ -102,34 +117,50 @@ public class CreateMapState extends GameState{
 				y <= buttonHeight && !isNameGiven){
 			mapName = JOptionPane.showInputDialog("Enter map name: ");
 		}
+		
+		
+	}
+	/*
+	 * detect set row button
+	 */
+	private void setRowPressed(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH && y >= buttonHeight + 5 &&
 				y <= 2*buttonHeight + 5 && !isRowGiven){
 			mapRow = Integer.parseInt(JOptionPane.showInputDialog("Enter map row: "));
 		}
+		
+	}
+	/*
+	 * detect set column button
+	 */
+	private void setColumnPressed(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH && y >= 2*buttonHeight + 10 &&
 				y <= 3 * buttonHeight + 10 && !isColumnGiven){
 			mapColumn = Integer.parseInt(JOptionPane.showInputDialog("Enter map column: "));
 		}
+	}
+	/*
+	 * detect initialize button
+	 */
+	private void initializePressed(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH && y >= 3*buttonHeight + 15 &&
 				y <= 4 * buttonHeight + 15 ){
-			//init
 			init(null);
 		}
-		if(x >= GamePanel.WIDTH - menuWidth && 
-				x <= GamePanel.WIDTH && 
-				y >= 6*buttonHeight + 100 && y <=  
-				7*buttonHeight + 110){
-			//TODO generate the map
-			System.out.println("generate");
-			//init
-			init(null);
-		}
+		
 	}
-	
-	
+	/*
+	 * detect pavement button
+	 */
 	private void pavementPressed(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
@@ -143,8 +174,11 @@ public class CreateMapState extends GameState{
 		}
 		
 		//press other buttons will deselect the image
-		//setToFalse(e);
+		
 	}
+	/*
+	 * detect grass button
+	 */
 	private void grassPressed(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
@@ -156,9 +190,12 @@ public class CreateMapState extends GameState{
 			this.isEntrance = false;
 			this.isExit = false;
 		}
-		//setToFalse(e);
+		
 		
 	}
+	/*
+	 * detect entrance button
+	 */
 	private void entrancePressed(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
@@ -171,8 +208,11 @@ public class CreateMapState extends GameState{
 			
 			this.isExit = false;
 		}
-		//setToFalse(e);
+		
 	}
+	/*
+	 * detect exit button
+	 */
 	private void exitPressed(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
@@ -185,19 +225,91 @@ public class CreateMapState extends GameState{
 			this.isEntrance = false;
 			
 		}
-		//setToFalse(e);
+		
 	}
+	
+	/*
+	 * detect load map button
+	 */
+	private void loadMapPressed(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
+		if(x >= GamePanel.WIDTH - menuWidth && 
+				x <= GamePanel.WIDTH && 
+				y >= 6*buttonHeight + 30+18 && y <=  
+				7*buttonHeight + 30+18){
+			init(null);
+			fileChooser();
+			isLoaded = true;
+			System.out.println("load button");
+			
+		}
+
+	}
+	//file chooser
+	private void fileChooser(){
+	      
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+		chooser.setFileFilter(filter);
+		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/";
+		chooser.setCurrentDirectory(new File(userPath));
+		int returnValue = chooser.showOpenDialog(null);
+		if(returnValue == JFileChooser.APPROVE_OPTION){
+			java.io.File file = chooser.getSelectedFile();
+			System.out.println(file.getAbsolutePath());
+			//set the tilemap path
+			String path = file.getAbsolutePath();
+			//load map
+			mapParser.loadXMLFile(path);
+			map = mapParser.getMapData();
+			this.mapName = mapParser.getMapName();
+			this.mapRow = mapParser.getRow();
+			this.mapColumn = mapParser.getColumn();
+		} else if(returnValue == JFileChooser.CANCEL_OPTION){
+			//cancel set none
+			
+		}
+	       
+	   }
+	/*
+	 * detect generate button
+	 */
+	private void generatePressed(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
+
+		//generate map
+		if(x >= GamePanel.WIDTH - menuWidth && 
+				x <= GamePanel.WIDTH && 
+				y >= 7*buttonHeight + 35+18 && y <=  
+				8*buttonHeight + 35+18){
+			if(map != null){
+				mapParser.createXMLFile(map, mapName);
+			}
+			System.out.println("generate");
+			
+			
+			//init
+			init(null);
+		}
+		
+	}
+	/*
+	 * detect back to menu button
+	 */
 	private void backPressed(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH 
-				&& y >= 7*buttonHeight + 120 && y <= 7*buttonHeight + 180){
+				&& y >= 8*buttonHeight + 40+18 && y <= 9*buttonHeight + 40+18){
 			gsm.switchState(GameStateManager.MENUSTATE, null);
 		}
 			
 		
 	}
+	
 	@Override
 	public void mousePressed(MouseEvent e) {
 		int x = e.getX();
@@ -222,11 +334,16 @@ public class CreateMapState extends GameState{
 	        		tileX,tileY,cellWidth, cellHeight);
 			
 		}
-		setMapButton(e);
+		setNamePressed(e);
+		setRowPressed(e);
+		setColumnPressed(e);
+		initializePressed(e);
 		pavementPressed(e);
 		grassPressed(e);
 		entrancePressed(e);
 		exitPressed(e);
+		loadMapPressed(e);
+		generatePressed(e);
 		backPressed(e);
 	}
 
@@ -279,6 +396,7 @@ public class CreateMapState extends GameState{
 		this.isGrass = false;
 		this.isEntrance = false;
 		this.isExit = false;
+		this.isLoaded = false;
 		
 	}
 
@@ -377,23 +495,31 @@ public class CreateMapState extends GameState{
 		g.drawImage(TileMap.exit,GameButtonStartX + buttonWidth/2, 
 				5*buttonHeight+25+18,buttonWidth/2 +1, buttonHeight,null);
 		
+		//draw load map
+		g.setColor(Color.PINK);
+		g.fillRect(GameButtonStartX, 6*buttonHeight+30+18 , 
+					buttonWidth, buttonHeight);
+		g.setColor(Color.YELLOW);
+		String load = "Load Map";
+		g.drawString(load, GameButtonStartX+4, 6*buttonHeight+65);
+		
 		//draw generate button
 		
 		g.setColor(Color.MAGENTA);
-		g.fillRect(GameButtonStartX, 6*buttonHeight + 100, 
-					buttonWidth, buttonHeight+10);
+		g.fillRect(GameButtonStartX, 7*buttonHeight + 35+18, 
+					buttonWidth, buttonHeight);
 		g.setColor(Color.ORANGE);
 		String generate = "Generate";
-		g.drawString(generate, GameButtonStartX+5, 6*buttonHeight+120);
+		g.drawString(generate, GameButtonStartX+5, 7*buttonHeight+70);
 		
 		//draw back to menu button
 		
 		g.setColor(Color.BLACK);
-		g.fillRect(GameButtonStartX, 7*buttonHeight + 120, 
-					buttonWidth, buttonHeight+10);
+		g.fillRect(GameButtonStartX, 8*buttonHeight + 40+18, 
+					buttonWidth, buttonHeight);
 		g.setColor(Color.ORANGE);
 		String backToMenu = "Back";
-		g.drawString(backToMenu, GameButtonStartX+5, 7*buttonHeight+140);
+		g.drawString(backToMenu, GameButtonStartX+5, 8*buttonHeight+80);
 		
 		    
 	}
@@ -412,6 +538,21 @@ public class CreateMapState extends GameState{
 							map[i][j].getTileHeight(), null); 		
 				}
 		}
+		}
+	}
+	private void drawLoadMapArea(Graphics2D g){
+		if(map != null && isLoaded == true){
+			//700 map area 100 menu area
+			cellWidth  = (GamePanel.WIDTH - menuWidth)/ mapColumn;
+			cellHeight = GamePanel.HEIGHT/ mapRow;
+			for(int i = 0; i<mapRow; i++){
+				for(int j = 0;j<mapColumn; j++){
+					g.drawImage(map[i][j].getTileImage(),map[i][j].getTileX(),
+							map[i][j].getTileY(),map[i][j].getTileWidth(),
+							map[i][j].getTileHeight(), null); 		
+				}
+		}
+			
 		}
 	}
 	private void drawMap(Graphics2D g){
@@ -514,7 +655,8 @@ public class CreateMapState extends GameState{
 		
 		//initialize map area
 		drawMapArea(g);
-
+		//draw loaded map
+		drawLoadMapArea(g);
 		//draw map
 		drawMap(g);
 		

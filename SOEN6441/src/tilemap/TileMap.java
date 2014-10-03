@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 
 import currency.Coin;
 import usefulfunctions.LoadImage;
+import xml.MapParser;
 /*
  * the entire map consists three parts
  * towers, description, money
@@ -47,12 +48,12 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	private int upperOffSet;
 	private int lowerOffSet;
 	
-	private Point selectedTile;
-	private boolean isTowerSelected;
+	//map parser
+	private MapParser mapParser;
+	
+	//singleton map object
 	private static TileMap tileMap = new TileMap();
-	private TowerFactory towerFactory;	
-	private TowerBase arrowTower;
-	//game path defined by the SelectMapState
+	
 	
 	//image for menu background
 	
@@ -63,72 +64,30 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public static final Image pavement    = LoadImage.loadImage("/images/pavement.png");
 	public static final Image entrance    = LoadImage.loadImage("/images/entrance.png");
 	public static final Image exit        = LoadImage.loadImage("/images/destination.png");	
-	//towers
-//	public static final Image arrowTower  = LoadImage.loadImage("/images/arrowtower.png");
-//	public static final Image cannonTower = LoadImage.loadImage("/images/cannontower.png");
-//	public static final Image iceTower    = LoadImage.loadImage("/images/icetower.png");
-//	public static final Image magicTower  = LoadImage.loadImage("/images/magictower.png");
-//			
-	//monster
-//	public static final Image monster1    = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
-//	public static final Image monster2    = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
-//	
-	//coins 
-//	public static final Image coin        = LoadImage.loadImage("/images/coins.png");
-//		
-	//numbers 
+	
+	//types 
 	public static final int GRASS       = 0;
 	public static final int ENTRANCE    = 1;
 	public static final int PAVEMENT    = 2;
 	public static final int EXIT        = 3;
-//	public static final int ARROWTOWER  = 4;
-//	public static final int CANNONTOWER = 5;
-//	public static final int ICETOWER    = 6;
-//	public static final int MAGICTOWER  = 7;
-//	public static final int MONSTER1    = 8;
-//	public static final int MONSTER2    = 9;
+
 	//private constructor	
 	private TileMap(){
 	offSetX     = 0;
 	offSetY     = 100;
 	upperOffSet = 100;
 	lowerOffSet = 100;
-	this.isTowerSelected = true;
+	mapParser   = new MapParser();
 	}
 	//Load map
 	public Tile[][] loadMap(String path){
-		
-			BufferedReader br = null;
-			try {
-				String line;
-				int rowTemp = 0;
-				br = new BufferedReader(new FileReader(path));
-				mapRow = Integer.parseInt(br.readLine().trim());
-				mapCol = Integer.parseInt(br.readLine().trim());
-				cellWidth  = GamePanel.WIDTH / mapCol;
-				//top 100 for menu below 100 for buttons
-				cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;
-				map = new Tile[mapRow][mapCol];
-				while ((line = br.readLine()) != null) {
-					//System.out.println(line);
-					String[] temp = line.split(" ");
-					for(int i = 0; i< temp.length; i++){
-						map[rowTemp][i] = new Tile(Integer.parseInt(temp[i]));	
-					}
-					rowTemp++;
-				}
-	 
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (br != null)br.close();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
-			}
-					
-		
+		mapParser.loadXMLFile(path);
+		map = mapParser.getMapData(); 
+		mapRow = mapParser.getRow();
+		mapCol = mapParser.getColumn();
+		cellWidth  = GamePanel.WIDTH / mapCol;
+        //top 100 for menu below 100 for buttons
+		cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;		
 		return map;
 		
 	}
@@ -168,9 +127,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		return offSetY;
 	}
 	
-	public Point getSelectedTile() {
-		return selectedTile;
-	}
+	
 	//return the TileMap instance
 	public static TileMap getTileMap(){
 		return tileMap;
@@ -178,25 +135,24 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	
 	
 	public void update() {
-//		
-//		if(selectedTile != null){
-//			map[selectedTile.y][selectedTile.x].setTileType(PAVEMENT);
-//		}
+
 		
 	}
-	//draw menu
 	
 	
 	
 	//draw time
-	private void drawTime(Graphics2D g){
-		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-		Date date = new Date();
-		String time = (dateFormat.format(date)).toString();
-		//System.out.println(time);
-		g.setColor(Color.RED);
-		g.drawString(time,550,50); //2014/08/06 15:59:48
-	}
+//	private void drawTime(Graphics2D g){
+//		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+//		Date date = new Date();
+//		String time = (dateFormat.format(date)).toString();
+//		//System.out.println(time);
+//		g.setColor(Color.RED);
+//		g.drawString(time,550,50); //2014/08/06 15:59:48
+//	}
+	/*
+	 * draw map
+	 */
 	private void drawMap(Graphics2D g){
 		for(int i = 0; i<mapRow; i++){
 			for(int j = 0;j<mapCol; j++){
@@ -338,27 +294,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		
 	}
 	@Override
-	public void mousePressed(MouseEvent e) {
-		
-		int tempX = e.getX();
-		int tempY = e.getY();
-		
-		if(tempY >= upperOffSet && tempY <= GamePanel.HEIGHT - lowerOffSet){
-			int  column = tempX / cellWidth;
-			int temp = tempY - upperOffSet;
-	        int row =  temp / cellHeight;
-	        System.out.println("this is x: "+row);
-	        System.out.println("this is y: "+column);
-	        //this should be in tower.class
-	        selectedTile = new Point(column, row);
-//	        if(selectedTile != null &&
-//	        		map[selectedTile.y][selectedTile.x].getTileType() == GRASS){
-//				map[selectedTile.y][selectedTile.x].setTileType(MAGICTOWER);
-//			}
-			
-		}
-		
-		
+	public void mousePressed(MouseEvent e) {	
 		
 	}
 	@Override

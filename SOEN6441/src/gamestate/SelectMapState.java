@@ -74,9 +74,10 @@ public class SelectMapState extends GameState{
 	private void showFileChooserDemo(){
 	      
 		JFileChooser chooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("MAP FILE", "map");
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
 		chooser.setFileFilter(filter);
-		chooser.setCurrentDirectory(new File("/Users/yulongsong/Documents/workspace/SOEN6441/resources/gamemaps/"));
+		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/";
+		chooser.setCurrentDirectory(new File(userPath));
 		int returnValue = chooser.showOpenDialog(null);
 		if(returnValue == JFileChooser.APPROVE_OPTION){
 			java.io.File file = chooser.getSelectedFile();

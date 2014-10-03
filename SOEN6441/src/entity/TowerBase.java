@@ -1,15 +1,14 @@
 package entity;
 
-import java.awt.Image;
-
 import tilemap.Tile;
-import usefulfunctions.LoadImage;
+
 /**
  * 
  * @author xunrong xia
  * this is the abstract class for all the towers
  * 
  */
+
 public abstract class TowerBase extends Tile implements TowerInterface{
 	protected String name;
 	protected int level;

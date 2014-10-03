@@ -2,7 +2,6 @@ package entity;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
-
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
