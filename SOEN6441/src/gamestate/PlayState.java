@@ -321,7 +321,7 @@ public class PlayState extends GameState{
 			int tempY = e.getY();
 			if(tempX >= 600 && tempX <= 660 &&
 					tempY >= 5 && tempY <= 45 && 
-					isEnoughCoinToUpgrade){
+					isEnoughCoinToUpgrade && isPressedTowerOnMap){
 				//calculate row and column 
 				// TODO should the tile object has these parameters?
 				int column = selectedTower.getTileX() / tileMap.getCellWidth();
