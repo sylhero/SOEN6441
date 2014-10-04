@@ -21,6 +21,7 @@ public class ValidateMapTest {
 	private static Tile [][] disconnectedPath;
 	private static boolean expectedResult;
 	
+	
 	@BeforeClass
 	public static void init()
 	{

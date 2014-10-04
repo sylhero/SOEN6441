@@ -1,5 +1,8 @@
 package usefulfunctions;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
 import tilemap.Tile;
 import tilemap.TileMap;
 
@@ -8,7 +11,7 @@ import tilemap.TileMap;
  * entry, exit and path of user-defined map.
  * 
  * @author Yichen LI
- * @version 1.0.3
+ * @version 1.0.4
  *
  */
 
@@ -20,8 +23,8 @@ public class ValidateMap {
 	private static int entryX, entryY, exitX, exitY;
 	private static int width, height;
 	private static int localMap [][];
-	private static boolean correctPath [][];
 	private static boolean wasHere [][];
+	private static ArrayList<Point> correctRoute = new ArrayList<Point>();
 	
 	//======================================validate the entry point==========================================
 	
@@ -104,15 +107,29 @@ public class ValidateMap {
 	public static boolean validatePath(Tile [][] map)
 	{
 		init(map); // initialize parameters 
+		boolean result = false;
 		
-		boolean result = recursiveSolve(entryX, entryY);
+		result = recursiveSolve(entryX, entryY);
 		// will leave with a boolean array(correctPath)
 		// with the path indicated by true values.
 		// if result is false, there is no path to the exit
 		
+		if(result)
+			addEntryAndExit();
+		
 		return result;
 	}
 	
+	/**
+	 * This function inserts the coordinates of entry and exit into the ArrayList 
+	 */
+	private static void addEntryAndExit() 
+	{
+		correctRoute.add(0, new Point(entryX, entryY));
+		correctRoute.add(new Point(exitX, exitY));		
+	}
+
+
 	/**
 	 * This function recursively check if a user-defined path validates.
 	 * 
@@ -131,28 +148,28 @@ public class ValidateMap {
 		if(x != 0) // checks if not on Left edge
 			if(recursiveSolve(x - 1, y)) // recall method one to the left
 			{
-				correctPath[x][y] = true;
+				correctRoute.add(new Point(x, y));
 				return true;
 			}
 		
 		if(x != width - 1) // check if not on right edge
 			if(recursiveSolve(x + 1, y)) // recall method one to the right
 			{
-				correctPath[x][y] = true;
+				correctRoute.add(new Point(x, y));
 				return true;
 			}
 		
 		if(y != 0) // check if not on top edge
 			if(recursiveSolve(x, y - 1)) // recall method one up
 			{
-				correctPath[x][y] = true;
+				correctRoute.add(new Point(x, y));
 				return true;
 			}
 		
 		if(y != height -1) // check if not on bottom edge
 			if(recursiveSolve(x, y + 1)) // recall method one bottom
 			{
-				correctPath[x][y] = true;
+				correctRoute.add(new Point(x, y));
 				return true;
 			}
 		
@@ -194,14 +211,17 @@ public class ValidateMap {
 		generate(map);
 		
 		wasHere = new boolean[width][height];
-		correctPath = new boolean[width][height];
+		
+		if(!(correctRoute.isEmpty()))
+			correctRoute.clear();
+		
+
 		
 		// set boolean Arrays to default values
 		for(int row = 0; row < map.length; ++row)
 			for(int col = 0; col < map[row].length; ++col)
 			{
 				wasHere[row][col] = false;
-				correctPath[row][col] = false;
 			}
 		
 		
@@ -224,17 +244,18 @@ public class ValidateMap {
 	}
 	
 	/**
-	 * This function returns correctPath array.
+	 * This function returns an ArrayList which contains the path to exit 
 	 * 
-	 * @return a boolean two dimensions array which contains correctPath information
+	 * @return an ArrayList  which contains correctRoute information
 	 * 
 	 */
 	
-	public static boolean [][] getCorrectPath()
+	public static ArrayList<Point> getCorrectRoute()
 	{
-		return correctPath;
+		return correctRoute;
 	}
 	
+
 
 }
 
