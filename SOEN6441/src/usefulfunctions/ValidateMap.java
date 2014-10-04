@@ -32,7 +32,7 @@ public class ValidateMap {
 	 * @return a boolean which indicates if an entry validates  
 	 * 
 	 */
-	public static boolean validateEntrace(Tile [][] map)
+	public static boolean validateEntrance(Tile [][] map)
 	{
 		boolean result = false;
 		for (int i = 0; i < map.length; i++)
