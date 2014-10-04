@@ -48,7 +48,10 @@ public class MenuState extends GameState{
 											firstButtonY+83,100,25);
 	
 	
-	//constructor
+	/**
+	 * constructor
+	 * @param gsm
+	 */
 	public MenuState(GameStateManager gsm){
 		background   = LoadImage.loadImage("/images/menubackground.jpg");
 		title        = LoadImage.loadImage("/images/title.png");

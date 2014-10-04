@@ -4,9 +4,17 @@ import java.awt.Image;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-
+/**
+ * this class is for loading image from the file
+ * @author yulongsong
+ *
+ */
 public class LoadImage {
-	
+	/**
+	 * this method load the image
+	 * @param path
+	 * @return
+	 */
 	public static Image loadImage(String path){
 		Image temp = null;
 		try {
@@ -22,7 +30,11 @@ public class LoadImage {
 		}
 		return temp;
 	}
-	
+	/**
+	 * this method load the image icon
+	 * @param path
+	 * @return
+	 */
 	public static ImageIcon loadImageIcon(String path){
 		ImageIcon temp = null;
 		try{

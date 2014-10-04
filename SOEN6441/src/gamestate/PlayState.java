@@ -78,7 +78,10 @@ public class PlayState extends GameState{
 	
 	private Font font;
 	
-
+	/**
+	 * constructor
+	 * @param gsm
+	 */
 	public PlayState(GameStateManager gsm){
 
 		this.gsm = gsm;
@@ -109,7 +112,10 @@ public class PlayState extends GameState{
 //
 //	}
 //===============FROM HERE MOUSE EVENT DETECTION================================
-	//detect mouse enter the arrowTower icon zone
+	/**
+	 * detect the arrowtower icon is entered
+	 * @param e
+	 */
 		private void detectArrowTowerMoved(MouseEvent e){
 			int x = e.getX();
 
@@ -125,7 +131,10 @@ public class PlayState extends GameState{
 
 
 	
-	//detect if the money is enough for building tower
+	/**
+	 * detect if the money is enough for building tower
+	 * @param towerBase
+	 */
 	private void isEnoughMoneyToBuild(TowerBase towerBase){
 		if(towerBase.getCost() <= coin.getCurrency()){
 			isEnoughCoinToBuild = true;	
@@ -134,7 +143,9 @@ public class PlayState extends GameState{
 		}
 		
 	}
-	//detect if the money is enough for upgrading
+	/**
+	 * detect if the money is enough for upgrading
+	 */
 	private void isEnoughMoneyToUpgrate(){
 		if(this.selectedTower.getUpgradeCost() <= coin.getCurrency()){
 			this.isEnoughCoinToUpgrade = true;
@@ -143,7 +154,10 @@ public class PlayState extends GameState{
 		}
 	}
 	
-	//detect arrowTower icon
+	/**
+	 * detect arrowTower icon
+	 * @param e
+	 */
 	private void towerPressed(MouseEvent e){
 		int x = e.getX();
 
@@ -169,7 +183,10 @@ public class PlayState extends GameState{
 		
 		
 	
-	//set the arrow tower on map
+	/**
+	 * set the arrow tower on map
+	 * @param e
+	 */
 	private void setArrowTowerOnMap(MouseEvent e){
 		// TODO change name to setTowerOnMap figure out
 		// tower type based on the isBoolean;
@@ -202,7 +219,10 @@ public class PlayState extends GameState{
 		
 	}
 	
-	//inspect Tower on the Map
+	/**
+	 * inspect Tower on the Map
+	 * @param e
+	 */
 	
 	private void inspectTowerOnMap(MouseEvent e){
 		int tempX = e.getX();
@@ -232,7 +252,10 @@ public class PlayState extends GameState{
 	}
 	
 
-	//detect pause
+	/**
+	 * detect pause
+	 * @param e
+	 */
 	private void pausePressed(MouseEvent e){
 
 		int x = e.getX();
@@ -263,7 +286,10 @@ public class PlayState extends GameState{
 		}
 
 	}
-	//detect if the sell button is clicked
+	/**
+	 * detect if the sell button is clicked
+	 * @param e
+	 */
 	private void pressedSell(MouseEvent e){
 		int tempX = e.getX();
 		int tempY = e.getY();
@@ -286,7 +312,10 @@ public class PlayState extends GameState{
 		}
 			
 		}
-		//detect if the upgrade button is clicked
+		/**
+		 * detect if the upgrade button is clicked
+		 * @param e
+		 */
 		private void pressedUpgrade(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
@@ -397,7 +426,10 @@ public class PlayState extends GameState{
 		
 	}
 //============FROM HERE DRAWING BEGIN==================================
-	//draw selected tile area
+	/**
+	 * draw selected tile area
+	 * @param g
+	 */
 		private void drawSelectedArea(Graphics2D g){
 			g.setColor(Color.WHITE);
 			g.drawRect(selectedTower.getTileX(), 
@@ -406,7 +438,11 @@ public class PlayState extends GameState{
 					selectedTower.getTileHeight());
 			
 		}
-		
+	/**
+	 * draw tower selection
+	 * @param towerBase
+	 * @param g
+	 */
 	private void drawTowerSelect(TowerBase towerBase,Graphics2D g){
 		g.setColor(Color.red);
 		if(towerBase == arrowTower){
@@ -420,6 +456,11 @@ public class PlayState extends GameState{
 		}
 		
 	}
+	/**
+	 * draw tower description
+	 * @param towerBase
+	 * @param g
+	 */
 	private void drawTowerDescription(TowerBase towerBase, Graphics2D g){
 		g.setColor(Color.WHITE);
 		g.fillRect(100, 0, 400, 98);
@@ -449,7 +490,10 @@ public class PlayState extends GameState{
 		g.drawString(value, 328, 80);
 
 	}
-		//draw top menu
+		/**
+		 * draw top menu
+		 * @param g
+		 */
 		private void drawTopMenu(Graphics2D g){
 		
 			g.setColor(Color.GRAY);
@@ -491,7 +535,10 @@ public class PlayState extends GameState{
 				
 			}
 	}
-		//draw bottom menu
+		/**
+		 * draw bottom menu
+		 * @param g
+		 */
 		private void drawBottomMenu(Graphics2D g){
 			g.setColor(Color.GREEN);
 			g.fillRect(0, 500, 400, 100);

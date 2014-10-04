@@ -38,7 +38,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 	//game state manager
 	private GameStateManager gsm;
 	//private JButton button;
-	/*
+	/**
 	 * constructor
 	 */
 	public GamePanel(){
@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		setFocusable(true);
 		requestFocus();
 	}
-	/*
+	/**
 	 * initialize the arguments
 	 */
 	public void init(){

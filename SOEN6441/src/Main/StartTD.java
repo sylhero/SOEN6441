@@ -5,7 +5,11 @@ import gamepanel.GamePanel;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-
+/**
+ * 
+ * @author yulongsong
+ * this is the game entrance
+ */
 public class StartTD {
 	private JFrame window;
 	public StartTD(){

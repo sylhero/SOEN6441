@@ -31,35 +31,39 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 		gameStates.add(new PlayState(this));
 		gameStates.add(new CreateMapState(this));
 	}
-	/*
+	/**
 	 * switch among different game states
+	 * @param state
+	 * @param mapPath
 	 */
 	public void switchState(int state, String mapPath){
 		currentState = state;
 		gameStates.get(currentState).init(mapPath);
 		
 	}
-	/*
+	/**
 	 * pause the game
+	 * @return
 	 */
 	public boolean pauseGame(){
 		return gameStates.get(currentState).pause();
 		
 	}
-	/*
-	 * resume the game may not need in the future
+	/**
+	 * resume the game
 	 */
 	public void resumeGame(){
 		gameStates.get(currentState).resume();
 	}
-	/*
-	 * update the animation
+	/**
+	 * update animation
 	 */
 	public void update(){
 		gameStates.get(currentState).update();
 	}
-	/*
-	 * draw to screen
+	/**
+	 * draw
+	 * @param g
 	 */
 	public void draw(Graphics2D g){
 		gameStates.get(currentState).draw(g);

@@ -14,16 +14,22 @@ import usefulfunctions.LoadImage;
  *
  */
 public class Coin {
+	
 	private volatile int coin;
+	
 	public static final Image coinImage = LoadImage.loadImage("/images/coins.png"); 
+	
 	private static Coin coinObject = new Coin();
+	
 	private Coin(){
+		
 		coin = 30;	
 	}
 	
 	public static Coin getCoinObject(){
 		return coinObject;
 	}
+	
 	public int getCurrency() {
 		return this.coin;
 	}

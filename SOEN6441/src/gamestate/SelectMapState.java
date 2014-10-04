@@ -23,8 +23,10 @@ public class SelectMapState extends GameState{
 	private Image backGroundImage;
 	private Image titleImage;
 	private Image mapIcon;
-	//private Image effect;
-	
+	/**
+	 * constructor
+	 * @param gsm
+	 */
 	public SelectMapState(GameStateManager gsm){
 		this.gsm = gsm;
 		isPaused = false;
@@ -45,10 +47,7 @@ public class SelectMapState extends GameState{
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		//System.out.println("this is X: "+e.getX());
-		//System.out.println("this is Y: "+e.getY());
-		//map[column][row] column comes first
+		
 		
         
 	}
@@ -67,11 +66,14 @@ public class SelectMapState extends GameState{
 		System.out.println(y);
 		if(x >= 360 && x <= 440 && y >=400 && y<=480 ){
 			
-			showFileChooserDemo();
+			fileChooser();
 			
 		}
 	}
-	private void showFileChooserDemo(){
+	/**
+	 * file chooser
+	 */
+	private void fileChooser(){
 	      
 		JFileChooser chooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
@@ -127,7 +129,7 @@ public class SelectMapState extends GameState{
 		g.drawImage(backGroundImage, 0,0,GamePanel.WIDTH,GamePanel.HEIGHT, null);
 		g.drawImage(titleImage, GamePanel.WIDTH / 2 - 150, 40, 300, 60, null);
 		g.drawImage(mapIcon, 360,400,80,80, null);
-		//g.drawImage(effect,400,300,60,60, null);
+		
 	
 	}
 	

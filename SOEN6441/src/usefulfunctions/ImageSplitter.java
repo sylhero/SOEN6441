@@ -4,7 +4,11 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.awt.*;
-
+/**
+ * this class is for splitting the image 
+ * @author yulongsong
+ *
+ */
 public class ImageSplitter {
     public static void main(String[] args) throws IOException {
 

@@ -25,13 +25,13 @@ import java.text.SimpleDateFormat;
 import currency.Coin;
 import usefulfunctions.LoadImage;
 import xml.MapParser;
-/*
+/**
  * the entire map consists three parts
  * towers, description, money
  * map
  * console buttons(start, save/load)
  * singleton design pattern
- * 
+ * @author yulongsong
  */
 public class TileMap implements MouseMotionListener,MouseListener{
 	
@@ -71,7 +71,9 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public static final int PAVEMENT    = 2;
 	public static final int EXIT        = 3;
 
-	//private constructor	
+	/**
+	 * private constructor	
+	 */
 	private TileMap(){
 	offSetX     = 0;
 	offSetY     = 100;
@@ -91,44 +93,74 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		return map;
 		
 	}
+	/**
+	 * get map
+	 * @return
+	 */
 	public Tile[][] getMap(){
 		return this.map;
 	}
-	//return row
+	/**
+	 * get map row
+	 * @return
+	 */
 	public int getRow(){
 		return this.mapRow;
 	}
-	//return col
+	/**
+	 * get map column
+	 * @return
+	 */
 	public int getCol(){
 		return this.mapCol;
 	}
-	
+	/**
+	 * get map row
+	 * @return
+	 */
 	public int getMapRow() {
 		return mapRow;
 	}
-	
+	/**
+	 * get map column
+	 * @return
+	 */
 	public int getMapCol() {
 		return mapCol;
 	}
-	
+	/**
+	 * get cell width
+	 * @return
+	 */
 	public int getCellWidth() {
 		return cellWidth;
 	}
-	
+	/**
+	 * get cell height
+	 * @return
+	 */
 	public int getCellHeight() {
 		return cellHeight;
 	}
-	
+	/**
+	 * get offset x
+	 * @return
+	 */
 	public int getOffSetX() {
 		return offSetX;
 	}
-	
+	/**
+	 * get offset y
+	 * @return
+	 */
 	public int getOffSetY() {
 		return offSetY;
 	}
 	
-	
-	//return the TileMap instance
+	/**
+	 * get the tile map object
+	 * @return
+	 */
 	public static TileMap getTileMap(){
 		return tileMap;
 	}
@@ -150,8 +182,9 @@ public class TileMap implements MouseMotionListener,MouseListener{
 //		g.setColor(Color.RED);
 //		g.drawString(time,550,50); //2014/08/06 15:59:48
 //	}
-	/*
-	 * draw map
+	/**
+	 * draw the map
+	 * @param g
 	 */
 	private void drawMap(Graphics2D g){
 		for(int i = 0; i<mapRow; i++){
@@ -259,25 +292,47 @@ public class TileMap implements MouseMotionListener,MouseListener{
 			
 		}
 	}
+	/**
+	 * get upper offset
+	 * @return
+	 */
 	public int getUpperOffSet() {
 		return upperOffSet;
 	}
+	/**
+	 * set upper offset
+	 * @param upperOffSet
+	 */
 	public void setUpperOffSet(int upperOffSet) {
 		this.upperOffSet = upperOffSet;
 	}
+	/**
+	 * get lower off set
+	 * @return
+	 */
 	public int getLowerOffSet() {
 		return lowerOffSet;
 	}
+	/**
+	 * set lower off set
+	 * @param lowerOffSet
+	 */
 	public void setLowerOffSet(int lowerOffSet) {
 		this.lowerOffSet = lowerOffSet;
 	}
 	
-	//clear the screen
+	/**
+	 * clear the screen
+	 * @param g
+	 */
 	private void clearScreen(Graphics2D g){
 		g.setColor(Color.BLACK);
 	    g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT);
 	}
-	
+	/**
+	 * draw
+	 * @param g
+	 */
 	public void draw(Graphics2D g) {
 		//clear screen
 		clearScreen(g); 
