@@ -11,14 +11,11 @@ import tilemap.TileMap;
  * entry, exit and path of user-defined map.
  * 
  * @author Yichen LI
- * @version 1.0.4
+ * @version 1.0.5
  *
  */
 
 public class ValidateMap {
-
-	private static int entranceCount = 0;
-	private static int exitCount = 0;
 	
 	private static int entryX, entryY, exitX, exitY;
 	private static int width, height;
@@ -29,7 +26,7 @@ public class ValidateMap {
 	//======================================validate the entry point==========================================
 	
 	/**
-	 * This function helps to validate whether only one entry exists.
+	 * This function helps to validate whether only one entry exists and is exit adjacent.
 	 * 
 	 * @param map which contains tiles information
 	 * @return a boolean which indicates if an entry validates  
@@ -37,33 +34,74 @@ public class ValidateMap {
 	 */
 	public static boolean validateEntrance(Tile [][] map)
 	{
-		boolean result = false;
+		int x = 0, y = 0; // to save the coordinates of entry
+		int entranceCount = 0;
+		boolean isValid = false;
+		boolean isExitAdjacent = false;
+		
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[i].length; j++)
 			{			
 				if(map[i][j].getTileType() == TileMap.ENTRANCE)
 				{
 					entranceCount++;
+					x = i;
+					y = j;					
 				}	
 		}
 		
-		if(entranceCount == 1) {// if only one entrance exists
-			entranceCount = 0;
-			result = true;
-			}
-		else{
-			entranceCount = 0;
-			result = false;
-		}
-			return result;
+		isExitAdjacent = isExitAdjacent(x, y, map);
 		
+		
+		
+		if(entranceCount == 1 && !isExitAdjacent) {// if only one entrance exists and no exit is adjacent
+			entranceCount = 0;
+			isValid = true;
+			}
+		else
+		{
+			isValid = false;
+		}
+			return isValid;
+		
+	}
+	
+	/**
+	 * This function checks is the exit adjacent to the entry.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param map
+	 * @return isAdjacent
+	 */
+	private static boolean isExitAdjacent(int x, int y, Tile [][] map) {
+		
+		boolean isAdjacent = false;
+		
+		if (x != 0) // check if not on the left edge
+			if(map[x - 1][y].getTileType() == TileMap.EXIT)
+				isAdjacent = true;
+		
+		if (y != 0) // check if not on the top edge
+			if(map[x][y - 1].getTileType() == TileMap.EXIT)
+				isAdjacent = true;
+		
+		if(x != width - 1) // check if not on the right edge
+			if(map[x + 1][y].getTileType() == TileMap.EXIT)
+				isAdjacent = true;
+		
+		if(y != height - 1) // check if not on the bottom edge
+			if(map[x][y + 1].getTileType() == TileMap.EXIT)
+				isAdjacent = true;		
+		
+		return isAdjacent;
 	}
 	
 	
 	//=========================================validate the exit point==============================================
-	
+
 	/**
-	 * This function helps to validate whether only one exit exists.  
+	 * This function helps to validate whether only one exit exists and is entry adjacent.  
 	 * 
 	 * @param map which contains tiles information
 	 * @return a boolean which indicates if an exit validates  
@@ -73,29 +111,73 @@ public class ValidateMap {
 	
 	public static boolean validateExit(Tile [][] map)
 	{
-		boolean result = false;
+		int x = 0, y = 0; // to save the coordinates of exit 
+		int exitCount = 0;
+		boolean isValid = false;
+		boolean isEntryAdjacent = false;
+		
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[i].length; j++)
 			{			
 				if(map[i][j].getTileType() == TileMap.EXIT)
 				{
 					exitCount++;
+					x = i;
+					y = j;
 				}	
 		}
 		
-		if(exitCount == 1){  // if only one exit exists
-			result = true;
+		isEntryAdjacent = isEntryAdjacent(x, y, map);
+		
+		
+		
+		if(exitCount == 1 && !isEntryAdjacent){  // if only one exit exists and no entry is adjacent
+			isValid = true;
 			exitCount = 0;
 		}
-		else {
-			result = false;
-			exitCount = 0;
+		else 
+		{
+			isValid = false;			
 		}
-			return result;
+			return isValid;
+	}
+	
+	/**
+	 * This function checks is the entry adjacent to the exit. 
+	 * 
+	 * @param x
+	 * @param y
+	 * @param map
+	 * @return isAdjacent
+	 */
+	
+	private static boolean isEntryAdjacent(int x, int y, Tile[][] map) {
+		
+		boolean isAdjacent = false;
+		
+		if (x != 0) // check if not on the left edge
+			if(map[x - 1][y].getTileType() == TileMap.ENTRANCE)
+				isAdjacent = true;
+		
+		if (y != 0) // check if not on the top edge
+			if(map[x][y - 1].getTileType() == TileMap.ENTRANCE)
+				isAdjacent = true;
+		
+		if(x != width - 1) // check if not on the right edge
+			if(map[x + 1][y].getTileType() == TileMap.ENTRANCE)
+				isAdjacent = true;
+		
+		if(y != height - 1) // check if not on the bottom edge
+			if(map[x][y + 1].getTileType() == TileMap.ENTRANCE)
+				isAdjacent = true;		
+		
+		return isAdjacent;
 	}
 	
 	//==========================================validate the path ========================================================
 	
+	
+
 	/**
 	 * This function helps to validate whether a user-defined path reaches the exit. 
 	 * 
@@ -107,17 +189,17 @@ public class ValidateMap {
 	public static boolean validatePath(Tile [][] map)
 	{
 		init(map); // initialize parameters 
-		boolean result = false;
+		boolean isValid = false;
 		
-		result = recursiveSolve(entryX, entryY);
+		isValid = recursiveSolve(entryX, entryY);
 		// will leave with a boolean array(correctPath)
 		// with the path indicated by true values.
 		// if result is false, there is no path to the exit
 		
-		if(result)
+		if(isValid)
 			addEntryAndExit();
 		
-		return result;
+		return isValid;
 	}
 	
 	/**
