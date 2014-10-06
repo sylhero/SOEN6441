@@ -23,10 +23,11 @@ public class ValidateMapTest {
 	@BeforeClass
 	public static void init()
 	{
-		tm = TileMap.getTileMap();
+		
 		noEntry = tm.loadMap("resources/gamemaps/noEntranceTest.map");
 		noExit = tm.loadMap("resources/gamemaps/noExitTest.map");
 		disconnectedPath = tm.loadMap("resources/gamemaps/disconnectedPathTest.map");
+		tm = TileMap.getTileMap();
 		expectedResult = false;
 	}
 	
