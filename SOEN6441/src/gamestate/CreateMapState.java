@@ -357,7 +357,7 @@ public class CreateMapState extends GameState{
 					mapParser.createXMLFile(map, mapName);
 					System.out.println("generate");
 					//init
-					printPath(ValidateMap.getCorrectRoute());
+					//printPath(ValidateMap.getCorrectRoute());
 					init(null);
 				}
 				
