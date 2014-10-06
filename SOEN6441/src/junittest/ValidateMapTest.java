@@ -5,7 +5,6 @@ package junittest;
 import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import tilemap.Tile;
@@ -19,7 +18,6 @@ public class ValidateMapTest {
 	private static Tile [][] noEntry;
 	private static Tile [][] noExit;
 	private static Tile [][] disconnectedPath;
-	private static Tile [][] entranceAdjacentToExit;
 	private static boolean expectedResult;
 	
 	
@@ -27,17 +25,18 @@ public class ValidateMapTest {
 	public static void init()
 	{
 		tm = TileMap.getTileMap();
-		noEntry = tm.loadMap("resources/gamemaps/testmapNoEntrance.xml");
-		noExit = tm.loadMap("resources/gamemaps/testmapNoExit.xml");
-		disconnectedPath = tm.loadMap("resources/gamemaps/testmapDisconnectedPath.xml");		
-		entranceAdjacentToExit = tm.loadMap("resources/gamemaps/testmapEntranceAdjacentToExit.xml");
+		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/";
+		noEntry = tm.loadMap(userPath+"NOENTRANCE.xml");
+		noExit = tm.loadMap(userPath+"NOEXIT.xml");
+		disconnectedPath = tm.loadMap(userPath+"NOPATH.xml");
+		
 		expectedResult = false;
 	}
 	
 	
 	
 	@Test
-	public void testValidateEntranceCase1() 
+	public void testValidateEntrance() 
 	{		
 		boolean actualResult = ValidateMap.validateEntrance(noEntry);
 		assertEquals(expectedResult, actualResult);		
@@ -56,12 +55,5 @@ public class ValidateMapTest {
 	{		
 		boolean actualResult = ValidateMap.validatePath(disconnectedPath);
 		assertEquals(expectedResult, actualResult);		
-	}
-	
-	@Test
-	public void testValidateEntranceCase2()
-	{
-		boolean actualResult = ValidateMap.validateEntrance(entranceAdjacentToExit);
-		assertEquals(expectedResult, actualResult);
 	}
 }

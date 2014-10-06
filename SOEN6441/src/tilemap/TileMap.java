@@ -85,8 +85,8 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	public Tile[][] loadMap(String path){
 		mapParser.loadXMLFile(path);
 		map = mapParser.getMapData(); 
-		mapRow = mapParser.getRow();
-		mapCol = mapParser.getColumn();
+		mapRow = map.length;
+		mapCol = map[0].length;
 		cellWidth  = GamePanel.WIDTH / mapCol;
         //top 100 for menu below 100 for buttons
 		cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;		

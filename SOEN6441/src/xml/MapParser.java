@@ -32,8 +32,6 @@ public class MapParser {
 
 	private Element xmlFile;
 	
-	private int row;
-	private int column;
 	/**
 	 * This method saves a map information to a XML file.
 	 * 
@@ -135,8 +133,8 @@ public class MapParser {
 		final int PAVEMENT    = 2;
 		final int EXIT        = 3;
 		
-		row = Integer.parseInt(xmlFile.elementText("mapRow"));
-		column = Integer.parseInt(xmlFile.elementText("mapColumn"));
+		int row = Integer.parseInt(xmlFile.elementText("mapRow"));
+		int column = Integer.parseInt(xmlFile.elementText("mapColumn"));
 		Tile[][] tiles = new Tile[row][column];
 
 		Element mapData = xmlFile.element("mapData");
@@ -207,17 +205,5 @@ public class MapParser {
 		return isTrue;
 	}
 	
-	/*
-	 * get map row
-	 */
-	public int getRow(){
-		return row;
-		
-	}
-	/*
-	 * get map column
-	 */
-	public int getColumn(){
-		return column;
-	}
+	
 }

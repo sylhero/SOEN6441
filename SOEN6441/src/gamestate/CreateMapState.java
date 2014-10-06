@@ -297,8 +297,8 @@ public class CreateMapState extends GameState{
 			mapParser.loadXMLFile(path);
 			map = mapParser.getMapData();
 			this.mapName = mapParser.getMapName();
-			this.mapRow = mapParser.getRow();
-			this.mapColumn = mapParser.getColumn();
+			this.mapRow = map.length;
+			this.mapColumn = map[0].length;
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
 			
