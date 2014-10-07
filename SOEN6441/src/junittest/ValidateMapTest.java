@@ -26,6 +26,7 @@ public class ValidateMapTest {
 	@BeforeClass
 	public static void init()
 	{
+		System.out.println("before test path validatation");
 		tm = TileMap.getTileMap();
 		noEntry = tm.loadMap("resources/gamemaps/testmapNoEntrance.xml");
 		noExit = tm.loadMap("resources/gamemaps/testmapNoExit.xml");
@@ -38,30 +39,39 @@ public class ValidateMapTest {
 	
 	@Test
 	public void testValidateEntranceCase1() 
-	{		
+	{	
+		System.out.println("test no entrance case begin.");
 		boolean actualResult = ValidateMap.validateEntrance(noEntry);
-		assertEquals(expectedResult, actualResult);		
+		assertEquals(expectedResult, actualResult);	
+		System.out.println("no entrance case test ends.");
 	}
 
 	
 	@Test
 	public void testValidateExit() 
-	{		
+	{	
+		System.out.println("test no exit case.");
 		boolean actualResult = ValidateMap.validateExit(noExit);
-		assertEquals(expectedResult, actualResult);		
+		assertEquals(expectedResult, actualResult);
+		System.out.println("no exit case test ends.");
 	}
 	
 	@Test
 	public void testValidatePath() 
-	{		
+	{	
+		System.out.println("test no path case.");
 		boolean actualResult = ValidateMap.validatePath(disconnectedPath);
 		assertEquals(expectedResult, actualResult);		
+		System.out.println("no path case test ends.");
 	}
 	
 	@Test
 	public void testValidateEntranceCase2()
 	{
+		System.out.println("test entrance adjacents to exit case.");
 		boolean actualResult = ValidateMap.validateEntrance(entranceAdjacentToExit);
 		assertEquals(expectedResult, actualResult);
+		System.out.println("test entrance adjacents to exit case test ends.");
+		
 	}
 }
