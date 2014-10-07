@@ -2,6 +2,7 @@ package usefulfunctions;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -197,7 +198,11 @@ public class ValidateMap {
 		// if result is false, there is no path to the exit
 		
 		if(isValid)
-			addEntryAndExit();
+		{
+			Collections.reverse(correctRoute);
+			addExitPoint();
+		}
+			
 		
 		return isValid;
 	}
@@ -205,9 +210,8 @@ public class ValidateMap {
 	/**
 	 * This function inserts the coordinates of entry and exit into the ArrayList 
 	 */
-	private static void addEntryAndExit() 
+	private static void addExitPoint() 
 	{
-		correctRoute.add(0, new Point(entryX, entryY));
 		correctRoute.add(new Point(exitX, exitY));		
 	}
 
