@@ -49,6 +49,9 @@ public class ValidateMap {
 					x = i;
 					y = j;					
 				}	
+				
+				width = i + 1;
+				height = j + 1;
 		}
 		
 		isExitAdjacent = isExitAdjacent(x, y, map);
@@ -78,6 +81,7 @@ public class ValidateMap {
 	private static boolean isExitAdjacent(int x, int y, Tile [][] map) {
 		
 		boolean isAdjacent = false;
+		
 		
 		if (x != 0) // check if not on the left edge
 			if(map[x - 1][y].getTileType() == TileMap.EXIT)
@@ -126,6 +130,8 @@ public class ValidateMap {
 					x = i;
 					y = j;
 				}	
+				width = i + 1;
+				height = j + 1;
 		}
 		
 		isEntryAdjacent = isEntryAdjacent(x, y, map);
@@ -208,7 +214,7 @@ public class ValidateMap {
 	}
 	
 	/**
-	 * This function inserts the coordinates of entry and exit into the ArrayList 
+	 * This function inserts the coordinates of exit into the ArrayList 
 	 */
 	private static void addExitPoint() 
 	{
