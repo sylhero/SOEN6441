@@ -40,7 +40,7 @@ public class ValidateMapTest {
 	@Test
 	public void testValidateEntranceCase1() 
 	{	
-		System.out.println("test no entrance case begin.");
+		System.out.println("test no entrance case begins.");
 		boolean actualResult = ValidateMap.validateEntrance(noEntry);
 		assertEquals(expectedResult, actualResult);	
 		System.out.println("no entrance case test ends.");
@@ -50,7 +50,7 @@ public class ValidateMapTest {
 	@Test
 	public void testValidateExit() 
 	{	
-		System.out.println("test no exit case.");
+		System.out.println("test no exit case begins.");
 		boolean actualResult = ValidateMap.validateExit(noExit);
 		assertEquals(expectedResult, actualResult);
 		System.out.println("no exit case test ends.");
@@ -59,7 +59,7 @@ public class ValidateMapTest {
 	@Test
 	public void testValidatePath() 
 	{	
-		System.out.println("test no path case.");
+		System.out.println("test no path case begins.");
 		boolean actualResult = ValidateMap.validatePath(disconnectedPath);
 		assertEquals(expectedResult, actualResult);		
 		System.out.println("no path case test ends.");
@@ -68,7 +68,7 @@ public class ValidateMapTest {
 	@Test
 	public void testValidateEntranceCase2()
 	{
-		System.out.println("test entrance adjacents to exit case.");
+		System.out.println("test entrance adjacents to exit case begins.");
 		boolean actualResult = ValidateMap.validateEntrance(entranceAdjacentToExit);
 		assertEquals(expectedResult, actualResult);
 		System.out.println("test entrance adjacents to exit case test ends.");
