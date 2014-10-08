@@ -62,7 +62,7 @@ public class MenuState extends GameState{
 
 
 	@Override
-	public void init(String path) {
+	public void init() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -219,12 +219,12 @@ public class MenuState extends GameState{
 				mouseX <= startGameButton.x + startGameButton.width &&
 				mouseY >= startGameButton.y && 
 				mouseY <= startGameButton.y +startGameButton.height){
-			gsm.switchState(GameStateManager.SELECTMAP,null);
+			gsm.switchState(GameStateManager.SELECTMAP);
 		}else if (mouseX >= createMapButton.x &&
 				mouseX <= createMapButton.x + createMapButton.width &&
 				mouseY >= createMapButton.y && 
 				mouseY <= createMapButton.y +createMapButton.height){
-			gsm.switchState(GameStateManager.CREATEMAP, null);
+			gsm.switchState(GameStateManager.CREATEMAP);
 		}else if ( mouseX >= exitButton.x &&
 				mouseX <= exitButton.x + exitButton.width &&
 				mouseY >= exitButton.y && 

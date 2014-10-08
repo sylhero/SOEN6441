@@ -11,6 +11,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 /**
  * 
@@ -23,6 +24,7 @@ public class SelectMapState extends GameState{
 	private Image backGroundImage;
 	private Image titleImage;
 	private Image mapIcon;
+	private TileMap tileMap;
 	/**
 	 * constructor
 	 * @param gsm
@@ -30,7 +32,7 @@ public class SelectMapState extends GameState{
 	public SelectMapState(GameStateManager gsm){
 		this.gsm = gsm;
 		isPaused = false;
-
+		tileMap = TileMap.getTileMap();
 		myTitleFont = new Font("Arial",Font.BOLD,26);
 		titleImage = LoadImage.loadImage("/images/selectmaptitle.png");
 		this.backGroundImage = LoadImage.loadImage("/images/selectmapbackground.jpg");
@@ -86,7 +88,9 @@ public class SelectMapState extends GameState{
 			System.out.println(file.getAbsolutePath());
 			//set the tilemap path
 			String path = file.getAbsolutePath();
-			gsm.switchState(GameStateManager.GAMESTART,path);
+			//load the map first
+			tileMap.loadMap(path);
+			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
 			
@@ -113,7 +117,7 @@ public class SelectMapState extends GameState{
 	}
 
 	@Override
-	public void init(String path) {
+	public void init() {
 		
 		
 	}

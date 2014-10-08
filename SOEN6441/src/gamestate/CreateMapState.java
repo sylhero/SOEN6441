@@ -5,8 +5,10 @@ import gamepanel.GamePanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -181,7 +183,7 @@ public class CreateMapState extends GameState{
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH && y >= 3*buttonHeight + 15 &&
 				y <= 4 * buttonHeight + 15 ){
-			init(null);
+			init();
 		}
 		
 	}
@@ -269,7 +271,7 @@ public class CreateMapState extends GameState{
 				x <= GamePanel.WIDTH && 
 				y >= 6*buttonHeight + 30+18 && y <=  
 				7*buttonHeight + 30+18){
-			init(null);
+			init();
 			fileChooser();
 			isLoaded = true;
 			System.out.println("load button");
@@ -310,14 +312,10 @@ public class CreateMapState extends GameState{
 	 * test use
 	 * @param path
 	 */
-	private void printPath(boolean [][] path){
-		for(int i = 0; i<mapRow; i++){
-			for(int j = 0;j<mapColumn; j++){
-				if(path[i][j] == true){
-					System.out.printf("%d  %d\n",i,j);
-				}
-			}
-			}
+	private void printPath(ArrayList<Point> path){
+		for(Point e : path){
+			System.out.printf("%d %d \n",e.x,e.y);
+		}
 	}
 	
 	
@@ -357,8 +355,8 @@ public class CreateMapState extends GameState{
 					mapParser.createXMLFile(map, mapName);
 					System.out.println("generate");
 					//init
-					//printPath(ValidateMap.getCorrectRoute());
-					init(null);
+					printPath(ValidateMap.getCorrectRoute());
+					init();
 				}
 				
 				
@@ -379,7 +377,7 @@ public class CreateMapState extends GameState{
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH 
 				&& y >= 8*buttonHeight + 40+18 && y <= 9*buttonHeight + 40+18){
-			gsm.switchState(GameStateManager.MENUSTATE, null);
+			gsm.switchState(GameStateManager.MENUSTATE);
 		}
 			
 		
@@ -460,7 +458,7 @@ public class CreateMapState extends GameState{
 	}
 
 	@Override
-	public void init(String path) {
+	public void init() {
 		mapName = null;
 		mapRow = 0;
 		mapColumn = 0;

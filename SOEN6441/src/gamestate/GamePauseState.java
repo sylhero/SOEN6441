@@ -57,7 +57,7 @@ public class GamePauseState extends GameState{
 	}
 
 	@Override
-	public void init(String path) {
+	public void init() {
 		// TODO Auto-generated method stub
 		
 	}

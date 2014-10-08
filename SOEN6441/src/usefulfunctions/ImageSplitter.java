@@ -6,7 +6,7 @@ import java.io.*;
 import java.awt.*;
 /**
  * this class is for splitting the image 
- * @author yulongsong
+ * @author wangkun
  *
  */
 public class ImageSplitter {

@@ -413,10 +413,9 @@ public class PlayState extends GameState{
 	
 
 	@Override
-	public void init(String path) {
-		this.mapPath = path;
+	public void init() {
 		
-		this.map = tileMap.loadMap(path);
+		this.map = tileMap.getMap();
 		
 	}
 

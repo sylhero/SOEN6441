@@ -36,9 +36,9 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	 * @param state
 	 * @param mapPath
 	 */
-	public void switchState(int state, String mapPath){
+	public void switchState(int state){
 		currentState = state;
-		gameStates.get(currentState).init(mapPath);
+		gameStates.get(currentState).init();
 		
 	}
 	/**

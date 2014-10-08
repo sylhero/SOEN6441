@@ -13,7 +13,7 @@ public abstract class GameState implements MouseMotionListener,MouseListener{
 	public abstract boolean pause();
 	public abstract void pause(boolean result);
 	public abstract void resume();
-	public abstract void init(String path);
+	public abstract void init();
 	public abstract void update();
 	public abstract void draw(Graphics2D g);
 
