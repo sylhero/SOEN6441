@@ -20,19 +20,23 @@ public class ValidateMap {
 	
 	private static int entryX, entryY, exitX, exitY;
 	private static int width, height;
+	private static boolean initFlag = false;
 	private static int localMap [][];
 	private static boolean wasHere [][];
 	private static ArrayList<Point> correctRoute = new ArrayList<Point>();
 	
-	//======================================constructor==========================================
+	
+	private ValidateMap(){};
+	
+	//======================================initialize member variables==========================================
 	
 	/**
-	 * Constructor to initialize some member variables  
+	 * function to initialize some member variables  
 	 * 
 	 * @param map
 	 */
 	
-	public ValidateMap(Tile [][] map)
+	private static void init(Tile [][] map)
 	{
 		
 		for (int row = 0; row < map.length; row++)
@@ -53,6 +57,8 @@ public class ValidateMap {
 				width = row + 1;
 				height = col + 1;
 			}
+		
+			initFlag = true; // set the flag
 			
 		
 	}
@@ -72,6 +78,10 @@ public class ValidateMap {
 	{
 		int entranceCount = 0;
 		boolean isValid = false;
+		
+		// initialize some member variables 
+		if(!initFlag)
+			init(map);
 		
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[i].length; j++)
@@ -109,6 +119,10 @@ public class ValidateMap {
 		
 		boolean isAdjacent = false;
 		
+		// initialize some member variables 
+		if(!initFlag)
+			init(map);
+		
 		
 		if (entryX != 0) // check if not on the left edge
 			if(map[entryX - 1][entryY].getTileType() == TileMap.EXIT)
@@ -145,6 +159,10 @@ public class ValidateMap {
 	{
 		int exitCount = 0;
 		boolean isValid = false;
+		
+		// initialize some member variables 
+		if(!initFlag)
+			init(map);
 		
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[i].length; j++)
@@ -184,6 +202,10 @@ public class ValidateMap {
 		
 		boolean isAdjacent = false;
 		
+		// initialize some member variables 
+		if(!initFlag)
+			init(map);
+		
 		if (exitX != 0) // check if not on the left edge
 			if(map[exitX - 1][exitY].getTileType() == TileMap.ENTRANCE)
 				isAdjacent = true;
@@ -217,8 +239,17 @@ public class ValidateMap {
 	
 	public static boolean validatePath(Tile [][] map)
 	{
-		initPathPara(map); // initialize parameters 
 		boolean isValid = false;
+		
+		// initialize some member variables 
+		if(!initFlag)
+			init(map);
+		
+		// initialize  related parameters 
+		initPathPara(map);
+		
+		if(!(correctRoute.isEmpty()))
+			correctRoute.clear();
 		
 		isValid = recursiveSolve(entryX, entryY);
 		// will leave with a boolean array(correctPath)
@@ -230,6 +261,8 @@ public class ValidateMap {
 			Collections.reverse(correctRoute);
 			addExitPoint();
 		}
+		
+		initFlag = false; // set the flag back to false;
 			
 		
 		return isValid;
@@ -313,9 +346,6 @@ public class ValidateMap {
 			{
 				wasHere[row][col] = false;
 			}
-		
-		if(!(correctRoute.isEmpty()))
-			correctRoute.clear();
 		
 		
 	}
