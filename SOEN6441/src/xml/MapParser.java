@@ -45,6 +45,8 @@ public class MapParser {
 		Element mapFile = document.addElement("map");
 		Element fileName = mapFile.addElement("fileName");
 		fileName.setText(mapName);
+		//Element modifiedFile = mapFile.addElement("modified");
+		//modifiedFile.setText("0");
 		Element mapRow = mapFile.addElement("mapRow");
 		mapRow.setText(String.valueOf(mapInformation.length));
 		Element mapColumn = mapFile.addElement("mapColumn");
@@ -71,12 +73,11 @@ public class MapParser {
 				
 			}
 		}
-		//System clock will be added into the file name to make its unique.
-//		Date createDate = new Date();
-//		SimpleDateFormat dateFormat = new SimpleDateFormat("yymmddhhmm");
-//		String mapDate = dateFormat.format(createDate);
+
 		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/";
+			
 		return this.writeFormatXML(document, userPath + mapName + ".xml");
+
 	}
 
 	/**
@@ -96,11 +97,7 @@ public class MapParser {
 			this.xmlFile = xmlRoot;
 		}catch(Exception e){
 			e.printStackTrace();
-		}
-		
-		
-		
-		
+		}		
 
 	}
 	/**
@@ -203,6 +200,23 @@ public class MapParser {
 		
 
 		return isTrue;
+	}
+	
+	/**
+	 * This method check if created XML file has exists in the user directory.
+	 * This method will be invoked on method createXMLFile.
+	 * 
+	 * @param fileName 
+	 * @param mapDirectory
+	 * @return Return false if XML file does not exist on the directory.
+	 * @throws DocumentException 
+	 * */
+	public boolean checkFileName(String fileName, String mapDirectory){
+		// TODO not finish!!!!!!!!!!!!!!!!!
+		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/"; 
+		File mapFile = new File(userPath+fileName);
+
+		return mapFile.exists();
 	}
 	
 	
