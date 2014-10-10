@@ -389,10 +389,6 @@ public class ValidateMap {
 		
 		ValidateMap.initFlag = initFlag;
 	}
-	
-	
-
-
 }
 
 

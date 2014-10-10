@@ -20,6 +20,7 @@ public class ValidateMapTest {
 	private static Tile [][] disconnectedPath;
 	private static Tile [][] entranceAdjacentToExit;
 	private static boolean expectedResult;
+	private static boolean adjacentResult;
 	
 	
 	@BeforeClass
@@ -32,6 +33,7 @@ public class ValidateMapTest {
 		disconnectedPath = tm.loadMap("resources/gamemaps/testmapDisconnectedPath.xml");		
 		entranceAdjacentToExit = tm.loadMap("resources/gamemaps/testmapEntranceAdjacentToExit.xml");
 		expectedResult = false;
+		adjacentResult = true;
 	}
 	
 	@AfterClass
@@ -73,7 +75,7 @@ public class ValidateMapTest {
 	{
 		System.out.println("test entrance adjacents to exit case begins.");
 		boolean actualResult = ValidateMap.validateEntry(entranceAdjacentToExit);
-		assertEquals(expectedResult, actualResult);
+		assertEquals(adjacentResult, actualResult);
 		System.out.println("test entrance adjacents to exit case test ends.");
 		
 	}
