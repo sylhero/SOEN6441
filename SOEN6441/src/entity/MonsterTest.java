@@ -22,8 +22,8 @@ public class MonsterTest {
 	public static final int UP    = 2;
 	public static final int DOWN  = 3;
 	
-	public MonsterTest(TileMap tileMap){
-		this.tileMap = tileMap;
+	public MonsterTest(){
+		tileMap      = TileMap.getTileMap();
 		this.map     = tileMap.getMap();
 		this.x       = tileMap.getOffSetX();
 		this.y       = tileMap.getOffSetY();
@@ -32,31 +32,8 @@ public class MonsterTest {
 		
 	}
 	private void move(){
-//		int direction = nextStepValidation();
-//		switch(direction){
-//		
-//		case LEFT:  x -= dx; 
-		//break;
-//		case RIGHT: x += dx; break;
-//		case UP:    y -= dy; break;
-//		case DOWN:  y += dy; break;
-//		
-//		}
-//		
-		if(x<x+tileMap.getCellWidth()){
-			x += 1;
-			HP--;
-			
-		}
-		else if(y<100+9*tileMap.getCellHeight()){
-			y+=1;
-			HP--;
-		}else if(y>=100+9*tileMap.getCellHeight()){
-			HP--;
-			x+=1;
-		}
-		
-		
+		x+=1;
+		HP--;
 		
 	}
 	private int nextStepValidation(){
