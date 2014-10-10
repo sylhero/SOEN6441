@@ -78,6 +78,10 @@ public class PlayState extends GameState{
 	
 	private Font font;
 	
+	//monster
+	
+	private MonsterTest monster;
+	
 	/**
 	 * constructor
 	 * @param gsm
@@ -414,15 +418,21 @@ public class PlayState extends GameState{
 
 	@Override
 	public void init() {
+		map     = tileMap.getMap();
+		monster = new MonsterTest();
 		
-		this.map = tileMap.getMap();
+		
 		
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		try{
+			Thread.sleep(10);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		monster.update();
 	}
 //============FROM HERE DRAWING BEGIN==================================
 	/**
@@ -579,6 +589,7 @@ public class PlayState extends GameState{
 			drawSelectedArea(g);
 			drawTowerDescription(selectedTower,g);
 		}
+		monster.draw(g);
 		
 	}
 	

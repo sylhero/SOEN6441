@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 	public static final int WIDTH  = 800;
 	public static final int HEIGHT = 600;
 	//delay for animation
-	public static int DELAY  = 20;
+	public static int DELAY  = 30;
 	//thread for palying game
 	public static Thread gameThread;
 	// graphics object

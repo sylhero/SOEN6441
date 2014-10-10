@@ -339,7 +339,9 @@ public class CreateMapState extends GameState{
 			}else{
 				boolean isEntrance    = ValidateMap.validateEntry(map);
 				boolean isExit        = ValidateMap.validateExit(map);
+				boolean isAdjacent    = ValidateMap.isEntryAdjacent(map);
 				boolean isCorrectPath = ValidateMap.validatePath(map);
+				
 				if(isEntrance == false ){
 					JOptionPane.showMessageDialog(null,"NO ENTRANCE ERROR!");
 					
@@ -347,6 +349,9 @@ public class CreateMapState extends GameState{
 				else if(isExit == false ){
 					JOptionPane.showMessageDialog(null,"NO EXIT ERROR!");
 					
+				}
+				else if (isAdjacent == true){
+					JOptionPane.showMessageDialog(null,"ADJACENT ENTRANCE ERROR!");
 				}
 				else if(isCorrectPath == false ){
 					JOptionPane.showMessageDialog(null,"NO PATH ERROR!");

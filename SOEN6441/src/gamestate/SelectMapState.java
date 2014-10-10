@@ -11,8 +11,10 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
+import usefulfunctions.ValidateMap;
 /**
  * 
  * @author yulongsong
@@ -89,7 +91,12 @@ public class SelectMapState extends GameState{
 			//set the tilemap path
 			String path = file.getAbsolutePath();
 			//load the map first
-			tileMap.loadMap(path);
+			Tile[][] tempMap = tileMap.loadMap(path);
+			//TODO remove all of this
+			ValidateMap.validateEntry(tempMap);
+			ValidateMap.validateExit(tempMap);
+			ValidateMap.validatePath(tempMap);
+			ValidateMap.getCorrectRoute();
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
