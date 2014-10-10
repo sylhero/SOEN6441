@@ -38,13 +38,8 @@ public class ValidateMapTest {
 		adjacentExpectedResult = true;
 	}
 	
-<<<<<<< HEAD
-	@AfterClass
-	public static void reset()
-=======
 	@After
 	public void reset()
->>>>>>> 9af1ca8bec752a6488b365f6e2d6f93925110a58
 	{
 		ValidateMap.setInitFlag(false);
 	}
