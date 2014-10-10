@@ -3,6 +3,8 @@ package junittest;
 
 
 import static org.junit.Assert.*;
+
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,7 +22,7 @@ public class ValidateMapTest {
 	private static Tile [][] disconnectedPath;
 	private static Tile [][] entranceAdjacentToExit;
 	private static boolean expectedResult;
-	private static boolean adjacentResult;
+	private static boolean adjacentExpectedResult;
 	
 	
 	@BeforeClass
@@ -33,11 +35,16 @@ public class ValidateMapTest {
 		disconnectedPath = tm.loadMap("resources/gamemaps/testmapDisconnectedPath.xml");		
 		entranceAdjacentToExit = tm.loadMap("resources/gamemaps/testmapEntranceAdjacentToExit.xml");
 		expectedResult = false;
-		adjacentResult = true;
+		adjacentExpectedResult = true;
 	}
 	
+<<<<<<< HEAD
 	@AfterClass
 	public static void reset()
+=======
+	@After
+	public void reset()
+>>>>>>> 9af1ca8bec752a6488b365f6e2d6f93925110a58
 	{
 		ValidateMap.setInitFlag(false);
 	}
@@ -75,7 +82,7 @@ public class ValidateMapTest {
 	{
 		System.out.println("test entrance adjacents to exit case begins.");
 		boolean actualResult = ValidateMap.validateEntry(entranceAdjacentToExit);
-		assertEquals(adjacentResult, actualResult);
+		assertEquals(adjacentExpectedResult, actualResult);
 		System.out.println("test entrance adjacents to exit case test ends.");
 		
 	}

@@ -6,8 +6,6 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ ValidateMapTest.class,
-	CoinTest.class,
-	LoadImageTest.class
 	})
 public class AllTests {
 
