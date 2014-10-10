@@ -3,9 +3,8 @@ package junittest;
 
 
 import static org.junit.Assert.*;
-
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import tilemap.Tile;
@@ -35,13 +34,17 @@ public class ValidateMapTest {
 		expectedResult = false;
 	}
 	
-	
+	@AfterClass
+	public void reset()
+	{
+		ValidateMap.setInitFlag(false);
+	}
 	
 	@Test
 	public void testValidateEntranceCase1() 
 	{	
 		System.out.println("test no entrance case begins.");
-		boolean actualResult = ValidateMap.validateEntrance(noEntry);
+		boolean actualResult = ValidateMap.validateEntry(noEntry);
 		assertEquals(expectedResult, actualResult);	
 		System.out.println("no entrance case test ends.");
 	}
@@ -69,7 +72,7 @@ public class ValidateMapTest {
 	public void testValidateEntranceCase2()
 	{
 		System.out.println("test entrance adjacents to exit case begins.");
-		boolean actualResult = ValidateMap.validateEntrance(entranceAdjacentToExit);
+		boolean actualResult = ValidateMap.validateEntry(entranceAdjacentToExit);
 		assertEquals(expectedResult, actualResult);
 		System.out.println("test entrance adjacents to exit case test ends.");
 		

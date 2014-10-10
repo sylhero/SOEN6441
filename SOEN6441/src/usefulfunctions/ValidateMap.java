@@ -74,7 +74,7 @@ public class ValidateMap {
 	 * @return a boolean which indicates if an entry validates  
 	 * 
 	 */
-	public static boolean validateEntrance(Tile [][] map)
+	public static boolean validateEntry(Tile [][] map)
 	{
 		int entranceCount = 0;
 		boolean isValid = false;
@@ -379,6 +379,16 @@ public class ValidateMap {
 	}
 	
 
+	/**
+	 * This function is exclusively used by Junit test to set the flag back to false
+	 * when each test case ends execution
+	 * 
+	 * @param initFlag
+	 */
+	public static void setInitFlag(boolean initFlag) {
+		
+		ValidateMap.initFlag = initFlag;
+	}
 	
 	
 

@@ -337,7 +337,7 @@ public class CreateMapState extends GameState{
 			if(map == null){
 				JOptionPane.showMessageDialog(null,"MAP IS NULL ERROR!");
 			}else{
-				boolean isEntrance    = ValidateMap.validateEntrance(map);
+				boolean isEntrance    = ValidateMap.validateEntry(map);
 				boolean isExit        = ValidateMap.validateExit(map);
 				boolean isCorrectPath = ValidateMap.validatePath(map);
 				if(isEntrance == false ){
