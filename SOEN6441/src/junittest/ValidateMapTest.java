@@ -37,7 +37,7 @@ public class ValidateMapTest {
 	}
 	
 	@AfterClass
-	public void reset()
+	public static void reset()
 	{
 		ValidateMap.setInitFlag(false);
 	}
