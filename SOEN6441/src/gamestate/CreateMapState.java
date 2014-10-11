@@ -354,7 +354,7 @@ public class CreateMapState extends GameState{
 					JOptionPane.showMessageDialog(null,"ADJACENT ENTRANCE ERROR!");
 				}
 				else if(isCorrectPath == false ){
-					JOptionPane.showMessageDialog(null,"NO PATH ERROR!");
+					JOptionPane.showMessageDialog(null,"NO CONNECTED PATH ERROR!");
 				}
 				else if(isEntrance && isExit && isCorrectPath){
 					mapParser.createXMLFile(map, mapName);
