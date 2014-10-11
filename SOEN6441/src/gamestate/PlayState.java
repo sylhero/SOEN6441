@@ -428,7 +428,7 @@ public class PlayState extends GameState{
 	@Override
 	public void update() {
 		try{
-			Thread.sleep(10);
+			Thread.sleep(20);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
