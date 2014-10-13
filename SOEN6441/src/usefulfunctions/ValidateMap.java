@@ -1,8 +1,7 @@
 package usefulfunctions;
 
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.LinkedList;
 
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -23,7 +22,7 @@ public class ValidateMap {
 	private static boolean initFlag = false;
 	private static int localMap [][];
 	private static boolean wasHere [][];
-	private static ArrayList<Point> correctRoute = new ArrayList<Point>();
+	private static LinkedList<Point> correctRoute = new LinkedList<Point>();
 	
 	
 	private ValidateMap(){};
@@ -257,10 +256,7 @@ public class ValidateMap {
 		// if result is false, there is no path to the exit
 		
 		if(isValid)
-		{
-			Collections.reverse(correctRoute);
 			addExitPoint();
-		}
 		
 		initFlag = false; // set the flag back to false;
 			
@@ -273,7 +269,7 @@ public class ValidateMap {
 	 */
 	private static void addExitPoint() 
 	{
-		correctRoute.add(new Point(exitX, exitY));		
+		correctRoute.addLast(new Point(exitX, exitY));			
 	}
 
 
@@ -295,28 +291,28 @@ public class ValidateMap {
 		if(x != 0) // checks if not on Left edge
 			if(recursiveSolve(x - 1, y)) // recall method one to the left
 			{
-				correctRoute.add(new Point(x, y));
+				correctRoute.addFirst(new Point(x, y));
 				return true;
 			}
 		
 		if(x != width - 1) // check if not on right edge
 			if(recursiveSolve(x + 1, y)) // recall method one to the right
 			{
-				correctRoute.add(new Point(x, y));
+				correctRoute.addFirst(new Point(x, y));
 				return true;
 			}
 		
 		if(y != 0) // check if not on top edge
 			if(recursiveSolve(x, y - 1)) // recall method one up
 			{
-				correctRoute.add(new Point(x, y));
+				correctRoute.addFirst(new Point(x, y));
 				return true;
 			}
 		
 		if(y != height -1) // check if not on bottom edge
 			if(recursiveSolve(x, y + 1)) // recall method one bottom
 			{
-				correctRoute.add(new Point(x, y));
+				correctRoute.addFirst(new Point(x, y));
 				return true;
 			}
 		
@@ -373,7 +369,7 @@ public class ValidateMap {
 	 * 
 	 */
 	
-	public static ArrayList<Point> getCorrectRoute()
+	public static LinkedList<Point> getCorrectRoute()
 	{
 		return correctRoute;
 	}

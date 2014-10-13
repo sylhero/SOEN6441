@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -310,10 +311,10 @@ public class CreateMapState extends GameState{
 	//print path
 	/**
 	 * test use
-	 * @param path
+	 * @param linkedList
 	 */
-	private void printPath(ArrayList<Point> path){
-		for(Point e : path){
+	private void printPath(LinkedList<Point> linkedList){
+		for(Point e : linkedList){
 			System.out.printf("%d %d \n",e.x,e.y);
 		}
 	}

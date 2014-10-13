@@ -15,6 +15,7 @@ import usefulfunctions.ValidateMap;
 /**
  * This class imposes Junit test to check correction of class ValidateMap functions
  * 
+ * @author Yichen LI
  */
 
 
