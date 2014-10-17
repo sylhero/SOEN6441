@@ -15,6 +15,7 @@ public class StartTD {
 	public StartTD(){
 		window = new JFrame("TD Game");
 		window.requestFocus();
+		//add game thread
 		window.setResizable(false);
 		window.add(new GamePanel());
 		window.pack();
