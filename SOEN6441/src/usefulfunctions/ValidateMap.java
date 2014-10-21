@@ -1,6 +1,7 @@
 package usefulfunctions;
 
 import java.awt.Point;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 import tilemap.Tile;
@@ -336,13 +337,9 @@ public class ValidateMap {
 		
 		wasHere = new boolean[width][height];
 			
-		// set boolean Arrays to default values
-		for(int row = 0; row < map.length; ++row)
-			for(int col = 0; col < map[row].length; ++col)
-			{
-				wasHere[row][col] = false;
-			}
-		
+		// set boolean Arrays to default values		
+		for(boolean subArr[] : wasHere)
+			Arrays.fill(subArr, false);
 		
 	}
 
