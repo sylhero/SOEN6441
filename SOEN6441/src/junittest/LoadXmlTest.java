@@ -10,7 +10,7 @@ import org.junit.Test;
 import tilemap.Tile;
 import xml.MapParser;
 
-public class LoadXMLTest {
+public class LoadXmlTest {
 	
 	private static MapParser mapparser;
 	private static String user_directory;
