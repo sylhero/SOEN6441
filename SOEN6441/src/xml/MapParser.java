@@ -175,7 +175,7 @@ public class MapParser {
 	}
 
 	/**
-	 * This method write a format XML file.
+	 * This method writes a format XML file.
 	 * This method will be invoked on method createXMLFile.
 	 * 
 	 * @param xmlDocument 
@@ -183,8 +183,7 @@ public class MapParser {
 	 * @return Return true if xml file creating succeed
 	 * */
 
-	private boolean writeFormatXML(Document xmlDocument, String mapDirectory)
-			 {
+	private boolean writeFormatXML(Document xmlDocument, String mapDirectory){
 		boolean isTrue = false;
 		XMLWriter writer = null;
 		OutputFormat format = OutputFormat.createPrettyPrint();
@@ -207,12 +206,11 @@ public class MapParser {
 	 * This method will be invoked on method createXMLFile.
 	 * 
 	 * @param fileName 
-	 * @param mapDirectory
 	 * @return Return false if XML file does not exist on the directory.
 	 * @throws DocumentException 
 	 * */
-	public boolean checkFileName(String fileName, String mapDirectory){
-		// TODO not finish!!!!!!!!!!!!!!!!!
+	public boolean checkFileName(String fileName){
+		
 		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/"; 
 		File mapFile = new File(userPath+fileName);
 

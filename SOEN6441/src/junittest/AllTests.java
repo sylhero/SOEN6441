@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ ValidateMapTest.class, CoinTest.class, LoadImageTest.class
-	,TestGetMapName.class, TestLoadXml.class})
+	,LoadXMLTest.class})
 public class AllTests {
 
 }
