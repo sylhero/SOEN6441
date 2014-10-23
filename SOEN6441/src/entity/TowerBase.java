@@ -14,8 +14,8 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	protected String name;
 	protected int level;
 	protected int cost;
-	protected double refundRate; //0-1 it is a percentage
-	protected int range; // radius
+	protected double refundRate; //the value is between 0 to 1, it is a percentage
+	protected int range; //it is the radius of the attack range.
 	protected int power; 
 	protected int towerSpeed;
 	protected boolean groupAttack;

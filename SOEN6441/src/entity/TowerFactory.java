@@ -10,7 +10,12 @@ public class TowerFactory {
 	public TowerFactory(){
 		
 	}
-	
+	/**
+	 * This method would return a Tower instance base on the parameter.
+	 * 
+	 * @param towerType It is the tower's name.
+	 * @return Based on the tower's name, that is, the parameter of the class, the method would return the corresponding Tower. 
+	 */
 	public TowerBase getTower(String towerType){
 		TowerBase result = null;
 		if (towerType == null)

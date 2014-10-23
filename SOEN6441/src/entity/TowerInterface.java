@@ -11,6 +11,10 @@ package entity;
  *
  */
 public interface TowerInterface {
+	
+	/**
+	 * in the upgrade method, some attributes's values of a tower may be increased. 
+	 */
 	void upgrade();
 
 }

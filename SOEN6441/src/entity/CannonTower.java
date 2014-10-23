@@ -14,6 +14,11 @@ import usefulfunctions.LoadImage;
 public class CannonTower extends TowerBase{
 	public static final Image cannonTower  = LoadImage.loadImage("/images/cannontower.png");
 	public static final int CANNONTOWERTYPE  = 5;
+	
+	/**
+	 * This is the constructor with no parameter, assign the initial value of the attributes.
+	 */
+	
 	public CannonTower(){
 		super.name = "Cannon Tower";
 		super.map = TileMap.getTileMap().getMap();
@@ -30,6 +35,16 @@ public class CannonTower extends TowerBase{
 		super.value = level * upgradeCost + cost;
 		super.specialEffect = "None";
 	}
+	
+	/**
+	 * This constructor can assign the value of tile's attributes besides the tower's common attributes.
+	 * 
+	 * @param tileX The X coordinate of the tile.
+	 * @param tileY The Y coordinate of the tile.
+	 * @param tileWidth The width of the tile.
+	 * @param tileHeight The height of the tile.
+	 */
+	
 	public CannonTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
 		super.name = "Cannon Tower";
@@ -57,6 +72,11 @@ public class CannonTower extends TowerBase{
 	public void draw(Graphics2D g){
 		
 	}
+	
+	/**
+	 * When a tower be upgraded, its power, level and upgradeCose would be increased. 
+	 * The method override the upgrade() method of TowerInterface.
+	 */
 	
 	@Override
 	public void upgrade() {

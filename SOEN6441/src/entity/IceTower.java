@@ -13,6 +13,12 @@ import usefulfunctions.LoadImage;
 public class IceTower extends TowerBase {
 	public static final Image iceTower  = LoadImage.loadImage("/images/icetower.png");
 	public static final int ICETOWERTYPE  = 6;
+	
+	/**
+	 * This is the constructor of IceTower class. 
+	 * Some default values of the Ice Tower's features has been assigned.
+	 */
+	
 	public IceTower(){
 		super.name = "Ice Tower";
 		super.map = TileMap.getTileMap().getMap();
@@ -29,6 +35,16 @@ public class IceTower extends TowerBase {
 		super.value = level * upgradeCost + cost;
 		super.specialEffect = "None";
 	}
+	
+	/**
+	 * This constructor would assign the value of tile's attributes.
+	 * 
+	 * @param tileX The X coordinate of the tile.
+	 * @param tileY The Y coordinate of the tile.
+	 * @param tileWidth The width of the tile.
+	 * @param tileHeight The height of the tile.
+	 */
+	
 	public IceTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
 		super.name = "Ice Tower";
@@ -56,7 +72,10 @@ public class IceTower extends TowerBase {
 	public void draw(Graphics2D g){
 		
 	}
-	
+	/**
+	 * The overriden method of upgrade().
+	 * When an Ice Tower upgrade, it's power would increase 5, level would increase 1. The upgradeCose would increase 5.
+	 */
 	@Override
 	public void upgrade() {
 		this.power += 5;
