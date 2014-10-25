@@ -20,7 +20,9 @@ public class LoadXmlTest {
 	private static MapParser mapparser;
 	private static String user_directory;
 	
-
+	/**
+	 * To initialize some member variables.
+	 */
 	@BeforeClass
 	public static void setUp(){
 		mapparser = new MapParser();
@@ -28,6 +30,9 @@ public class LoadXmlTest {
 		mapparser.loadXMLFile(user_directory+"testmap11426031226.xml");
 	}
 	
+	/**
+	 * To test if the map name is the same as the filename
+	 */
 	@Test
 	public void testGetMapName() {
 		String mapName = mapparser.getMapName();
@@ -35,6 +40,9 @@ public class LoadXmlTest {
 		//fail("Not yet implemented");
 	}
 	
+	/**
+	 * To test if the map data is not null
+	 */
 	@Test
 	public void testGetMapData(){
 		Tile[][] test_map_data = mapparser.getMapData();
