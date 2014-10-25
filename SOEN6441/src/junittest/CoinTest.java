@@ -32,7 +32,15 @@ public class CoinTest {
 	public void testDecreaseCurrency() {
 		coin.decreaseCurrency(50);
 		assertEquals(250,coin.getCurrency());
-		//fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testDecreaseCurrency2(){
+		for(int i=0;i<3;i++)
+		{
+			coin.decreaseCurrency(100);
+		}
+		assertEquals(0,coin.getCurrency());
 	}
 
 }

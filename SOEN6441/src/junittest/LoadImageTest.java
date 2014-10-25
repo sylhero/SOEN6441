@@ -33,14 +33,12 @@ public class LoadImageTest {
 	public void testLoadImage() {
 		test = loadImage.loadImage("/images/arrowtower.png");
 		assertNotNull(test);
-		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testLoadImageIcon() {
 		testIcon = loadImage.loadImageIcon("/images/img293.png");
 		assertNotNull(testIcon);
-		//fail("Not yet implemented");
 	}
 
 }

@@ -9,8 +9,11 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ValidateMapTest.class, CoinTest.class, LoadImageTest.class
-	,LoadXmlTest.class})
+@SuiteClasses({ ValidateMapTest.class, 
+				CoinTest.class, 
+				LoadImageTest.class,
+				LoadXmlTest.class,
+				ArrowTowerTest.class})
 public class AllTests {
 
 }
