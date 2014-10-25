@@ -6,7 +6,7 @@ import java.io.*;
 import java.awt.*;
 /**
  * this class is for splitting the image 
- * @author wangkun
+ * @author Kun Wang
  *
  */
 public class ImageSplitter {
@@ -16,13 +16,14 @@ public class ImageSplitter {
         FileInputStream fis = new FileInputStream(file);
         BufferedImage image = ImageIO.read(fis); //reading the image file
 
-        int rows = 97; //You should decide the values for rows and cols variables
+        int rows = 97; //You could decide the values for rows and cols variables
         int cols = 8;
         int chunks = rows * cols;
 
-        int chunkWidth = image.getWidth() / cols; // determines the chunk width and height
+        int chunkWidth = image.getWidth() / cols; // determines the chunk's width and height
         int chunkHeight = image.getHeight() / rows;
         int count = 0;
+        
         BufferedImage imgs[] = new BufferedImage[chunks]; //Image array to hold image chunks
         for (int x = 0; x < rows; x++) {
             for (int y = 0; y < cols; y++) {
