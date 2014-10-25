@@ -22,7 +22,7 @@ public class ImageSplitter {
 
         int chunkWidth = image.getWidth() / cols; // determines the chunk's width and height
         int chunkHeight = image.getHeight() / rows;
-        int count = 0;
+        int count = 0; 
         
         BufferedImage imgs[] = new BufferedImage[chunks]; //Image array to hold image chunks
         for (int x = 0; x < rows; x++) {
@@ -33,7 +33,7 @@ public class ImageSplitter {
                 // draws the image chunk
                 Graphics2D gr = imgs[count++].createGraphics();
                 gr.drawImage(image, 0, 0, chunkWidth, chunkHeight, chunkWidth * y, chunkHeight * x, chunkWidth * y + chunkWidth, chunkHeight * x + chunkHeight, null);
-                gr.dispose();
+                gr.dispose(); //release the frame
             }
         }
         System.out.println("Splitting done");
