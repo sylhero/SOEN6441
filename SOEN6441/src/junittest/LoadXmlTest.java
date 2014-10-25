@@ -12,7 +12,7 @@ import xml.MapParser;
 /**
  * This is the test class for MapParser class in the xml package.
  * It tests the method getMapName,getMapData and writeFormatXML
- * @author Kun Wang
+ * @author Hongrui Guan, Kun Wang
  *
  */
 public class LoadXmlTest {
@@ -37,7 +37,6 @@ public class LoadXmlTest {
 	public void testGetMapName() {
 		String mapName = mapparser.getMapName();
 		assertEquals("testmap1",mapName);
-		//fail("Not yet implemented");
 	}
 	
 	/**

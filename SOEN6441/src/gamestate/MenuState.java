@@ -66,7 +66,7 @@ public class MenuState extends GameState{
 		// TODO Auto-generated method stub
 		
 	}
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see gamestate.GameState#update()
 	 */
