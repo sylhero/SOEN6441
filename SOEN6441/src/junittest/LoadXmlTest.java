@@ -9,7 +9,12 @@ import org.junit.Test;
 
 import tilemap.Tile;
 import xml.MapParser;
-
+/**
+ * This is the test class for MapParser class in the xml package.
+ * It tests the method getMapName,getMapData and writeFormatXML
+ * @author Kun Wang
+ *
+ */
 public class LoadXmlTest {
 	
 	private static MapParser mapparser;
