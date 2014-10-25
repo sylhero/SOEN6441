@@ -21,6 +21,10 @@ public class Coin {
 	
 	private static Coin coinObject = new Coin();
 	
+	/**
+	 * This is the constructor with no parameter, assign the initial value of the attributes.
+	 */
+	
 	private Coin(){
 		
 		coin = 30;	
@@ -29,6 +33,11 @@ public class Coin {
 	public static Coin getCoinObject(){
 		return coinObject;
 	}
+	
+	/**
+	 * Get the amount of the coin.
+	 * @return The amount of the coin.
+	 */
 	
 	public int getCurrency() {
 		return this.coin;
