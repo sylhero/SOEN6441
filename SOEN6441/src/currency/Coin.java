@@ -43,19 +43,27 @@ public class Coin {
 		return this.coin;
 	}
 
-	
+	/**
+	 * the amount of coin increased
+	 */
 	public void increaseCurrency(int amount) {
 		coin += amount; 
 		
 	}
 
-
+	/**
+	 * the amount of coin decreased
+	 */
+	
 	public void decreaseCurrency(int amount) {
 		coin -= amount;
 		
 	}
 
-	
+	/**
+	 * Set the initial amount of the coin.
+	 * @param coin The initial amount of coin.
+	 */
 	public void initializeCurrency() {
 		this.coin = 300;
 		
