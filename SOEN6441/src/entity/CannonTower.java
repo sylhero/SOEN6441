@@ -8,6 +8,9 @@ import usefulfunctions.LoadImage;
 /**
  * This is one kind of tower named Cannon Tower. 
  * The cannon tower has its own image and type and other common attributes.
+ * This class will be used in the later builds.
+ * 
+ * @author Yulong Song, Xunrong Xia
  * 
  */
 
@@ -66,6 +69,8 @@ public class CannonTower extends TowerBase{
 		super.value = level * upgradeCost + cost;
 		super.specialEffect = "None";
 	}
+	
+	//The above two method will be used in the later builds.
 	public void update(){
 		
 	}

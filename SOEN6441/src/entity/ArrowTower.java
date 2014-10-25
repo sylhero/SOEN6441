@@ -8,6 +8,7 @@ import usefulfunctions.LoadImage;
  * This is one kind of tower named Arrow Tower. 
  * The arrow tower has its own image and type and other common attributes.
  * 
+ * @Yulong Song, Xunrong Xia
  */
 public class ArrowTower extends TowerBase{
 	public static final Image arrowTower  = LoadImage.loadImage("/images/arrowtower.png");
@@ -63,6 +64,8 @@ public class ArrowTower extends TowerBase{
 		super.value = this.cost;
 		super.specialEffect = "None";
 	}
+	
+	//The above two method will be used in the later builds.
 	public void update(){
 		
 	}

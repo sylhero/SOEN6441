@@ -8,7 +8,9 @@ import usefulfunctions.LoadImage;
 /**
  * This is one kind of tower named Magic Tower. 
  * The magic tower has its own image and type and other common attributes.
+ * This tower will be used in the later builds.
  * 
+ * @author Yulong Song, Xunrong Xia
  */
 
 public class MagicTower extends TowerBase{
@@ -63,6 +65,8 @@ public class MagicTower extends TowerBase{
 		super.value = level * upgradeCost + cost;
 		super.specialEffect = "None";
 	}
+	
+	//The above two method will be used in the later builds.
 	public void update(){
 		
 	}
