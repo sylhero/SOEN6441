@@ -5,7 +5,14 @@ import java.awt.Image;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
-
+/**
+ * This is the class of creating Monster.
+ * This class only define the basic movement of the monster.
+ * The monster will have more properties in later builds.
+ * 
+ * @author Kun Wang
+ * 
+ */
 public class MonsterTest {
 	private TileMap tileMap;
 	private Tile[][] map;
