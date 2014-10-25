@@ -48,7 +48,9 @@ public class LoadXmlTest {
 		Tile[][] test_map_data = mapparser.getMapData();
 		assertNotNull(test_map_data);
 	}
-	
+	/**
+	 * To test if the filename is true
+	 */
 	@Test
 	public void testCheckFileName(){
 		String file_name = "testmap11426031226.xml";
@@ -56,6 +58,9 @@ public class LoadXmlTest {
 		assertTrue(file_name_result);
 	}
 		
+	/**
+	 * To test if the xmlfile written successfully
+	 */
 	@Test
 	public void testWriteXML(){
 		String map_name = "annaGuan";
