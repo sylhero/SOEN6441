@@ -38,20 +38,23 @@ public class MonsterTest {
 		this.image   = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
 		
 	}
+	
 	private void move(){
 		x+=1;
 		HP--;
 		
 	}
+	
 	private int nextStepValidation(){
 		return 1;
-		
-		
+	
 	}
+	
 	public void update(){
 		move();
 		System.out.println(HP);
 	}
+	
 	public void draw(Graphics2D g){
 		if(HP>0){
 			g.drawImage(image, x, 

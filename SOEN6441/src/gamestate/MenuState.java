@@ -70,10 +70,7 @@ public class MenuState extends GameState{
 		// TODO Auto-generated method stub
 		
 	}
-	/**
-	 * not used yet
-	 * 
-	 */
+	
 
 	@Override
 	public void update() {

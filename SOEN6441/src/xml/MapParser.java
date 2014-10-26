@@ -28,6 +28,7 @@ import usefulfunctions.LoadImage;
  * @date 2014-09-24 
  *
  */
+
 public class MapParser {
 
 	private Element xmlFile;
@@ -39,27 +40,48 @@ public class MapParser {
 	 * @param mapName The map name that user named for
 	 * @return Return true if XML file creating succeed
 	 * */
+	
 	public boolean createXMLFile(Tile[][] mapInformation, String mapName){
 	
+		//A XML document variable that point to the root of the document.
 		Document document = DocumentHelper.createDocument();
+		
+		//add the first hierarchy "map "on document.
 		Element mapFile = document.addElement("map");
+		
+		//add tag "fileName" on "map"
 		Element fileName = mapFile.addElement("fileName");
+		//set value for fileName.
 		fileName.setText(mapName);
+		
 		//Element modifiedFile = mapFile.addElement("modified");
 		//modifiedFile.setText("0");
+		
 		Element mapRow = mapFile.addElement("mapRow");
 		mapRow.setText(String.valueOf(mapInformation.length));
 		Element mapColumn = mapFile.addElement("mapColumn");
 		mapColumn.setText(String.valueOf(mapInformation[0].length));
+		
+		//add tag "mapData" on "map"
 		Element mapData = mapFile.addElement("mapData");
 		
+		//Calculate the amount of tiles which would add into tag mapData
 		int mapSize = mapInformation.length*mapInformation[0].length;
+		
 		Element[] tiles = new Element[mapSize];
+		
 		for (int i = 0; i < mapInformation.length; i++) {
+			
 			for (int j = 0; j < mapInformation[0].length; j++) {
+				
 				int coordinate = i*mapInformation[0].length+j;
+				
+				//add tag "tile" on "mapData"
 				tiles[coordinate] = mapData.addElement("tile");
+				//create an attribute id for tag tile
 				tiles[coordinate].addAttribute("id", String.valueOf(coordinate+1));
+				
+				//add and set tags on "tile"
 				Element tileType = tiles[coordinate].addElement("tileType");
 				tileType.setText(String.valueOf(mapInformation[i][j].getTileType()));
 				Element tileX = tiles[coordinate].addElement("tileX");
@@ -76,6 +98,7 @@ public class MapParser {
 
 		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/";
 			
+		//create a XML file to save all map information
 		return this.writeFormatXML(document, userPath + mapName + ".xml");
 
 	}
@@ -87,8 +110,11 @@ public class MapParser {
 	 * 
 	 * @param mapDirectory
 	 */
+	
 	public void loadXMLFile(String mapDirectory){
+		
 		SAXReader reader = new SAXReader();
+		
 		try{
 			Document xmlDocument = reader.read(mapDirectory);
 
@@ -106,6 +132,7 @@ public class MapParser {
 	 * @return mapName The map name will be returned as a string.
 	 * */
 	public String getMapName(){
+		
 		String mapName = xmlFile.elementText("fileName");
 
 		System.out.println("map name is " + mapName);
@@ -118,6 +145,7 @@ public class MapParser {
 	 * 
 	 * @return tiles All tiles will be returned as a Tile array.
 	 * */
+	
 	public Tile[][] getMapData(){
 		
 
@@ -125,6 +153,7 @@ public class MapParser {
 		Image pavement    = LoadImage.loadImage("/images/pavement.png");
 		Image entrance    = LoadImage.loadImage("/images/entrance.png");
 		Image exit        = LoadImage.loadImage("/images/destination.png");	
+		
 		final int GRASS       = 0;
 		final int ENTRANCE    = 1;
 		final int PAVEMENT    = 2;
@@ -136,16 +165,19 @@ public class MapParser {
 
 		Element mapData = xmlFile.element("mapData");
 		List<Element> tileData = mapData.elements("tile");
-		System.out.println("tile size is "+tileData.size());
 		
+		System.out.println("tile size is "+tileData.size());		
 		System.out.println("map height is equal to " + row);
 		System.out.println("map width is equal to " + column);
 		System.out.println("map data is");
 		
 		for (int i = 0; i < row; i++) {
+			
 			for (int j = 0; j < column; j++) {
+				
 				tiles[i][j] = new Tile();
 				tiles[i][j].setTileType((Integer.parseInt(tileData.get(i*column+j).elementText("tileType"))));
+				
 				switch(tiles[i][j].getTileType()) {
 				
 				case GRASS:
@@ -167,6 +199,7 @@ public class MapParser {
 				tiles[i][j].setTileY((Integer.parseInt(tileData.get(i*column+j).elementText("tileY"))));
 				tiles[i][j].setTileWidth((Integer.parseInt(tileData.get(i*column+j).elementText("tileWidth"))));
 				tiles[i][j].setTileHeight((Integer.parseInt(tileData.get(i*column+j).elementText("tileHeight"))));
+				
 				System.out.println("Tile Type:"+tiles[i][j].getTileType()+",Tile Image:"+tiles[i][j].getTileImage().toString());
 			}
 		}
@@ -184,10 +217,12 @@ public class MapParser {
 	 * */
 
 	private boolean writeFormatXML(Document xmlDocument, String mapDirectory){
+		
 		boolean isTrue = false;
 		XMLWriter writer = null;
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		format.setEncoding("UTF-8");
+		
 		try{
 			writer = new XMLWriter(new FileWriter(new File(mapDirectory)), format);
 			writer.write(xmlDocument);
@@ -209,6 +244,7 @@ public class MapParser {
 	 * @return Return false if XML file does not exist on the directory.
 	 * @throws DocumentException 
 	 * */
+	
 	public boolean checkFileName(String fileName){
 		
 		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/"; 
