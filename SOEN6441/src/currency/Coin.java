@@ -45,6 +45,7 @@ public class Coin {
 
 	/**
 	 * the amount of coin increased
+	 * @param amount
 	 */
 	public void increaseCurrency(int amount) {
 		coin += amount; 
@@ -53,6 +54,7 @@ public class Coin {
 
 	/**
 	 * the amount of coin decreased
+	 * @param amount
 	 */
 	
 	public void decreaseCurrency(int amount) {
@@ -62,7 +64,7 @@ public class Coin {
 
 	/**
 	 * Set the initial amount of the coin.
-	 * @param coin The initial amount of coin.
+	 * 
 	 */
 	public void initializeCurrency() {
 		this.coin = 300;
@@ -74,6 +76,12 @@ public class Coin {
 		
 		
 	}
+	
+	/**
+	 * Draw graphics in 2D
+	 * 
+	 * @param g
+	 */
 	
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);

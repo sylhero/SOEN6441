@@ -113,7 +113,7 @@ public class ValidateMap {
 	 * @param x
 	 * @param y
 	 * @param map
-	 * @return isAdjacent
+	 * @return boolean indicates isAdjacent
 	 */
 	public static boolean isExitAdjacent(Tile [][] map) {
 		
@@ -195,7 +195,7 @@ public class ValidateMap {
 	 * @param x
 	 * @param y
 	 * @param map
-	 * @return isAdjacent
+	 * @return boolean indicates isAdjacent
 	 */
 	
 	public static boolean isEntryAdjacent(Tile[][] map) {

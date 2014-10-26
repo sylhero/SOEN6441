@@ -10,6 +10,13 @@ import java.awt.*;
  *
  */
 public class ImageSplitter {
+	
+	/**
+	 * Loads images and processed then splits.
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
     public static void main(String[] args) throws IOException {
 
         File file = new File("tiles.png"); // I have bear.jpg in my working directory
