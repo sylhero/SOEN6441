@@ -21,7 +21,7 @@ public class LoadXmlTest {
 	private static String user_directory;
 	
 	/**
-	 * To initialize some member variables.
+	 * To initialize a MapParser attribute and some useful variables.
 	 */
 	@BeforeClass
 	public static void setUp(){
@@ -31,7 +31,7 @@ public class LoadXmlTest {
 	}
 	
 	/**
-	 * To test if the map name is the same as the filename
+	 * To test if the map name is as same as the filename
 	 */
 	@Test
 	public void testGetMapName() {
