@@ -125,6 +125,7 @@ public class MapParser {
 			//Get the root of xml file and set all elements of xml into the attribute xmlFile.
 			Element xmlRoot = xmlDocument.getRootElement();
 			this.xmlFile = xmlRoot;
+			
 		}catch(Exception e){
 			
 			e.printStackTrace();
@@ -155,7 +156,8 @@ public class MapParser {
 	 * */
 	
 	public Tile[][] getMapData(){
-		
+
+		//image will be saved into tiles based on tileType	
 		Image grass       = LoadImage.loadImage("/images/grass.png");
 		Image pavement    = LoadImage.loadImage("/images/pavement.png");
 		Image entrance    = LoadImage.loadImage("/images/entrance.png");
@@ -166,11 +168,14 @@ public class MapParser {
 		final int PAVEMENT    = 2;
 		final int EXIT        = 3;
 		
+		//row and column will be as x and y of a two-dimension array tiles
 		int row = Integer.parseInt(xmlFile.elementText("mapRow"));
 		int column = Integer.parseInt(xmlFile.elementText("mapColumn"));
 		Tile[][] tiles = new Tile[row][column];
 
+		//get all tiles from tag "mapData"
 		Element mapData = xmlFile.element("mapData");
+		
 		List<Element> tileData = mapData.elements("tile");
 		
 		System.out.println("tile size is "+tileData.size());		
@@ -183,8 +188,10 @@ public class MapParser {
 			for (int j = 0; j < column; j++) {
 				
 				tiles[i][j] = new Tile();
+				
 				tiles[i][j].setTileType((Integer.parseInt(tileData.get(i*column+j).elementText("tileType"))));
 				
+				//get image value into tiles based on tileType
 				switch(tiles[i][j].getTileType()) {
 				
 				case GRASS:
@@ -202,6 +209,7 @@ public class MapParser {
 					
 				}
 				
+				//set tile's information into tiles
 				tiles[i][j].setTileX((Integer.parseInt(tileData.get(i*column+j).elementText("tileX"))));
 				tiles[i][j].setTileY((Integer.parseInt(tileData.get(i*column+j).elementText("tileY"))));
 				tiles[i][j].setTileWidth((Integer.parseInt(tileData.get(i*column+j).elementText("tileWidth"))));
@@ -226,16 +234,22 @@ public class MapParser {
 	private boolean writeFormatXML(Document xmlDocument, String mapDirectory){
 		
 		boolean isTrue = false;
+		
 		XMLWriter writer = null;
+		
+		//write data into a XML file  follow a kind of format
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		format.setEncoding("UTF-8");
 		
 		try{
+			
 			writer = new XMLWriter(new FileWriter(new File(mapDirectory)), format);
 			writer.write(xmlDocument);
 			writer.close();
 			isTrue = true;
+			
 		}catch(Exception e){
+			
 			e.printStackTrace();
 		}
 		
@@ -249,12 +263,12 @@ public class MapParser {
 	 * 
 	 * @param fileName 
 	 * @return Return false if XML file does not exist on the directory.
-	 * @throws DocumentException 
 	 * */
 	
 	public boolean checkFileName(String fileName){
 		
 		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/"; 
+		
 		File mapFile = new File(userPath+fileName);
 
 		return mapFile.exists();
