@@ -113,26 +113,34 @@ public class MapParser {
 	
 	public void loadXMLFile(String mapDirectory){
 		
+		//a SAX parser created for reading a XML file.
 		SAXReader reader = new SAXReader();
 		
 		try{
+			
 			Document xmlDocument = reader.read(mapDirectory);
 
 			// TODO check if xml file is empty
+			
+			//Get the root of xml file and set all elements of xml into the attribute xmlFile.
 			Element xmlRoot = xmlDocument.getRootElement();
 			this.xmlFile = xmlRoot;
 		}catch(Exception e){
+			
 			e.printStackTrace();
 		}		
 
 	}
+	
 	/**
 	 * This method acquires map name from the root element of XML file.
 	 * 
 	 * @return mapName The map name will be returned as a string.
 	 * */
+	
 	public String getMapName(){
 		
+		//get map name from the class attribute xmlFile
 		String mapName = xmlFile.elementText("fileName");
 
 		System.out.println("map name is " + mapName);
@@ -148,7 +156,6 @@ public class MapParser {
 	
 	public Tile[][] getMapData(){
 		
-
 		Image grass       = LoadImage.loadImage("/images/grass.png");
 		Image pavement    = LoadImage.loadImage("/images/pavement.png");
 		Image entrance    = LoadImage.loadImage("/images/entrance.png");
