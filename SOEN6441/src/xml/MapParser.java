@@ -109,9 +109,12 @@ public class MapParser {
 	 * The root element will be saved as a property of class.
 	 * 
 	 * @param mapDirectory
+	 * @return Return true if loading xml file successfully
 	 */
 	
-	public void loadXMLFile(String mapDirectory){
+	public boolean loadXMLFile(String mapDirectory){
+		
+		boolean isTrue = false;
 		
 		//a SAX parser created for reading a XML file.
 		SAXReader reader = new SAXReader();
@@ -126,10 +129,14 @@ public class MapParser {
 			Element xmlRoot = xmlDocument.getRootElement();
 			this.xmlFile = xmlRoot;
 			
+			isTrue = true;	
+			
 		}catch(Exception e){
 			
 			e.printStackTrace();
-		}		
+		}
+		
+		return isTrue;
 
 	}
 	

@@ -25,7 +25,7 @@ public class LoadXmlTest {
 	 */
 	
 	@BeforeClass
-	public static void setUp(){
+	public static void setUp() throws Exception{
 		
 		mapparser = new MapParser();
 		user_directory = System.getProperty("user.dir")+"/resources/gamemaps/";
@@ -38,7 +38,7 @@ public class LoadXmlTest {
 	 */
 	
 	@Test
-	public void testGetMapName() {
+	public void testGetMapName(){
 		
 		String mapName = mapparser.getMapName();
 		assertEquals("testmap1",mapName);
@@ -74,13 +74,23 @@ public class LoadXmlTest {
 	 * To test if the xmlfile written successfully
 	 */
 	
-	@Test
-	public void testWriteXML(){
+	@Test 
+	public void testCreateXML(){
 		
 		String map_name = "annaGuan";
 		boolean xml_file = mapparser.createXMLFile(mapparser.getMapData(), map_name);
 		assertTrue(xml_file);
 	
+	}
+
+	/**
+	 * To test if the xmlfile read successfully
+	 */
+	
+	@Test
+	public void testLoadXML(){
+		boolean xml_file = mapparser.loadXMLFile(user_directory+"testmap11426031226.xml");
+		assertTrue(xml_file);
 	}
 
 }
