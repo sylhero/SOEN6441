@@ -340,6 +340,10 @@ public class PlayState extends GameState{
 	        
 		
 	}
+		/**
+		 * mouse press event
+		 * @param e
+		 */
 	@Override
 
 	public void mousePressed(MouseEvent e) {
@@ -352,24 +356,37 @@ public class PlayState extends GameState{
 	
 
 	}
-
+	/**
+	 * mouse release event
+	 * @param e
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse enter event
+	 * @param e
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse exit event
+	 * @param e
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse drag event
+	 * @param e
+	 */
 	@Override
 
 	public void mouseDragged(MouseEvent e) {
@@ -379,7 +396,10 @@ public class PlayState extends GameState{
 
 	}
 
-	
+	/**
+	 * mouse move event
+	 * @param e
+	 */
 
 	@Override
 
@@ -389,7 +409,10 @@ public class PlayState extends GameState{
 	}
 
 
-
+	/**
+	 * mouse click event
+	 * @param e
+	 */
 	@Override
 
 	public void mouseClicked(MouseEvent e) {
@@ -401,13 +424,19 @@ public class PlayState extends GameState{
 
 	
 
-
+	/**
+	 * pause
+	 * @param result
+	 */
 	@Override
 	public void pause(boolean result) {
 		
 		this.isPaused = result;
 	}
-	
+	/**
+	 * pause
+	 * @param e
+	 */
 	@Override
 	
 	public boolean pause(){
@@ -415,7 +444,10 @@ public class PlayState extends GameState{
 	}
 
 	
-
+	/**
+	 * init
+	 * @param e
+	 */
 	@Override
 	public void init() {
 		map     = tileMap.getMap();
@@ -424,6 +456,10 @@ public class PlayState extends GameState{
 		
 		
 	}
+	/**
+	 * update
+	 * 
+	 */
 
 	@Override
 	public void update() {
@@ -565,7 +601,10 @@ public class PlayState extends GameState{
 				
 		}
 	
-
+	/**
+	 * mouse drag event
+	 * @param e
+	*/
 	@Override
 	public void draw(Graphics2D g) {
 		//first draw map
@@ -592,6 +631,10 @@ public class PlayState extends GameState{
 		monster.draw(g);
 		
 	}
+	/**
+	 * resume
+	 * @param e
+	 */
 	
 	@Override
 	public void resume() {

@@ -60,21 +60,31 @@ public class MenuState extends GameState{
 	}
 	
 
+	/**
+	 * not used yet
+	 * 
+	 */
 
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
 		
 	}
-	/*
-	 * (non-Javadoc)
-	 * @see gamestate.GameState#update()
+	/**
+	 * not used yet
+	 * 
 	 */
+
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * not used yet
+	 * @param g
+	 */
+
 	
 	@Override
 	public void draw(Graphics2D g) {
@@ -159,11 +169,21 @@ public class MenuState extends GameState{
 		
 		
 	}
+	/**
+	 * not used yet
+	 * @param e
+	 */
+
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse move event
+	 * @param e
+	 */
+
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		int mouseX = e.getX() ;
@@ -207,10 +227,18 @@ public class MenuState extends GameState{
 		}
 		
 	}
+	/**
+	 * mouse click event
+	 * @param e
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
 	}
+	/**
+	 * mouse press event
+	 * @param e
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		int mouseX = e.getX() ;
@@ -233,21 +261,37 @@ public class MenuState extends GameState{
 		}
 		
 	}
+	/**
+	 * mouse release event
+	 * @param e
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse enter event
+	 * @param e
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse exit event
+	 * @param e
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * pause event
+	 * @param result
+	 */
 
 	@Override
 	public void pause(boolean result) {
@@ -255,13 +299,19 @@ public class MenuState extends GameState{
 		
 		
 	}
+	/**
+	 * pause
+	 * 
+	 */
 	@Override
 	public boolean pause(){
 		return this.isPaused;
 		
 	}
 
-
+	/**
+	 * resume not implement yet
+	 */
 
 	@Override
 	public void resume() {

@@ -42,26 +42,38 @@ public class SelectMapState extends GameState{
 		//this.effect  = LoadImage.loadImageIcon("/images/effect1.gif").getImage();
 		
 	}
-	
+	/**
+	 * mouse drag event
+	 * @param e
+	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse move event
+	 * @param e
+	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		
 		
         
 	}
-
+	/**
+	 * mouse click event
+	 * @param e
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse press event
+	 * @param e
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		int x = e.getX();
@@ -104,37 +116,56 @@ public class SelectMapState extends GameState{
 		}
 	       
 	   }
+	/**
+	 * mouse release event
+	 * @param e
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse enter event
+	 * @param e
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 		
 	}
-
+	/**
+	 * mouse exit event
+	 * @param e
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * initialize parameter
+	 * 
+	 */
 	@Override
 	public void init() {
 		
 		
 	}
-
+	/**
+	 * update
+	 * 
+	 */
 	@Override
 	public void update() {
 		
 	}
 
-	
+	/**
+	 * draw event
+	 * @param g
+	 */
 	@Override
 	public void draw(Graphics2D g) {
 		g.drawImage(backGroundImage, 0,0,GamePanel.WIDTH,GamePanel.HEIGHT, null);
@@ -150,18 +181,27 @@ public class SelectMapState extends GameState{
 
 	
 
-
+	/**
+	 * resume
+	 * 
+	 */
 	@Override
 	public void resume() {
 		 
 	}
-
+	/**
+	 * pause
+	 * 
+	 */
 	@Override
 	public boolean pause() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	/**
+	 * pause
+	 * @param result
+	 */
 	@Override
 	public void pause(boolean result) {
 		// TODO Auto-generated method stub

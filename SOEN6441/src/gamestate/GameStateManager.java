@@ -68,36 +68,69 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	public void draw(Graphics2D g){
 		gameStates.get(currentState).draw(g);
 	}
+	/**
+	 * mouse drag event
+	 * @param e
+	 */
+
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		gameStates.get(currentState).mouseDragged(e);
 		
 	}
+	/**
+	 * mouse move event
+	 * @param e
+	 */
+
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		gameStates.get(currentState).mouseMoved(e);
 		
 	}
+	/**
+	 * mouse click event
+	 * @param e
+	 */
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		gameStates.get(currentState).mouseClicked(e);
 		
 	}
+	/**
+	 * mouse press event
+	 * @param e
+	 */
+
 	@Override
 	public void mousePressed(MouseEvent e) {
 		gameStates.get(currentState).mousePressed(e);
 		
 	}
+	/**
+	 * mouse release event
+	 * @param e
+	 */
+
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		gameStates.get(currentState).mouseReleased(e);
 		
 	}
+	/**
+	 * mouse entered event
+	 * @param e
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		gameStates.get(currentState).mouseEntered(e);
 		
 	}
+	/**
+	 * mouse exit event
+	 * @param e
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		gameStates.get(currentState).mouseExited(e);

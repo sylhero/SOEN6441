@@ -80,6 +80,10 @@ public class CreateMapState extends GameState{
 		
 		
 	}
+	/**
+	 * drag and draw the pavement or the grass
+	 * @param MouseEvent e
+	 */
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
@@ -103,6 +107,10 @@ public class CreateMapState extends GameState{
 			
 		
 	}
+	/**
+	 * not used yet 
+	 * @param MouseEvent e
+	 */
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
@@ -388,6 +396,10 @@ public class CreateMapState extends GameState{
 			
 		
 	}
+	/**
+	 * detect mouse press
+	 * @param MouseEvent e
+	 */
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -426,42 +438,74 @@ public class CreateMapState extends GameState{
 		generatePressed(e);
 		backPressed(e);
 	}
+	/**
+	 * not used yet
+	 * @param MouseEvent e
+	 */
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * not used yet
+	 * @param e
+	 */
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * not used yet
+	 * @param e
+	 */
+
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * not used yet
+	 * @param e
+	 */
+
 
 	@Override
 	public boolean pause() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	/**
+	 * not used yet
+	 * @param e
+	 */
+
 
 	@Override
 	public void pause(boolean result) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * not used yet
+	 * @param e
+	 */
+
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * initialize parameters
+	 */
+
 
 	@Override
 	public void init() {
@@ -479,6 +523,11 @@ public class CreateMapState extends GameState{
 		this.isLoaded = false;
 		
 	}
+	/**
+	 * not used yet
+	 * 
+	 */
+
 
 	@Override
 	public void update() {
@@ -622,6 +671,11 @@ public class CreateMapState extends GameState{
 		}
 		}
 	}
+	/**
+	 * draw the loaded map
+	 * @param g
+	 */
+
 	private void drawLoadMapArea(Graphics2D g){
 		if(map != null && isLoaded == true){
 			//700 map area 100 menu area
@@ -747,6 +801,11 @@ public class CreateMapState extends GameState{
 				4*buttonHeight+20+18,buttonWidth/2 -1, buttonHeight);
 		
 	}
+	/**
+	 * the draw function to draw all
+	 * @param g
+	 */
+
 
 	@Override
 	public void draw(Graphics2D g) {
