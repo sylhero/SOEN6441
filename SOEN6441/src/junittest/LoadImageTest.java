@@ -23,7 +23,7 @@ public class LoadImageTest {
 	private static Image test;
 	private static ImageIcon testIcon;
 	/**
-	 * T initialize the variables to be null.
+	 * To initialize the variables to be null.
 	 * @throws Exception
 	 */
 	@Before

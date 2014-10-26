@@ -5,7 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 /**
- * This is the test suite for unit test. 
+ * This is the test suite for unit test classes.
+ * Including all test classes.
+ *  
  * @author Yichen LI
  */
 @RunWith(Suite.class)
