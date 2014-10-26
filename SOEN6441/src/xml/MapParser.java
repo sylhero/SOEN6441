@@ -28,6 +28,7 @@ import usefulfunctions.LoadImage;
  * @date 2014-09-24 
  *
  */
+
 public class MapParser {
 
 	private Element xmlFile;
@@ -39,27 +40,47 @@ public class MapParser {
 	 * @param mapName The map name that user named for
 	 * @return Return true if XML file creating succeed
 	 * */
+	
 	public boolean createXMLFile(Tile[][] mapInformation, String mapName){
 	
+		//A XML document variable that point to the root of the document.
 		Document document = DocumentHelper.createDocument();
+		
+		//add the first hierarchy "map "on document.
 		Element mapFile = document.addElement("map");
+		
+		//add tag "fileName" on "map"
 		Element fileName = mapFile.addElement("fileName");
+		//set value for fileName.
 		fileName.setText(mapName);
+		
 		//Element modifiedFile = mapFile.addElement("modified");
 		//modifiedFile.setText("0");
+		
 		Element mapRow = mapFile.addElement("mapRow");
 		mapRow.setText(String.valueOf(mapInformation.length));
 		Element mapColumn = mapFile.addElement("mapColumn");
 		mapColumn.setText(String.valueOf(mapInformation[0].length));
+		
+		//add tag "mapData" on "map"
 		Element mapData = mapFile.addElement("mapData");
 		
+		//Calculate the amount of tiles which would add into tag mapData
 		int mapSize = mapInformation.length*mapInformation[0].length;
+		
 		Element[] tiles = new Element[mapSize];
+		
 		for (int i = 0; i < mapInformation.length; i++) {
 			for (int j = 0; j < mapInformation[0].length; j++) {
+				
 				int coordinate = i*mapInformation[0].length+j;
+				
+				//add tag "tile" on "mapData"
 				tiles[coordinate] = mapData.addElement("tile");
+				//create an attribute id for tag tile
 				tiles[coordinate].addAttribute("id", String.valueOf(coordinate+1));
+				
+				//add and set tags on "tile"
 				Element tileType = tiles[coordinate].addElement("tileType");
 				tileType.setText(String.valueOf(mapInformation[i][j].getTileType()));
 				Element tileX = tiles[coordinate].addElement("tileX");
@@ -76,6 +97,7 @@ public class MapParser {
 
 		String userPath = System.getProperty("user.dir")+"/resources/gamemaps/";
 			
+		//create a XML file to save all map information
 		return this.writeFormatXML(document, userPath + mapName + ".xml");
 
 	}
