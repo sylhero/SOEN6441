@@ -70,7 +70,7 @@ public class CannonTower extends TowerBase{
 		super.specialEffect = "None";
 	}
 	
-	//The above two method will be used in the later builds.
+	//The below two methods will be used in the later builds.
 	public void update(){
 		
 	}
