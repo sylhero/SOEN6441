@@ -21,8 +21,10 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	public static final int GAMESTART = 2;
 	public static final int CREATEMAP = 3;
 	public static final int LOADGAME  = 4;
-	public static final int EXIT		  = 5;
-	
+	public static final int EXIT	  = 5;
+	/**
+	 * constructor add states
+	 */
 	public GameStateManager(){
 		gameStates = new ArrayList<>();
 		currentState = MENUSTATE;
