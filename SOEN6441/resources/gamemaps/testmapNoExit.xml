@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <map>
-  <fileName>adjacent</fileName>
+  <fileName>testmapNoExit</fileName>
   <mapRow>10</mapRow>
   <mapColumn>10</mapColumn>
   <mapData>
     <tile id="1">
-      <tileType>0</tileType>
+      <tileType>1</tileType>
       <tileX>0</tileX>
       <tileY>0</tileY>
       <tileWidth>70</tileWidth>
@@ -307,28 +307,28 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="44">
-      <tileType>1</tileType>
+      <tileType>0</tileType>
       <tileX>210</tileX>
       <tileY>240</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="45">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>280</tileX>
       <tileY>240</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="46">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>350</tileX>
       <tileY>240</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="47">
-      <tileType>3</tileType>
+      <tileType>0</tileType>
       <tileX>420</tileX>
       <tileY>240</tileY>
       <tileWidth>70</tileWidth>

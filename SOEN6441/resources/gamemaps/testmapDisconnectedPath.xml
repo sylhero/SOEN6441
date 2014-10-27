@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <map>
-  <fileName>NOPATH</fileName>
+  <fileName>testmapDisconnectedPath</fileName>
   <mapRow>10</mapRow>
   <mapColumn>10</mapColumn>
   <mapData>
@@ -13,28 +13,28 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="2">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>70</tileX>
       <tileY>0</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="3">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>140</tileX>
       <tileY>0</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="4">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>210</tileX>
       <tileY>0</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="5">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>280</tileX>
       <tileY>0</tileY>
       <tileWidth>70</tileWidth>
@@ -104,28 +104,28 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="15">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>280</tileX>
       <tileY>60</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="16">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>350</tileX>
       <tileY>60</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="17">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>420</tileX>
       <tileY>60</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="18">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>490</tileX>
       <tileY>60</tileY>
       <tileWidth>70</tileWidth>
@@ -195,7 +195,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="28">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>490</tileX>
       <tileY>120</tileY>
       <tileWidth>70</tileWidth>
@@ -265,7 +265,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="38">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>490</tileX>
       <tileY>180</tileY>
       <tileWidth>70</tileWidth>
@@ -335,7 +335,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="48">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>490</tileX>
       <tileY>240</tileY>
       <tileWidth>70</tileWidth>
@@ -405,7 +405,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="58">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>490</tileX>
       <tileY>300</tileY>
       <tileWidth>70</tileWidth>
@@ -475,7 +475,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="68">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>490</tileX>
       <tileY>360</tileY>
       <tileWidth>70</tileWidth>
@@ -545,14 +545,14 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="78">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>490</tileX>
       <tileY>420</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="79">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>560</tileX>
       <tileY>420</tileY>
       <tileWidth>70</tileWidth>
@@ -622,7 +622,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="89">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>560</tileX>
       <tileY>480</tileY>
       <tileWidth>70</tileWidth>

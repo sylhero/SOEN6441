@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <map>
-  <fileName>dfd</fileName>
+  <fileName>testmapNoEntrance</fileName>
   <mapRow>10</mapRow>
   <mapColumn>10</mapColumn>
   <mapData>
@@ -244,35 +244,35 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="35">
-      <tileType>1</tileType>
+      <tileType>0</tileType>
       <tileX>280</tileX>
       <tileY>180</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="36">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>350</tileX>
       <tileY>180</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="37">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>420</tileX>
       <tileY>180</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="38">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>490</tileX>
       <tileY>180</tileY>
       <tileWidth>70</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="39">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>560</tileX>
       <tileY>180</tileY>
       <tileWidth>70</tileWidth>
@@ -342,7 +342,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="49">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>560</tileX>
       <tileY>240</tileY>
       <tileWidth>70</tileWidth>
@@ -412,7 +412,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="59">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>560</tileX>
       <tileY>300</tileY>
       <tileWidth>70</tileWidth>
@@ -482,7 +482,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="69">
-      <tileType>2</tileType>
+      <tileType>0</tileType>
       <tileX>560</tileX>
       <tileY>360</tileY>
       <tileWidth>70</tileWidth>
@@ -552,7 +552,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="79">
-      <tileType>3</tileType>
+      <tileType>0</tileType>
       <tileX>560</tileX>
       <tileY>420</tileY>
       <tileWidth>70</tileWidth>
@@ -699,7 +699,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="100">
-      <tileType>0</tileType>
+      <tileType>3</tileType>
       <tileX>630</tileX>
       <tileY>540</tileY>
       <tileWidth>70</tileWidth>
