@@ -435,7 +435,7 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * pause
-	 * @param e
+	 * 
 	 */
 	@Override
 	
@@ -446,7 +446,7 @@ public class PlayState extends GameState{
 	
 	/**
 	 * init
-	 * @param e
+	 * 
 	 */
 	@Override
 	public void init() {
@@ -602,8 +602,8 @@ public class PlayState extends GameState{
 		}
 	
 	/**
-	 * mouse drag event
-	 * @param e
+	 * draw 
+	 * @param g
 	*/
 	@Override
 	public void draw(Graphics2D g) {
@@ -633,7 +633,7 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * resume
-	 * @param e
+	 * 
 	 */
 	
 	@Override

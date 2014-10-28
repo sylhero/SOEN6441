@@ -57,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		this.addMouseMotionListener(this);
 		this.addMouseListener(this);
 	}
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see javax.swing.JComponent#addNotify()
 	 */
@@ -73,7 +73,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 	
 	
 	
-	/*
+	/**
 	 * (non-Javadoc)
 	 * @see java.lang.Runnable#run()
 	 */
@@ -86,7 +86,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
         beforeTime = System.currentTimeMillis();
         while (true) {
         
-        		checkPause();
+        	checkPause();
             gameUpdate();
             gameRender();
             drawToScreen();
@@ -109,7 +109,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		
 	}
 	
-	/*
+	/**
 	 * pause game
 	 */
 	public boolean pauseGame(){
@@ -117,14 +117,14 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		
 		
 	}
-	/*
+	/**
 	 * resume game, may not need in the future
 	 */
 	public void resume(){
 		gsm.resumeGame();
 	}
 	
-	/*
+	/**
 	 * check pause
 	 */
 	
@@ -140,14 +140,14 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		//System.out.println(isPaused);
 	}
 		
-	/*
+	/**
 	 * check game over
 	 */
 	
 	public void checkGameOver(){
 		
 	}
-	/*
+	/**
 	 * update the animation
 	 */
 	public void gameUpdate(){
@@ -159,7 +159,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		}
 		
 	}
-	/*
+	/**
 	 * game render
 	 */
 	public void gameRender(){
@@ -167,7 +167,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		gsm.draw(graphicsObject);
 		
 	}
-	/*
+	/**
 	 * draw to the screen
 	 */
 	public void drawToScreen(){
@@ -177,36 +177,64 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 		g2.dispose();
 		
 	}
+	/**
+	 * mouse drag event 
+	 * @param e
+	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		gsm.mouseDragged(e);
 		
 	}
+	/**
+	 * mouse move event 
+	 * @param e
+	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		gsm.mouseMoved(e);
 		
 	}
+	/**
+	 * mouse click event 
+	 * @param e
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		gsm.mouseClicked(e);
 		
 	}
+	/**
+	 * mouse press event 
+	 * @param e
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		gsm.mousePressed(e);
 		
 	}
+	/**
+	 * mouse release event
+	 * @param e
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		gsm.mouseReleased(e);
 		
 	}
+	/**
+	 * mouse enter event
+	 * @param e
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		gsm.mouseEntered(e);
 		
 	}
+	/**
+	 * mouse exit event
+	 * @param e
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		gsm.mouseExited(e);

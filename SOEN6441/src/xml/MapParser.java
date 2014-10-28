@@ -25,7 +25,7 @@ import usefulfunctions.LoadImage;
  * for reloading an existing map on the map editor panel
  *  
  * @author Hongrui Guan
- * @date 2014-09-24 
+ * 
  *
  */
 

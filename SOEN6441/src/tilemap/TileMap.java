@@ -95,63 +95,63 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * get map
-	 * @return
+	 * @return map
 	 */
 	public Tile[][] getMap(){
 		return this.map;
 	}
 	/**
 	 * get map row
-	 * @return
+	 * @return row
 	 */
 	public int getRow(){
 		return this.mapRow;
 	}
 	/**
 	 * get map column
-	 * @return
+	 * @return col
 	 */
 	public int getCol(){
 		return this.mapCol;
 	}
 	/**
 	 * get map row
-	 * @return
+	 * @return maprow
 	 */
 	public int getMapRow() {
 		return mapRow;
 	}
 	/**
 	 * get map column
-	 * @return
+	 * @return mapcol
 	 */
 	public int getMapCol() {
 		return mapCol;
 	}
 	/**
 	 * get cell width
-	 * @return
+	 * @return cellwidth
 	 */
 	public int getCellWidth() {
 		return cellWidth;
 	}
 	/**
 	 * get cell height
-	 * @return
+	 * @return cellheight
 	 */
 	public int getCellHeight() {
 		return cellHeight;
 	}
 	/**
 	 * get offset x
-	 * @return
+	 * @return offset x
 	 */
 	public int getOffSetX() {
 		return offSetX;
 	}
 	/**
 	 * get offset y
-	 * @return
+	 * @return offset y
 	 */
 	public int getOffSetY() {
 		return offSetY;
@@ -159,7 +159,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	
 	/**
 	 * get the tile map object
-	 * @return
+	 * @return tilemap
 	 */
 	public static TileMap getTileMap(){
 		return tileMap;
@@ -294,7 +294,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * get upper offset
-	 * @return
+	 * @return upperoffset
 	 */
 	public int getUpperOffSet() {
 		return upperOffSet;
@@ -308,7 +308,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * get lower off set
-	 * @return
+	 * @return loweroffset
 	 */
 	public int getLowerOffSet() {
 		return lowerOffSet;
