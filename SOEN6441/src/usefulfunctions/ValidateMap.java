@@ -110,8 +110,8 @@ public class ValidateMap {
 	/**
 	 * This function checks is the exit adjacent to the entry.
 	 * 
-	 * 
-	 * 
+	 * @param x
+	 * @param y
 	 * @param map
 	 * @return boolean indicates isAdjacent
 	 */
@@ -192,8 +192,8 @@ public class ValidateMap {
 	/**
 	 * This function checks is the entry adjacent to the exit. 
 	 * 
-	 * 
-	 * 
+	 * @param x
+	 * @param y
 	 * @param map
 	 * @return boolean indicates isAdjacent
 	 */

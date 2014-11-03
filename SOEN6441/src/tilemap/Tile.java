@@ -50,14 +50,14 @@ public class Tile {
 	
 	/**
 	 * get the tile type
-	 * @return tileType
+	 * @return
 	 */
 	public int getTileType() {
 		return tileType;
 	}
 	/**
 	 * set the tile type
-	 * 
+	 * @param tileType
 	 */
 
 	public void setTileType(int tileType) {
@@ -67,7 +67,7 @@ public class Tile {
 
 	/**
 	 * get the image
-	 * @return tileImage
+	 * @return
 	 */
 	public Image getTileImage() {
 		return tileImage;
@@ -83,7 +83,7 @@ public class Tile {
 
 	/**
 	 * get the tile x
-	 * @return tileX
+	 * @return
 	 */
 	public int getTileX() {
 		return tileX;
@@ -99,7 +99,7 @@ public class Tile {
 
 	/**
 	 * get tile y
-	 * @return tileY
+	 * @return
 	 */
 	public int getTileY() {
 		return tileY;
@@ -115,7 +115,7 @@ public class Tile {
 
 	/**
 	 * get the tile width
-	 * @return tileWidth
+	 * @return
 	 */
 	public int getTileWidth() {
 		return tileWidth;
@@ -131,7 +131,7 @@ public class Tile {
 
 	/**
 	 * get the tile height
-	 * @return tileHeight
+	 * @return
 	 */
 	public int getTileHeight() {
 		return tileHeight;

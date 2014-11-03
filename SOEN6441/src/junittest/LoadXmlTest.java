@@ -41,8 +41,7 @@ public class LoadXmlTest {
 	public void testGetMapName(){
 		
 		String mapName = mapparser.getMapName();
-		System.out.println(mapName);
-		assertEquals("testmap11426031226",mapName);
+		assertEquals("testmap1",mapName);
 	
 	}
 	

@@ -11,7 +11,7 @@ import currency.Coin;
  * This is a test class of Coin class
  * test method increaseCurrency(), and decreaseCurrency()
  * 
- * @author Xunrong Xia,Hongrui Guan
+ * @author Xunrong Xia£¬ Hongrui Guan
  */
 
 public class CoinTest {

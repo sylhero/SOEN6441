@@ -13,7 +13,7 @@ public class LoadImage {
 	/**
 	 * this method load the image
 	 * @param path
-	 * @return Image
+	 * @return
 	 */
 	public static Image loadImage(String path){
 		Image temp = null;
@@ -33,7 +33,7 @@ public class LoadImage {
 	/**
 	 * this method load the image icon
 	 * @param path
-	 * @return Image
+	 * @return
 	 */
 	public static ImageIcon loadImageIcon(String path){
 		ImageIcon temp = null;

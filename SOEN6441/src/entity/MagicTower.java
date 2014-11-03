@@ -66,7 +66,7 @@ public class MagicTower extends TowerBase{
 		super.specialEffect = "None";
 	}
 	
-	//The below two methods will be used in the later builds.
+	//The above two method will be used in the later builds.
 	public void update(){
 		
 	}

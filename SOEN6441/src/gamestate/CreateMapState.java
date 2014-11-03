@@ -82,7 +82,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * drag and draw the pavement or the grass
-	 * @param  e
+	 * @param MouseEvent e
 	 */
 
 	@Override
@@ -109,7 +109,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet 
-	 * @param e
+	 * @param MouseEvent e
 	 */
 
 	@Override
@@ -398,7 +398,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * detect mouse press
-	 * @param  e
+	 * @param MouseEvent e
 	 */
 	
 	@Override
@@ -440,7 +440,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param  e
+	 * @param MouseEvent e
 	 */
 
 	@Override
@@ -471,8 +471,9 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * 
+	 * @param e
 	 */
+
 
 	@Override
 	public boolean pause() {
@@ -481,7 +482,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param result
+	 * @param e
 	 */
 
 
@@ -492,7 +493,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * 
+	 * @param e
 	 */
 
 

@@ -36,7 +36,7 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	/**
 	 * switch among different game states
 	 * @param state
-	 * 
+	 * @param mapPath
 	 */
 	public void switchState(int state){
 		currentState = state;
@@ -45,7 +45,7 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * pause the game
-	 * @return Boolean
+	 * @return
 	 */
 	public boolean pauseGame(){
 		return gameStates.get(currentState).pause();
