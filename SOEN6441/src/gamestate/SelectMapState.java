@@ -104,11 +104,7 @@ public class SelectMapState extends GameState{
 			String path = file.getAbsolutePath();
 			//load the map first
 			Tile[][] tempMap = tileMap.loadMap(path);
-			//TODO remove all of this
-			ValidateMap.validateEntry(tempMap);
-			ValidateMap.validateExit(tempMap);
-			ValidateMap.validatePath(tempMap);
-			tileMap.setCorrectPath(ValidateMap.getCorrectRoute());
+			tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none

@@ -385,13 +385,13 @@ public class ValidateMap {
 	 * @throws InvalidPathException 
 	 */
 	
-	public static LinkedList<Point> getCorrectRoute(Tile [][] map) throws InvalidPathException
+	public static LinkedList<Point> getCorrectRoute(Tile [][] map) 
 	{
 				
 		if(validatePath(map))
 			return correctRoute;
 		else
-			throw new InvalidPathException("No correct path found !");
+			return null;
 	}
 	
 }
