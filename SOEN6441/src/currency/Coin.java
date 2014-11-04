@@ -27,7 +27,7 @@ public class Coin {
 	
 	private Coin(){
 		
-		coin = 30;	
+		coin = 3000;	
 	}
 	
 	public static Coin getCoinObject(){

@@ -151,7 +151,7 @@ public class MapParser {
 		//get map name from the class attribute xmlFile
 		String map_name = xml_file.elementText("fileName");
 
-		System.out.println("map name is " + map_name);
+		//System.out.println("map name is " + map_name);
 
 		return map_name;
 	}
@@ -184,11 +184,11 @@ public class MapParser {
 		Element map_data = xml_file.element("mapData");
 		
 		List<Element> tile_data = map_data.elements("tile");
-		
-		System.out.println("tile size is "+tile_data.size());		
-		System.out.println("map height is equal to " + row);
-		System.out.println("map width is equal to " + column);
-		System.out.println("map data is");
+//		
+//		System.out.println("tile size is "+tile_data.size());		
+//		System.out.println("map height is equal to " + row);
+//		System.out.println("map width is equal to " + column);
+//		System.out.println("map data is");
 		
 		for (int i = 0; i < row; i++) {
 			
@@ -222,7 +222,7 @@ public class MapParser {
 				tiles[i][j].setTileWidth((Integer.parseInt(tile_data.get(i*column+j).elementText("tileWidth"))));
 				tiles[i][j].setTileHeight((Integer.parseInt(tile_data.get(i*column+j).elementText("tileHeight"))));
 				
-				System.out.println("Tile Type:"+tiles[i][j].getTileType()+",Tile Image:"+tiles[i][j].getTileImage().toString());
+				//System.out.println("Tile Type:"+tiles[i][j].getTileType()+",Tile Image:"+tiles[i][j].getTileImage().toString());
 			}
 		}
 

@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
+import java.util.LinkedList;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -41,6 +42,10 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	private int mapCol;
 	private int cellWidth;
 	private int cellHeight;
+	
+	//correct path
+	
+	private LinkedList<Point> correctPath;
 	//start point
 	private int offSetX;
 	private int offSetY;
@@ -81,7 +86,11 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	lowerOffSet = 100;
 	mapParser   = new MapParser();
 	}
-	//Load map
+	/**
+	 * load map
+	 * @param path
+	 * @return map
+	 */
 	public Tile[][] loadMap(String path){
 		mapParser.loadXMLFile(path);
 		map = mapParser.getMapData(); 
@@ -92,6 +101,20 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;		
 		return map;
 		
+	}
+	/**
+	 * set the correct path
+	 * @param path
+	 */
+	public void setCorrectPath(LinkedList<Point> path){
+		this.correctPath = path;
+	}
+	/**
+	 * get correct path
+	 * @return correct path
+	 */
+	public LinkedList<Point> getCorrectPath(){
+		return correctPath;
 	}
 	/**
 	 * get map

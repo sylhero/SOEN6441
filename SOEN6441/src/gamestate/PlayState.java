@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.util.LinkedList;
 
 import currency.Coin;
 import entity.ArrowTower;
@@ -27,9 +28,6 @@ public class PlayState extends GameState{
 	private TileMap  tileMap;
 	//map is initialized in init()
 	private Tile[][] map;
-	// load the map path
-	private String mapPath;
-	
 	//draw boolean
 	private boolean isArrowTowerOnMenu;
 	private boolean isArrowTowerEntered;
@@ -298,6 +296,74 @@ public class PlayState extends GameState{
 	        		//click once set once
 	        		this.isArrowTowerOnMenu = false;
 	        }
+		}else if(tempY >= tileMap.getUpperOffSet() && 
+				tempY <= GamePanel.HEIGHT - tileMap.getLowerOffSet() &&
+				isIceTowerOnMenu){
+			int column = tempX / tileMap.getCellWidth();
+			int temp = tempY - tileMap.getUpperOffSet();
+	        int row =  temp / tileMap.getCellHeight();
+	        System.out.println("this is x: "+row);
+	        System.out.println("this is y: "+column);
+	        if( map[row][column].getTileType() == TileMap.GRASS){
+				//get the original size
+	        		int tileX = map[row][column].getTileX();
+	        		int tileY = map[row][column].getTileY();
+	        		int tileWidth = map[row][column].getTileWidth();
+	        		int tileHeight = map[row][column].getTileHeight();
+	        		//set the tile to arrow tower
+	        		map[row][column] = new IceTower(tileX,tileY,tileWidth,tileHeight);
+	        		//decrease the money
+	        		coin.decreaseCurrency(iceTower.getCost());
+	        		//click once set once
+	        		this.isIceTowerOnMenu = false;
+	        }
+			
+			
+		}else if(tempY >= tileMap.getUpperOffSet() && 
+				tempY <= GamePanel.HEIGHT - tileMap.getLowerOffSet() &&
+				isCannonTowerOnMenu){
+			int column = tempX / tileMap.getCellWidth();
+			int temp = tempY - tileMap.getUpperOffSet();
+	        int row =  temp / tileMap.getCellHeight();
+	        System.out.println("this is x: "+row);
+	        System.out.println("this is y: "+column);
+	        if( map[row][column].getTileType() == TileMap.GRASS){
+				//get the original size
+	        		int tileX = map[row][column].getTileX();
+	        		int tileY = map[row][column].getTileY();
+	        		int tileWidth = map[row][column].getTileWidth();
+	        		int tileHeight = map[row][column].getTileHeight();
+	        		//set the tile to arrow tower
+	        		map[row][column] = new CannonTower(tileX,tileY,tileWidth,tileHeight);
+	        		//decrease the money
+	        		coin.decreaseCurrency(cannonTower.getCost());
+	        		//click once set once
+	        		this.isCannonTowerOnMenu = false;
+	        }
+			
+			
+		}else if(tempY >= tileMap.getUpperOffSet() && 
+				tempY <= GamePanel.HEIGHT - tileMap.getLowerOffSet() &&
+				isMagicTowerOnMenu){
+			int column = tempX / tileMap.getCellWidth();
+			int temp = tempY - tileMap.getUpperOffSet();
+	        int row =  temp / tileMap.getCellHeight();
+	        System.out.println("this is x: "+row);
+	        System.out.println("this is y: "+column);
+	        if( map[row][column].getTileType() == TileMap.GRASS){
+				//get the original size
+	        		int tileX = map[row][column].getTileX();
+	        		int tileY = map[row][column].getTileY();
+	        		int tileWidth = map[row][column].getTileWidth();
+	        		int tileHeight = map[row][column].getTileHeight();
+	        		//set the tile to arrow tower
+	        		map[row][column] = new MagicTower(tileX,tileY,tileWidth,tileHeight);
+	        		//decrease the money
+	        		coin.decreaseCurrency(magicTower.getCost());
+	        		//click once set once
+	        		this.isMagicTowerOnMenu = false;
+	        }
+			
 		}
 		
 	}
@@ -428,7 +494,7 @@ public class PlayState extends GameState{
 	public void mousePressed(MouseEvent e) {
 		
 		towerPressed(e);
-		setArrowTowerOnMap(e);
+		setTowerOnMap(e);
 		inspectTowerOnMap(e);
 		pressedUpgrade(e);
 		pressedSell(e);
@@ -533,7 +599,9 @@ public class PlayState extends GameState{
 	@Override
 	public void init() {
 		map     = tileMap.getMap();
-		monster = new MonsterTest();
+		LinkedList<Point> correctPath = tileMap.getCorrectPath();
+		monster = new MonsterTest(correctPath);
+		
 		
 		
 		
