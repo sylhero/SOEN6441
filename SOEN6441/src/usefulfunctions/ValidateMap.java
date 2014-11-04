@@ -387,30 +387,8 @@ public class ValidateMap {
 	
 	public static LinkedList<Point> getCorrectRoute(Tile [][] map) throws InvalidPathException
 	{
-		
-		boolean isValid = false;
-		
-		// initialize some member variables 
-		if(!initFlag)
-			init(map);
-		
-		// initialize  related parameters 
-		initPathPara(map);
-		
-		if(!(correctRoute.isEmpty()))
-			correctRoute.clear();
-		
-		isValid = recursiveSolve(entryX, entryY);
-		// will leave with a boolean array(correctPath)
-		// with the path indicated by true values.
-		// if result is false, there is no path to the exit
-		
-		if(isValid)
-			addExitPoint();
-		
-		initFlag = false; // set the flag back to false;
-		
-		if(isValid)
+				
+		if(validatePath(map))
 			return correctRoute;
 		else
 			throw new InvalidPathException("No correct path found !");
