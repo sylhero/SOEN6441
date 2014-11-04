@@ -33,8 +33,15 @@ public class PlayState extends GameState{
 	//draw boolean
 	private boolean isArrowTowerOnMenu;
 	private boolean isArrowTowerEntered;
-	private boolean isIceTowerOnMenu; 
 	
+	private boolean isIceTowerOnMenu; 
+	private boolean isIceTowerEntered;
+	
+	private boolean isCannonTowerOnMenu;
+	private boolean isCannonTowerEntered;
+	
+	private boolean isMagicTowerOnMenu;
+	private boolean isMagicTowerEntered;
 	//inspect tower on map boolean
 	
 	private boolean isPressedTowerOnMap;
@@ -132,6 +139,53 @@ public class PlayState extends GameState{
 			}
 			
 		}	
+		
+	/**
+	 * detect the icetower icon is entered
+	 * @param e
+	 */
+		private void detectIceTowerMoved(MouseEvent e){
+			int x = e.getX();
+			int y = e.getY();
+			
+			if(x >= 42 && x<=82 && y >= 5 && y <= 45){
+				this.isIceTowerEntered = true;
+			}else{
+				this.isIceTowerEntered = false; 
+			}
+		}
+		/**
+		 * detect firetower icon is entered
+		 * @param e
+		 */
+		
+		private void detectCannonTowerMoved(MouseEvent e){
+			int x = e.getX();
+			int y = e.getY();
+			
+			if(x >= 1 && x<=41 && y >= 46 && y <= 86){
+				this.isCannonTowerEntered = true;
+			}else{
+				this.isCannonTowerEntered = false; 
+			}
+		}
+		/**
+		 * detect magictower icon is entered
+		 * @param e
+		 */
+		
+		private void detectMagicTowerMoved(MouseEvent e){
+			int x = e.getX();
+			int y = e.getY();
+			
+			if(x >= 42 && x<=82 && y >= 46 && y <= 86){
+				this.isMagicTowerEntered = true;
+			}else{
+				this.isMagicTowerEntered = false; 
+			}
+		}
+		
+		
 
 
 	
@@ -159,7 +213,7 @@ public class PlayState extends GameState{
 	}
 	
 	/**
-	 * detect arrowTower icon
+	 * detect Tower icon
 	 * @param e
 	 */
 	private void towerPressed(MouseEvent e){
@@ -171,16 +225,41 @@ public class PlayState extends GameState{
 			isEnoughMoneyToBuild(arrowTower);
 			if(isEnoughCoinToBuild){
 				this.isArrowTowerOnMenu = true;
+				this.isCannonTowerOnMenu = false;
+				this.isIceTowerOnMenu = false;
+				this.isMagicTowerOnMenu = false;
 			}
 			
 		
 		}
-		// iceTower location TODO add more tower in the future
-//		else if(x >= 42 && x<=82 && y >= 5 && y <= 45){
-//			isEnoughMoneyToBuild(iceTower);
-//			if(isEnoughCoinToBuild){
-//				this.isIceTowerOnMenu = true;
-//			}
+		else if(x >= 42 && x<=82 && y >= 5 && y <= 45){
+			isEnoughMoneyToBuild(iceTower);
+			if(isEnoughCoinToBuild){
+				this.isArrowTowerOnMenu = false;
+				this.isCannonTowerOnMenu = false;
+				this.isIceTowerOnMenu = true;
+				this.isMagicTowerOnMenu = false;
+			}
+		}
+		else if(x >= 1 && x<=41 && y >= 46 && y <= 86){
+			isEnoughMoneyToBuild(cannonTower);
+			if(isEnoughCoinToBuild){
+				this.isArrowTowerOnMenu = false;
+				this.isCannonTowerOnMenu = true;
+				this.isIceTowerOnMenu = false;
+				this.isMagicTowerOnMenu = false;
+			}
+			
+		}
+		else if(x >= 42 && x<=82 && y >= 46 && y <= 86){
+			isEnoughMoneyToBuild(magicTower);
+			if(isEnoughCoinToBuild){
+				this.isArrowTowerOnMenu = false;
+				this.isCannonTowerOnMenu = false;
+				this.isIceTowerOnMenu = false;
+				this.isMagicTowerOnMenu = true;
+			}
+		}
 			
 		}
 		
@@ -191,7 +270,7 @@ public class PlayState extends GameState{
 	 * set the arrow tower on map
 	 * @param e
 	 */
-	private void setArrowTowerOnMap(MouseEvent e){
+	private void setTowerOnMap(MouseEvent e){
 		// TODO change name to setTowerOnMap figure out
 		// tower type based on the isBoolean;
 		int tempX = e.getX();
@@ -404,7 +483,10 @@ public class PlayState extends GameState{
 	@Override
 
 	public void mouseMoved(MouseEvent e) {
-		detectArrowTowerMoved(e);    
+		detectArrowTowerMoved(e);  
+		detectIceTowerMoved(e);
+		detectCannonTowerMoved(e);
+		detectMagicTowerMoved(e);
 
 	}
 
@@ -619,9 +701,28 @@ public class PlayState extends GameState{
 		if(isArrowTowerOnMenu){
 			drawTowerSelect(arrowTower,g);
 		}
+		if(isIceTowerOnMenu){
+			drawTowerSelect(iceTower,g);
+		}
+		if(isCannonTowerOnMenu){
+			drawTowerSelect(cannonTower,g);
+			
+		}
+		if(isMagicTowerOnMenu){
+			drawTowerSelect(magicTower,g);
+		}
 		//draw hover description
 		if(isArrowTowerEntered){
 			drawTowerDescription(arrowTower,g);
+		}
+		if(isIceTowerEntered){
+			drawTowerDescription(iceTower,g);
+		}
+		if(isCannonTowerEntered){
+			drawTowerDescription(cannonTower,g);
+		}
+		if(isMagicTowerEntered){
+			drawTowerDescription(magicTower,g);
 		}
 		//draw selected tower
 		if(selectedTower != null && isPressedTowerOnMap){
