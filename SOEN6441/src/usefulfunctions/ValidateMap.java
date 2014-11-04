@@ -9,10 +9,10 @@ import tilemap.TileMap;
 
 /**
  * The ValidateMap class implemented five functions which being used to check
- * entry, exit and path of user-defined map.
+ * entry, exit and path of user-defined map, also detects a correct route of given map.
  * 
  * @author Yichen LI
- * @version 1.0.7
+ * @version 1.1.0
  *
  */
 
@@ -359,18 +359,7 @@ public class ValidateMap {
 			}
 	}
 	
-	/**
-	 * This function returns an ArrayList which contains the path to exit 
-	 * 
-	 * @return an ArrayList  which contains correctRoute information
-	 * 
-	 */
-	
-	public static LinkedList<Point> getCorrectRoute()
-	{
-		return correctRoute;
-	}
-	
+
 
 	/**
 	 * This function is exclusively used by Junit test to set the flag back to false
@@ -384,8 +373,49 @@ public class ValidateMap {
 	}
 	
 	
+	//==========================================get correct route ========================================================
 
-
+	
+	
+	 /**
+	 * This function returns an linkedList contains necessary information to reach the exit  
+	 * 
+	 * @param map
+	 * @return a LinkedList contains correct route information.
+	 * @throws InvalidPathException 
+	 */
+	
+	public static LinkedList<Point> getCorrectRoute(Tile [][] map) throws InvalidPathException
+	{
+		
+		boolean isValid = false;
+		
+		// initialize some member variables 
+		if(!initFlag)
+			init(map);
+		
+		// initialize  related parameters 
+		initPathPara(map);
+		
+		if(!(correctRoute.isEmpty()))
+			correctRoute.clear();
+		
+		isValid = recursiveSolve(entryX, entryY);
+		// will leave with a boolean array(correctPath)
+		// with the path indicated by true values.
+		// if result is false, there is no path to the exit
+		
+		if(isValid)
+			addExitPoint();
+		
+		initFlag = false; // set the flag back to false;
+		
+		if(isValid)
+			return correctRoute;
+		else
+			throw new InvalidPathException("No correct path found !");
+	}
+	
 }
 
 
