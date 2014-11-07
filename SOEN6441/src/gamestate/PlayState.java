@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import currency.Coin;
-import entity.ArrowTower;
-import entity.CannonTower;
-import entity.IceTower;
-import entity.MagicTower;
-import entity.MonsterTest;
-import entity.TowerBase;
-import entity.TowerFactory;
 import gamepanel.GamePanel;
 import tilemap.Tile;
 import tilemap.TileMap;
+import towers.ArrowTower;
+import towers.CannonTower;
+import towers.IceTower;
+import towers.MagicTower;
+import towers.MonsterTest;
+import towers.TowerBase;
+import towers.TowerFactory;
 /**
  * 
  * @author yulongsong

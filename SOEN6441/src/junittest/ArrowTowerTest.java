@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import entity.ArrowTower;
+import towers.ArrowTower;
 
 /**
  * This class for used for test ArrowTower class in package entity.

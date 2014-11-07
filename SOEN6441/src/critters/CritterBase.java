@@ -1,4 +1,4 @@
-package entity;
+package critters;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -30,6 +30,7 @@ public abstract class CritterBase {
 	protected int x, y;
 	protected int movePoint;
 	protected int moveStandard = 0;	// benchmark of moving
+	protected Point startPoint;
 	
 	
 	
@@ -37,39 +38,9 @@ public abstract class CritterBase {
 	protected int currentHp;
 	protected int originalHp;
 	protected float armorRatio;
-	protected int speed;
 	protected boolean atExit;
 	protected int value; // value of critter
 
-	
-	
-//	public MonsterTest(LinkedList<Point> correctPath,int movePoint){
-//		this.tileMap         = TileMap.getTileMap();
-//		this.map             = tileMap.getMap();
-//		this.correctPath     = correctPath;
-//		this.correctPathCopy = copyCorrectPath();
-//		//start position
-//		Point startPoint     = correctPathCopy.pollFirst();
-//		//initial position
-//		this.x               = startPoint.y*tileMap.getCellWidth();
-//		this.y               = tileMap.getUpperOffSet()+startPoint.x*tileMap.getCellHeight();
-//		//speed offset slow:1 normal:2 fast:4
-//		this.speedOffsetX    = 2;
-//		this.speedOffsetY    = 2;
-//		//set next point
-//		this.nextPoint       = correctPathCopy.pollFirst();
-//		this.originalHp      = 5000;
-//		this.currentHp       = 5000;
-//		this.image           = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
-//		
-//		this.value 	         = 100;
-//		//keep some space between multiple critters
-//		this.movePoint       = movePoint;
-//		//reach the exit
-//		
-//		this.isExit          = false;
-//		
-//	}
 	
 	/**
 	 *To decrease HP of critters.
@@ -96,12 +67,7 @@ public abstract class CritterBase {
 		{
 			temp.add(iterator.next());
 		}
-
-//		for(int i = 0; i < correctRoute.size(); i++)
-//		{
-//			temp.add(correctRoute.get(i));
-//		}
-//		
+	
 		return temp;
 		
 	}
@@ -245,33 +211,7 @@ public abstract class CritterBase {
 
 		}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-//	public CritterBase decreaseHp(CritterBase critter, TowerBase tower)
-//	{
-//		if(critter.getHp() - tower.getPower() * (1 - critter.getArmorRatio()) > 0)
-//			critter.setHp(critter.getHp() - tower.getPower() * critter.getArmorRatio());
-//		else
-//			critter.setAlive(false);
-//		
-//		return critter;
-//		
-//	}
 
 //============================================setters and getters=========================================================
 	
@@ -303,25 +243,6 @@ public abstract class CritterBase {
 	 * @return speed
 	 */
 
-	public int getSpeed() {
-		return speed;
-	}
-
-	/**
-	 * To set speed.
-	 * 
-	 * @param speed
-	 */
-	
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-	
-	/**
-	 * To get is the critter still alive.
-	 * 
-	 * @return isAlive
-	 */
 
 
 	

@@ -1,4 +1,4 @@
-package entity;
+package critters;
 
 import java.awt.Point;
 import java.util.LinkedList;
@@ -16,7 +16,7 @@ public class NormalCritter extends CritterBase {
 		this.correctRouteCopy = super.copyCorrectRoute();
 		
 		//start position
-		Point startPoint = correctRoute.pollFirst();
+		this.startPoint = correctRoute.pollFirst();
 		
 		//initial position
 		this.x = startPoint.y * tileMap.getCellWidth();

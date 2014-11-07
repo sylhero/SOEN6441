@@ -1,10 +1,4 @@
 package tilemap;
-import entity.ArrowTower;
-import entity.CannonTower;
-import entity.IceTower;
-import entity.MagicTower;
-import entity.TowerBase;
-import entity.TowerFactory;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
@@ -24,6 +18,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import currency.Coin;
+import towers.ArrowTower;
+import towers.CannonTower;
+import towers.IceTower;
+import towers.MagicTower;
+import towers.TowerBase;
+import towers.TowerFactory;
 import usefulfunctions.LoadImage;
 import xml.MapParser;
 /**
