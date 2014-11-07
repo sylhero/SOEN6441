@@ -19,12 +19,12 @@ public class ImageSplitter {
 	 */
     public static void main(String[] args) throws IOException {
 
-        File file = new File("tiles.png"); // I have bear.jpg in my working directory
+        File file = new File("/Users/yulongsong/Google Drive/workspace/SOEN6441/SOEN6441/resources/images/arrow.png"); // I have bear.jpg in my working directory
         FileInputStream fis = new FileInputStream(file);
         BufferedImage image = ImageIO.read(fis); //reading the image file
 
-        int rows = 97; //You could decide the values for rows and cols variables
-        int cols = 8;
+        int rows = 3; //You could decide the values for rows and cols variables
+        int cols = 5;
         int chunks = rows * cols;
 
         int chunkWidth = image.getWidth() / cols; // determines the chunk's width and height

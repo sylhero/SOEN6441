@@ -2,6 +2,7 @@ package entity;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.util.ArrayList;
 
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
@@ -14,7 +15,8 @@ import usefulfunctions.LoadImage;
  */
 
 public class MagicTower extends TowerBase{
-	public static final Image magicTower  = LoadImage.loadImage("/images/magictower.png");
+	public static final Image magicTower         = LoadImage.loadImage("/images/magictower.png");
+	public static final Image magicTowerEffect   = LoadImage.loadImageIcon("/images/magictowereffect.gif").getImage();
 	public static final int MAGICTOWERTYPE  = 7;
 	/**
 	 * This is the constructor with no parameter, assign the initial value of the attributes.
@@ -26,9 +28,9 @@ public class MagicTower extends TowerBase{
 		super.tileImage = magicTower;
 		super.level = 0;
 		super.cost  = 15;
-		super.groupAttack = false;
+		super.groupAttack = true;
 		super.power = 10;
-		super.range = 1;
+		super.range = 2*TileMap.getTileMap().getCellWidth();
 		super.refundRate = 0.5;
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;	
@@ -56,9 +58,9 @@ public class MagicTower extends TowerBase{
 		super.tileWidth = tileWidth;
 		super.level = 0;
 		super.cost  = 15;
-		super.groupAttack = false;
+		super.groupAttack = true;
 		super.power = 10;
-		super.range = 1;
+		super.range = 2*tileWidth;
 		super.refundRate = 0.5;
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;
@@ -67,12 +69,7 @@ public class MagicTower extends TowerBase{
 	}
 	
 	//The above two method will be used in the later builds.
-	public void update(){
-		
-	}
-	public void draw(Graphics2D g){
-		
-	}
+	
 	/**
 	 * When a tower be upgraded, its power, level and upgradeCose would be increased. 
 	 */
@@ -81,6 +78,21 @@ public class MagicTower extends TowerBase{
 		this.power += 5;
 		this.level += 1;
 		this.upgradeCost += 5;
+		
+	}
+	@Override
+	public void fire(MonsterTest monster) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void draw(Graphics2D g) {
+		// TODO Auto-generated method stub
 		
 	}
 

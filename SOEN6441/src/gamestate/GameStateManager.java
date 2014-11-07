@@ -20,8 +20,10 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	public static final int SELECTMAP = 1;
 	public static final int GAMESTART = 2;
 	public static final int CREATEMAP = 3;
-	public static final int LOADGAME  = 4;
-	public static final int EXIT	  = 5;
+	public static final int GAMEOVER  = 4;
+	public static final int LOADGAME  = 5;
+	public static final int EXIT	  = 6;
+	
 	/**
 	 * constructor add states
 	 */
@@ -32,6 +34,7 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 		gameStates.add(new SelectMapState(this));
 		gameStates.add(new PlayState(this));
 		gameStates.add(new CreateMapState(this));
+		gameStates.add(new GameOverState(this));
 	}
 	/**
 	 * switch among different game states

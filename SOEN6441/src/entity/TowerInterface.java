@@ -1,4 +1,7 @@
 package entity;
+
+import java.util.ArrayList;
+
 /**
  * This the interface of Tower.
  * It only contains one method now. 
@@ -16,5 +19,6 @@ public interface TowerInterface {
 	 * in the upgrade method, some attributes's values of a tower may be increased. 
 	 */
 	void upgrade();
+	void fire(MonsterTest monster);
 
 }

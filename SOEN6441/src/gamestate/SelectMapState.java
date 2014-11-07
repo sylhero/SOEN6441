@@ -104,6 +104,7 @@ public class SelectMapState extends GameState{
 			String path = file.getAbsolutePath();
 			//load the map first
 			Tile[][] tempMap = tileMap.loadMap(path);
+			//System.out.println(tileMap.getCellHeight());
 			tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){

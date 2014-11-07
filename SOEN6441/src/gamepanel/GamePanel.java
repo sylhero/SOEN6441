@@ -79,14 +79,10 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
 	 */
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		long beforeTime, timeDiff, sleep;
-		
-
         beforeTime = System.currentTimeMillis();
         while (true) {
-        
-        		checkPause();
+        	checkPause();
             gameUpdate();
             gameRender();
             drawToScreen();
@@ -95,7 +91,7 @@ public class GamePanel extends JPanel implements Runnable,MouseMotionListener,Mo
             sleep = DELAY - timeDiff;
 
             if (sleep < 0) {
-                sleep = 2;
+                sleep = 10;
             }
 
             try {

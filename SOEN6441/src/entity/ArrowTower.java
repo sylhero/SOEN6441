@@ -2,6 +2,9 @@ package entity;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.util.ArrayList;
+
+import currency.Coin;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 /**
@@ -11,7 +14,8 @@ import usefulfunctions.LoadImage;
  * @author Yulong Song, Xunrong Xia
  */
 public class ArrowTower extends TowerBase{
-	public static final Image arrowTower  = LoadImage.loadImage("/images/arrowtower.png");
+	public static final Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
+	public static final Image arrowTowerEffect   = LoadImage.loadImageIcon("/images/arrowtowereffect.gif").getImage();
 	public static final int ARROWTOWERTYPE  = 4;
 	
 	/**
@@ -27,12 +31,14 @@ public class ArrowTower extends TowerBase{
 		super.cost  = 15;
 		super.groupAttack = false;
 		super.power = 10;
-		super.range = 1;
+		super.range = 2*TileMap.getTileMap().getCellWidth();
 		super.refundRate = 0.5;
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;	
 		super.value = this.cost;
 		super.specialEffect = "None";
+		super.targets = new ArrayList<MonsterTest>();
+		super.singleTarget = null;
 	}
 	
 	/**
@@ -57,21 +63,19 @@ public class ArrowTower extends TowerBase{
 		super.cost  = 15;
 		super.groupAttack = false;
 		super.power = 10;
-		super.range = 1;
+		super.range = 2*tileWidth;
 		super.refundRate = 0.5;
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;
 		super.value = this.cost;
 		super.specialEffect = "None";
+		super.targets = new ArrayList<MonsterTest>();
+		super.singleTarget = null;
+		
 	}
 	
 	//The above two method will be used in the later builds.
-	public void update(){
-		
-	}
-	public void draw(Graphics2D g){
-
-	}
+	
 	
 	/**
 	 * When a tower be upgraded, its power, level and upgradeCose would be increased. 
@@ -83,6 +87,76 @@ public class ArrowTower extends TowerBase{
 		this.level += 1;
 		this.upgradeCost += 5;
 		this.value = level * upgradeCost + cost;
+		
+	}
+
+	
+	@Override
+	public void fire(MonsterTest monster) {
+			
+			int monsterX   = monster.getX();
+			int monsterY   = monster.getY();
+			int monsterCenterX = monsterX + TileMap.getTileMap().getCellHeight() / 2;
+			int monsterCenterY = monsterY + TileMap.getTileMap().getCellWidth() / 2;
+			int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
+			int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
+			double distance = Math.sqrt(Math.pow(monsterCenterX-towerCenterX, 2) + 
+					Math.pow(monsterCenterY-towerCenterY, 2));
+			//System.out.println(distance);
+			if(distance <= range){
+//				
+//				if(!targets.contains(monster)&& monster.getCurrentHP()>0){
+//					targets.add(monster);
+//				}
+				System.out.printf("target size:%d\n",targets.size());
+				if(this.groupAttack==false && super.singleTarget == null){
+					super.singleTarget = monster;
+				}
+//				if(this.groupAttack==false && targets.size()>0){
+//					super.singleTarget = targets.get(0);
+//				}
+				if(singleTarget!=null){
+					int targetHP = singleTarget.getCurrentHP();
+					singleTarget.setCurrentHP(targetHP-this.power);
+					if(singleTarget.getCurrentHP()<=0){
+						coin.increaseCurrency(singleTarget.getValue());
+						//targets.remove(singleTarget);
+						singleTarget = null;
+					}
+					
+				}
+				
+				
+			}else{
+				singleTarget = null;
+			}
+		
+			
+		}
+		
+		
+	
+	
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+	private void drawEffect(Graphics2D g){
+		if(singleTarget!=null){
+			System.out.printf("this is draw: %d\n",singleTarget.getX());
+			g.drawImage(arrowTowerEffect, singleTarget.getX(), 
+					singleTarget.getY(), TileMap.getTileMap().getCellWidth(),
+					TileMap.getTileMap().getCellHeight(),null);
+		}
+		
+	}
+
+	@Override
+	public void draw(Graphics2D g) {
+		// TODO Auto-generated method stub
+		drawEffect(g);
 		
 	}
 	

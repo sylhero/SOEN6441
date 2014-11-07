@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import currency.Coin;
@@ -49,9 +50,7 @@ public class PlayState extends GameState{
 	private boolean isEnoughCoinToBuild;
 	private boolean isEnoughCoinToUpgrade;
 	
-	//boolean for sell and upgrade buttons
-	private boolean isSell;
-	private boolean isUpgrade;
+	
 	//factory
 	TowerFactory towerFactory;
 	
@@ -75,17 +74,22 @@ public class PlayState extends GameState{
 
 	private boolean isPaused;
 
-	//control the speed
-
-	private int speed;
 	
 	//font
 	
 	private Font font;
 	
 	//monster
-	
+
+	private ArrayList<MonsterTest> monsterBatch;
 	private MonsterTest monster;
+	
+	//tower
+	
+	private ArrayList<TowerBase> towerList;
+	
+	//boolean isNextWave
+	private boolean isNextWave;
 	
 	/**
 	 * constructor
@@ -93,33 +97,27 @@ public class PlayState extends GameState{
 	 */
 	public PlayState(GameStateManager gsm){
 
-		this.gsm = gsm;
+		this.gsm      = gsm;
 		
-		isPaused = false;
+		isPaused      = false;
+		
+		isNextWave    = false;
 
-		tileMap = TileMap.getTileMap();
+		tileMap       = TileMap.getTileMap();
 		
-		towerFactory = new TowerFactory();
+		towerFactory  = new TowerFactory();
 		
-		coin        = Coin.getCoinObject(); 
+		coin          = Coin.getCoinObject(); 
 		
-		arrowTower  = towerFactory.getTower("arrowtower");
+		monsterBatch  = new ArrayList<MonsterTest>();
 		
-		iceTower    = towerFactory.getTower("icetower");
+		font          = new Font("Arial",Font.BOLD,12);
 		
-		cannonTower = towerFactory.getTower("cannontower");
-		
-		magicTower  = towerFactory.getTower("magictower");
-		
-		font        = new Font("Arial",Font.BOLD,12);
+		towerList     = new ArrayList<TowerBase>();
 		
 	}
 
-	//initialize the monsters
-//	private void initializeMonsters(){
-//
-//
-//	}
+	
 //===============FROM HERE MOUSE EVENT DETECTION================================
 	/**
 	 * detect the arrowtower icon is entered
@@ -279,8 +277,8 @@ public class PlayState extends GameState{
 			int column = tempX / tileMap.getCellWidth();
 			int temp = tempY - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
-	        System.out.println("this is x: "+row);
-	        System.out.println("this is y: "+column);
+	        //System.out.println("this is x: "+row);
+	        //System.out.println("this is y: "+column);
 	        //this should be in tower.class
 	        
 	        if( map[row][column].getTileType() == TileMap.GRASS){
@@ -290,7 +288,10 @@ public class PlayState extends GameState{
 	        		int tileWidth = map[row][column].getTileWidth();
 	        		int tileHeight = map[row][column].getTileHeight();
 	        		//set the tile to arrow tower
-	        		map[row][column] = new ArrowTower(tileX,tileY,tileWidth,tileHeight);
+	        		ArrowTower arrowTower = new ArrowTower(tileX,tileY,tileWidth,tileHeight);
+	        		map[row][column] = arrowTower;
+	        		//add tower to towerlist
+	        		towerList.add(arrowTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(arrowTower.getCost());
 	        		//click once set once
@@ -302,8 +303,8 @@ public class PlayState extends GameState{
 			int column = tempX / tileMap.getCellWidth();
 			int temp = tempY - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
-	        System.out.println("this is x: "+row);
-	        System.out.println("this is y: "+column);
+	        //System.out.println("this is x: "+row);
+	        //System.out.println("this is y: "+column);
 	        if( map[row][column].getTileType() == TileMap.GRASS){
 				//get the original size
 	        		int tileX = map[row][column].getTileX();
@@ -311,7 +312,10 @@ public class PlayState extends GameState{
 	        		int tileWidth = map[row][column].getTileWidth();
 	        		int tileHeight = map[row][column].getTileHeight();
 	        		//set the tile to arrow tower
-	        		map[row][column] = new IceTower(tileX,tileY,tileWidth,tileHeight);
+	        		IceTower iceTower = new IceTower(tileX,tileY,tileWidth,tileHeight);
+	        		map[row][column] = iceTower;
+	        		//add tower to towerlist
+	        		towerList.add(iceTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(iceTower.getCost());
 	        		//click once set once
@@ -325,8 +329,8 @@ public class PlayState extends GameState{
 			int column = tempX / tileMap.getCellWidth();
 			int temp = tempY - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
-	        System.out.println("this is x: "+row);
-	        System.out.println("this is y: "+column);
+	        //System.out.println("this is x: "+row);
+	        //System.out.println("this is y: "+column);
 	        if( map[row][column].getTileType() == TileMap.GRASS){
 				//get the original size
 	        		int tileX = map[row][column].getTileX();
@@ -334,7 +338,10 @@ public class PlayState extends GameState{
 	        		int tileWidth = map[row][column].getTileWidth();
 	        		int tileHeight = map[row][column].getTileHeight();
 	        		//set the tile to arrow tower
-	        		map[row][column] = new CannonTower(tileX,tileY,tileWidth,tileHeight);
+	        		CannonTower cannonTower = new CannonTower(tileX,tileY,tileWidth,tileHeight);
+	        		map[row][column] = cannonTower;
+	        		//add tower to towerlist
+	        		towerList.add(cannonTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(cannonTower.getCost());
 	        		//click once set once
@@ -348,16 +355,19 @@ public class PlayState extends GameState{
 			int column = tempX / tileMap.getCellWidth();
 			int temp = tempY - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
-	        System.out.println("this is x: "+row);
-	        System.out.println("this is y: "+column);
+//	        System.out.println("this is x: "+row);
+//	        System.out.println("this is y: "+column);
 	        if( map[row][column].getTileType() == TileMap.GRASS){
 				//get the original size
 	        		int tileX = map[row][column].getTileX();
 	        		int tileY = map[row][column].getTileY();
 	        		int tileWidth = map[row][column].getTileWidth();
 	        		int tileHeight = map[row][column].getTileHeight();
-	        		//set the tile to arrow tower
-	        		map[row][column] = new MagicTower(tileX,tileY,tileWidth,tileHeight);
+	        		//set the tile to magic tower
+	        		MagicTower magicTower = new MagicTower(tileX,tileY,tileWidth,tileHeight);
+	        		map[row][column] = magicTower;
+	        		//add tower to towerlist
+	        		towerList.add(magicTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(magicTower.getCost());
 	        		//click once set once
@@ -381,8 +391,8 @@ public class PlayState extends GameState{
 			int column = tempX / tileMap.getCellWidth();
 			int temp = tempY - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
-	        System.out.println("this is x: "+row);
-	        System.out.println("this is y: "+column);
+//	        System.out.println("this is x: "+row);
+//	        System.out.println("this is y: "+column);
 	        //this should be in tower.class
 	        
 	        if( map[row][column].getClass().getSuperclass() == TowerBase.class){
@@ -415,13 +425,13 @@ public class PlayState extends GameState{
 
 		System.out.println(y);
 
-		if(x >= 0 && x <= 30 && y >=0 && y<=30 ){
+		if(x >= 0 && x <= 400 && y >=500 && y<=600 ){
 
 		this.pause(true);
 
 		}
 
-		if(x > 30 && x <= 60 && y >=0 && y<=30 ){
+		if(x > 400 && x <= 800 && y >=500 && y<=600 ){
 
 		this.pause(false);
 
@@ -442,7 +452,7 @@ public class PlayState extends GameState{
 	private void pressedSell(MouseEvent e){
 		int tempX = e.getX();
 		int tempY = e.getY();
-		if(tempX >= 600 && tempX <= 660 &&
+		if(tempX >= 450 && tempX <= 510 &&
 				tempY >= 50 && tempY <= 90 && isPressedTowerOnMap){
 			//calculate row and column 
 			// TODO should the tile object has these parameters?
@@ -456,6 +466,9 @@ public class PlayState extends GameState{
 	        map[row][column] = new Tile(TileMap.GRASS,TileMap.grass,
 	        		selectedTower.getTileX(),selectedTower.getTileY(), 
 	        		selectedTower.getTileWidth(), selectedTower.getTileHeight());
+	        
+	        //remove tower from towerList
+	        towerList.remove(towerTemp);
 	        //clear the selection
 	        isPressedTowerOnMap = false;
 		}
@@ -468,7 +481,7 @@ public class PlayState extends GameState{
 		private void pressedUpgrade(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
-			if(tempX >= 600 && tempX <= 660 &&
+			if(tempX >= 450 && tempX <= 510 &&
 					tempY >= 5 && tempY <= 45 && 
 					isEnoughCoinToUpgrade && isPressedTowerOnMap){
 				//calculate row and column 
@@ -485,6 +498,34 @@ public class PlayState extends GameState{
 	        
 		
 	}
+		private void pressNextWave(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 2 && tempX <= 202 &&
+					tempY >= 502 && tempY <= 598){
+				this.isNextWave = true;
+			}
+		}
+		/**
+		 * press the weakest strategy
+		 * @param e
+		 */
+		private void pressWeakestSrategy(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 568 && tempX <= 628 &&
+					tempY >= 5 && tempY <= 45 && isPressedTowerOnMap){
+				//calculate row and column 
+				int column = selectedTower.getTileX() / tileMap.getCellWidth();
+				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
+		        int row =  temp / tileMap.getCellHeight();
+		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        //towerTemp.setStrategy();
+		        	
+			}
+	        
+			
+		}
 		/**
 		 * mouse press event
 		 * @param e
@@ -498,6 +539,8 @@ public class PlayState extends GameState{
 		inspectTowerOnMap(e);
 		pressedUpgrade(e);
 		pressedSell(e);
+		pressNextWave(e);
+		//pausePressed(e);
 	
 
 	}
@@ -590,6 +633,12 @@ public class PlayState extends GameState{
 	public boolean pause(){
 		return this.isPaused;
 	}
+	public void fillBatch(){
+		LinkedList<Point> correctPath = tileMap.getCorrectPath();
+		for(int i =0; i < 5;i++){
+			monsterBatch.add(new MonsterTest(correctPath,i*35));	
+		}
+	}
 
 	
 	/**
@@ -599,13 +648,19 @@ public class PlayState extends GameState{
 	@Override
 	public void init() {
 		map     = tileMap.getMap();
-		LinkedList<Point> correctPath = tileMap.getCorrectPath();
-		monster = new MonsterTest(correctPath);
 		
+		arrowTower  = towerFactory.getTower("arrowtower");
 		
+		iceTower    = towerFactory.getTower("icetower");
 		
+		cannonTower = towerFactory.getTower("cannontower");
 		
+		magicTower  = towerFactory.getTower("magictower");
+		
+		fillBatch();
+			
 	}
+	
 	/**
 	 * update
 	 * 
@@ -613,12 +668,70 @@ public class PlayState extends GameState{
 
 	@Override
 	public void update() {
-		try{
-			Thread.sleep(20);
-		}catch(Exception e){
-			e.printStackTrace();
+		if(isNextWave){	
+
+			for(int i = 0;i < monsterBatch.size();i++){
+				monsterBatch.get(i).update();
+				if(monsterBatch.get(i).getIsExit()==true){
+					gsm.switchState(GameStateManager.GAMEOVER);
+				}
+				for (int j = 0; j < towerList.size(); j++){
+					
+					if(monsterBatch.get(i).getCurrentHP()<=0){
+						//remove dead monsters from the batch
+						monsterBatch.remove(i);
+						if(monsterBatch.size()==0){
+							
+							break;
+						}
+					}
+						towerList.get(j).fire(monsterBatch.get(i));
+					}
+				if(monsterBatch.size()==0){
+					isNextWave = false;
+					fillBatch();
+					break;
+				}
+				//TODO switch to game over if reach here one of the monsters reach the exit
+				//
+			}
+//				System.out.println("outerest");
+//				//middle loop the size of each monster batch
+//				for(int j = 0; j< monsterBatch.get(i).size(); j++){
+//					System.out.printf("i is %d, size is %d\n", i,monsterBatch.get(i).size());
+//					System.out.println("innerest");
+//					monsterBatch.get(i).get(j).update();
+//					
+//					//innerest loop the size of the towers
+//					for (int k = 0; k< towerList.size();k++){
+//						if(monsterBatch.get(i).get(j).getCurrentHP()<=0){
+//							//remove dead monsters from the batch
+//							monsterBatch.get(i).remove(j);
+//							if(monsterBatch.get(i).size()==0){
+//								isNextWave = false;
+//								System.out.println("break1");
+//								break;
+//							}
+//						
+//					}	//fire on monsters
+//						
+//						}
+//						//if the batch size == 0 end of the wave
+//						if(monsterBatch.get(i).size()==0){
+//							System.out.println("break2");
+//							break;
+//						}
+//						
+//				}
+//					if(monsterBatch.get(i).size()==0){
+//						monsterBatch.remove(i);
+//						System.out.println("break3");
+//						break;
+//					}
+//			}
+			
 		}
-		monster.update();
+		
 	}
 //============FROM HERE DRAWING BEGIN==================================
 	/**
@@ -632,6 +745,13 @@ public class PlayState extends GameState{
 					selectedTower.getTileWidth(), 
 					selectedTower.getTileHeight());
 			
+		}
+		//TODO here
+		private void drawSelectedRange(Graphics2D g){
+			g.setColor(Color.YELLOW);
+			g.drawOval(selectedTower.getTileX()+tileMap.getCellWidth()/2-selectedTower.getRange(), 
+					selectedTower.getTileY()+tileMap.getCellHeight()/2-selectedTower.getRange(), 
+					2*selectedTower.getRange(), 2*selectedTower.getRange());
 		}
 	/**
 	 * draw tower selection
@@ -658,7 +778,7 @@ public class PlayState extends GameState{
 	 */
 	private void drawTowerDescription(TowerBase towerBase, Graphics2D g){
 		g.setColor(Color.WHITE);
-		g.fillRect(100, 0, 400, 98);
+		g.fillRect(100, 0, 345, 98);
 		g.setColor(Color.BLACK);
 		g.setFont(font);
 		String name = towerBase.getName();
@@ -701,22 +821,38 @@ public class PlayState extends GameState{
 			g.drawImage(MagicTower.magicTower, 42, 48, 40,40,null);
 			g.setColor(Color.WHITE);
 			//upgrade button location
-			g.fillRect(600, 5, 60, 40);
+			g.fillRect(450, 5, 60, 40);
 			//sell button location
-			g.fillRect(600, 50, 60, 40);
+			g.fillRect(450, 50, 60, 40);
+			//weakest strategy button location
+			g.fillRect(518, 5, 60, 40);
+			//strongest strategy button location
+			g.fillRect(518, 50, 60, 40);
+			//farthest strategy button 
+			g.fillRect(582, 5, 60,40);
+			//nearest strategy button
+			g.fillRect(582, 50, 60, 40);
 			g.setColor(Color.BLACK);
 			g.setFont(font);
 			String upgrade = "Upgrade";
-			g.drawString(upgrade, 605, 30);
+			g.drawString(upgrade, 455, 30);
 			String sell = "Sell";
-			g.drawString(sell, 615, 71);
-			g.drawImage(Coin.coinImage, 700, 0, 30, 30, null);
+			g.drawString(sell, 465, 71);
+			String weakest = "Weakest";
+			g.drawString(weakest, 523, 30);
+			String srongest = "Strongest";
+			g.drawString(srongest, 521, 71);
+			String farthest = "Farthest";
+			g.drawString(farthest, 587, 30);
+			String nearest ="Nearest";
+			g.drawString(nearest, 587, 71);
+			g.drawImage(Coin.coinImage, 650, 0, 30, 30, null);
 			
 			if(isPressedTowerOnMap){
 				g.setColor(Color.GREEN);
-				g.fillRect(600, 50, 60, 40);
+				g.fillRect(450, 50, 60, 40);
 				g.setColor(Color.BLACK);
-				g.drawString(sell, 615, 71);
+				g.drawString(sell, 465, 71);
 				
 				isEnoughMoneyToUpgrate();
 			}
@@ -724,9 +860,9 @@ public class PlayState extends GameState{
 			
 			if(isPressedTowerOnMap && isEnoughCoinToUpgrade){
 				g.setColor(Color.GREEN);
-				g.fillRect(600, 5, 60, 40);
+				g.fillRect(450, 5, 60, 40);
 				g.setColor(Color.BLACK);
-				g.drawString(upgrade, 605, 30);
+				g.drawString(upgrade, 455, 30);
 				
 			}
 	}
@@ -735,20 +871,22 @@ public class PlayState extends GameState{
 		 * @param g
 		 */
 		private void drawBottomMenu(Graphics2D g){
+			g.setColor(Color.GRAY);
+			g.fillRect(1, 501, GamePanel.WIDTH-2, 
+					GamePanel.HEIGHT - tileMap.getUpperOffSet()-2);
+			g.setColor(Color.BLACK);
+			g.drawRect(0, 500, GamePanel.WIDTH-1,
+					GamePanel.HEIGHT - tileMap.getUpperOffSet()-2);
 			g.setColor(Color.GREEN);
-			g.fillRect(0, 500, 400, 100);
+			if(isNextWave){
+				g.setColor(Color.WHITE);
+			}
+			g.fillRect(2, 502, 200, 96);
 			g.setFont(new Font("Arial",Font.BOLD,30));
 			g.setColor(Color.RED);
-			String firstLine = "To be continued...";
+			String firstLine = "NEXT WAVE";
 			g.drawString(firstLine, 10, 550);
-			g.setColor(Color.MAGENTA);
-			g.fillRect(450, 500, 80, 40);
-			g.setColor(Color.YELLOW);
-			String pause = "Pause";
-			g.setFont(new Font("Arial",Font.BOLD,20));
-			g.drawString(pause, 455, 520);
 			
-				
 		}
 	
 	/**
@@ -781,6 +919,7 @@ public class PlayState extends GameState{
 		}
 		//draw hover description
 		if(isArrowTowerEntered){
+			
 			drawTowerDescription(arrowTower,g);
 		}
 		if(isIceTowerEntered){
@@ -794,10 +933,29 @@ public class PlayState extends GameState{
 		}
 		//draw selected tower
 		if(selectedTower != null && isPressedTowerOnMap){
-			drawSelectedArea(g);
+			//drawSelectedArea(g);
 			drawTowerDescription(selectedTower,g);
+			drawSelectedRange(g);
 		}
-		monster.draw(g);
+		if(isNextWave){
+			for(int i = 0; i<monsterBatch.size();i++){
+				monsterBatch.get(i).draw(g);
+				
+				if(monsterBatch.size()==0){
+					break;
+				}
+				
+				
+			}
+			for(int j = 0; j< towerList.size(); j++){
+				towerList.get(j).draw(g);
+			}
+			
+			
+		}
+		
+		
+		
 		
 	}
 	/**

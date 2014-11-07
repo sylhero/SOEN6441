@@ -59,6 +59,9 @@ public class Coin {
 	
 	public void decreaseCurrency(int amount) {
 		coin -= amount;
+		if(coin < 0){
+			coin = 0;
+		}
 		
 	}
 
@@ -86,7 +89,7 @@ public class Coin {
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
 		String coinString = String.valueOf(coin);
-		g.drawString(coinString, 740, 25);
+		g.drawString(coinString, 690, 25);
 	}
 	
 

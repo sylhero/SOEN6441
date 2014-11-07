@@ -1,6 +1,12 @@
 package entity;
 
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import currency.Coin;
 import tilemap.Tile;
+import tilemap.TileMap;
 
 /**
  * This is the abstract class for all kinds of towers.
@@ -23,6 +29,10 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	protected String specialEffect;
 	protected int value; //The initial value will be same as the cost, but after the tower upgrade, the value would be changed.
 	protected Tile[][] map;
+	protected ArrayList<MonsterTest> targets;
+	protected MonsterTest singleTarget;
+	protected Coin coin = Coin.getCoinObject();
+	
 	
 	/**
 	 * Get the tower's value. 
@@ -209,6 +219,13 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	public void setName(String name) {
 		this.name = name;
 	}
+	public ArrayList<MonsterTest> getTarget(){
+		return targets;
+	}
+	
+	public abstract void update();
+	public abstract void draw(Graphics2D g);
+
 	
 	
 }
