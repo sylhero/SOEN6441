@@ -6,8 +6,22 @@ import java.util.LinkedList;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 
+/**
+ * Normal critters which is a sub-class of CritterBase.
+ * 
+ * @author Yichen LI
+ * @version 1.1.1
+ *
+ */
+
 public class NormalCritter extends CritterBase {
 
+	/**
+	 * Constructor
+	 * 
+	 * @param correctRoute
+	 * @param movePoint
+	 */
 	public NormalCritter(LinkedList<Point> correctRoute, int movePoint)
 	{
 		this.tileMap = TileMap.getTileMap();

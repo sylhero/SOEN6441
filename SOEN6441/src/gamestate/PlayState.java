@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import critters.CritterBase;
+import critters.CritterFactory;
 import currency.Coin;
 import gamepanel.GamePanel;
 import tilemap.Tile;
@@ -16,7 +18,7 @@ import towers.ArrowTower;
 import towers.CannonTower;
 import towers.IceTower;
 import towers.MagicTower;
-import towers.MonsterTest;
+//import towers.MonsterTest;
 import towers.TowerBase;
 import towers.TowerFactory;
 /**
@@ -81,8 +83,8 @@ public class PlayState extends GameState{
 	
 	//monster
 
-	private ArrayList<MonsterTest> monsterBatch;
-	private MonsterTest monster;
+	private ArrayList<CritterBase> critterBatch;
+	private CritterBase critter;
 	
 	//tower
 	
@@ -109,7 +111,7 @@ public class PlayState extends GameState{
 		
 		coin          = Coin.getCoinObject(); 
 		
-		monsterBatch  = new ArrayList<MonsterTest>();
+		critterBatch  = new ArrayList<CritterBase>();
 		
 		font          = new Font("Arial",Font.BOLD,12);
 		
@@ -636,7 +638,7 @@ public class PlayState extends GameState{
 	public void fillBatch(){
 		LinkedList<Point> correctPath = tileMap.getCorrectPath();
 		for(int i =0; i < 5;i++){
-			monsterBatch.add(new MonsterTest(correctPath,i*35));	
+			critterBatch.add(CritterFactory.getCritter("Normal", correctPath, i * 35));	
 		}
 	}
 
@@ -670,24 +672,24 @@ public class PlayState extends GameState{
 	public void update() {
 		if(isNextWave){	
 
-			for(int i = 0;i < monsterBatch.size();i++){
-				monsterBatch.get(i).update();
-				if(monsterBatch.get(i).getIsExit()==true){
+			for(int i = 0;i < critterBatch.size();i++){
+				critterBatch.get(i).update();
+				if(critterBatch.get(i).isAtExit()==true){
 					gsm.switchState(GameStateManager.GAMEOVER);
 				}
 				for (int j = 0; j < towerList.size(); j++){
 					
-					if(monsterBatch.get(i).getCurrentHP()<=0){
+					if(critterBatch.get(i).getCurrentHp()<=0){
 						//remove dead monsters from the batch
-						monsterBatch.remove(i);
-						if(monsterBatch.size()==0){
+						critterBatch.remove(i);
+						if(critterBatch.size()==0){
 							
 							break;
 						}
 					}
-						towerList.get(j).fire(monsterBatch.get(i));
+						towerList.get(j).fire(critterBatch.get(i));
 					}
-				if(monsterBatch.size()==0){
+				if(critterBatch.size()==0){
 					isNextWave = false;
 					fillBatch();
 					break;
@@ -697,17 +699,17 @@ public class PlayState extends GameState{
 			}
 //				System.out.println("outerest");
 //				//middle loop the size of each monster batch
-//				for(int j = 0; j< monsterBatch.get(i).size(); j++){
-//					System.out.printf("i is %d, size is %d\n", i,monsterBatch.get(i).size());
+//				for(int j = 0; j< critterBatch.get(i).size(); j++){
+//					System.out.printf("i is %d, size is %d\n", i,critterBatch.get(i).size());
 //					System.out.println("innerest");
-//					monsterBatch.get(i).get(j).update();
+//					critterBatch.get(i).get(j).update();
 //					
 //					//innerest loop the size of the towers
 //					for (int k = 0; k< towerList.size();k++){
-//						if(monsterBatch.get(i).get(j).getCurrentHP()<=0){
+//						if(critterBatch.get(i).get(j).getCurrentHP()<=0){
 //							//remove dead monsters from the batch
-//							monsterBatch.get(i).remove(j);
-//							if(monsterBatch.get(i).size()==0){
+//							critterBatch.get(i).remove(j);
+//							if(critterBatch.get(i).size()==0){
 //								isNextWave = false;
 //								System.out.println("break1");
 //								break;
@@ -717,14 +719,14 @@ public class PlayState extends GameState{
 //						
 //						}
 //						//if the batch size == 0 end of the wave
-//						if(monsterBatch.get(i).size()==0){
+//						if(critterBatch.get(i).size()==0){
 //							System.out.println("break2");
 //							break;
 //						}
 //						
 //				}
-//					if(monsterBatch.get(i).size()==0){
-//						monsterBatch.remove(i);
+//					if(critterBatch.get(i).size()==0){
+//						critterBatch.remove(i);
 //						System.out.println("break3");
 //						break;
 //					}
@@ -938,10 +940,10 @@ public class PlayState extends GameState{
 			drawSelectedRange(g);
 		}
 		if(isNextWave){
-			for(int i = 0; i<monsterBatch.size();i++){
-				monsterBatch.get(i).draw(g);
+			for(int i = 0; i<critterBatch.size();i++){
+				critterBatch.get(i).draw(g);
 				
-				if(monsterBatch.size()==0){
+				if(critterBatch.size()==0){
 					break;
 				}
 				

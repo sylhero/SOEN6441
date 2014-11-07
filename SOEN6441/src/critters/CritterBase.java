@@ -14,7 +14,7 @@ import tilemap.TileMap;
  * An abstract class that is the super-type of all types of objects produced by the CritterFactory.
  * 
  * @author Yichen LI
- * @version 1.1.0
+ * @version 1.1.1
  *
  */
 
@@ -215,6 +215,24 @@ public abstract class CritterBase {
 
 //============================================setters and getters=========================================================
 	
+
+	
+	public int getCurrentHp() {
+		return currentHp;
+	}
+
+	public void setCurrentHp(int currentHp) {
+		this.currentHp = currentHp;
+	}
+
+	public boolean isAtExit() {
+		return atExit;
+	}
+
+	public void setAtExit(boolean atExit) {
+		this.atExit = atExit;
+	}
+
 
 
 	/**
