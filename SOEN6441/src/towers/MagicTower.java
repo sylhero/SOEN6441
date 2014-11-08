@@ -12,7 +12,7 @@ import usefulfunctions.LoadImage;
  * The magic tower has its own image and type and other common attributes.
  * This tower will be used in the later builds.
  * 
- * @author Yulong Song, Xunrong Xia
+ * @author Yulong Song, Xunrong Xia, Hongrui Guan
  */
 
 public class MagicTower extends TowerBase{
@@ -37,6 +37,7 @@ public class MagicTower extends TowerBase{
 		super.upgradeCost = 10;	
 		super.value = level * upgradeCost + cost;
 		super.specialEffect = "Splash";
+		super.targets = new ArrayList<CritterBase>();
 	}
 	/**
 	 * This constructor can assign the value of tile's attributes besides the tower's common attributes.
@@ -67,6 +68,7 @@ public class MagicTower extends TowerBase{
 		super.upgradeCost = 10;
 		super.value = level * upgradeCost + cost;
 		super.specialEffect = "None";
+		super.targets = new ArrayList<CritterBase>();
 	}
 	
 	//The above two method will be used in the later builds.
@@ -95,7 +97,53 @@ public class MagicTower extends TowerBase{
 	@Override
 	public void fire(CritterBase critter) {
 		// TODO Auto-generated method stub
+		int critterX   = critter.getX();
+		int critterY   = critter.getY();
+		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
+		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
+		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
+		int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
+		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
+				Math.pow(critterCenterY-towerCenterY, 2));
 		
+		System.out.println(distance);
+		
+		if(distance <= range){
+			
+			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
+				targets.add(critter);
+			
+//			if(!targets.contains(monster)&& monster.getCurrentHP()>0){
+//				targets.add(monster);
+//			}
+			
+			System.out.printf("target size:%d\n",targets.size());
+			
+			//if(this.groupAttack==false && super.singleTarget == null){
+			//	super.singleTarget = critter;
+			//}
+			
+			if(this.groupAttack==false && targets.size()>0){
+				super.singleTarget = targets.get(0);
+			}
+			
+			
+			if(singleTarget!=null){
+				
+				singleTarget.decreaseHp(this.power);
+				
+//				int targetHP = singleTarget.getCurrentHp();
+//				singleTarget.setCurrentHp(targetHP-this.power);
+				if(singleTarget.getCurrentHp()<=0){
+					coin.increaseCurrency(singleTarget.getValue());
+					//targets.remove(singleTarget);
+					singleTarget = null;
+				}
+				
+			}			
+		}else{
+			singleTarget = null;
+		}		
 	}
 
 
