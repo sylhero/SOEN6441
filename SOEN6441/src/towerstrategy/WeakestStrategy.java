@@ -12,8 +12,6 @@ public class WeakestStrategy implements Strategy{
 	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
 		// TODO Auto-generated method stub
 		
-		Collections.sort(al, new ComparatorByHp());
-			
-		return al.get(al.size() - 1);
+		return Collections.min(al, new ComparatorByHp());
 	}
 }

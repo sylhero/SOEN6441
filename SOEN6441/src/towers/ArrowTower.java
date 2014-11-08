@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 
 import critters.CritterBase;
+import critters.NormalCritter;
 import currency.Coin;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;

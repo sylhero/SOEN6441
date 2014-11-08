@@ -11,9 +11,9 @@ public class StrongestStrategy implements Strategy{
 	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
 		
-		Collections.sort(al, new ComparatorByHp());
 		
-		return al.get(0);
+		return Collections.max(al, new ComparatorByHp());
+		
 	}
 	
 
