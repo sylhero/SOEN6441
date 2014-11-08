@@ -8,6 +8,7 @@ import critters.CritterBase;
 import currency.Coin;
 import tilemap.Tile;
 import tilemap.TileMap;
+import towerstrategy.Strategy;
 
 /**
  * This is the abstract class for all kinds of towers.
@@ -32,6 +33,7 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	protected Tile[][] map;
 	protected ArrayList<CritterBase> targets;
 	protected CritterBase singleTarget;
+	protected int towerStratgyType;
 	protected Coin coin = Coin.getCoinObject();
 	
 	
@@ -223,6 +225,12 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	
 	public ArrayList<CritterBase> getTarget(){
 		return targets;
+	}
+	public void setStrategyType(int strategy){
+		this.towerStratgyType = strategy;
+	}
+	public int getStrategyType(){
+		return this.towerStratgyType;
 	}
 	
 	public abstract void update();

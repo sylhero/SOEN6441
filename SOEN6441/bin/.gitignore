@@ -1,2 +1,14 @@
-/gamemaps/
+/.DS_Store
+/Main/
 /critters/
+/currency/
+/gamemaps/
+/gamepanel/
+/gamestate/
+/images/
+/junittest/
+/tilemap/
+/towers/
+/towerstrategy/
+/usefulfunctions/
+/xml/

@@ -75,6 +75,7 @@ public class PlayState extends GameState{
 	//pause
 
 	private boolean isPaused;
+	private boolean pauseResult;
 
 	
 	//font
@@ -418,7 +419,7 @@ public class PlayState extends GameState{
 	 * @param e
 	 */
 	private void pausePressed(MouseEvent e){
-
+		
 		int x = e.getX();
 
 		int y = e.getY();
@@ -426,19 +427,11 @@ public class PlayState extends GameState{
 		System.out.println(x);
 
 		System.out.println(y);
-
-		if(x >= 0 && x <= 400 && y >=500 && y<=600 ){
-
-		this.pause(true);
-
-		}
-
-		if(x > 400 && x <= 800 && y >=500 && y<=600 ){
-
-		this.pause(false);
+		if(x >= 204 && x <= 404 && y >=502 && y<=598 ){
+			pauseResult = !pauseResult;
+		this.pause(pauseResult);
 
 		}
-
 
 		if(isPaused == false){
 
@@ -515,19 +508,75 @@ public class PlayState extends GameState{
 		private void pressWeakestSrategy(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
-			if(tempX >= 568 && tempX <= 628 &&
+			if(tempX >= 518 && tempX <= 578 &&
 					tempY >= 5 && tempY <= 45 && isPressedTowerOnMap){
 				//calculate row and column 
 				int column = selectedTower.getTileX() / tileMap.getCellWidth();
 				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 		        int row =  temp / tileMap.getCellHeight();
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
-		        //towerTemp.setStrategy();
+		        int weakestStrategy = 1;
+		        towerTemp.setStrategyType(weakestStrategy);
 		        	
 			}
 	        
 			
 		}
+		private void pressStrongestSrategy(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 518 && tempX <= 568 &&
+					tempY >= 50 && tempY <= 90 && isPressedTowerOnMap){
+				//calculate row and column 
+				int column = selectedTower.getTileX() / tileMap.getCellWidth();
+				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
+		        int row =  temp / tileMap.getCellHeight();
+		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        int strongestStrategy = 2;
+		        towerTemp.setStrategyType(strongestStrategy);
+		        	
+			}
+	        
+			
+		}
+		private void pressFarthestSrategy(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 582 && tempX <= 642 &&
+					tempY >= 5 && tempY <= 45 && isPressedTowerOnMap){
+				//calculate row and column 
+				int column = selectedTower.getTileX() / tileMap.getCellWidth();
+				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
+		        int row =  temp / tileMap.getCellHeight();
+		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        int farthestStrategy = 4;
+		        towerTemp.setStrategyType(farthestStrategy);
+		        	
+			}
+//			//farthest strategy button 
+//			g.fillRect(582, 5, 60,40);
+//			//nearest strategy button
+//			g.fillRect(582, 50, 60, 40);
+//			
+		}
+		private void pressNearestSrategy(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 582 && tempX <= 642 &&
+					tempY >= 50 && tempY <= 90 && isPressedTowerOnMap){
+				//calculate row and column 
+				int column = selectedTower.getTileX() / tileMap.getCellWidth();
+				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
+		        int row =  temp / tileMap.getCellHeight();
+		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        int nearestStrategy = 3;
+		        towerTemp.setStrategyType(nearestStrategy);
+		        	
+			}
+	        
+			
+		}
+		
 		/**
 		 * mouse press event
 		 * @param e
@@ -542,7 +591,11 @@ public class PlayState extends GameState{
 		pressedUpgrade(e);
 		pressedSell(e);
 		pressNextWave(e);
-		//pausePressed(e);
+		pausePressed(e);
+		pressWeakestSrategy(e);
+		pressStrongestSrategy(e);
+		pressNearestSrategy(e);
+		pressFarthestSrategy(e);
 	
 
 	}
@@ -697,40 +750,7 @@ public class PlayState extends GameState{
 				//TODO switch to game over if reach here one of the monsters reach the exit
 				//
 			}
-//				System.out.println("outerest");
-//				//middle loop the size of each monster batch
-//				for(int j = 0; j< critterBatch.get(i).size(); j++){
-//					System.out.printf("i is %d, size is %d\n", i,critterBatch.get(i).size());
-//					System.out.println("innerest");
-//					critterBatch.get(i).get(j).update();
-//					
-//					//innerest loop the size of the towers
-//					for (int k = 0; k< towerList.size();k++){
-//						if(critterBatch.get(i).get(j).getCurrentHP()<=0){
-//							//remove dead monsters from the batch
-//							critterBatch.get(i).remove(j);
-//							if(critterBatch.get(i).size()==0){
-//								isNextWave = false;
-//								System.out.println("break1");
-//								break;
-//							}
-//						
-//					}	//fire on monsters
-//						
-//						}
-//						//if the batch size == 0 end of the wave
-//						if(critterBatch.get(i).size()==0){
-//							System.out.println("break2");
-//							break;
-//						}
-//						
-//				}
-//					if(critterBatch.get(i).size()==0){
-//						critterBatch.remove(i);
-//						System.out.println("break3");
-//						break;
-//					}
-//			}
+
 			
 		}
 		
@@ -849,7 +869,7 @@ public class PlayState extends GameState{
 			String nearest ="Nearest";
 			g.drawString(nearest, 587, 71);
 			g.drawImage(Coin.coinImage, 650, 0, 30, 30, null);
-			
+			//this is for selling a tower
 			if(isPressedTowerOnMap){
 				g.setColor(Color.GREEN);
 				g.fillRect(450, 50, 60, 40);
@@ -859,13 +879,42 @@ public class PlayState extends GameState{
 				isEnoughMoneyToUpgrate();
 			}
 			//check if the money is enough
-			
+			//this is for upgrade
 			if(isPressedTowerOnMap && isEnoughCoinToUpgrade){
 				g.setColor(Color.GREEN);
 				g.fillRect(450, 5, 60, 40);
 				g.setColor(Color.BLACK);
 				g.drawString(upgrade, 455, 30);
 				
+			}
+			if(isPressedTowerOnMap && selectedTower.getStrategyType()==1){
+				
+				g.setColor(Color.GREEN);
+				g.fillRect(518, 5, 60, 40);
+				g.setColor(Color.BLACK);
+				g.drawString(weakest, 523, 30);	
+			}
+			if(isPressedTowerOnMap && selectedTower.getStrategyType()==2){
+				
+				g.setColor(Color.GREEN);
+				g.fillRect(518, 50, 60, 40);
+				g.setColor(Color.BLACK);
+				g.drawString(srongest, 521, 71);
+			}
+			if(isPressedTowerOnMap && selectedTower.getStrategyType()==3){
+				
+				g.setColor(Color.GREEN);
+				g.fillRect(582, 50, 60, 40);
+				g.setColor(Color.BLACK);
+				g.drawString(nearest, 587, 71);
+				
+			}
+			if(isPressedTowerOnMap && selectedTower.getStrategyType()==4){
+				
+				g.setColor(Color.GREEN);
+				g.fillRect(582, 5, 60,40);
+				g.setColor(Color.BLACK);
+				g.drawString(farthest, 587, 30);
 			}
 	}
 		/**
@@ -888,6 +937,13 @@ public class PlayState extends GameState{
 			g.setColor(Color.RED);
 			String firstLine = "NEXT WAVE";
 			g.drawString(firstLine, 10, 550);
+			
+			g.fillRect(204, 502, 200, 96);
+			g.setFont(new Font("Arial",Font.BOLD,30));
+			g.setColor(Color.BLACK);
+			String pause = "Pause";
+			g.drawString(pause, 214, 550);
+			
 			
 		}
 	
@@ -949,9 +1005,9 @@ public class PlayState extends GameState{
 				
 				
 			}
-			for(int j = 0; j< towerList.size(); j++){
-				towerList.get(j).draw(g);
-			}
+//			for(int j = 0; j< towerList.size(); j++){
+//				towerList.get(j).draw(g);
+//			}
 			
 			
 		}

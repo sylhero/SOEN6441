@@ -41,6 +41,7 @@ public class ArrowTower extends TowerBase{
 		super.specialEffect = "None";
 		super.targets = new ArrayList<CritterBase>();
 		super.singleTarget = null;
+		super.towerStratgyType = 0;
 	}
 	
 	/**
@@ -73,6 +74,7 @@ public class ArrowTower extends TowerBase{
 		super.specialEffect = "None";
 		super.targets = new ArrayList<CritterBase>();
 		super.singleTarget = null;
+		super.towerStratgyType = 0;
 		
 	}
 	
@@ -107,9 +109,6 @@ public class ArrowTower extends TowerBase{
 				if(!targets.contains(critter) && critter.getCurrentHp() > 0)
 					targets.add(critter);
 				
-//				if(!targets.contains(monster)&& monster.getCurrentHP()>0){
-//					targets.add(monster);
-//				}
 				System.out.printf("target size:%d\n",targets.size());
 				if(this.groupAttack==false && super.singleTarget == null){
 					super.singleTarget = critter;
@@ -123,11 +122,9 @@ public class ArrowTower extends TowerBase{
 					
 					singleTarget.decreaseHp(this.power);
 					
-//					int targetHP = singleTarget.getCurrentHp();
-//					singleTarget.setCurrentHp(targetHP-this.power);
 					if(singleTarget.getCurrentHp()<=0){
 						coin.increaseCurrency(singleTarget.getValue());
-						//targets.remove(singleTarget);
+						targets.remove(singleTarget);
 						singleTarget = null;
 					}
 					

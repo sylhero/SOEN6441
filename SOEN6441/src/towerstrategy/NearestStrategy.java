@@ -13,4 +13,10 @@ public class NearestStrategy implements Strategy{
 		return null;
 	}
 
+	@Override
+	public int getStrategyType() {
+		// TODO Auto-generated method stub
+		return NEAREST;
+	}
+
 }

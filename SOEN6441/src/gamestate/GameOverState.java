@@ -29,11 +29,30 @@ public class GameOverState extends GameState{
 		// TODO Auto-generated method stub
 		
 	}
+	private void pressQuit(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
+		if(x >= GamePanel.WIDTH/2-70 && x<= GamePanel.WIDTH/2+50
+				&& y >=GamePanel.HEIGHT/2+40 && y<= GamePanel.HEIGHT/2+90){
+			System.exit(0);
+		}
+		
+	}
+	private void pressRestart(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
+		
+		if(x >= GamePanel.WIDTH/2-70 && x<= GamePanel.WIDTH/2+50
+				&& y >=GamePanel.HEIGHT/2+110 && y<= GamePanel.HEIGHT/2+160){
+			gsm.switchState(0);
+		}
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		pressQuit(e);
+		//pressRestart(e);
 	}
 
 	@Override
@@ -92,7 +111,15 @@ public class GameOverState extends GameState{
 		String GameOver = "Game Over";
 		g.setFont(new Font("Arial",Font.BOLD,30));
 		g.drawString(GameOver, GamePanel.WIDTH/2-80, GamePanel.HEIGHT/2);
-		
+		g.setColor(Color.WHITE);
+		g.fillRect(GamePanel.WIDTH/2-70, GamePanel.HEIGHT/2+40, 120, 50);
+		g.setColor(Color.RED);
+		g.setFont(new Font("Arial",Font.BOLD,20));
+		g.drawString("QUIT", GamePanel.WIDTH/2-40, GamePanel.HEIGHT/2+70);
+//		g.setColor(Color.WHITE);
+//		g.fillRect(GamePanel.WIDTH/2-70, GamePanel.HEIGHT/2+110, 120, 50);
+//		g.setColor(Color.GREEN);
+//		g.drawString("RESTART", GamePanel.WIDTH/2-60, GamePanel.HEIGHT/2+140);
 	}
 	
 
