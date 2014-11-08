@@ -12,7 +12,7 @@ import usefulfunctions.LoadImage;
  * The cannon tower has its own image and type and other common attributes.
  * This class will be used in the later builds.
  * 
- * @author Yulong Song, Xunrong Xia
+ * @author Yulong Song, Xunrong Xia, Hongrui Guan
  * 
  */
 
@@ -104,6 +104,15 @@ public class CannonTower extends TowerBase{
 	@Override
 	public void fire(CritterBase critter) {
 		// TODO Auto-generated method stub
+		int critterX = critter.getX();
+		int critterY = critter.getY();
+		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
+		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
+		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
+		int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
+		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
+				Math.pow(critterCenterY-towerCenterY, 2));
+		
 		
 	}
 
