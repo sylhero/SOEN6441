@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
 
+import critters.CritterBase;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 /**
@@ -37,7 +38,9 @@ public class IceTower extends TowerBase {
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;	
 		super.value = level * upgradeCost + cost;
-		super.specialEffect = "None";
+		super.specialEffect = "Freezing";
+		super.targets = new ArrayList<CritterBase>();
+		super.singleTarget = null;
 	}
 	
 	/**
@@ -68,27 +71,20 @@ public class IceTower extends TowerBase {
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;
 		super.value = level * upgradeCost + cost;
-		super.specialEffect = "None";
+		super.specialEffect = "Freezing";
+		super.targets = new ArrayList<CritterBase>();
+		super.singleTarget = null;
 	}
 	
-	//The above two method will be used in the later builds.
-	
 	/**
-	 * The overriden method of upgrade().
+	 * The override method of upgrade().
 	 * When an Ice Tower upgrade, it's power would increase 5, level would increase 1. The upgradeCose would increase 5.
 	 */
 	@Override
 	public void upgrade() {
 		this.power += 5;
 		this.level += 1;
-		this.upgradeCost += 5;
-		
-	}
-
-	@Override
-	public void fire(MonsterTest monster) {
-		// TODO Auto-generated method stub
-		
+		this.upgradeCost += 5;		
 	}
 
 	@Override
@@ -103,4 +99,42 @@ public class IceTower extends TowerBase {
 		
 	}
 
+	@Override
+	public void fire(CritterBase critter) {
+		// TODO Auto-generated method stub
+		int critterX = critter.getX();
+		int critterY = critter.getY();
+		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
+		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
+		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
+		int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
+		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
+				Math.pow(critterCenterY-towerCenterY, 2));
+		
+		if(distance <= range)
+		{
+			if(this.groupAttack==false && super.singleTarget == null)
+			{
+				super.singleTarget = critter;
+			}
+
+			if(singleTarget!=null)
+			{
+				int targetHP = singleTarget.getCurrentHp();
+				singleTarget.setCurrentHp(targetHP-this.power);
+				singleTarget.setSpeedOffset(1, 1);
+				if(singleTarget.getCurrentHp()<=0)
+				{
+					coin.increaseCurrency(singleTarget.getValue());
+					//targets.remove(singleTarget);
+					singleTarget = null;
+				}
+				
+			}	
+		}
+		else
+		{
+			singleTarget = null;
+		}	
+	}
 }

@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
 
+import critters.CritterBase;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 /**
@@ -38,7 +39,7 @@ public class CannonTower extends TowerBase{
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;	
 		super.value = level * upgradeCost + cost;
-		super.specialEffect = "None";
+		super.specialEffect = "Burn";
 	}
 	
 	/**
@@ -89,12 +90,6 @@ public class CannonTower extends TowerBase{
 	}
 
 	@Override
-	public void fire(MonsterTest monster) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		
@@ -102,6 +97,12 @@ public class CannonTower extends TowerBase{
 
 	@Override
 	public void draw(Graphics2D g) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void fire(CritterBase critter) {
 		// TODO Auto-generated method stub
 		
 	}

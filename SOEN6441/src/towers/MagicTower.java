@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
 
+import critters.CritterBase;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 /**
@@ -35,7 +36,7 @@ public class MagicTower extends TowerBase{
 		super.towerSpeed = 3;
 		super.upgradeCost = 10;	
 		super.value = level * upgradeCost + cost;
-		super.specialEffect = "None";
+		super.specialEffect = "Splash";
 	}
 	/**
 	 * This constructor can assign the value of tile's attributes besides the tower's common attributes.
@@ -80,11 +81,7 @@ public class MagicTower extends TowerBase{
 		this.upgradeCost += 5;
 		
 	}
-	@Override
-	public void fire(MonsterTest monster) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
@@ -92,6 +89,11 @@ public class MagicTower extends TowerBase{
 	}
 	@Override
 	public void draw(Graphics2D g) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void fire(CritterBase critter) {
 		// TODO Auto-generated method stub
 		
 	}

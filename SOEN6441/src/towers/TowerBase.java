@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import critters.CritterBase;
 import currency.Coin;
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -29,8 +30,8 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	protected String specialEffect;
 	protected int value; //The initial value will be same as the cost, but after the tower upgrade, the value would be changed.
 	protected Tile[][] map;
-	protected ArrayList<MonsterTest> targets;
-	protected MonsterTest singleTarget;
+	protected ArrayList<CritterBase> targets;
+	protected CritterBase singleTarget;
 	protected Coin coin = Coin.getCoinObject();
 	
 	
@@ -219,7 +220,8 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public ArrayList<MonsterTest> getTarget(){
+	
+	public ArrayList<CritterBase> getTarget(){
 		return targets;
 	}
 	

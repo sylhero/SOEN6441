@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
 
+import critters.CritterBase;
 import currency.Coin;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
@@ -37,7 +38,7 @@ public class ArrowTower extends TowerBase{
 		super.upgradeCost = 10;	
 		super.value = this.cost;
 		super.specialEffect = "None";
-		super.targets = new ArrayList<MonsterTest>();
+		super.targets = new ArrayList<CritterBase>();
 		super.singleTarget = null;
 	}
 	
@@ -69,13 +70,10 @@ public class ArrowTower extends TowerBase{
 		super.upgradeCost = 10;
 		super.value = this.cost;
 		super.specialEffect = "None";
-		super.targets = new ArrayList<MonsterTest>();
+		super.targets = new ArrayList<CritterBase>();
 		super.singleTarget = null;
 		
 	}
-	
-	//The above two method will be used in the later builds.
-	
 	
 	/**
 	 * When a tower be upgraded, its power, level and upgradeCose would be increased. 
@@ -92,16 +90,16 @@ public class ArrowTower extends TowerBase{
 
 	
 	@Override
-	public void fire(MonsterTest monster) {
+	public void fire(CritterBase critter) {
 			
-			int monsterX   = monster.getX();
-			int monsterY   = monster.getY();
-			int monsterCenterX = monsterX + TileMap.getTileMap().getCellHeight() / 2;
-			int monsterCenterY = monsterY + TileMap.getTileMap().getCellWidth() / 2;
+			int critterX   = critter.getX();
+			int critterY   = critter.getY();
+			int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
+			int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
 			int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
 			int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
-			double distance = Math.sqrt(Math.pow(monsterCenterX-towerCenterX, 2) + 
-					Math.pow(monsterCenterY-towerCenterY, 2));
+			double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
+					Math.pow(critterCenterY-towerCenterY, 2));
 			//System.out.println(distance);
 			if(distance <= range){
 //				
@@ -110,15 +108,15 @@ public class ArrowTower extends TowerBase{
 //				}
 				System.out.printf("target size:%d\n",targets.size());
 				if(this.groupAttack==false && super.singleTarget == null){
-					super.singleTarget = monster;
+					super.singleTarget = critter;
 				}
 //				if(this.groupAttack==false && targets.size()>0){
 //					super.singleTarget = targets.get(0);
 //				}
 				if(singleTarget!=null){
-					int targetHP = singleTarget.getCurrentHP();
-					singleTarget.setCurrentHP(targetHP-this.power);
-					if(singleTarget.getCurrentHP()<=0){
+					int targetHP = singleTarget.getCurrentHp();
+					singleTarget.setCurrentHp(targetHP-this.power);
+					if(singleTarget.getCurrentHp()<=0){
 						coin.increaseCurrency(singleTarget.getValue());
 						//targets.remove(singleTarget);
 						singleTarget = null;
@@ -159,6 +157,4 @@ public class ArrowTower extends TowerBase{
 		drawEffect(g);
 		
 	}
-	
-
 }

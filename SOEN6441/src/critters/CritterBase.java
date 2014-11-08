@@ -254,6 +254,21 @@ public abstract class CritterBase {
 	public void setArmorRatio(int armorRatio) {
 		this.armorRatio = armorRatio;
 	}
+
+	public int getX() {
+		// TODO Auto-generated method stub
+		return x;
+	}
+
+	public int getY() {
+		// TODO Auto-generated method stub
+		return y;
+	}
+
+	public int getValue() {
+		// TODO Auto-generated method stub
+		return value;
+	}
 	
 	/**
 	 * To get speed.
