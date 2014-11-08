@@ -1,13 +1,20 @@
 package towerstrategy;
 
+import java.util.ArrayList;
+
+import critters.CritterBase;
+
 public class TowerStrategy {
+	
 	private Strategy strategy;
-	public void setStrategy(Strategy strategy){
+	private ArrayList<CritterBase> al;
+	
+	public void setStrategy(Strategy strategy, ArrayList<CritterBase> al){
 		this.strategy = strategy;
-		
+		this.al = al;
 	}
-	public int getStrategy(){
-		return strategy.generateStrategy();
+	public CritterBase getStrategy(){
+		return this.strategy.executeStrategy(al);
 	}
 
 }

@@ -1,6 +1,9 @@
 package towerstrategy;
 
-public interface Strategy {
-	int generateStrategy();
+import java.util.ArrayList;
+import critters.CritterBase;
 
+public interface Strategy {
+	
+	CritterBase executeStrategy(ArrayList<CritterBase> al);
 }

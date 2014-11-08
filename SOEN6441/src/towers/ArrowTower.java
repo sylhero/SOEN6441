@@ -102,7 +102,10 @@ public class ArrowTower extends TowerBase{
 					Math.pow(critterCenterY-towerCenterY, 2));
 			//System.out.println(distance);
 			if(distance <= range){
-//				
+				
+				if(!targets.contains(critter) && critter.getCurrentHp() > 0)
+					targets.add(critter);
+				
 //				if(!targets.contains(monster)&& monster.getCurrentHP()>0){
 //					targets.add(monster);
 //				}
@@ -113,6 +116,8 @@ public class ArrowTower extends TowerBase{
 //				if(this.groupAttack==false && targets.size()>0){
 //					super.singleTarget = targets.get(0);
 //				}
+				
+				
 				if(singleTarget!=null){
 					
 					singleTarget.decreaseHp(this.power);

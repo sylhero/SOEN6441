@@ -1,12 +1,19 @@
 package towerstrategy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+import critters.CritterBase;
+
 public class StrongestStrategy implements Strategy{
-	private static final int STRONGEST = 1;
+
 
 	@Override
-	public int generateStrategy() {
+	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
 		
-		return STRONGEST;
+		Collections.sort(al, new ComparatorByHp());
+		
+		return al.get(0);
 	}
 	
 

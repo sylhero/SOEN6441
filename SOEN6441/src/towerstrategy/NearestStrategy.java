@@ -1,12 +1,16 @@
 package towerstrategy;
 
+import java.util.ArrayList;
+
+import critters.CritterBase;
+
 public class NearestStrategy implements Strategy{
 	private static final int NEAREST = 3;
 
 	@Override
-	public int generateStrategy() {
+	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
 		// TODO Auto-generated method stub
-		return NEAREST;
+		return null;
 	}
 
 }
