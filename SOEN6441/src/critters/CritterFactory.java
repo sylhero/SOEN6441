@@ -21,6 +21,7 @@ public class CritterFactory {
 
 	
 	/**
+	 * To return object according to the given parameters.
 	 * 
 	 * @param criType
 	 * @param correctRoute

@@ -382,7 +382,6 @@ public class ValidateMap {
 	 * 
 	 * @param map
 	 * @return a LinkedList contains correct route information.
-	 * @throws InvalidPathException 
 	 */
 	
 	public static LinkedList<Point> getCorrectRoute(Tile [][] map) 

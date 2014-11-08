@@ -114,8 +114,11 @@ public class ArrowTower extends TowerBase{
 //					super.singleTarget = targets.get(0);
 //				}
 				if(singleTarget!=null){
-					int targetHP = singleTarget.getCurrentHp();
-					singleTarget.setCurrentHp(targetHP-this.power);
+					
+					singleTarget.decreaseHp(this.power);
+					
+//					int targetHP = singleTarget.getCurrentHp();
+//					singleTarget.setCurrentHp(targetHP-this.power);
 					if(singleTarget.getCurrentHp()<=0){
 						coin.increaseCurrency(singleTarget.getValue());
 						//targets.remove(singleTarget);

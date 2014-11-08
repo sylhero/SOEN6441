@@ -48,7 +48,7 @@ public abstract class CritterBase {
 	 * @param decHP
 	 */
 	
-	protected void decreaseHp(int decHP)
+	public void decreaseHp(int decHP)
 	{
 		this.currentHp -= (1 - this.armorRatio) * decHP;		
 	}
