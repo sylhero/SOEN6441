@@ -29,7 +29,7 @@ public abstract class CritterBase {
 	protected int speedOffsetX, speedOffsetY; 
 	protected int x, y;
 	protected int movePoint;
-	protected int moveStandard = 0;	// benchmark of moving
+	public static int moveStandard = 0;	// benchmark of moving
 	protected Point startPoint;
 	
 	

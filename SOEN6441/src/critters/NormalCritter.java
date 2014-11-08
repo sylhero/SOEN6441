@@ -30,15 +30,15 @@ public class NormalCritter extends CritterBase {
 		this.correctRouteCopy = super.copyCorrectRoute();
 		
 		//start position
-		this.startPoint = correctRoute.pollFirst();
+		this.startPoint = correctRouteCopy.pollFirst();
 		
 		//initial position
 		this.x = startPoint.y * tileMap.getCellWidth();
 		this.y = tileMap.getUpperOffSet() + startPoint.x * tileMap.getCellHeight();
 		
 		//speed offset slow:1 normal:2 fast:4
-		this.speedOffsetX = 1;
-		this.speedOffsetY = 1;
+		this.speedOffsetX = 2;
+		this.speedOffsetY = 2;
 		
 		//set next point
 		this.nextPoint = correctRouteCopy.pollFirst();
