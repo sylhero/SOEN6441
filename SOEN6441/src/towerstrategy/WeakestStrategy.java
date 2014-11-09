@@ -9,12 +9,12 @@ import critters.CritterBase;
 public class WeakestStrategy implements Strategy{
 	private static final int WEAKEST = 1;
 
-	@Override
+	/*@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
 		// TODO Auto-generated method stub
+		return null;
 		
-		return Collections.min(al, new ComparatorByHp());
-	}
+	}*/
 
 	@Override
 	public int getStrategyType() {
@@ -26,6 +26,7 @@ public class WeakestStrategy implements Strategy{
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return Collections.min(al, new ComparatorByHp());
 	}
 }
