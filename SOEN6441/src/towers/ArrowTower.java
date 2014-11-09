@@ -126,11 +126,26 @@ public class ArrowTower extends TowerBase{
 	}
 	@Override
 	public void fire(CritterBase critter) {	
+		
+		Iterator<CritterBase> it = targets.iterator();
+		while(it.hasNext())
+		{
+			CritterBase temp = (CritterBase)it.next();
+			double tempDistance = distance(temp);
+			if(temp.getCurrentHp()<=0)
+			{
+				it.remove();
+			}
+			if(tempDistance>=range)
+			{
+				it.remove();
+			}			
+		}
+		
 		double distance = distance(critter);
 		
-			if(distance <= range)
-			{
-				
+		if(distance <= range)
+		{			
 			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
 			{
 				targets.add(critter);
@@ -146,9 +161,8 @@ public class ArrowTower extends TowerBase{
 			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
 				this.singleTarget = strategy.executeStrategy(targets, this);
 			}
-		
-			if(singleTarget!=null)
-			{				
+
+							
 				singleTarget.decreaseHp(this.power);
 				
 				if(singleTarget.getCurrentHp()<=0)
@@ -157,7 +171,7 @@ public class ArrowTower extends TowerBase{
 					targets.remove(singleTarget);
 					singleTarget = null;
 				}	
-			}		
+					
 		}
 		else
 		{
@@ -167,22 +181,7 @@ public class ArrowTower extends TowerBase{
 			}
 			singleTarget = null;
 		}		
-		
-		/*Iterator<CritterBase> it = this.targets.iterator();
-		while(it.hasNext())
-		{
-			CritterBase temp = (CritterBase)it.next();
-			double tempDistance = distance(temp);
-			if(temp.getCurrentHp()<=0)
-			{
-				this.targets.remove(temp);
-			}
-			System.out.println("tempDistance");
-			if(tempDistance>=range)
-			{
-				this.targets.remove(temp);
-			}			
-		}*/
+	
 	}
 		
 		
