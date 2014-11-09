@@ -110,7 +110,9 @@ public class ArrowTower extends TowerBase{
 	}
 	
 	public TowerStrategy setStrategy(){
+		
 		TowerStrategy strategy = new TowerStrategy();
+		
 		if (this.towerStratgyType == 1)
 			strategy.setStrategy(new WeakestStrategy());
 		else if(this.towerStratgyType==2)
@@ -159,7 +161,11 @@ public class ArrowTower extends TowerBase{
 				this.singleTarget = critter;
 			}
 			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
-				this.singleTarget = strategy.executeStrategy(targets, this);
+				
+				if(this.towerStratgyType == 3 || this.towerStratgyType ==4)
+					this.singleTarget = strategy.executeStrategy(targets, this);
+				else if(this.towerStratgyType == 1 || this.towerStratgyType == 2)
+					this.singleTarget = strategy.excuteStrategy(targets);
 			}
 
 							
