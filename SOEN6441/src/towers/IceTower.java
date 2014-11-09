@@ -78,7 +78,8 @@ public class IceTower extends TowerBase {
 	
 	/**
 	 * The override method of upgrade().
-	 * When an Ice Tower upgrade, it's power would increase 5, level would increase 1. The upgradeCose would increase 5.
+	 * When an Ice Tower upgrade, it's power would increase 5,
+	 *  level would increase 1. The upgradeCose would increase 5.
 	 */
 	@Override
 	public void upgrade() {
