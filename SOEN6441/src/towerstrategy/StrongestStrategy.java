@@ -16,10 +16,18 @@ public class StrongestStrategy implements Strategy{
 	}
 
 	@Override
+	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
+		// TODO Auto-generated method stub
+		return Collections.max(al, new ComparatorByHp());
+	}
+
+	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter) {
 		// TODO Auto-generated method stub
-		return Collections.max(al, new ComparatorByHp());		
+		return null;
 	}
+
+
 
 }

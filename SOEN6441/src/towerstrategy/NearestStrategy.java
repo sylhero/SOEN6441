@@ -21,5 +21,11 @@ public class NearestStrategy implements Strategy{
 		return null;
 	}
 
+	@Override
+	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

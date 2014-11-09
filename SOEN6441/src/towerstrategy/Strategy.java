@@ -9,6 +9,8 @@ public interface Strategy {
 	
 	int getStrategyType();
 	
+	CritterBase executeStrategy(ArrayList<CritterBase> al);
+	
 	CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter);
 }
