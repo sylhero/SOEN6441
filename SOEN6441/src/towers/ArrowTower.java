@@ -136,7 +136,6 @@ public class ArrowTower extends TowerBase{
 			{
 				it.remove();
 			}
-			System.out.println("tempDistance");
 			if(tempDistance>=range)
 			{
 				it.remove();
@@ -145,9 +144,8 @@ public class ArrowTower extends TowerBase{
 		
 		double distance = distance(critter);
 		
-			if(distance <= range)
-			{
-				
+		if(distance <= range)
+		{			
 			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
 			{
 				targets.add(critter);
@@ -163,9 +161,9 @@ public class ArrowTower extends TowerBase{
 			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
 				this.singleTarget = strategy.executeStrategy(targets, this);
 			}
-//				if(this.groupAttack==false && targets.size()>0){
-//					this.singleTarget = targets.get(0);
-//				}		
+	//				if(this.groupAttack==false && targets.size()>0){
+	//					this.singleTarget = targets.get(0);
+	//				}		
 			if(singleTarget!=null )
 			{				
 				singleTarget.decreaseHp(this.power);
@@ -178,7 +176,6 @@ public class ArrowTower extends TowerBase{
 				}	
 			}		
 		}
-			//
 		else
 		{
 			singleTarget = null;
