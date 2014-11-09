@@ -8,7 +8,12 @@ import critters.CritterBase;
 import currency.Coin;
 import tilemap.Tile;
 import tilemap.TileMap;
+import towerstrategy.FarthestStrategy;
+import towerstrategy.NearestStrategy;
 import towerstrategy.Strategy;
+import towerstrategy.StrongestStrategy;
+import towerstrategy.TowerStrategy;
+import towerstrategy.WeakestStrategy;
 
 /**
  * This is the abstract class for all kinds of towers.
@@ -231,6 +236,34 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	}
 	public int getStrategyType(){
 		return this.towerStratgyType;
+	}
+	
+	public TowerStrategy setStrategy() {
+
+		TowerStrategy strategy = new TowerStrategy();
+
+		if (this.towerStratgyType == 1)
+
+			strategy.setStrategy(new WeakestStrategy());
+
+		else if (this.towerStratgyType == 2)
+
+			strategy.setStrategy(new StrongestStrategy());
+
+		else if (this.towerStratgyType == 3)
+
+			strategy.setStrategy(new NearestStrategy());
+
+		else if (this.towerStratgyType == 4)
+
+			strategy.setStrategy(new FarthestStrategy());
+
+		else
+
+			strategy = null;
+
+		return strategy;
+
 	}
 	
 	public abstract void update();

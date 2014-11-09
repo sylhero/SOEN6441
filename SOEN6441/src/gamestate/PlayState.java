@@ -1006,9 +1006,9 @@ public class PlayState extends GameState{
 				
 				
 			}
-//			for(int j = 0; j< towerList.size(); j++){
-//				towerList.get(j).draw(g);
-//			}
+			for(int j = 0; j< towerList.size(); j++){
+				towerList.get(j).draw(g);
+			}
 			
 			
 		}

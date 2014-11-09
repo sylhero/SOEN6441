@@ -55,6 +55,10 @@ public class NormalCritter extends CritterBase {
 		//set if reached the exit		
 		this.atExit = false;
 		
+		//set status
+		this.isFrozen = false;
+		this.isBurning = false;
+		
 	}
 
 }

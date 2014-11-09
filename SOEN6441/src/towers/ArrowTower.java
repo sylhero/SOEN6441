@@ -109,21 +109,7 @@ public class ArrowTower extends TowerBase{
 		return distance;		
 	}
 	
-	public TowerStrategy setStrategy(){
-		TowerStrategy strategy = new TowerStrategy();
-		if (this.towerStratgyType == 1)
-			strategy.setStrategy(new WeakestStrategy());
-		else if(this.towerStratgyType==2)
-			strategy.setStrategy(new StrongestStrategy());
-		else if(this.towerStratgyType==3)
-			strategy.setStrategy(new NearestStrategy());
-		else if(this.towerStratgyType==4)
-			strategy.setStrategy(new FarthestStrategy());
-		else
-			strategy = null;
-		return strategy;
-		
-	}
+	
 	@Override
 	public void fire(CritterBase critter) {	
 		

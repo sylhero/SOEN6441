@@ -9,6 +9,7 @@ import java.util.ListIterator;
 
 import tilemap.Tile;
 import tilemap.TileMap;
+import usefulfunctions.LoadImage;
 
 /**
  * An abstract class that is the super-type of all types of objects produced by the CritterFactory.
@@ -31,6 +32,10 @@ public abstract class CritterBase {
 	protected int movePoint;
 	public static int moveStandard = 0;	// benchmark of moving
 	protected Point startPoint;
+	public static final Image frozenImage = LoadImage
+			.loadImage("/images/iceicon.png");
+	public static final Image burningImage = LoadImage
+			.loadImage("/images/fireicon.png");
 	
 	
 	
@@ -40,6 +45,10 @@ public abstract class CritterBase {
 	protected float armorRatio;
 	protected boolean atExit;
 	protected int value; // value of critter
+	protected boolean isFrozen;
+	protected boolean isBurning;
+	
+	
 
 	
 	/**
@@ -207,8 +216,25 @@ public abstract class CritterBase {
 					y, 
 					tileMap.getCellWidth(),
 					tileMap.getCellHeight(),null);
-			System.out.printf("this is critter:%d\n",x);
+			//System.out.printf("this is critter:%d\n",x);
+			if(isFrozen){
+				g.drawImage(frozenImage, x, 
+						 
+								y, 
+								tileMap.getCellWidth(),
+								tileMap.getCellHeight(),null);
+		
+			}
+			if(isBurning){
+				isFrozen = false;
+				g.drawImage(burningImage, x, 
+						y, 
+						tileMap.getCellWidth(),
+						tileMap.getCellHeight(),null);
+				
+			}
 		}
+		
 
 		}
 	
@@ -270,7 +296,19 @@ public abstract class CritterBase {
 		// TODO Auto-generated method stub
 		return value;
 	}
+	public void setIsFrozen(boolean result){
+		isFrozen = result;
+	}
+	public boolean getIsFrozen(){
+		return isFrozen;
+	}
+	public void setIsBurning(boolean result){
+		isBurning = result;
+	}
 	
+	public boolean getIsBurning(){
+		return isBurning;
+	}
 	/**
 	 * To get speed.
 	 * 

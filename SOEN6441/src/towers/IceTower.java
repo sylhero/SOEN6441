@@ -1,27 +1,17 @@
 package towers;
 
 import java.awt.Graphics2D;
-
 import java.awt.Image;
-
 import java.util.ArrayList;
-
 import java.util.Iterator;
 
 import critters.CritterBase;
-
 import tilemap.TileMap;
-
 import towerstrategy.FarthestStrategy;
-
 import towerstrategy.NearestStrategy;
-
 import towerstrategy.StrongestStrategy;
-
 import towerstrategy.TowerStrategy;
-
 import towerstrategy.WeakestStrategy;
-
 import usefulfunctions.LoadImage;
 
 /**
@@ -43,6 +33,7 @@ public class IceTower extends TowerBase {
 
 	public static final Image iceTower = LoadImage
 			.loadImage("/images/icetower.png");
+	
 
 	public static final int ICETOWERTYPE = 6;
 
@@ -215,33 +206,7 @@ public class IceTower extends TowerBase {
 
 	}
 
-	public TowerStrategy setStrategy() {
-
-		TowerStrategy strategy = new TowerStrategy();
-
-		if (this.towerStratgyType == 1)
-
-			strategy.setStrategy(new WeakestStrategy());
-
-		else if (this.towerStratgyType == 2)
-
-			strategy.setStrategy(new StrongestStrategy());
-
-		else if (this.towerStratgyType == 3)
-
-			strategy.setStrategy(new NearestStrategy());
-
-		else if (this.towerStratgyType == 4)
-
-			strategy.setStrategy(new FarthestStrategy());
-
-		else
-
-			strategy = null;
-
-		return strategy;
-
-	}
+	
 
 	@Override
 	public void fire(CritterBase critter) {
@@ -260,27 +225,22 @@ public class IceTower extends TowerBase {
 
 			}
 
-			TowerStrategy strategy = setStrategy();
-
-			if (strategy == null && this.groupAttack == false
-					&& this.singleTarget == null)
-
+			TowerStrategy strategy = setStrategy();	
+			if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
 			{
-
 				this.singleTarget = critter;
-
 			}
-
-			else if (strategy != null && this.groupAttack == false
-					&& this.singleTarget == null) {
-
+			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
+				
 				this.singleTarget = strategy.executeStrategy(targets, this);
-
+				
+				//System.out.println(this.singleTarget==null);
+				
 			}
-
 			if (singleTarget != null)
 
 			{
+				singleTarget.setIsFrozen(true);
 
 				singleTarget.decreaseHp(this.power);
 
@@ -307,12 +267,15 @@ public class IceTower extends TowerBase {
 		{
 
 			if (targets.contains(critter)) {
-
 				targets.remove(critter);
 
 			}
+			
+				singleTarget = null;
+				
+			
 
-			singleTarget = null;
+			
 
 		}
 

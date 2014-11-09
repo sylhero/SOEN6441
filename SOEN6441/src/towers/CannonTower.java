@@ -114,21 +114,7 @@ public class CannonTower extends TowerBase{
 		
 	}
 	
-	public TowerStrategy setStrategy(){
-		TowerStrategy strategy = new TowerStrategy();
-		if (this.towerStratgyType == 1)
-			strategy.setStrategy(new WeakestStrategy());
-		else if(this.towerStratgyType==2)
-			strategy.setStrategy(new StrongestStrategy());
-		else if(this.towerStratgyType==3)
-			strategy.setStrategy(new NearestStrategy());
-		else if(this.towerStratgyType==4)
-			strategy.setStrategy(new FarthestStrategy());
-		else
-			strategy = null;
-		return strategy;
-		
-	}
+	
 	
 	public double distance (CritterBase critter){
 		int critterX   = critter.getX();
@@ -170,7 +156,7 @@ public class CannonTower extends TowerBase{
 		
 				
 					singleTarget.decreaseHp(this.power);
-					singleTarget.setBurnTimes(2);
+					//singleTarget.setBurnTimes(2);
 				
 					if(singleTarget.getCurrentHp()<=0)
 					{
@@ -185,16 +171,16 @@ public class CannonTower extends TowerBase{
 			if(targets.contains(critter)){
 				targets.remove(critter);
 			}
-			
-			if(critter.getBurnTimes() > 0){
-				int burn_times = critter.getBurnTimes();
-				
-				System.out.print("Burning Times LOL: ");
-				System.out.println(burn_times);
-				
-				critter.setBurnTimes(--burn_times);
-				critter.decreaseHp(this.power);
-			}		
+//			
+//			if(critter.getBurnTimes() > 0){
+//				int burn_times = critter.getBurnTimes();
+//				
+//				System.out.print("Burning Times LOL: ");
+//				System.out.println(burn_times);
+//				
+//				critter.setBurnTimes(--burn_times);
+//				critter.decreaseHp(this.power);
+//			}		
 			}
 	
 	}
