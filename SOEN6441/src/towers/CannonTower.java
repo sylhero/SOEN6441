@@ -183,8 +183,7 @@ public class CannonTower extends TowerBase{
 					this.singleTarget = strategy.executeStrategy(targets, this);
 				}
 		
-				if(singleTarget!=null )
-				{				
+				
 					singleTarget.decreaseHp(this.power);
 					singleTarget.setBurnTimes(2);
 				
@@ -194,7 +193,6 @@ public class CannonTower extends TowerBase{
 						//targets.remove(singleTarget);
 						singleTarget = null;
 					}	
-				}		
 		}
 		
 		else { 
