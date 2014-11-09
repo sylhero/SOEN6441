@@ -26,6 +26,7 @@ public class NearestStrategy implements Strategy{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 
 }
