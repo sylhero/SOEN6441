@@ -741,6 +741,7 @@ public class PlayState extends GameState{
 						}
 					}
 						towerList.get(j).fire(critterBatch.get(i));
+						
 					}
 				if(critterBatch.size()==0){
 					isNextWave = false;

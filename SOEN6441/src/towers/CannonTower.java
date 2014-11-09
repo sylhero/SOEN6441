@@ -26,20 +26,20 @@ public class CannonTower extends TowerBase{
 	 */
 	
 	public CannonTower(){
-		super.name = "Cannon Tower";
-		super.map = TileMap.getTileMap().getMap();
-		super.tileType  = CANNONTOWERTYPE;
-		super.tileImage = cannonTower;
-		super.level = 0;
-		super.cost  = 15;
-		super.groupAttack = false;
-		super.power = 10;
-		super.range = TileMap.getTileMap().getCellWidth();
-		super.refundRate = 0.5;
-		super.towerSpeed = 3;
-		super.upgradeCost = 10;	
-		super.value = level * upgradeCost + cost;
-		super.specialEffect = "Burn";
+		this.name = "Cannon Tower";
+		this.map = TileMap.getTileMap().getMap();
+		this.tileType  = CANNONTOWERTYPE;
+		this.tileImage = cannonTower;
+		this.level = 0;
+		this.cost  = 15;
+		this.groupAttack = false;
+		this.power = 10;
+		this.range = TileMap.getTileMap().getCellWidth();
+		this.refundRate = 0.5;
+		this.towerSpeed = 3;
+		this.upgradeCost = 10;	
+		this.value = level * upgradeCost + cost;
+		this.specialEffect = "Burn";
 	}
 	
 	/**
@@ -53,24 +53,24 @@ public class CannonTower extends TowerBase{
 	
 	public CannonTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
-		super.name = "Cannon Tower";
-		super.map = TileMap.getTileMap().getMap();
-		super.tileType  = CANNONTOWERTYPE;
-		super.tileImage = cannonTower;
-		super.tileX = tileX;
-		super.tileY = tileY;
-		super.tileHeight = tileHeight;
-		super.tileWidth = tileWidth;
-		super.level = 0;
-		super.cost  = 15;
-		super.groupAttack = false;
-		super.power = 10;
-		super.range = tileWidth;
-		super.refundRate = 0.5;
-		super.towerSpeed = 3;
-		super.upgradeCost = 10;
-		super.value = level * upgradeCost + cost;
-		super.specialEffect = "None";
+		this.name = "Cannon Tower";
+		this.map = TileMap.getTileMap().getMap();
+		this.tileType  = CANNONTOWERTYPE;
+		this.tileImage = cannonTower;
+		this.tileX = tileX;
+		this.tileY = tileY;
+		this.tileHeight = tileHeight;
+		this.tileWidth = tileWidth;
+		this.level = 0;
+		this.cost  = 15;
+		this.groupAttack = false;
+		this.power = 10;
+		this.range = tileWidth;
+		this.refundRate = 0.5;
+		this.towerSpeed = 3;
+		this.upgradeCost = 10;
+		this.value = level * upgradeCost + cost;
+		this.specialEffect = "None";
 	}
 	
 	//The above two method will be used in the later builds.

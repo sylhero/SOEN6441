@@ -23,21 +23,21 @@ public class MagicTower extends TowerBase{
 	 * This is the constructor with no parameter, assign the initial value of the attributes.
 	 */
 	public MagicTower(){
-		super.name = "Magic Tower";
-		super.map = TileMap.getTileMap().getMap();
-		super.tileType  = MAGICTOWERTYPE;
-		super.tileImage = magicTower;
-		super.level = 0;
-		super.cost  = 15;
-		super.groupAttack = true;
-		super.power = 10;
-		super.range = 2*TileMap.getTileMap().getCellWidth();
-		super.refundRate = 0.5;
-		super.towerSpeed = 3;
-		super.upgradeCost = 10;	
-		super.value = level * upgradeCost + cost;
-		super.specialEffect = "Splash";
-		super.targets = new ArrayList<CritterBase>();
+		this.name = "Magic Tower";
+		this.map = TileMap.getTileMap().getMap();
+		this.tileType  = MAGICTOWERTYPE;
+		this.tileImage = magicTower;
+		this.level = 0;
+		this.cost  = 15;
+		this.groupAttack = true;
+		this.power = 10;
+		this.range = 2*TileMap.getTileMap().getCellWidth();
+		this.refundRate = 0.5;
+		this.towerSpeed = 3;
+		this.upgradeCost = 10;	
+		this.value = level * upgradeCost + cost;
+		this.specialEffect = "Splash";
+		this.targets = new ArrayList<CritterBase>();
 	}
 	/**
 	 * This constructor can assign the value of tile's attributes besides the tower's common attributes.
@@ -50,25 +50,25 @@ public class MagicTower extends TowerBase{
 	
 	public MagicTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
-		super.name = "Magic Tower";
-		super.map = TileMap.getTileMap().getMap();
-		super.tileType  = MAGICTOWERTYPE;
-		super.tileImage = magicTower;
-		super.tileX = tileX;
-		super.tileY = tileY;
-		super.tileHeight = tileHeight;
-		super.tileWidth = tileWidth;
-		super.level = 0;
-		super.cost  = 15;
-		super.groupAttack = true;
-		super.power = 10;
-		super.range = 2*tileWidth;
-		super.refundRate = 0.5;
-		super.towerSpeed = 3;
-		super.upgradeCost = 10;
-		super.value = level * upgradeCost + cost;
-		super.specialEffect = "None";
-		super.targets = new ArrayList<CritterBase>();
+		this.name = "Magic Tower";
+		this.map = TileMap.getTileMap().getMap();
+		this.tileType  = MAGICTOWERTYPE;
+		this.tileImage = magicTower;
+		this.tileX = tileX;
+		this.tileY = tileY;
+		this.tileHeight = tileHeight;
+		this.tileWidth = tileWidth;
+		this.level = 0;
+		this.cost  = 15;
+		this.groupAttack = true;
+		this.power = 10;
+		this.range = 2*tileWidth;
+		this.refundRate = 0.5;
+		this.towerSpeed = 3;
+		this.upgradeCost = 10;
+		this.value = level * upgradeCost + cost;
+		this.specialEffect = "None";
+		this.targets = new ArrayList<CritterBase>();
 	}
 	
 	//The above two method will be used in the later builds.
@@ -110,41 +110,13 @@ public class MagicTower extends TowerBase{
 		
 		if(distance <= range){
 			
-			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
-				targets.add(critter);
-			
-//			if(!targets.contains(monster)&& monster.getCurrentHP()>0){
-//				targets.add(monster);
-//			}
-			
-			System.out.printf("target size:%d\n",targets.size());
-			
-			//if(this.groupAttack==false && super.singleTarget == null){
-			//	super.singleTarget = critter;
-			//}
-			
-			if(this.groupAttack==false && targets.size()>0){
-				super.singleTarget = targets.get(0);
-			}
-			
-			
-			if(singleTarget!=null){
+				critter.decreaseHp(this.power);
 				
-				singleTarget.decreaseHp(this.power);
-				
-//				int targetHP = singleTarget.getCurrentHp();
-//				singleTarget.setCurrentHp(targetHP-this.power);
-				if(singleTarget.getCurrentHp()<=0){
-					coin.increaseCurrency(singleTarget.getValue());
-					//targets.remove(singleTarget);
-					singleTarget = null;
+				if(critter.getCurrentHp()<=0){
+					coin.increaseCurrency(critter.getValue());
 				}
 				
 			}			
-		}else{
-			singleTarget = null;
 		}		
-	}
-
 
 }
