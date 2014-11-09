@@ -120,8 +120,8 @@ public class IceTower extends TowerBase {
 
 			if(singleTarget!=null)
 			{
-				int targetHP = singleTarget.getCurrentHp();
-				singleTarget.setCurrentHp(targetHP-this.power);
+				singleTarget.decreaseHp(this.power);
+				
 				singleTarget.setSpeedOffset(1, 1);
 				if(singleTarget.getCurrentHp()<=0)
 				{

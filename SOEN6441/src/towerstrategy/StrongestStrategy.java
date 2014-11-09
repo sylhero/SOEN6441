@@ -3,6 +3,7 @@ package towerstrategy;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import towers.TowerBase;
 import critters.CritterBase;
 
 public class StrongestStrategy implements Strategy{
@@ -20,6 +21,13 @@ public class StrongestStrategy implements Strategy{
 	public int getStrategyType() {
 		// TODO Auto-generated method stub
 		return STRONGEST;
+	}
+
+	@Override
+	public CritterBase executeStrategy(ArrayList<CritterBase> al,
+			TowerBase towerShooter) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

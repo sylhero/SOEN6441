@@ -2,6 +2,7 @@ package towerstrategy;
 
 import java.util.ArrayList;
 
+import towers.TowerBase;
 import critters.CritterBase;
 
 public class NearestStrategy implements Strategy{
@@ -17,6 +18,13 @@ public class NearestStrategy implements Strategy{
 	public int getStrategyType() {
 		// TODO Auto-generated method stub
 		return NEAREST;
+	}
+
+	@Override
+	public CritterBase executeStrategy(ArrayList<CritterBase> al,
+			TowerBase towerShooter) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
