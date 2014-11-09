@@ -3,9 +3,15 @@ package towers;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import critters.CritterBase;
 import tilemap.TileMap;
+import towerstrategy.FarthestStrategy;
+import towerstrategy.NearestStrategy;
+import towerstrategy.StrongestStrategy;
+import towerstrategy.TowerStrategy;
+import towerstrategy.WeakestStrategy;
 import usefulfunctions.LoadImage;
 /**
  * This is one kind of tower named Cannon Tower. 
@@ -20,6 +26,7 @@ public class CannonTower extends TowerBase{
 	public static final Image cannonTower         = LoadImage.loadImage("/images/cannontower.png");
 	public static final Image cannonTowerEffect   = LoadImage.loadImageIcon("/images/cannontowereffect.gif").getImage();
 	public static final int CANNONTOWERTYPE  = 5;
+	
 	
 	/**
 	 * This is the constructor with no parameter, assign the initial value of the attributes.
@@ -40,6 +47,9 @@ public class CannonTower extends TowerBase{
 		this.upgradeCost = 10;	
 		this.value = level * upgradeCost + cost;
 		this.specialEffect = "Burn";
+		this.targets = new ArrayList<CritterBase>();
+		this.singleTarget = null;
+		this.towerStratgyType = 0;
 	}
 	
 	/**
@@ -70,7 +80,10 @@ public class CannonTower extends TowerBase{
 		this.towerSpeed = 3;
 		this.upgradeCost = 10;
 		this.value = level * upgradeCost + cost;
-		this.specialEffect = "None";
+		this.specialEffect = "Burn";
+		this.targets = new ArrayList<CritterBase>();
+		this.singleTarget = null;
+		this.towerStratgyType = 0;
 	}
 	
 	//The above two method will be used in the later builds.
@@ -100,12 +113,26 @@ public class CannonTower extends TowerBase{
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void fire(CritterBase critter) {
-		// TODO Auto-generated method stub
-		int critterX = critter.getX();
-		int critterY = critter.getY();
+	
+	public TowerStrategy setStrategy(){
+		TowerStrategy strategy = new TowerStrategy();
+		if (this.towerStratgyType == 1)
+			strategy.setStrategy(new WeakestStrategy());
+		else if(this.towerStratgyType==2)
+			strategy.setStrategy(new StrongestStrategy());
+		else if(this.towerStratgyType==3)
+			strategy.setStrategy(new NearestStrategy());
+		else if(this.towerStratgyType==4)
+			strategy.setStrategy(new FarthestStrategy());
+		else
+			strategy = null;
+		return strategy;
+		
+	}
+	
+	public double distance (CritterBase critter){
+		int critterX   = critter.getX();
+		int critterY   = critter.getY();
 		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
 		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
 		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
@@ -113,7 +140,78 @@ public class CannonTower extends TowerBase{
 		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
 				Math.pow(critterCenterY-towerCenterY, 2));
 		
-		
+		return distance;		
 	}
+
+	@Override
+	public void fire(CritterBase critter) {	
+				
+		Iterator<CritterBase> it = targets.iterator();
+		while(it.hasNext())
+		{
+			CritterBase temp = (CritterBase)it.next();
+			double tempDistance = distance(temp);
+			if(temp.getCurrentHp()<=0)
+			{
+				it.remove();
+			}
+			System.out.println("tempDistance");
+			if(tempDistance>=range)
+			{
+				it.remove();
+			}			
+		}
+		
+		double distance = distance(critter);
+		
+			if(distance <= range)
+			{
+				
+				if(!targets.contains(critter) && critter.getCurrentHp() > 0)
+				{
+					targets.add(critter);
+				}
+			
+				System.out.printf("target size:%d\n",targets.size());
+			
+				TowerStrategy strategy = setStrategy();	
+				if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
+				{
+					this.singleTarget = critter;
+				}
+				else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
+					this.singleTarget = strategy.executeStrategy(targets, this);
+				}
+		
+				if(singleTarget!=null )
+				{				
+					singleTarget.decreaseHp(this.power);
+					singleTarget.setBurnTimes(2);
+				
+					if(singleTarget.getCurrentHp()<=0)
+					{
+						coin.increaseCurrency(singleTarget.getValue());
+						//targets.remove(singleTarget);
+						singleTarget = null;
+					}	
+				}		
+		}
+		
+		else { 
+			singleTarget = null;
+			
+			if(critter.getBurnTimes() > 0){
+				int burn_times = critter.getBurnTimes();
+				
+				System.out.print("Burning Times LOL: ");
+				System.out.println(burn_times);
+				
+				critter.setBurnTimes(--burn_times);
+				critter.decreaseHp(this.power);
+			}		
+			}
+	
+	}
+
 
 }
