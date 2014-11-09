@@ -31,23 +31,23 @@ public class ArrowTower extends TowerBase{
 	 */
 	
 	public ArrowTower(){
-		super.name = "Arrow Tower";
-		super.map = TileMap.getTileMap().getMap();
-		super.tileType  = ARROWTOWERTYPE;
-		super.tileImage = arrowTower;
-		super.level = 0;
-		super.cost  = 15;
-		super.groupAttack = false;
-		super.power = 10;
-		super.range = 2*TileMap.getTileMap().getCellWidth();
-		super.refundRate = 0.5;
-		super.towerSpeed = 3;
-		super.upgradeCost = 10;	
-		super.value = this.cost;
-		super.specialEffect = "None";
-		super.targets = new ArrayList<CritterBase>();
-		super.singleTarget = null;
-		super.towerStratgyType = 0;
+		this.name = "Arrow Tower";
+		this.map = TileMap.getTileMap().getMap();
+		this.tileType  = ARROWTOWERTYPE;
+		this.tileImage = arrowTower;
+		this.level = 0;
+		this.cost  = 15;
+		this.groupAttack = false;
+		this.power = 10;
+		this.range = 2*TileMap.getTileMap().getCellWidth();
+		this.refundRate = 0.5;
+		this.towerSpeed = 3;
+		this.upgradeCost = 10;	
+		this.value = this.cost;
+		this.specialEffect = "None";
+		this.targets = new ArrayList<CritterBase>();
+		this.singleTarget = null;
+		this.towerStratgyType = 0;
 	}
 	
 	/**
@@ -61,26 +61,26 @@ public class ArrowTower extends TowerBase{
 	
 	public ArrowTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
-		super.name = "Arrow Tower";
-		super.tileType  = ARROWTOWERTYPE;
-		super.tileImage = arrowTower;
-		super.tileX = tileX;
-		super.tileY = tileY;
-		super.tileHeight = tileHeight;
-		super.tileWidth = tileWidth;
-		super.level = 0;
-		super.cost  = 15;
-		super.groupAttack = false;
-		super.power = 10;
-		super.range = 2*tileWidth;
-		super.refundRate = 0.5;
-		super.towerSpeed = 3;
-		super.upgradeCost = 10;
-		super.value = this.cost;
-		super.specialEffect = "None";
-		super.targets = new ArrayList<CritterBase>();
-		super.singleTarget = null;
-		super.towerStratgyType = 0;
+		this.name = "Arrow Tower";
+		this.tileType  = ARROWTOWERTYPE;
+		this.tileImage = arrowTower;
+		this.tileX = tileX;
+		this.tileY = tileY;
+		this.tileHeight = tileHeight;
+		this.tileWidth = tileWidth;
+		this.level = 0;
+		this.cost  = 15;
+		this.groupAttack = false;
+		this.power = 10;
+		this.range = 2*tileWidth;
+		this.refundRate = 0.5;
+		this.towerSpeed = 3;
+		this.upgradeCost = 10;
+		this.value = this.cost;
+		this.specialEffect = "None";
+		this.targets = new ArrayList<CritterBase>();
+		this.singleTarget = null;
+		this.towerStratgyType = 0;
 		
 	}
 	
@@ -127,8 +127,10 @@ public class ArrowTower extends TowerBase{
 	@Override
 	public void fire(CritterBase critter) {	
 		double distance = distance(critter);
-		if(distance <= range)
-		{
+		
+			if(distance <= range)
+			{
+				
 			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
 			{
 				targets.add(critter);
@@ -137,15 +139,15 @@ public class ArrowTower extends TowerBase{
 			System.out.printf("target size:%d\n",targets.size());
 			
 			TowerStrategy strategy = setStrategy();	
-			if (strategy ==null && this.groupAttack==false && super.singleTarget == null)
+			if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
 			{
-				super.singleTarget = critter;
+				this.singleTarget = critter;
 			}
-			else if(strategy!=null && this.groupAttack==false && super.singleTarget == null){
-				super.singleTarget = strategy.executeStrategy(targets, this);
+			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
+				this.singleTarget = strategy.executeStrategy(targets, this);
 			}
 //				if(this.groupAttack==false && targets.size()>0){
-//					super.singleTarget = targets.get(0);
+//					this.singleTarget = targets.get(0);
 //				}		
 			if(singleTarget!=null)
 			{				
