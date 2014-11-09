@@ -146,9 +146,7 @@ public class ArrowTower extends TowerBase{
 			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
 				this.singleTarget = strategy.executeStrategy(targets, this);
 			}
-//				if(this.groupAttack==false && targets.size()>0){
-//					this.singleTarget = targets.get(0);
-//				}		
+		
 			if(singleTarget!=null)
 			{				
 				singleTarget.decreaseHp(this.power);
@@ -156,13 +154,17 @@ public class ArrowTower extends TowerBase{
 				if(singleTarget.getCurrentHp()<=0)
 				{
 					coin.increaseCurrency(singleTarget.getValue());
-					//targets.remove(singleTarget);
+					targets.remove(singleTarget);
 					singleTarget = null;
 				}	
 			}		
 		}
 		else
 		{
+			//remove the critter from targets if it is out of the range
+			if(targets.contains(critter)){
+				targets.remove(critter);
+			}
 			singleTarget = null;
 		}		
 		

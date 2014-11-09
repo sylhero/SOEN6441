@@ -42,8 +42,8 @@ public class NormalCritter extends CritterBase {
 		
 		//set next point
 		this.nextPoint = correctRouteCopy.pollFirst();
-		this.originalHp = 5000;
-		this.currentHp  = 5000;
+		this.originalHp = 8000;
+		this.currentHp  = 8000;
 		this.image = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
 		
 		this.value = 100;

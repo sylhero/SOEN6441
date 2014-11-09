@@ -154,6 +154,7 @@ public abstract class CritterBase {
 		{	
 			move();
 			endOfGameCheck();
+			System.out.println(currentHp);
 			
 		}else
 		{
