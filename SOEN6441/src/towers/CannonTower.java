@@ -146,21 +146,6 @@ public class CannonTower extends TowerBase{
 	@Override
 	public void fire(CritterBase critter) {	
 				
-		Iterator<CritterBase> it = targets.iterator();
-		while(it.hasNext())
-		{
-			CritterBase temp = (CritterBase)it.next();
-			double tempDistance = distance(temp);
-			if(temp.getCurrentHp()<=0)
-			{
-				it.remove();
-			}
-			System.out.println("tempDistance");
-			if(tempDistance>=range)
-			{
-				it.remove();
-			}			
-		}
 		
 		double distance = distance(critter);
 		
@@ -190,13 +175,16 @@ public class CannonTower extends TowerBase{
 					if(singleTarget.getCurrentHp()<=0)
 					{
 						coin.increaseCurrency(singleTarget.getValue());
-						//targets.remove(singleTarget);
+						targets.remove(singleTarget);
 						singleTarget = null;
 					}	
 		}
 		
 		else { 
 			singleTarget = null;
+			if(targets.contains(critter)){
+				targets.remove(critter);
+			}
 			
 			if(critter.getBurnTimes() > 0){
 				int burn_times = critter.getBurnTimes();

@@ -47,9 +47,5 @@ public class FarthestStrategy implements Strategy{
 		return FARTHEST;
 	}
 
-	@Override
-	public CritterBase executeStrategy(ArrayList<CritterBase> al) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 }

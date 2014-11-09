@@ -110,9 +110,7 @@ public class ArrowTower extends TowerBase{
 	}
 	
 	public TowerStrategy setStrategy(){
-		
 		TowerStrategy strategy = new TowerStrategy();
-		
 		if (this.towerStratgyType == 1)
 			strategy.setStrategy(new WeakestStrategy());
 		else if(this.towerStratgyType==2)
@@ -129,24 +127,12 @@ public class ArrowTower extends TowerBase{
 	@Override
 	public void fire(CritterBase critter) {	
 		
-		Iterator<CritterBase> it = targets.iterator();
-		while(it.hasNext())
-		{
-			CritterBase temp = (CritterBase)it.next();
-			double tempDistance = distance(temp);
-			if(temp.getCurrentHp()<=0)
-			{
-				it.remove();
-			}
-			if(tempDistance>=range)
-			{
-				it.remove();
-			}			
-		}
+	
 		
 		double distance = distance(critter);
 		
 		if(distance <= range)
+			
 		{			
 			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
 			{
@@ -162,10 +148,10 @@ public class ArrowTower extends TowerBase{
 			}
 			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
 				
-				if(this.towerStratgyType == 3 || this.towerStratgyType ==4)
-					this.singleTarget = strategy.executeStrategy(targets, this);
-				else if(this.towerStratgyType == 1 || this.towerStratgyType == 2)
-					this.singleTarget = strategy.excuteStrategy(targets);
+				this.singleTarget = strategy.executeStrategy(targets, this);
+				
+				System.out.println(this.singleTarget==null);
+				
 			}
 
 							
@@ -174,6 +160,7 @@ public class ArrowTower extends TowerBase{
 				if(singleTarget.getCurrentHp()<=0)
 				{
 					coin.increaseCurrency(singleTarget.getValue());
+					//remove the dead critter
 					targets.remove(singleTarget);
 					singleTarget = null;
 				}	

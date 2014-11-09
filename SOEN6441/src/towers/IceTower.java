@@ -1,191 +1,321 @@
 package towers;
 
 import java.awt.Graphics2D;
+
 import java.awt.Image;
+
 import java.util.ArrayList;
+
 import java.util.Iterator;
 
 import critters.CritterBase;
+
 import tilemap.TileMap;
+
 import towerstrategy.FarthestStrategy;
+
 import towerstrategy.NearestStrategy;
+
 import towerstrategy.StrongestStrategy;
+
 import towerstrategy.TowerStrategy;
+
 import towerstrategy.WeakestStrategy;
+
 import usefulfunctions.LoadImage;
+
 /**
- * This is one kind of tower named Ice Tower. 
+ * 
+ * This is one kind of tower named Ice Tower.
+ * 
  * The Ice Tower has its own image and type and other common attributes.
- * It will be used in the later builds 
+ * 
+ * It will be used in the later builds
+ * 
+ * 
  * 
  * @author Yulong Song, Xunrong Xia
  * 
+ * 
  */
+
 public class IceTower extends TowerBase {
-	public static final Image iceTower  = LoadImage.loadImage("/images/icetower.png");
-	public static final int ICETOWERTYPE  = 6;
-	
+
+	public static final Image iceTower = LoadImage
+			.loadImage("/images/icetower.png");
+
+	public static final int ICETOWERTYPE = 6;
+
 	/**
-	 * This is the constructor of IceTower class. 
+	 * 
+	 * This is the constructor of IceTower class.
+	 * 
 	 * Some default values of the Ice Tower's features has been assigned.
 	 */
-	
-	public IceTower(){
+
+	public IceTower() {
+
 		this.name = "Ice Tower";
+
 		this.map = TileMap.getTileMap().getMap();
-		this.tileType  = ICETOWERTYPE;
+
+		this.tileType = ICETOWERTYPE;
+
 		this.tileImage = iceTower;
+
 		this.level = 0;
-		this.cost  = 15;
+
+		this.cost = 15;
+
 		this.groupAttack = false;
+
 		this.power = 10;
-		this.range = 2*TileMap.getTileMap().getCellWidth();
+
+		this.range = 2 * TileMap.getTileMap().getCellWidth();
+
 		this.refundRate = 0.5;
+
 		this.towerSpeed = 3;
-		this.upgradeCost = 10;	
+
+		this.upgradeCost = 10;
+
 		this.value = level * upgradeCost + cost;
+
 		this.specialEffect = "Freezing";
+
 		this.targets = new ArrayList<CritterBase>();
+
 		this.singleTarget = null;
+
 		this.towerStratgyType = 0;
+
 	}
-	
+
 	/**
+	 * 
 	 * This constructor would assign the value of tile's attributes.
 	 * 
-	 * @param tileX The X coordinate of the tile.
-	 * @param tileY The Y coordinate of the tile.
-	 * @param tileWidth The width of the tile.
-	 * @param tileHeight The height of the tile.
+	 * 
+	 * 
+	 * @param tileX
+	 *            The X coordinate of the tile.
+	 * 
+	 * @param tileY
+	 *            The Y coordinate of the tile.
+	 * 
+	 * @param tileWidth
+	 *            The width of the tile.
+	 * 
+	 * @param tileHeight
+	 *            The height of the tile.
 	 */
-	
-	public IceTower(int tileX, int tileY, 
-			int tileWidth, int tileHeight){
+
+	public IceTower(int tileX, int tileY,
+
+	int tileWidth, int tileHeight) {
+
 		this.name = "Ice Tower";
+
 		this.map = TileMap.getTileMap().getMap();
-		this.tileType  = ICETOWERTYPE;
+
+		this.tileType = ICETOWERTYPE;
+
 		this.tileImage = iceTower;
+
 		this.tileX = tileX;
+
 		this.tileY = tileY;
+
 		this.tileHeight = tileHeight;
+
 		this.tileWidth = tileWidth;
+
 		this.level = 0;
-		this.cost  = 15;
+
+		this.cost = 15;
+
 		this.groupAttack = false;
+
 		this.power = 10;
-		this.range = 2*tileWidth;
+
+		this.range = tileWidth;
+
 		this.refundRate = 0.5;
+
 		this.towerSpeed = 3;
+
 		this.upgradeCost = 10;
+
 		this.value = level * upgradeCost + cost;
+
 		this.specialEffect = "Freezing";
+
 		this.targets = new ArrayList<CritterBase>();
+
 		this.singleTarget = null;
+
 		this.towerStratgyType = 0;
+
 	}
-	
+
 	/**
+	 * 
 	 * The override method of upgrade().
+	 * 
 	 * When an Ice Tower upgrade, it's power would increase 5,
-	 *  level would increase 1. The upgradeCose would increase 5.
+	 * 
+	 * level would increase 1. The upgradeCose would increase 5.
 	 */
+
 	@Override
 	public void upgrade() {
+
 		this.power += 5;
+
 		this.level += 1;
-		this.upgradeCost += 5;		
+
+		this.upgradeCost += 5;
+
 	}
 
 	@Override
 	public void update() {
+
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void draw(Graphics2D g) {
+
 		// TODO Auto-generated method stub
-		
+
 	}
-	public double distance (CritterBase critter){
-		int critterX   = critter.getX();
-		int critterY   = critter.getY();
-		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
+
+	public double distance(CritterBase critter) {
+
+		int critterX = critter.getX();
+
+		int critterY = critter.getY();
+
+		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight()
+				/ 2;
+
 		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
-		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
-		int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
-		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
-				Math.pow(critterCenterY-towerCenterY, 2));
-		
-		return distance;		
+
+		int towerCenterX = tileX + TileMap.getTileMap().getCellHeight() / 2;
+
+		int towerCenterY = tileY + TileMap.getTileMap().getCellWidth() / 2;
+
+		double distance = Math.sqrt(Math.pow(critterCenterX - towerCenterX, 2) +
+
+		Math.pow(critterCenterY - towerCenterY, 2));
+
+		return distance;
+
 	}
-	
-	public TowerStrategy setStrategy(){
+
+	public TowerStrategy setStrategy() {
+
 		TowerStrategy strategy = new TowerStrategy();
+
 		if (this.towerStratgyType == 1)
+
 			strategy.setStrategy(new WeakestStrategy());
-		else if(this.towerStratgyType==2)
+
+		else if (this.towerStratgyType == 2)
+
 			strategy.setStrategy(new StrongestStrategy());
-		else if(this.towerStratgyType==3)
+
+		else if (this.towerStratgyType == 3)
+
 			strategy.setStrategy(new NearestStrategy());
-		else if(this.towerStratgyType==4)
+
+		else if (this.towerStratgyType == 4)
+
 			strategy.setStrategy(new FarthestStrategy());
+
 		else
+
 			strategy = null;
+
 		return strategy;
-		
+
 	}
+
 	@Override
 	public void fire(CritterBase critter) {
-		// TODO Auto-generated method stub
-		Iterator<CritterBase> it = targets.iterator();
-		while(it.hasNext())
-		{
-			CritterBase temp = (CritterBase)it.next();
-			double tempDistance = distance(temp);
-			if(temp.getCurrentHp()<=0)
-			{
-				it.remove();
-			}
-			if(tempDistance>=range)
-			{
-				temp.setSpeedOffset(4, 4);
-				it.remove();
-			}			
-		}
+
 		double distance = distance(critter);
-		if(distance <= range)
+
+		if (distance <= range)
+
 		{
-			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
+
+			if (!targets.contains(critter) && critter.getCurrentHp() > 0)
+
 			{
+
 				targets.add(critter);
+
 			}
-			TowerStrategy strategy = setStrategy();	
-			if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
+
+			TowerStrategy strategy = setStrategy();
+
+			if (strategy == null && this.groupAttack == false
+					&& this.singleTarget == null)
+
 			{
+
 				this.singleTarget = critter;
+
 			}
-			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
+
+			else if (strategy != null && this.groupAttack == false
+					&& this.singleTarget == null) {
+
 				this.singleTarget = strategy.executeStrategy(targets, this);
+
 			}
-			
-			if(singleTarget!=null)
+
+			if (singleTarget != null)
+
 			{
+
 				singleTarget.decreaseHp(this.power);
-				
+
 				singleTarget.setSpeedOffset(1, 1);
-				
-				if(singleTarget.getCurrentHp()<=0)
+
+				if (singleTarget.getCurrentHp() <= 0)
+
 				{
+
 					coin.increaseCurrency(singleTarget.getValue());
-					//targets.remove(singleTarget);
+
+					targets.remove(singleTarget);
+
 					singleTarget = null;
-				}				
-			}	
+
+				}
+
+			}
+
 		}
+
 		else
+
 		{
+
+			if (targets.contains(critter)) {
+
+				targets.remove(critter);
+
+			}
+
 			singleTarget = null;
-		}	
+
+		}
+
 	}
+
 }
