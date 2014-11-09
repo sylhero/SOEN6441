@@ -14,7 +14,7 @@ public class TowerStrategy {
 		this.strategy = strategy;
 		//this.al = al;
 	}
-	public CritterBase getStrategy(ArrayList<CritterBase> al, TowerBase shooter){
+	public CritterBase executeStrategy(ArrayList<CritterBase> al, TowerBase shooter){
 		return this.strategy.executeStrategy(al, shooter);
 	}
 

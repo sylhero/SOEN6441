@@ -142,7 +142,7 @@ public class ArrowTower extends TowerBase{
 				super.singleTarget = critter;
 			}
 			else if(strategy!=null && this.groupAttack==false && super.singleTarget == null){
-				super.singleTarget = strategy.getStrategy(targets, this);
+				super.singleTarget = strategy.executeStrategy(targets, this);
 			}
 //				if(this.groupAttack==false && targets.size()>0){
 //					super.singleTarget = targets.get(0);
