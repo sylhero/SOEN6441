@@ -49,6 +49,7 @@ public abstract class CritterBase {
 	protected boolean isBurning;
 	
 	
+	
 
 	
 	/**

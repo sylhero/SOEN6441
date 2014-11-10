@@ -398,28 +398,28 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="57">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>560</tileX>
       <tileY>120</tileY>
       <tileWidth>35</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="58">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>595</tileX>
       <tileY>120</tileY>
       <tileWidth>35</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="59">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>630</tileX>
       <tileY>120</tileY>
       <tileWidth>35</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="60">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>665</tileX>
       <tileY>120</tileY>
       <tileWidth>35</tileWidth>
@@ -531,7 +531,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="76">
-      <tileType>3</tileType>
+      <tileType>0</tileType>
       <tileX>525</tileX>
       <tileY>180</tileY>
       <tileWidth>35</tileWidth>
@@ -559,7 +559,7 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="80">
-      <tileType>0</tileType>
+      <tileType>3</tileType>
       <tileX>665</tileX>
       <tileY>180</tileY>
       <tileWidth>35</tileWidth>
@@ -678,28 +678,28 @@
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="97">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>560</tileX>
       <tileY>240</tileY>
       <tileWidth>35</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="98">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>595</tileX>
       <tileY>240</tileY>
       <tileWidth>35</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="99">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>630</tileX>
       <tileY>240</tileY>
       <tileWidth>35</tileWidth>
       <tileHeight>60</tileHeight>
     </tile>
     <tile id="100">
-      <tileType>0</tileType>
+      <tileType>2</tileType>
       <tileX>665</tileX>
       <tileY>240</tileY>
       <tileWidth>35</tileWidth>

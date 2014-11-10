@@ -104,10 +104,10 @@ public class ArrowTower extends TowerBase{
 		
 		double distance = distance(critter);
 		
-		if(distance <= range)
+		if(distance <= range && critter.getCurrentHp()>0)
 			
 		{			
-			if(!targets.contains(critter) && critter.getCurrentHp() > 0)
+			if(!targets.contains(critter) )
 			{
 				targets.add(critter);
 			}

@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import critters.CritterBase;
@@ -724,35 +725,29 @@ public class PlayState extends GameState{
 	@Override
 	public void update() {
 		if(isNextWave){	
-
-			for(int i = 0;i < critterBatch.size();i++){
-				critterBatch.get(i).update();
-				if(critterBatch.get(i).isAtExit()==true){
+			//use this to prevent removing which is troublesome
+			int deadCritterCounter = 0;
+			Iterator<CritterBase> critterIterator = critterBatch.iterator();
+			while(critterIterator.hasNext()){
+				CritterBase critter = critterIterator.next();
+				if(critter.getCurrentHp()<=0){
+					deadCritterCounter++;
+				}
+				critter.update();
+				if(critter.isAtExit()){
 					gsm.switchState(GameStateManager.GAMEOVER);
 				}
-				for (int j = 0; j < towerList.size(); j++){
-					
-					if(critterBatch.get(i).getCurrentHp()<=0){
-						//remove dead monsters from the batch
-						critterBatch.remove(i);
-						if(critterBatch.size()==0){
-							
-							break;
-						}
-					}
-						towerList.get(j).fire(critterBatch.get(i));
-						
-					}
-				if(critterBatch.size()==0){
-					isNextWave = false;
-					fillBatch();
-					break;
+				for(int i = 0; i< towerList.size();i++){
+					towerList.get(i).fire(critter);
 				}
-				//TODO switch to game over if reach here one of the monsters reach the exit
-				//
-			}
-
 			
+			}
+			if(critterBatch.size()==deadCritterCounter){
+				fillBatch();
+				isNextWave = false;
+				
+			}
+					
 		}
 		
 	}

@@ -108,7 +108,7 @@ public class MagicTower extends TowerBase{
 		
 		System.out.println(distance);
 		
-		if(distance <= range){
+		if(distance <= range && critter.getCurrentHp()>0){
 			
 				critter.decreaseHp(this.power);
 				

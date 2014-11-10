@@ -59,6 +59,9 @@ public class NormalCritter extends CritterBase {
 		this.isFrozen = false;
 		this.isBurning = false;
 		
+		
+		
+		
 	}
 
 }
