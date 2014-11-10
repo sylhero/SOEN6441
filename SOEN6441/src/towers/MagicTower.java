@@ -91,7 +91,7 @@ public class MagicTower extends TowerBase{
 	}
 	@Override
 	public void draw(Graphics2D g) {
-		// TODO Auto-generated method stub
+		drawEffect(g,magicTowerEffect);
 		
 	}
 	@Override
@@ -117,6 +117,7 @@ public class MagicTower extends TowerBase{
 				}
 				
 			}			
-		}		
+		}
+			
 
 }

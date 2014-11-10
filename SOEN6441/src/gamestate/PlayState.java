@@ -995,15 +995,12 @@ public class PlayState extends GameState{
 			for(int i = 0; i<critterBatch.size();i++){
 				critterBatch.get(i).draw(g);
 				
-				if(critterBatch.size()==0){
-					break;
-				}
-				
 				
 			}
-//			for(int j = 0; j< towerList.size(); j++){
-//				towerList.get(j).draw(g);
-//			}
+			for(int j = 0; j< towerList.size(); j++){
+				towerList.get(j).draw(g);
+			}
+			
 			
 			
 		}

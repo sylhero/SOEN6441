@@ -99,6 +99,7 @@ public class ArrowTower extends TowerBase{
 	
 	
 	
+	
 	@Override
 	public void fire(CritterBase critter) {	
 		
@@ -112,18 +113,18 @@ public class ArrowTower extends TowerBase{
 				targets.add(critter);
 			}
 			
-			//System.out.printf("target size:%d\n",targets.size());
+			
 			
 			TowerStrategy strategy = setStrategy();	
-			if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
+			if (strategy ==null && this.groupAttack==false)
 			{
 				this.singleTarget = critter;
 			}
-			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
+			else if(strategy!=null && this.groupAttack==false ){
 				
 				this.singleTarget = strategy.executeStrategy(targets, this);
 				
-				//System.out.println(this.singleTarget==null);
+				
 				
 			}
 
@@ -143,9 +144,11 @@ public class ArrowTower extends TowerBase{
 		{
 			//remove the critter from targets if it is out of the range
 			if(targets.contains(critter)){
+				singleTarget = null;
 				targets.remove(critter);
+				
 			}
-			singleTarget = null;
+			
 		}		
 	
 	}
@@ -159,20 +162,18 @@ public class ArrowTower extends TowerBase{
 		// TODO Auto-generated method stub
 		
 	}
-	private void drawEffect(Graphics2D g){
-		if(singleTarget!=null){
-			System.out.printf("this is draw: %d\n",singleTarget.getX());
-			g.drawImage(arrowTowerEffect, singleTarget.getX(), 
-					singleTarget.getY(), TileMap.getTileMap().getCellWidth(),
-					TileMap.getTileMap().getCellHeight(),null);
-		}
+	
+			
+			
 		
-	}
+			
+		
+	
 
 	@Override
 	public void draw(Graphics2D g) {
 		// TODO Auto-generated method stub
-		drawEffect(g);
+		drawEffect(g,arrowTowerEffect);
 		
 	}
 }

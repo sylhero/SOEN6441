@@ -33,7 +33,8 @@ public class IceTower extends TowerBase {
 
 	public static final Image iceTower = LoadImage
 			.loadImage("/images/icetower.png");
-
+	public static final Image iceTowerEffect   = LoadImage.
+			loadImageIcon("/images/icetowereffect.gif").getImage();
 	public static final int ICETOWERTYPE = 6;
 
 	/**
@@ -178,7 +179,7 @@ public class IceTower extends TowerBase {
 	@Override
 	public void draw(Graphics2D g) {
 
-		// TODO Auto-generated method stub
+		drawEffect(g,iceTowerEffect);
 
 	}
 
@@ -237,14 +238,16 @@ public class IceTower extends TowerBase {
 		{
 
 			if (targets.contains(critter)) {
+				singleTarget = null;
 				targets.remove(critter);
 
 			}
 
-			singleTarget = null;
+			
 
 		}
 
 	}
 
+	
 }

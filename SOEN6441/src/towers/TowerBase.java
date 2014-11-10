@@ -1,6 +1,7 @@
 package towers;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -286,6 +287,14 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 
 		return distance;
 
+	}
+	public void drawEffect(Graphics2D g,Image effect){
+		
+		if(singleTarget!=null){
+			g.drawImage(effect, singleTarget.getX(), 
+					singleTarget.getY(), tileWidth,
+				tileHeight,null);
+		}
 	}
 
 	

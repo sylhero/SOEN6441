@@ -110,7 +110,7 @@ public class CannonTower extends TowerBase{
 
 	@Override
 	public void draw(Graphics2D g) {
-		// TODO Auto-generated method stub
+		drawEffect(g,cannonTowerEffect);
 		
 	}
 	
@@ -155,8 +155,9 @@ public class CannonTower extends TowerBase{
 		}
 		
 		else { 
-			singleTarget = null;
+			
 			if(targets.contains(critter)){
+				singleTarget = null;
 				targets.remove(critter);
 			}
 //			
@@ -173,5 +174,6 @@ public class CannonTower extends TowerBase{
 	
 	}
 
+	
 
 }
