@@ -33,7 +33,6 @@ public class IceTower extends TowerBase {
 
 	public static final Image iceTower = LoadImage
 			.loadImage("/images/icetower.png");
-	
 
 	public static final int ICETOWERTYPE = 6;
 
@@ -183,31 +182,6 @@ public class IceTower extends TowerBase {
 
 	}
 
-	public double distance(CritterBase critter) {
-
-		int critterX = critter.getX();
-
-		int critterY = critter.getY();
-
-		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight()
-				/ 2;
-
-		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
-
-		int towerCenterX = tileX + TileMap.getTileMap().getCellHeight() / 2;
-
-		int towerCenterY = tileY + TileMap.getTileMap().getCellWidth() / 2;
-
-		double distance = Math.sqrt(Math.pow(critterCenterX - towerCenterX, 2) +
-
-		Math.pow(critterCenterY - towerCenterY, 2));
-
-		return distance;
-
-	}
-
-	
-
 	@Override
 	public void fire(CritterBase critter) {
 
@@ -225,38 +199,34 @@ public class IceTower extends TowerBase {
 
 			}
 
-			TowerStrategy strategy = setStrategy();	
-			if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
-			{
+			TowerStrategy strategy = setStrategy();
+			if (strategy == null && this.groupAttack == false
+					&& this.singleTarget == null) {
 				this.singleTarget = critter;
-			}
-			else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
-				
+			} else if (strategy != null && this.groupAttack == false
+					&& this.singleTarget == null) {
+
 				this.singleTarget = strategy.executeStrategy(targets, this);
-				
-				//System.out.println(this.singleTarget==null);
-				
+
+				// System.out.println(this.singleTarget==null);
+
 			}
-			if (singleTarget != null)
+
+			singleTarget.setIsFrozen(true);
+
+			singleTarget.decreaseHp(this.power);
+
+			singleTarget.setSpeedOffset(1, 1);
+
+			if (singleTarget.getCurrentHp() <= 0)
 
 			{
-				singleTarget.setIsFrozen(true);
 
-				singleTarget.decreaseHp(this.power);
+				coin.increaseCurrency(singleTarget.getValue());
 
-				singleTarget.setSpeedOffset(1, 1);
+				targets.remove(singleTarget);
 
-				if (singleTarget.getCurrentHp() <= 0)
-
-				{
-
-					coin.increaseCurrency(singleTarget.getValue());
-
-					targets.remove(singleTarget);
-
-					singleTarget = null;
-
-				}
+				singleTarget = null;
 
 			}
 
@@ -270,12 +240,8 @@ public class IceTower extends TowerBase {
 				targets.remove(critter);
 
 			}
-			
-				singleTarget = null;
-				
-			
 
-			
+			singleTarget = null;
 
 		}
 

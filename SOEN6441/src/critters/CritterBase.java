@@ -134,7 +134,7 @@ public abstract class CritterBase {
 			}
 		}
 		
-			System.out.println(this.correctRoute.size());
+			//System.out.println(this.correctRoute.size());
 			
 		}
 	

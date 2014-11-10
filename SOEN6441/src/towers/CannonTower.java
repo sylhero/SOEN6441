@@ -116,19 +116,7 @@ public class CannonTower extends TowerBase{
 	
 	
 	
-	public double distance (CritterBase critter){
-		int critterX   = critter.getX();
-		int critterY   = critter.getY();
-		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
-		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
-		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
-		int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
-		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
-				Math.pow(critterCenterY-towerCenterY, 2));
-		
-		return distance;		
-	}
-
+	
 	@Override
 	public void fire(CritterBase critter) {	
 				

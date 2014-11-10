@@ -265,6 +265,29 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 		return strategy;
 
 	}
+	public double distance(CritterBase critter) {
+
+		int critterX = critter.getX();
+
+		int critterY = critter.getY();
+
+		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight()
+				/ 2;
+
+		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
+
+		int towerCenterX = tileX + TileMap.getTileMap().getCellHeight() / 2;
+
+		int towerCenterY = tileY + TileMap.getTileMap().getCellWidth() / 2;
+
+		double distance = Math.sqrt(Math.pow(critterCenterX - towerCenterX, 2) +
+
+		Math.pow(critterCenterY - towerCenterY, 2));
+
+		return distance;
+
+	}
+
 	
 	public abstract void update();
 	public abstract void draw(Graphics2D g);

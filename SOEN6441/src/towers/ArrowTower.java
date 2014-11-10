@@ -96,24 +96,11 @@ public class ArrowTower extends TowerBase{
 		this.value = level * upgradeCost + cost;
 		
 	}
-	public double distance (CritterBase critter){
-		int critterX   = critter.getX();
-		int critterY   = critter.getY();
-		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
-		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
-		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
-		int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
-		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
-				Math.pow(critterCenterY-towerCenterY, 2));
-		
-		return distance;		
-	}
+	
 	
 	
 	@Override
 	public void fire(CritterBase critter) {	
-		
-	
 		
 		double distance = distance(critter);
 		
@@ -125,7 +112,7 @@ public class ArrowTower extends TowerBase{
 				targets.add(critter);
 			}
 			
-			System.out.printf("target size:%d\n",targets.size());
+			//System.out.printf("target size:%d\n",targets.size());
 			
 			TowerStrategy strategy = setStrategy();	
 			if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
@@ -136,7 +123,7 @@ public class ArrowTower extends TowerBase{
 				
 				this.singleTarget = strategy.executeStrategy(targets, this);
 				
-				System.out.println(this.singleTarget==null);
+				//System.out.println(this.singleTarget==null);
 				
 			}
 
