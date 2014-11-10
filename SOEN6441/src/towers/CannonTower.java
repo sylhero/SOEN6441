@@ -134,11 +134,11 @@ public class CannonTower extends TowerBase{
 				System.out.printf("target size:%d\n",targets.size());
 			
 				TowerStrategy strategy = setStrategy();	
-				if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
+				if (strategy ==null && this.groupAttack==false)
 				{
 					this.singleTarget = critter;
 				}
-				else if(strategy!=null && this.groupAttack==false && this.singleTarget == null){
+				else if(strategy!=null && this.groupAttack==false ){
 					this.singleTarget = strategy.executeStrategy(targets, this);
 				}
 		

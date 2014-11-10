@@ -201,11 +201,9 @@ public class IceTower extends TowerBase {
 			}
 
 			TowerStrategy strategy = setStrategy();
-			if (strategy == null && this.groupAttack == false
-					&& this.singleTarget == null) {
+			if (strategy == null && this.groupAttack == false) {
 				this.singleTarget = critter;
-			} else if (strategy != null && this.groupAttack == false
-					&& this.singleTarget == null) {
+			} else if (strategy != null && this.groupAttack == false) {
 
 				this.singleTarget = strategy.executeStrategy(targets, this);
 
