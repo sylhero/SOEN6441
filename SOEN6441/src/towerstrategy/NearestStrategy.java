@@ -37,6 +37,7 @@ public class NearestStrategy implements Strategy{
 			if (nearestDistance == 0) 
 			{
 				nearestDistance = distance;
+				nearestCritter = critter;
 			} 
 			else if (distance < nearestDistance)
 			{
