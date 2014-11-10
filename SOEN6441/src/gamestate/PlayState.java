@@ -267,12 +267,10 @@ public class PlayState extends GameState{
 		
 	
 	/**
-	 * set the arrow tower on map
+	 * set the tower on map
 	 * @param e
 	 */
 	private void setTowerOnMap(MouseEvent e){
-		// TODO change name to setTowerOnMap figure out
-		// tower type based on the isBoolean;
 		int tempX = e.getX();
 		int tempY = e.getY();
 		if(tempY >= tileMap.getUpperOffSet() && 
@@ -450,8 +448,7 @@ public class PlayState extends GameState{
 		int tempY = e.getY();
 		if(tempX >= 450 && tempX <= 510 &&
 				tempY >= 50 && tempY <= 90 && isPressedTowerOnMap){
-			//calculate row and column 
-			// TODO should the tile object has these parameters?
+			
 			int column = selectedTower.getTileX() / tileMap.getCellWidth();
 			int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
@@ -480,8 +477,7 @@ public class PlayState extends GameState{
 			if(tempX >= 450 && tempX <= 510 &&
 					tempY >= 5 && tempY <= 45 && 
 					isEnoughCoinToUpgrade && isPressedTowerOnMap){
-				//calculate row and column 
-				// TODO should the tile object has these parameters?
+			
 				int column = selectedTower.getTileX() / tileMap.getCellWidth();
 				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 		        int row =  temp / tileMap.getCellHeight();
@@ -494,6 +490,10 @@ public class PlayState extends GameState{
 	        
 		
 	}
+		/**
+		 * press next wave button
+		 * @param e
+		 */
 		private void pressNextWave(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
@@ -523,6 +523,10 @@ public class PlayState extends GameState{
 	        
 			
 		}
+		/**
+		 * press strongest strategy button
+		 * @param e
+		 */
 		private void pressStrongestSrategy(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
@@ -540,6 +544,10 @@ public class PlayState extends GameState{
 	        
 			
 		}
+		/**
+		 * press the farthest strategy button
+		 * @param e
+		 */
 		private void pressFarthestSrategy(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
@@ -554,12 +562,12 @@ public class PlayState extends GameState{
 		        towerTemp.setStrategyType(farthestStrategy);
 		        	
 			}
-//			//farthest strategy button 
-//			g.fillRect(582, 5, 60,40);
-//			//nearest strategy button
-//			g.fillRect(582, 50, 60, 40);
-//			
+
 		}
+		/**
+		 * press nearest strategy button
+		 * @param e
+		 */
 		private void pressNearestSrategy(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
@@ -764,7 +772,10 @@ public class PlayState extends GameState{
 					selectedTower.getTileHeight());
 			
 		}
-		//TODO here
+		/**
+		 * draw the range of the tower
+		 * @param g
+		 */
 		private void drawSelectedRange(Graphics2D g){
 			g.setColor(Color.YELLOW);
 			g.drawOval(selectedTower.getTileX()+tileMap.getCellWidth()/2-selectedTower.getRange(), 

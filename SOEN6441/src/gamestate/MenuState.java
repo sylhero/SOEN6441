@@ -78,7 +78,7 @@ public class MenuState extends GameState{
 		
 	}
 	/**
-	 * not used yet
+	 * draw buttons
 	 * @param g
 	 */
 
