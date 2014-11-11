@@ -134,29 +134,28 @@ public class CannonTower extends TowerBase{
 				System.out.printf("target size:%d\n",targets.size());
 			
 				TowerStrategy strategy = setStrategy();	
+				
 				if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
 				{
 					this.singleTarget = critter;
-				}
-				else if(strategy!=null && this.groupAttack==false ){
+					
+				} else if(strategy!=null && this.groupAttack==false ){
+					
 					this.singleTarget = strategy.executeStrategy(targets, this);
 				}
 		
 				
-					singleTarget.decreaseHp(this.power);
-					singleTarget.setAffectedTimes(80);
-					singleTarget.setIsBurning(true);
+				singleTarget.decreaseHp(this.power);
+				singleTarget.setAffectedTimes(80);
+				singleTarget.setIsBurning(true);
 				
-					if(singleTarget.getCurrentHp()<=0)
-					{
-						coin.increaseCurrency(singleTarget.getValue());
-						targets.remove(singleTarget);
-						singleTarget = null;
-					}	
-		}
-		
-			
-		else { 
+				if(singleTarget.getCurrentHp()<=0)
+				{
+					coin.increaseCurrency(singleTarget.getValue());
+					targets.remove(singleTarget);
+					singleTarget = null;
+				}	
+		} else { 
 			
 			if(targets.contains(critter)){
 				singleTarget = null;
