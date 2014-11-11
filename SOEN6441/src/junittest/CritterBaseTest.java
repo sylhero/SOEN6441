@@ -70,7 +70,7 @@ public class CritterBaseTest {
 		testCritter.setSpeedOffset(4, 4);
 		actualOffSetX = testCritter.getSpeedOffsetX();
 		actualOffSetY = testCritter.getSpeedOffsetY();
-		assertEquals(expectedOffSetX, actualOffSetY);
+		assertEquals(expectedOffSetX, actualOffSetX);
 		assertEquals(expectedOffSetY, actualOffSetY);
 	}
 }

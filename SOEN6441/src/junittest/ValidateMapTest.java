@@ -4,6 +4,10 @@ package junittest;
 
 import static org.junit.Assert.*;
 
+import java.awt.Point;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -26,8 +30,11 @@ public class ValidateMapTest {
 	private static Tile [][] noExit;
 	private static Tile [][] disconnectedPath;
 	private static Tile [][] entranceAdjacentToExit;
+	private static Tile [][] testCorrectRoute;
 	private static boolean expectedResult;
 	private static boolean adjacentExpectedResult;
+	private static LinkedList<Point> localRoute;
+	private static LinkedList<Point> expectedRoute;
 	
 	/**
 	 * To initialize some member variables.
@@ -42,8 +49,18 @@ public class ValidateMapTest {
 		noExit = tm.loadMap("resources/gamemaps/testmapNoExit.xml");
 		disconnectedPath = tm.loadMap("resources/gamemaps/testmapDisconnectedPath.xml");		
 		entranceAdjacentToExit = tm.loadMap("resources/gamemaps/testmapEntranceAdjacentToExit.xml");
+		testCorrectRoute = tm.loadMap("resources/gamemaps/testCorrectRoute.xml");
 		expectedResult = false;
 		adjacentExpectedResult = true;
+		
+		// set expected CorrectRoute
+		expectedRoute = new LinkedList<Point>();
+		expectedRoute.addLast(new Point(0, 1));
+		expectedRoute.addLast(new Point(1, 1));
+		expectedRoute.addLast(new Point(2, 1));
+		expectedRoute.addLast(new Point(3, 1));
+		expectedRoute.addLast(new Point(3, 2));
+		expectedRoute.addLast(new Point(3, 3));
 	}
 	
 	/**
@@ -106,6 +123,24 @@ public class ValidateMapTest {
 		boolean actualResult = ValidateMap.validateEntry(entranceAdjacentToExit);
 		assertEquals(adjacentExpectedResult, actualResult);
 		System.out.println("test entrance adjacents to exit case test ends.");
+		
+	}
+	
+	/**
+	 * To test getCorrectRoute function.
+	 */
+	
+	@Test
+	public void testGetCorrectRoute()
+	{
+		localRoute = new LinkedList<Point>();
+		localRoute = ValidateMap.getCorrectRoute(testCorrectRoute);
+		
+		for (int i = 0; i < localRoute.size(); i++) 
+		{
+			assertEquals(expectedRoute.pollFirst(), localRoute.pollFirst());
+		}
+		
 		
 	}
 }
