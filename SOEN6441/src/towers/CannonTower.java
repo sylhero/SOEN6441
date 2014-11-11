@@ -134,7 +134,7 @@ public class CannonTower extends TowerBase{
 				System.out.printf("target size:%d\n",targets.size());
 			
 				TowerStrategy strategy = setStrategy();	
-				if (strategy ==null && this.groupAttack==false)
+				if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
 				{
 					this.singleTarget = critter;
 				}
@@ -144,7 +144,8 @@ public class CannonTower extends TowerBase{
 		
 				
 					singleTarget.decreaseHp(this.power);
-					//singleTarget.setBurnTimes(2);
+					singleTarget.setBurnTimes(2);
+					singleTarget.setIsBurning(true);
 				
 					if(singleTarget.getCurrentHp()<=0)
 					{
@@ -154,23 +155,29 @@ public class CannonTower extends TowerBase{
 					}	
 		}
 		
+			
 		else { 
 			
 			if(targets.contains(critter)){
 				singleTarget = null;
 				targets.remove(critter);
 			}
-//			
-//			if(critter.getBurnTimes() > 0){
-//				int burn_times = critter.getBurnTimes();
-//				
-//				System.out.print("Burning Times LOL: ");
-//				System.out.println(burn_times);
-//				
-//				critter.setBurnTimes(--burn_times);
-//				critter.decreaseHp(this.power);
-//			}		
+			
+			if(critter.getBurnTimes() > 0){
+				int burn_times = critter.getBurnTimes();
+				
+				System.out.print("Burning Times!!!!!!!!!!!!!!!!!!!!!!");
+				
+				System.out.println(burn_times);
+				
+				critter.setIsBurning(true);
+				critter.setBurnTimes(--burn_times);
+				critter.decreaseHp(this.power);
+				
+				System.out.println("Critter HP:" + critter.getCurrentHp());
 			}
+
+		}
 	
 	}
 
