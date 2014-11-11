@@ -37,8 +37,8 @@ public class ArrowTowerTest {
 		arrowTower.upgrade();
 		assertEquals(15, arrowTower.getPower());
 		assertEquals(1,arrowTower.getLevel());
-		assertEquals(15,arrowTower.getUpgradeCost());
-		assertEquals(30, arrowTower.getValue());
+		assertEquals(200,arrowTower.getUpgradeCost());
+		assertEquals(350, arrowTower.getValue());
 	}
 	
 }
