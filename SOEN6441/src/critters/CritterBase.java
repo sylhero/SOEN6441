@@ -15,7 +15,7 @@ import usefulfunctions.LoadImage;
  * An abstract class that is the super-type of all types of objects produced by the CritterFactory.
  * 
  * @author Yichen LI
- * @version 1.1.1
+ * @version 1.1.5
  *
  */
 
@@ -251,21 +251,47 @@ public abstract class CritterBase {
 
 //============================================setters and getters=========================================================
 	
-
+	/**
+	 * To get Hp.
+	 * 
+	 * @return int Hp
+	 */
 	
 	public int getCurrentHp() {
+		
 		return currentHp;
 	}
+	
+	/**
+	 * To set Hp.
+	 * 
+	 * @param currentHp
+	 */
 
 	public void setCurrentHp(int currentHp) {
+		
 		this.currentHp = currentHp;
 	}
+	
+	/**
+	 * To return isAtExit.
+	 * 
+	 * @return isAtExit
+	 */
 
 	public boolean isAtExit() {
+		
 		return atExit;
 	}
 
+	/**
+	 * To set isAtExit.
+	 * 
+	 * @param atExit
+	 */
+	
 	public void setAtExit(boolean atExit) {
+		
 		this.atExit = atExit;
 	}
 
@@ -278,6 +304,7 @@ public abstract class CritterBase {
 	 */
 	
 	public float getArmorRatio() {
+		
 		return armorRatio;
 	}
 
@@ -288,47 +315,89 @@ public abstract class CritterBase {
 	 */
 	
 	public void setArmorRatio(int armorRatio) {
+		
 		this.armorRatio = armorRatio;
 	}
 
+	/**
+	 * To get X.
+	 * 
+	 * @return int X
+	 */
+	
 	public int getX() {
-		// TODO Auto-generated method stub
+		
 		return x;
 	}
 
+	/**
+	 * To get Y.
+	 * 
+	 * @return int Y
+	 */
+	
 	public int getY() {
-		// TODO Auto-generated method stub
+		
 		return y;
 	}
+	
+	/**
+	 * To get critter value.
+	 * 
+	 * @return int value
+	 */
 
 	public int getValue() {
-		// TODO Auto-generated method stub
+		
 		return value;
 	}
+	
+	/**
+	 * To set frozen status.
+	 * 
+	 * @param result
+	 */
+	
 	public void setIsFrozen(boolean result){
 		isFrozen = result;
 	}
+	
+	/**
+	 * To get frozen status.
+	 * 
+	 * @return boolean isFrozen
+	 */
+	
 	public boolean getIsFrozen(){
 		return isFrozen;
 	}
 	
-
+	/**
+	 * To set burn status.
+	 * 
+	 * @param result
+	 */
 	
 	public void setIsBurning(boolean result){
 		isBurning = result;
 	}
 	
+	/**
+	 * To get burn status.
+	 * 
+	 * @return boolean isBurning
+	 */
 	
 	public boolean getIsBurning(){
 		return isBurning;
 	}
-	/**
-	 * To get speed.
-	 * 
-	 * @return speed
-	 */
-
 	
+
+	/**
+	 * To set affected times.
+	 * 
+	 * @param affected_times
+	 */
 	
 	public void setAffectedTimes(int affected_times){
 		
@@ -336,6 +405,12 @@ public abstract class CritterBase {
 		
 	}
 	
+	
+	/**
+	 * To get affected times.
+	 * 
+	 * @return int affectedTimes.
+	 */
 	public int getAffectedTimes(){
 		
 		
