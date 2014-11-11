@@ -129,7 +129,7 @@ public class IceTower extends TowerBase {
 
 		this.power = 10;
 
-		this.range = 2*tileWidth;
+		this.range = tileWidth;
 
 		this.refundRate = 0.5;
 
@@ -203,7 +203,7 @@ public class IceTower extends TowerBase {
 			}
 
 			TowerStrategy strategy = setStrategy();
-			if (strategy == null && this.groupAttack == false && singleTarget == null) {
+			if (strategy == null && this.groupAttack == false) {
 				this.singleTarget = critter;
 			} else if (strategy != null && this.groupAttack == false) {
 
@@ -213,7 +213,7 @@ public class IceTower extends TowerBase {
 
 			}
 
-			singleTarget.setIsFrozen(true);
+			singleTarget.setIsFreezing(true);
 
 			singleTarget.decreaseHp(this.power);
 
@@ -238,8 +238,6 @@ public class IceTower extends TowerBase {
 		{
 
 			if (targets.contains(critter)) {
-				critter.setIsFrozen(false);
-				//critter.setSpeedOffset(2, 2);
 				singleTarget = null;
 				targets.remove(critter);
 

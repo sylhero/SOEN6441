@@ -33,7 +33,7 @@ public abstract class CritterBase {
 	protected int movePoint;
 	public static int moveStandard = 0;	// benchmark of moving
 	protected Point startPoint;
-	public static final Image frozenImage = LoadImage
+	public static final Image freezingImage = LoadImage
 			.loadImage("/images/iceicon.png");
 	public static final Image burningImage = LoadImage
 			.loadImage("/images/fireicon.png");
@@ -49,11 +49,12 @@ public abstract class CritterBase {
 	protected float armorRatio;
 	protected boolean atExit;
 	protected int value; // value of critter
-	protected boolean isFrozen;
+	protected boolean isFreezing;
 	protected boolean isBurning;
 	protected boolean isSplash;
 	
-	public int affectedTimes;
+	public int burningTime;
+	public int freezingTime;
 	
 	
 	
@@ -79,13 +80,15 @@ public abstract class CritterBase {
 	protected LinkedList<Point> copyCorrectRoute()
 	{
 		LinkedList<Point> temp = new LinkedList<Point>();
-		
+	
 		for(ListIterator<Point> iterator = correctRoute.listIterator(); iterator.hasNext();)
 		{
 			temp.add(iterator.next());
 		}
-	
+		
 		return temp;
+
+
 		
 	}
 	
@@ -225,9 +228,9 @@ public abstract class CritterBase {
 					tileMap.getCellWidth(),
 					tileMap.getCellHeight(),null);
 			//System.out.printf("this is critter:%d\n",x);
-			if(isFrozen){
+			if(isFreezing){
 				
-				g.drawImage(frozenImage, x, 
+				g.drawImage(freezingImage, x, 
 						 
 								y, 
 								tileMap.getCellWidth(),
@@ -354,23 +357,24 @@ public abstract class CritterBase {
 	}
 	
 	/**
-	 * To set frozen status.
+	 * To set freezing status.
 	 * 
 	 * @param result
 	 */
 	
-	public void setIsFrozen(boolean result){
-		isFrozen = result;
+	public void setIsFreezing(boolean result){
+		
+		isFreezing = result;
 	}
 	
 	/**
-	 * To get frozen status.
+	 * To get freezing status.
 	 * 
-	 * @return boolean isFrozen
+	 * @return boolean isfreezing
 	 */
 	
-	public boolean getIsFrozen(){
-		return isFrozen;
+	public boolean getIsFreezing(){
+		return isFreezing;
 	}
 	
 	/**
@@ -402,7 +406,7 @@ public abstract class CritterBase {
 	
 	public void setAffectedTimes(int affected_times){
 		
-		this.affectedTimes = affected_times;
+		this.burningTime = affected_times;
 		
 	}
 	
@@ -415,12 +419,46 @@ public abstract class CritterBase {
 	public int getAffectedTimes(){
 		
 		
-		return this.affectedTimes;
+		return this.burningTime;
+	}
+	
+	/**
+	 * To get freezing time.
+	 * 
+	 * @return int freezingTime
+	 */
+
+	public int getFreezingTime() {
+		return freezingTime;
 	}
 
+	
+	/**
+	 * To set freezing time.
+	 * 
+	 * @param freezingTime
+	 */
+	public void setFreezingTime(int freezingTime) {
+		this.freezingTime = freezingTime;
+	}
+	
+	
+	
+	public int getSpeedOffsetX() {
+		return speedOffsetX;
+	}
 
-	
-	
+	public void setSpeedOffsetX(int speedOffsetX) {
+		this.speedOffsetX = speedOffsetX;
+	}
+
+	public int getSpeedOffsetY() {
+		return speedOffsetY;
+	}
+
+	public void setSpeedOffsetY(int speedOffsetY) {
+		this.speedOffsetY = speedOffsetY;
+	}
 	
 
 }

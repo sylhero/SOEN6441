@@ -11,11 +11,15 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Yichen LI
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ValidateMapTest.class, 
-				CoinTest.class, 
-				LoadImageTest.class,
-				LoadXmlTest.class,
-				ArrowTowerTest.class})
+@SuiteClasses({ 
+	           ValidateMapTest.class, 
+	           CoinTest.class, 
+	           LoadImageTest.class,
+	           LoadXmlTest.class,
+	           ArrowTowerTest.class,
+			   StrongestStrategyTest.class,
+			   WeakestStrategyTest.class})
 public class AllTests {
 
 }
+
