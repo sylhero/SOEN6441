@@ -91,33 +91,22 @@ public class MagicTower extends TowerBase{
 	}
 	@Override
 	public void draw(Graphics2D g) {
-		drawEffect(g,magicTowerEffect);
-		
+		if(targets.size()!=0){
+			for(int i =0; i< targets.size(); i++){
+				g.drawImage(magicTowerEffect, targets.get(i).getX(), 
+						targets.get(i).getY(), tileWidth,
+					tileHeight,null);
+			}
+		}
 	}
 	@Override
 	public void fire(CritterBase critter) {
 		// TODO Auto-generated method stub
-		int critterX   = critter.getX();
-		int critterY   = critter.getY();
-		int critterCenterX = critterX + TileMap.getTileMap().getCellHeight() / 2;
-		int critterCenterY = critterY + TileMap.getTileMap().getCellWidth() / 2;
-		int towerCenterX   = tileX + TileMap.getTileMap().getCellHeight() / 2;
-		int towerCenterY   = tileY + TileMap.getTileMap().getCellWidth() / 2;
-		double distance = Math.sqrt(Math.pow(critterCenterX-towerCenterX, 2) + 
-				Math.pow(critterCenterY-towerCenterY, 2));
+		double distance = distance(critter);
 		
-		System.out.println(distance);
+		//System.out.println(distance);
 		
-		if(distance <= range && critter.getCurrentHp()>0){
-			
-				critter.decreaseHp(this.power);
-				
-				if(critter.getCurrentHp()<=0){
-					coin.increaseCurrency(critter.getValue());
-				}
-				
-			}			
-		}
+	}
 			
 
 }
