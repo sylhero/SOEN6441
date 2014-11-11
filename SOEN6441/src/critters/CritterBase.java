@@ -37,6 +37,9 @@ public abstract class CritterBase {
 	public static final Image burningImage = LoadImage
 			.loadImage("/images/fireicon.png");
 	
+	public static final Image lighteningImage = LoadImage
+			.loadImage("/images/lighteningicon.png");
+	
 	
 	
 	// status 
@@ -47,6 +50,9 @@ public abstract class CritterBase {
 	protected int value; // value of critter
 	protected boolean isFrozen;
 	protected boolean isBurning;
+	protected boolean isSplash;
+	
+	public int burnTimes;
 	
 	
 	
@@ -234,6 +240,13 @@ public abstract class CritterBase {
 						tileMap.getCellHeight(),null);
 				
 			}
+			if(isSplash){
+				g.drawImage(lighteningImage, x, 
+						y, 
+						tileMap.getCellWidth(),
+						tileMap.getCellHeight(),null);
+				
+			}
 		}
 		
 
@@ -303,9 +316,18 @@ public abstract class CritterBase {
 	public boolean getIsFrozen(){
 		return isFrozen;
 	}
+	
+	public void setIsSplashn(boolean result){
+		this.isSplash = result;
+	}
+	public boolean getIsSplash(){
+		return this.isSplash;
+	}
+	
 	public void setIsBurning(boolean result){
 		isBurning = result;
 	}
+	
 	
 	public boolean getIsBurning(){
 		return isBurning;
@@ -316,6 +338,19 @@ public abstract class CritterBase {
 	 * @return speed
 	 */
 
+	
+	
+	public void setBurnTimes(int burn_times){
+		
+		this.burnTimes = burn_times;
+		
+	}
+	
+	public int getBurnTimes(){
+		
+		
+		return this.burnTimes;
+	}
 
 
 	

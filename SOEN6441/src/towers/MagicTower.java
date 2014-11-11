@@ -106,7 +106,18 @@ public class MagicTower extends TowerBase{
 		
 		//System.out.println(distance);
 		
-	}
+		if(distance <= range && critter.getCurrentHp()>0){
 			
-
+				critter.decreaseHp(this.power);
+				critter.setIsSplashn(true);
+				
+				if(critter.getCurrentHp()<=0){
+					coin.increaseCurrency(critter.getValue());
+				}
+				
+			}
+		else{
+			critter.setIsSplashn(false);
+		}
+	}
 }
