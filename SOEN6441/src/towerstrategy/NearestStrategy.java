@@ -38,8 +38,8 @@ public class NearestStrategy implements Strategy{
 			{
 				nearestDistance = distance;
 				nearestCritter = critter;
-			} 
-			else if (distance < nearestDistance)
+				
+			} else if (distance < nearestDistance)
 			{
 				nearestDistance = distance;
 				nearestCritter = critter;

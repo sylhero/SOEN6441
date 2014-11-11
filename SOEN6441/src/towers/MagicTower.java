@@ -102,6 +102,7 @@ public class MagicTower extends TowerBase{
 	@Override
 	public void fire(CritterBase critter) {
 		// TODO Auto-generated method stub
+
 		double distance = distance(critter);
 		
 		//System.out.println(distance);
@@ -114,18 +115,19 @@ public class MagicTower extends TowerBase{
 			}
 			
 				critter.decreaseHp(this.power);
+
 				
 				
 				if(critter.getCurrentHp()<=0){
 					coin.increaseCurrency(critter.getValue());
-				}
-				
-			}
+				}				
+			} 
 		else{
 			if(targets.contains(critter)){
 				targets.remove(critter);
 			}
 			
+
 		}
 	}
 }
