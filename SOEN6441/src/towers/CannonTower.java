@@ -171,14 +171,14 @@ public class CannonTower extends TowerBase{
 				targets.remove(critter);
 			}
 			
-			if(critter.getAffectedTimes() > 0){
+			if(critter.getAffectedTimes() > 0 && critter.getIsBurning()){
 				int burn_times = critter.getAffectedTimes();
 				
 				System.out.print("Burning Times!!!!!!!!!!!!!!!!!!!!!!");
 				
 				System.out.println(burn_times);
 				
-				critter.setIsBurning(true);
+	//			critter.setIsBurning(true);
 				critter.setAffectedTimes(--burn_times);
 				critter.decreaseHp(this.power);
 				
