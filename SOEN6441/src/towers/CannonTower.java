@@ -38,14 +38,15 @@ public class CannonTower extends TowerBase{
 		this.tileType  = CANNONTOWERTYPE;
 		this.tileImage = cannonTower;
 		this.level = 0;
-		this.cost  = 15;
+		this.cost  = 25;
 		this.groupAttack = false;
-		this.power = 10;
+		this.power = 20;
 		this.range = 2*TileMap.getTileMap().getCellWidth();
 		this.refundRate = 0.5;
-		this.towerSpeed = 3;
-		this.upgradeCost = 10;	
-		this.value = level * upgradeCost + cost;
+		this.towerSpeed = 4;
+		this.upgradeCost = 15;	
+		this.value = this.cost;
+		//this.value = level * upgradeCost + cost;
 		this.specialEffect = "Burn";
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
@@ -72,14 +73,15 @@ public class CannonTower extends TowerBase{
 		this.tileHeight = tileHeight;
 		this.tileWidth = tileWidth;
 		this.level = 0;
-		this.cost  = 15;
+		this.cost  = 25;
 		this.groupAttack = false;
-		this.power = 10;
+		this.power = 20;
 		this.range = 2*tileWidth;
 		this.refundRate = 0.5;
-		this.towerSpeed = 3;
-		this.upgradeCost = 10;
-		this.value = level * upgradeCost + cost;
+		this.towerSpeed = 4;
+		this.upgradeCost = 15;
+		this.value = this.cost;
+		//this.value = level * upgradeCost + cost;
 		this.specialEffect = "Burn";
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
@@ -96,10 +98,11 @@ public class CannonTower extends TowerBase{
 	
 	@Override
 	public void upgrade() {
-		this.power += 15;
+		this.power += 5;
 		this.level += 1;
+		this.value += upgradeCost;
 		this.upgradeCost += 10;
-		this.value = level * upgradeCost + cost;
+		//this.value = level * upgradeCost + cost;
 		
 	}
 
@@ -119,52 +122,45 @@ public class CannonTower extends TowerBase{
 	
 	
 	@Override
-	public void fire(CritterBase critter) {	
-				
-		
+	public void fire(CritterBase critter) {			
 		double distance = distance(critter);
 		
-			if(distance <= range && critter.getCurrentHp()>0)
+		if(distance <= range && critter.getCurrentHp()>0)
+		{
+			
+			if(!targets.contains(critter))
 			{
-				
-				if(!targets.contains(critter))
-				{
-					targets.add(critter);
-				}
-			
-				//System.out.printf("target size:%d\n",targets.size());
-			
-				TowerStrategy strategy = setStrategy();	
-
-				
-				if (strategy ==null && this.groupAttack==false && singleTarget == null)
-
-				{
-					this.singleTarget = critter;
-					
-				} 
-				else if(strategy!=null && this.groupAttack==false ){
-					
-					this.singleTarget = strategy.executeStrategy(targets, this);
-				}
+				targets.add(critter);
+			}
 		
-				
+			//System.out.printf("target size:%d\n",targets.size());
+		
+			TowerStrategy strategy = setStrategy();	
 
-					singleTarget.decreaseHp(this.power);
-					singleTarget.setIsBurning(true);
-					singleTarget.setAffectedTimes(80);
-					
+			
+			if (strategy ==null && this.groupAttack==false && singleTarget == null)
 
+			{
+				this.singleTarget = critter;
 				
-
+			} 
+			else if(strategy!=null && this.groupAttack==false ){
 				
-				if(singleTarget.getCurrentHp()<=0)
-				{
-					coin.increaseCurrency(singleTarget.getValue());
-					targets.remove(singleTarget);
-					singleTarget = null;
-				}	
-		} else { 
+				this.singleTarget = strategy.executeStrategy(targets, this);
+			}
+	
+			singleTarget.decreaseHp(this.power);
+			singleTarget.setIsBurning(true);
+			singleTarget.setAffectedTimes(80);
+								
+			if(singleTarget.getCurrentHp()<=0)
+			{
+				coin.increaseCurrency(singleTarget.getValue());
+				targets.remove(singleTarget);
+				singleTarget = null;
+			}	
+		} 
+		else { 
 			
 			if(targets.contains(critter)){
 				singleTarget = null;

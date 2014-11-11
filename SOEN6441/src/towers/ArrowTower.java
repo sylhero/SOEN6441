@@ -90,10 +90,12 @@ public class ArrowTower extends TowerBase{
 	 */
 	@Override
 	public void upgrade() {
-		this.power += 5;
+		this.power += 10;
 		this.level += 1;
+		this.value += upgradeCost;
+		//this.value = level * upgradeCost + cost;
 		this.upgradeCost += 5;
-		this.value = level * upgradeCost + cost;
+		
 		
 	}
 	
@@ -120,24 +122,21 @@ public class ArrowTower extends TowerBase{
 			{
 				this.singleTarget = critter;
 			}
-			else if(strategy!=null && this.groupAttack==false ){
+			else if(strategy!=null && this.groupAttack==false )
+			{
 				
 				this.singleTarget = strategy.executeStrategy(targets, this);
-				
-				
-				
-			}
-
-							
-				singleTarget.decreaseHp(this.power);
-				
-				if(singleTarget.getCurrentHp()<=0)
-				{
-					coin.increaseCurrency(singleTarget.getValue());
-					//remove the dead critter
-					targets.remove(singleTarget);
-					singleTarget = null;
-				}	
+								
+			}							
+			singleTarget.decreaseHp(this.power);
+			
+			if(singleTarget.getCurrentHp()<=0)
+			{
+				coin.increaseCurrency(singleTarget.getValue());
+				//remove the dead critter
+				targets.remove(singleTarget);
+				singleTarget = null;
+			}	
 					
 		}
 		else

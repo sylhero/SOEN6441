@@ -56,7 +56,7 @@ public class IceTower extends TowerBase {
 
 		this.level = 0;
 
-		this.cost = 15;
+		this.cost = 30;
 
 		this.groupAttack = false;
 
@@ -66,11 +66,11 @@ public class IceTower extends TowerBase {
 
 		this.refundRate = 0.5;
 
-		this.towerSpeed = 3;
+		this.towerSpeed = 2;
 
-		this.upgradeCost = 10;
-
-		this.value = level * upgradeCost + cost;
+		this.upgradeCost = 15;
+		this.value = this.cost;
+		//this.value = level * upgradeCost + cost;
 
 		this.specialEffect = "Freezing";
 
@@ -123,7 +123,7 @@ public class IceTower extends TowerBase {
 
 		this.level = 0;
 
-		this.cost = 15;
+		this.cost = 30;
 
 		this.groupAttack = false;
 
@@ -133,11 +133,11 @@ public class IceTower extends TowerBase {
 
 		this.refundRate = 0.5;
 
-		this.towerSpeed = 3;
+		this.towerSpeed = 2;
 
-		this.upgradeCost = 10;
-
-		this.value = level * upgradeCost + cost;
+		this.upgradeCost = 15;
+		this.value = this.cost;
+		//this.value = level * upgradeCost + cost;
 
 		this.specialEffect = "Freezing";
 
@@ -161,13 +161,14 @@ public class IceTower extends TowerBase {
 	@Override
 	public void upgrade() {
 
-		this.power += 1;
+		this.power += 5;
 
 		this.level += 1;
+		this.value+=upgradeCost;
 
 		this.upgradeCost += 10;
 		
-		this.value = level * upgradeCost + cost;
+		//this.value = level * upgradeCost + cost;
 
 	}
 

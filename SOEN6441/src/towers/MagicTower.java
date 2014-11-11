@@ -28,14 +28,15 @@ public class MagicTower extends TowerBase{
 		this.tileType  = MAGICTOWERTYPE;
 		this.tileImage = magicTower;
 		this.level = 0;
-		this.cost  = 15;
+		this.cost  = 50;
 		this.groupAttack = true;
 		this.power = 10;
 		this.range = 2*TileMap.getTileMap().getCellWidth();
-		this.refundRate = 0.5;
+		this.refundRate = 0.4;
 		this.towerSpeed = 3;
-		this.upgradeCost = 10;	
-		this.value = level * upgradeCost + cost;
+		this.upgradeCost = 20;	
+		this.value = this.cost;
+		//this.value = level * upgradeCost + cost;
 		this.specialEffect = "Splash";
 		this.targets = new ArrayList<CritterBase>();
 	}
@@ -59,14 +60,15 @@ public class MagicTower extends TowerBase{
 		this.tileHeight = tileHeight;
 		this.tileWidth = tileWidth;
 		this.level = 0;
-		this.cost  = 15;
+		this.cost  = 50;
 		this.groupAttack = true;
-		this.power = 10;
+		this.power = 20;
 		this.range = 2*tileWidth;
-		this.refundRate = 0.5;
+		this.refundRate = 0.4;
 		this.towerSpeed = 3;
-		this.upgradeCost = 10;
-		this.value = level * upgradeCost + cost;
+		this.upgradeCost = 20;
+		this.value = this.cost;
+		//this.value = level * upgradeCost + cost;
 		this.specialEffect = "None";
 		this.targets = new ArrayList<CritterBase>();
 	}
@@ -78,10 +80,11 @@ public class MagicTower extends TowerBase{
 	 */
 	@Override
 	public void upgrade() {
-		this.power += 5;
+		this.power += 10;
 		this.level += 1;
-		this.upgradeCost += 10;
-		this.value = level * upgradeCost + cost;
+		this.value +=upgradeCost;
+		this.upgradeCost += 15;
+		//this.value = level * upgradeCost + cost;
 	}
 
 	@Override
