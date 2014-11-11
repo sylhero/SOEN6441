@@ -111,7 +111,7 @@ public class MagicTower extends TowerBase{
 		if(distance <= range && critter.getCurrentHp()>0){
 			
 				critter.decreaseHp(this.power);
-				critter.setIsSplashn(true);
+				critter.setIsSplash(true);
 				
 				if(critter.getCurrentHp()<=0){
 					coin.increaseCurrency(critter.getValue());
@@ -119,7 +119,7 @@ public class MagicTower extends TowerBase{
 				
 			}
 		else{
-			critter.setIsSplashn(false);
+			critter.setIsSplash(false);
 		}
 	}
 }

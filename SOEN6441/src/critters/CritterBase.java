@@ -317,7 +317,7 @@ public abstract class CritterBase {
 		return isFrozen;
 	}
 	
-	public void setIsSplashn(boolean result){
+	public void setIsSplash(boolean result){
 		this.isSplash = result;
 	}
 	public boolean getIsSplash(){
