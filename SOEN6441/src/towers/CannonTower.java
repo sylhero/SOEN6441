@@ -144,7 +144,7 @@ public class CannonTower extends TowerBase{
 		
 				
 					singleTarget.decreaseHp(this.power);
-					singleTarget.setBurnTimes(80);
+					singleTarget.setAffectedTimes(80);
 					singleTarget.setIsBurning(true);
 				
 					if(singleTarget.getCurrentHp()<=0)
@@ -163,15 +163,15 @@ public class CannonTower extends TowerBase{
 				targets.remove(critter);
 			}
 			
-			if(critter.getBurnTimes() > 0){
-				int burn_times = critter.getBurnTimes();
+			if(critter.getAffectedTimes() > 0){
+				int burn_times = critter.getAffectedTimes();
 				
 				System.out.print("Burning Times!!!!!!!!!!!!!!!!!!!!!!");
 				
 				System.out.println(burn_times);
 				
 				critter.setIsBurning(true);
-				critter.setBurnTimes(--burn_times);
+				critter.setAffectedTimes(--burn_times);
 				critter.decreaseHp(this.power);
 				
 				System.out.println("Critter HP:" + critter.getCurrentHp());
@@ -182,7 +182,5 @@ public class CannonTower extends TowerBase{
 		}
 	
 	}
-
-	
 
 }

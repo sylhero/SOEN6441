@@ -52,7 +52,7 @@ public abstract class CritterBase {
 	protected boolean isBurning;
 	protected boolean isSplash;
 	
-	public int burnTimes;
+	public int affectedTimes;
 	
 	
 	
@@ -340,16 +340,16 @@ public abstract class CritterBase {
 
 	
 	
-	public void setBurnTimes(int burn_times){
+	public void setAffectedTimes(int affected_times){
 		
-		this.burnTimes = burn_times;
+		this.affectedTimes = affected_times;
 		
 	}
 	
-	public int getBurnTimes(){
+	public int getAffectedTimes(){
 		
 		
-		return this.burnTimes;
+		return this.affectedTimes;
 	}
 
 
