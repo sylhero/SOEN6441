@@ -37,8 +37,8 @@ public abstract class CritterBase {
 	public static final Image burningImage = LoadImage
 			.loadImage("/images/fireicon.png");
 	
-	public static final Image lighteningImage = LoadImage
-			.loadImage("/images/lighteningicon.png");
+//	public static final Image lighteningImage = LoadImage
+//			.loadImage("/images/lighteningicon.png");
 	
 	
 	
@@ -225,6 +225,7 @@ public abstract class CritterBase {
 					tileMap.getCellHeight(),null);
 			//System.out.printf("this is critter:%d\n",x);
 			if(isFrozen){
+				
 				g.drawImage(frozenImage, x, 
 						 
 								y, 
@@ -233,20 +234,14 @@ public abstract class CritterBase {
 		
 			}
 			if(isBurning){
-				isFrozen = false;
+				
 				g.drawImage(burningImage, x, 
 						y, 
 						tileMap.getCellWidth(),
 						tileMap.getCellHeight(),null);
 				
 			}
-			if(isSplash){
-				g.drawImage(lighteningImage, x, 
-						y, 
-						tileMap.getCellWidth(),
-						tileMap.getCellHeight(),null);
-				
-			}
+			
 		}
 		
 
@@ -317,12 +312,6 @@ public abstract class CritterBase {
 		return isFrozen;
 	}
 	
-	public void setIsSplashn(boolean result){
-		this.isSplash = result;
-	}
-	public boolean getIsSplash(){
-		return this.isSplash;
-	}
 	
 	public void setIsBurning(boolean result){
 		isBurning = result;

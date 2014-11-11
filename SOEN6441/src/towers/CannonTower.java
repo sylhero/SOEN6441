@@ -41,7 +41,7 @@ public class CannonTower extends TowerBase{
 		this.cost  = 15;
 		this.groupAttack = false;
 		this.power = 10;
-		this.range = TileMap.getTileMap().getCellWidth();
+		this.range = 2*TileMap.getTileMap().getCellWidth();
 		this.refundRate = 0.5;
 		this.towerSpeed = 3;
 		this.upgradeCost = 10;	
@@ -75,7 +75,7 @@ public class CannonTower extends TowerBase{
 		this.cost  = 15;
 		this.groupAttack = false;
 		this.power = 10;
-		this.range = tileWidth;
+		this.range = 2*tileWidth;
 		this.refundRate = 0.5;
 		this.towerSpeed = 3;
 		this.upgradeCost = 10;
@@ -131,10 +131,10 @@ public class CannonTower extends TowerBase{
 					targets.add(critter);
 				}
 			
-				System.out.printf("target size:%d\n",targets.size());
+				//System.out.printf("target size:%d\n",targets.size());
 			
 				TowerStrategy strategy = setStrategy();	
-				if (strategy ==null && this.groupAttack==false && this.singleTarget == null)
+				if (strategy ==null && this.groupAttack==false && singleTarget == null)
 				{
 					this.singleTarget = critter;
 				}
@@ -144,8 +144,9 @@ public class CannonTower extends TowerBase{
 		
 				
 					singleTarget.decreaseHp(this.power);
-					singleTarget.setBurnTimes(80);
 					singleTarget.setIsBurning(true);
+					singleTarget.setBurnTimes(80);
+					
 				
 					if(singleTarget.getCurrentHp()<=0)
 					{
