@@ -38,15 +38,14 @@ public class CannonTower extends TowerBase{
 		this.tileType  = CANNONTOWERTYPE;
 		this.tileImage = cannonTower;
 		this.level = 0;
-		this.cost  = 25;
+		this.cost  = 200;
 		this.groupAttack = false;
 		this.power = 20;
 		this.range = 2*TileMap.getTileMap().getCellWidth();
-		this.refundRate = 0.5;
+		this.refundRate = 0.3;
 		this.towerSpeed = 4;
-		this.upgradeCost = 15;	
+		this.upgradeCost = 110;	
 		this.value = this.cost;
-		//this.value = level * upgradeCost + cost;
 		this.specialEffect = "Burn";
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
@@ -73,15 +72,19 @@ public class CannonTower extends TowerBase{
 		this.tileHeight = tileHeight;
 		this.tileWidth = tileWidth;
 		this.level = 0;
-		this.cost  = 25;
+		this.cost  = 200;
 		this.groupAttack = false;
 		this.power = 20;
 		this.range = 2*tileWidth;
-		this.refundRate = 0.5;
+		this.refundRate = 0.3;
 		this.towerSpeed = 4;
-		this.upgradeCost = 15;
+		this.upgradeCost = 110;
+		
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
+
+		
+
 		this.specialEffect = "Burn";
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
@@ -101,9 +104,9 @@ public class CannonTower extends TowerBase{
 		this.power += 5;
 		this.level += 1;
 		this.value += upgradeCost;
-		this.upgradeCost += 10;
+		this.upgradeCost += 110;
 		//this.value = level * upgradeCost + cost;
-		
+
 	}
 
 	@Override

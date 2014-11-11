@@ -56,7 +56,8 @@ public class IceTower extends TowerBase {
 
 		this.level = 0;
 
-		this.cost = 30;
+		this.cost = 200;
+
 
 		this.groupAttack = false;
 
@@ -64,13 +65,16 @@ public class IceTower extends TowerBase {
 
 		this.range = 2 * TileMap.getTileMap().getCellWidth();
 
-		this.refundRate = 0.5;
+		this.refundRate = 0.3;
 
 		this.towerSpeed = 2;
 
-		this.upgradeCost = 15;
+		this.upgradeCost = 110;
+		//this.upgradeCost = 15;
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
+
+		
 
 		this.specialEffect = "Freezing";
 
@@ -123,7 +127,11 @@ public class IceTower extends TowerBase {
 
 		this.level = 0;
 
-		this.cost = 30;
+
+		//this.cost = 30;
+
+		this.cost = 200;
+
 
 		this.groupAttack = false;
 
@@ -131,9 +139,15 @@ public class IceTower extends TowerBase {
 
 		this.range = tileWidth;
 
-		this.refundRate = 0.5;
+		this.refundRate = 0.3;
+
 
 		this.towerSpeed = 2;
+
+		//this.towerSpeed = 3;
+
+		this.upgradeCost = 110;
+
 
 		this.upgradeCost = 15;
 		this.value = this.cost;
@@ -166,7 +180,7 @@ public class IceTower extends TowerBase {
 		this.level += 1;
 		this.value+=upgradeCost;
 
-		this.upgradeCost += 10;
+		this.upgradeCost += 110;
 		
 		//this.value = level * upgradeCost + cost;
 
