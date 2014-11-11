@@ -80,8 +80,8 @@ public class MagicTower extends TowerBase{
 	public void upgrade() {
 		this.power += 5;
 		this.level += 1;
-		this.upgradeCost += 5;
-		
+		this.upgradeCost += 10;
+		this.value = level * upgradeCost + cost;
 	}
 
 	@Override

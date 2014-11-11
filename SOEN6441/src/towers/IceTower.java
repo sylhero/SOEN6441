@@ -161,11 +161,13 @@ public class IceTower extends TowerBase {
 	@Override
 	public void upgrade() {
 
-		this.power += 5;
+		this.power += 1;
 
 		this.level += 1;
 
-		this.upgradeCost += 5;
+		this.upgradeCost += 10;
+		
+		this.value = level * upgradeCost + cost;
 
 	}
 
