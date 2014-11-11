@@ -18,7 +18,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	           LoadXmlTest.class,
 	           ArrowTowerTest.class,
 			   StrongestStrategyTest.class,
-			   WeakestStrategyTest.class})
+			   WeakestStrategyTest.class,
+			   CritterBaseTest.class})
 public class AllTests {
 
 }
