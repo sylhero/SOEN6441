@@ -18,7 +18,7 @@ import critters.CritterBase;
 import critters.CritterFactory;
 import critters.NormalCritter;
 /**
- * 
+ * This class used for test the farthest strategy.
  * @author Xunrong Xia
  *
  */
@@ -35,6 +35,11 @@ private static TowerStrategy strategy;
 	private static TileMap tm;
 	private static Tile[][] test_map;
 	
+	/**
+	 * This method used to set up the object. 
+	 * There are 3 critters, they have different distances between the tower£¬ one is nearest
+	 * one is farthest, the rest has the medium distance. 
+	 */
 	@BeforeClass
 	public static void init(){
 		
@@ -62,8 +67,13 @@ private static TowerStrategy strategy;
 		strategy = new TowerStrategy();
 		
 	}
+	
+	/**
+	 * This method test the farthest strategy.
+	 * We test if the farthest strategy would return the critter with the farthest distance in the array list.
+	 */
 	@Test
-	public void test() {
+	public void testFarestStrategy() {
 		strategy.setStrategy(new FarthestStrategy());
 		assertSame(farthest, strategy.executeStrategy(al, tower));
 	}
