@@ -124,7 +124,7 @@ public class MagicTower extends TowerBase{
 				targets.add(critter);
 			}
 			
-				critter.decreaseHp(this.power);
+			critter.decreaseHp(this.power);
 
 				
 				

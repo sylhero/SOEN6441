@@ -18,7 +18,7 @@ import critters.NormalCritter;
 
 /**
  * This class for used for test CannonTower class in package towers.
- * The upgrade() method been test.
+ * The upgrade() and fire() features have been tested.
  * 
  * @author Hongrui Guan
  *
@@ -35,7 +35,6 @@ public class CannonTowerTest {
 	 * The setUp method would used to initialize the cannonTower object. 
 	 * It will have the default value of its features.
 	 * 
-	 * @throws Exception
 	 */
 	@BeforeClass
 	public static void setUp() {
@@ -76,6 +75,7 @@ public class CannonTowerTest {
 		
 		assertNotNull(cannonTower.getTarget());
 		assertTrue(critter.getIsBurning());
+		assertEquals(82,critter.getCurrentHp());
 		
 	}
 	
