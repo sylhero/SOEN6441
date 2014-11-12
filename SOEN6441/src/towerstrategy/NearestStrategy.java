@@ -7,6 +7,12 @@ import tilemap.TileMap;
 import towers.TowerBase;
 import critters.CritterBase;
 
+/**
+ * 
+ * @author Xunrong Xia, Hongrui Guan
+ *
+ */
+
 public class NearestStrategy implements Strategy{
 	private static final int NEAREST = 3;
 

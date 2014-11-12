@@ -333,6 +333,16 @@ public abstract class CritterBase {
 		
 		return x;
 	}
+	
+	/**
+	 * To set X.
+	 * 
+	 * @param new_x
+	 */
+	public void setX(int new_x){
+		
+		this.x = new_x;
+	}
 
 	/**
 	 * To get Y.
@@ -343,6 +353,16 @@ public abstract class CritterBase {
 	public int getY() {
 		
 		return y;
+	}
+	
+	/**
+	 * To set Y.
+	 * 
+	 * @param new_y
+	 */
+	public void setY(int new_y){
+		
+		this.y = new_y;
 	}
 	
 	/**
