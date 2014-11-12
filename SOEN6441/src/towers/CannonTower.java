@@ -125,7 +125,8 @@ public class CannonTower extends TowerBase{
 	
 	
 	@Override
-	public void fire(CritterBase critter) {			
+	public void fire(CritterBase critter) {
+				
 		double distance = distance(critter);
 		
 		if(distance <= range && critter.getCurrentHp()>0)
@@ -187,7 +188,7 @@ public class CannonTower extends TowerBase{
 			}
 
 		}
-	
+			
 	}
 
 }
