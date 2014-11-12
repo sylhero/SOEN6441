@@ -17,7 +17,11 @@ import usefulfunctions.ValidateMap;
 import critters.CritterBase;
 import critters.CritterFactory;
 import critters.NormalCritter;
-
+/**
+ * 
+ * @author Xunrong Xia
+ *
+ */
 public class FarthestStrategyTest {
 
 private static TowerStrategy strategy;

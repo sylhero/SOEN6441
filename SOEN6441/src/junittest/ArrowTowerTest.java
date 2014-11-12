@@ -5,7 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import critters.CritterFactory;
+import critters.NormalCritter;
+import tilemap.Tile;
+import tilemap.TileMap;
 import towers.ArrowTower;
+import usefulfunctions.ValidateMap;
 
 /**
  * This class for used for test ArrowTower class in package entity.
@@ -17,6 +22,9 @@ import towers.ArrowTower;
 
 public class ArrowTowerTest {
 	private static ArrowTower arrowTower;
+	private static NormalCritter critter;
+	private static Tile[][] testMap;
+	private static TileMap temp;
 
 	/**
 	 * The setUp method would used to initialize the arrowTower object. 
@@ -26,7 +34,14 @@ public class ArrowTowerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		temp = TileMap.getTileMap();
+		testMap = temp.loadMap("resources/gamemaps/test.xml");
+		critter = (NormalCritter)CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(testMap), 1);
+		critter.setCurrentHp(100);
+		
 		arrowTower = new ArrowTower();
+		arrowTower.setTileX(critter.getX());
+		arrowTower.setTileY(critter.getY());
 	}
 
 	/**
@@ -41,4 +56,10 @@ public class ArrowTowerTest {
 		assertEquals(250, arrowTower.getValue());
 	}
 	
+	@Test
+	public void testFire()
+	{
+		arrowTower.fire(critter);
+		assertNotNull(arrowTower.getTarget());
+	}
 }
