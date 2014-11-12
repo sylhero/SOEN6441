@@ -35,10 +35,10 @@ public class ArrowTowerTest {
 	@Test
 	public void testUpgrade() {
 		arrowTower.upgrade();
-		assertEquals(15, arrowTower.getPower());
+		assertEquals(20, arrowTower.getPower());
 		assertEquals(1,arrowTower.getLevel());
 		assertEquals(200,arrowTower.getUpgradeCost());
-		assertEquals(350, arrowTower.getValue());
+		assertEquals(250, arrowTower.getValue());
 	}
 	
 }
