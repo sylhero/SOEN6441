@@ -3,8 +3,19 @@ package towerstrategy;
 import java.util.Comparator;
 import critters.CritterBase;
 
+/**
+ * This class implements comparator interface to compare two critters by Hp.
+ * 
+ * @author Yichen LI
+ * @version 1.1.0
+ *
+ */
 public class ComparatorByHp implements Comparator<CritterBase>{
 
+	
+	/**
+	 * To compare two critters by Hp.
+	 */
 	@Override
 	public int compare(CritterBase o1, CritterBase o2) {
 		

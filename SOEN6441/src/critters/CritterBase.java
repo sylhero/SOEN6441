@@ -462,20 +462,42 @@ public abstract class CritterBase {
 		this.freezingTime = freezingTime;
 	}
 	
-	
+	/**
+	 * To return speed offset x.
+	 * 
+	 * @return int speed offset x
+	 */
 	
 	public int getSpeedOffsetX() {
 		return speedOffsetX;
 	}
 
+	/**
+	 * To set speed offset X.
+	 * 
+	 * @param speedOffsetX
+	 */
+	
 	public void setSpeedOffsetX(int speedOffsetX) {
 		this.speedOffsetX = speedOffsetX;
 	}
+	
+	/**
+	 * To return speed offset Y.
+	 * 
+	 * @return int speed offset Y
+	 */
 
 	public int getSpeedOffsetY() {
 		return speedOffsetY;
 	}
 
+	/**
+	 * To set speed offset Y.
+	 * 
+	 * @param speedOffsetY
+	 */
+	
 	public void setSpeedOffsetY(int speedOffsetY) {
 		this.speedOffsetY = speedOffsetY;
 	}
