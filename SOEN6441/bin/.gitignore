@@ -1,7 +1,6 @@
 /Main/
 /critters/
 /currency/
-/gamemaps/
 /gamepanel/
 /gamestate/
 /junittest/
@@ -10,4 +9,3 @@
 /towerstrategy/
 /usefulfunctions/
 /xml/
-/images/

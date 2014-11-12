@@ -137,7 +137,7 @@ public class IceTower extends TowerBase {
 
 		this.power = 10;
 
-		this.range = tileWidth;
+		this.range = 2*tileWidth;
 
 		this.refundRate = 0.3;
 
@@ -219,7 +219,7 @@ public class IceTower extends TowerBase {
 			}
 
 			TowerStrategy strategy = setStrategy();
-			if (strategy == null && this.groupAttack == false) {
+			if (strategy == null && this.groupAttack == false && singleTarget ==null) {
 				this.singleTarget = critter;
 			} else if (strategy != null && this.groupAttack == false) {
 
