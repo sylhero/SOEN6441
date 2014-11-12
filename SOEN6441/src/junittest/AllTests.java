@@ -16,10 +16,12 @@ import org.junit.runners.Suite.SuiteClasses;
 	           CoinTest.class, 
 	           LoadImageTest.class,
 	           LoadXmlTest.class,
-	           ArrowTowerTest.class,
+	           //ArrowTowerTest.class,
 			   StrongestStrategyTest.class,
 			   WeakestStrategyTest.class,
-			   CritterBaseTest.class})
+			   CritterBaseTest.class,
+			   CannonTowerTest.class,
+			   MagicTowerTest.class})
 public class AllTests {
 
 }
