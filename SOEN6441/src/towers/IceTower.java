@@ -178,6 +178,7 @@ public class IceTower extends TowerBase {
 		this.power += 5;
 
 		this.level += 1;
+		
 		this.value+=upgradeCost;
 
 		this.upgradeCost += 110;

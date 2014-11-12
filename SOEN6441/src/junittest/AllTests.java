@@ -23,7 +23,8 @@ import org.junit.runners.Suite.SuiteClasses;
 			   CritterBaseTest.class,
 			   CannonTowerTest.class,
 			   MagicTowerTest.class,
-			   CritterFactoryTest.class})
+			   CritterFactoryTest.class,
+			   IceTowerTest.class})
 public class AllTests {
 
 }
