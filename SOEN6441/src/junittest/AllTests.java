@@ -21,7 +21,8 @@ import org.junit.runners.Suite.SuiteClasses;
 			   WeakestStrategyTest.class,
 			   CritterBaseTest.class,
 			   CannonTowerTest.class,
-			   MagicTowerTest.class})
+			   MagicTowerTest.class,
+			   CritterFactoryTest.class})
 public class AllTests {
 
 }
