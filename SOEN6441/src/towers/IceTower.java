@@ -194,6 +194,9 @@ public class IceTower extends TowerBase {
 
 	}
 
+	/**
+	 * To draw special effect on critter if it was attacked by ice tower.
+	 */
 	@Override
 	public void draw(Graphics2D g) {
 
@@ -208,7 +211,6 @@ public class IceTower extends TowerBase {
 	 * and the tower's strategy.
 	 * <p>
 	 * The ice tower would make the critter move slowly, and decrease the critter's hp. 
-	 * @see ArrowTower
 	 */
 	@Override
 	public void fire(CritterBase critter) {

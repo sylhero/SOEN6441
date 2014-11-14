@@ -169,8 +169,9 @@ public class ArrowTower extends TowerBase{
 		
 	}
 	
-			
-
+	/**
+	 * To draw special effect on critter if it was attacked by arrow tower.
+	 */		
 	@Override
 	public void draw(Graphics2D g) {
 		// TODO Auto-generated method stub
