@@ -76,7 +76,7 @@ public class IceTower extends TowerBase {
 
 		
 
-		this.specialEffect = "Freezing";
+		this.specialEffect = "freeze";
 
 		this.targets = new ArrayList<CritterBase>();
 

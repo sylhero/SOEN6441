@@ -1,12 +1,2 @@
-/Main/
-/critters/
-/currency/
-/gamepanel/
-/gamestate/
-/junittest/
-/tilemap/
 /towers/
-/towerstrategy/
-/usefulfunctions/
-/xml/
-/images/
+/junittest/
