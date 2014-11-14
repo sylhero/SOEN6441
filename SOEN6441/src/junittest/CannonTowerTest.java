@@ -61,8 +61,8 @@ public class CannonTowerTest {
 		
 		assertEquals(25, cannonTower.getPower());
 		assertEquals(1,cannonTower.getLevel());
-		assertEquals(220,cannonTower.getUpgradeCost());
-		assertEquals(310, cannonTower.getValue());
+		assertEquals(40,cannonTower.getUpgradeCost());
+		assertEquals(220, cannonTower.getValue());
 	}
 	
 	/**

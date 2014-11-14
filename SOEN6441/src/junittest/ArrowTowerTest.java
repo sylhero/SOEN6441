@@ -52,8 +52,8 @@ public class ArrowTowerTest {
 		arrowTower.upgrade();
 		assertEquals(20, arrowTower.getPower());
 		assertEquals(1,arrowTower.getLevel());
-		assertEquals(200,arrowTower.getUpgradeCost());
-		assertEquals(250, arrowTower.getValue());
+		assertEquals(20,arrowTower.getUpgradeCost());
+		assertEquals(160, arrowTower.getValue());
 	}
 	/**
 	 * This is to test the fire method in arrow tower class. 
