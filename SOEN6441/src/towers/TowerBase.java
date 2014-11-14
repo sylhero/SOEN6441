@@ -229,16 +229,33 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 		this.name = name;
 	}
 	
+	/**
+	 * get the critters in the attack range
+	 * @return an array list contain the critters in the attack range.
+	 */
 	public ArrayList<CritterBase> getTarget(){
 		return targets;
 	}
+	/**
+	 * set the strategy type of the tower.
+	 * @param strategy The strategy type.
+	 */
 	public void setStrategyType(int strategy){
 		this.towerStratgyType = strategy;
 	}
+	/**
+	 * get the strategy type of the tower.
+	 * @return the strategy type.
+	 */
 	public int getStrategyType(){
 		return this.towerStratgyType;
 	}
-	
+	/**
+	 * Based on the strategy type to set the corresponding strategy in TowerStrategy.
+	 * This uses the Strategy Pattern.
+	 * 
+	 * @return The strategy will be used by the tower.
+	 */
 	public TowerStrategy setStrategy() {
 
 		TowerStrategy strategy = new TowerStrategy();
@@ -266,6 +283,12 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 		return strategy;
 
 	}
+	
+	/**
+	 * This method used to calculate the distance between the critter and the tower.
+	 * @param critter This the critter whose distance with the tower want to be calculate.
+	 * @return The distance between the tower and the critter.
+	 */
 	public double distance(CritterBase critter) {
 
 		int critterX = critter.getX();
@@ -288,6 +311,13 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 		return distance;
 
 	}
+	
+	/**
+	 * This method used to draw the special effect if the tower used its own special effect.
+	 * 
+	 * @param g  The graphic object.
+	 * @param effect The special effect image of tower.
+	 */
 	public void drawEffect(Graphics2D g,Image effect){
 		
 		if(singleTarget!=null){

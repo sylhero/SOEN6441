@@ -21,5 +21,9 @@ public interface TowerInterface {
 	 * in the upgrade method, some attributes's values of a tower may be increased. 
 	 */
 	void upgrade();
+	/**
+	 * The attack method of tower. 
+	 * @param critter The critter which should be check if it is the attack target of the tower.
+	 */
 	void fire(CritterBase critter); 
 }
