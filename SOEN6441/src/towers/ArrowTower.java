@@ -100,9 +100,15 @@ public class ArrowTower extends TowerBase{
 		
 	}
 	/**
+	 * <p>
 	 * This method used for tower attack critters. 
-	 * 
-	 * 
+	 * This method will save the critters which in the attack range in an array list. 
+	 * Then based on different strategy to get the critter which should be attacked.
+	 * After the tower attack the critter, it will check if the critter has died or not in the attack range,
+	 * then decided if the critter should move from the array list. 
+	 * <p>
+	 * The arrow tower would only make the critter lose hp. 
+	 * <p>
 	 * 
 	 */	
 	@Override
@@ -164,16 +170,10 @@ public class ArrowTower extends TowerBase{
 	}
 	
 			
-			
-		
-			
-		
-	
 
 	@Override
 	public void draw(Graphics2D g) {
 		// TODO Auto-generated method stub
-		drawEffect(g,arrowTowerEffect);
-		
+		drawEffect(g,arrowTowerEffect);		
 	}
 }

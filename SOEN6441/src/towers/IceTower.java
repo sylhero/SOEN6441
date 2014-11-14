@@ -169,7 +169,7 @@ public class IceTower extends TowerBase {
 	 * 
 	 * When an Ice Tower upgrade, it's power would increase 5,
 	 * 
-	 * level would increase 1. The upgradeCose would increase 5.
+	 * level would increase 1. The upgradeCost would increase 110.
 	 */
 
 	@Override
@@ -201,6 +201,15 @@ public class IceTower extends TowerBase {
 
 	}
 
+	/**
+	 * <p>
+	 * This is the attack method of tower. It has the similar way as other tower's attack method.
+	 * It will attack if a critter should be attacked based on the critter's location, the critter's hp
+	 * and the tower's strategy.
+	 * <p>
+	 * The ice tower would make the critter move slowly, and decrease the critter's hp. 
+	 * @see ArrowTower
+	 */
 	@Override
 	public void fire(CritterBase critter) {
 
