@@ -7,9 +7,19 @@ import java.util.Comparator;
 import towers.TowerBase;
 import critters.CritterBase;
 
+/**
+ * This class implemented Strategy interface and return the strongest critter among an arrayList.
+ * 
+ * @author Yichen LI
+ * @version 1.1.2
+ *
+ */
 public class StrongestStrategy implements Strategy{
-	private static final int STRONGEST = 2;
 
+	/**
+	 * To find the strongest critter among a critter arrayList.
+	 */
+	
 	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter) {

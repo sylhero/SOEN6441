@@ -6,7 +6,7 @@ import critters.CritterBase;
 
 /**
  * This class provides an interface to be implemented by other classes.
- * @author Yulong Song, Yichen LI
+ * @author Yulong SONG, Yichen LI
  *
  */
 
@@ -17,7 +17,7 @@ public interface Strategy {
 	 * To execute specific strategy.
 	 * @param al
 	 * @param towerShooter
-	 * @return
+	 * @return CritterBase a critter
 	 */
 	CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter);

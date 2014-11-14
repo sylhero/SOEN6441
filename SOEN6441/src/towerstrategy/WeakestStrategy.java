@@ -7,8 +7,19 @@ import java.util.Comparator;
 import towers.TowerBase;
 import critters.CritterBase;
 
+/**
+ * This class implemented Strategy interface and return the weakest critter among an arrayList.
+ * 
+ * @author Yichen LI
+ * @version 1.1.2
+ *
+ */
+
 public class WeakestStrategy implements Strategy{
-	private static final int WEAKEST = 1;
+
+	/**
+	 * To find the weakest critter among a critter arrayList.
+	 */
 
 	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,
