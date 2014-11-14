@@ -12,11 +12,6 @@ import critters.CritterBase;
 
 public interface Strategy {
 	
-	/**
-	 * To get strategy type.
-	 * @return int specific strategy type.
-	 */
-	int getStrategyType();
 	
 	/**
 	 * To execute specific strategy.

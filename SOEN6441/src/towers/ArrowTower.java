@@ -99,10 +99,12 @@ public class ArrowTower extends TowerBase{
 
 		
 	}
-	
-	
-	
-	
+	/**
+	 * This method used for tower attack critters. 
+	 * 
+	 * 
+	 * 
+	 */	
 	@Override
 	public void fire(CritterBase critter) {	
 		
@@ -115,9 +117,7 @@ public class ArrowTower extends TowerBase{
 			{
 				targets.add(critter);
 			}
-			
-			
-			
+						
 			TowerStrategy strategy = setStrategy();	
 			if (strategy ==null && this.groupAttack==false && singleTarget == null)
 			{

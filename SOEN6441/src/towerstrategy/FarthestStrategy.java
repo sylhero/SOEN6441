@@ -40,12 +40,4 @@ public class FarthestStrategy implements Strategy{
 		}
 		return farthestCritter;
 	}
-
-	@Override
-	public int getStrategyType() {
-		// TODO Auto-generated method stub
-		return FARTHEST;
-	}
-
-
 }
