@@ -6,6 +6,7 @@ import critters.CritterBase;
 
 /**
  * This class provides an interface to be implemented by other classes.
+ * The strategy part used Strategy Pattern.
  * @author Yulong SONG, Yichen LI
  *
  */
