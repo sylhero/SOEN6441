@@ -291,7 +291,7 @@ public abstract class CritterBase {
 	/**
 	 * To set isAtExit.
 	 * 
-	 * @param atExit
+	 * @param atExit a boolean variable to indicate if it at the exit.
 	 */
 	
 	public void setAtExit(boolean atExit) {
@@ -315,7 +315,7 @@ public abstract class CritterBase {
 	/**
 	 * To set armorRatio.
 	 * 	
-	 * @param armorRatio
+	 * @param armorRatio The armor ratio.
 	 */
 	
 	public void setArmorRatio(int armorRatio) {
@@ -337,7 +337,7 @@ public abstract class CritterBase {
 	/**
 	 * To set X.
 	 * 
-	 * @param new_x
+	 * @param new_x The new x coordinate.
 	 */
 	public void setX(int new_x){
 		
@@ -358,7 +358,7 @@ public abstract class CritterBase {
 	/**
 	 * To set Y.
 	 * 
-	 * @param new_y
+	 * @param new_y The new y coordinate.
 	 */
 	public void setY(int new_y){
 		
@@ -379,7 +379,7 @@ public abstract class CritterBase {
 	/**
 	 * To set freezing status.
 	 * 
-	 * @param result
+	 * @param result To indicate if it is freezing or not.
 	 */
 	
 	public void setIsFreezing(boolean result){
@@ -400,7 +400,7 @@ public abstract class CritterBase {
 	/**
 	 * To set burn status.
 	 * 
-	 * @param result
+	 * @param result To indicate if it is freezing or not.
 	 */
 	
 	public void setIsBurning(boolean result){
@@ -410,7 +410,7 @@ public abstract class CritterBase {
 	/**
 	 * To get burn status.
 	 * 
-	 * @return boolean isBurning
+	 * @return boolean isBurning.
 	 */
 	
 	public boolean getIsBurning(){
@@ -421,7 +421,7 @@ public abstract class CritterBase {
 	/**
 	 * To set affected times.
 	 * 
-	 * @param affected_times
+	 * @param affected_times The affected times.
 	 */
 	
 	public void setAffectedTimes(int affected_times){
@@ -456,7 +456,7 @@ public abstract class CritterBase {
 	/**
 	 * To set freezing time.
 	 * 
-	 * @param freezingTime
+	 * @param freezingTime The freezing time.
 	 */
 	public void setFreezingTime(int freezingTime) {
 		this.freezingTime = freezingTime;
@@ -475,7 +475,7 @@ public abstract class CritterBase {
 	/**
 	 * To set speed offset X.
 	 * 
-	 * @param speedOffsetX
+	 * @param speedOffsetX The speed offset of X-coordinate.
 	 */
 	
 	public void setSpeedOffsetX(int speedOffsetX) {
@@ -495,7 +495,7 @@ public abstract class CritterBase {
 	/**
 	 * To set speed offset Y.
 	 * 
-	 * @param speedOffsetY
+	 * @param speedOffsetY The speed offset of Y-coordinate.
 	 */
 	
 	public void setSpeedOffsetY(int speedOffsetY) {
