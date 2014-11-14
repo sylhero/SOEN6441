@@ -14,7 +14,7 @@ import usefulfunctions.ValidateMap;
 
 /**
  * This class for used for test ArrowTower class in package entity.
- * The upgrade() method been test.
+ * The upgrade(), fire() method been test.
  * 
  * @author Xunrong Xia
  *
@@ -55,7 +55,9 @@ public class ArrowTowerTest {
 		assertEquals(200,arrowTower.getUpgradeCost());
 		assertEquals(250, arrowTower.getValue());
 	}
-	
+	/**
+	 * This is to test the fire method in arrow tower class. 
+	 */
 	@Test
 	public void testFire()
 	{
