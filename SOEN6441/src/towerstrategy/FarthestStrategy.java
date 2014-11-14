@@ -7,8 +7,8 @@ import tilemap.TileMap;
 import towers.TowerBase;
 import critters.CritterBase;
 /**
- * 
- * @author Xunrong Xia
+ * This class returns the critter with the farthest distance in the array list.
+ * @author Xunrong Xia, Kun Wang
  *
  */
 public class FarthestStrategy implements Strategy{
