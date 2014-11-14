@@ -19,7 +19,7 @@ import critters.CritterFactory;
 import critters.NormalCritter;
 /**
  * This class used for test the farthest strategy.
- * @author Xunrong Xia
+ * @author Hongrui Guan, Xunrong Xia
  *
  */
 public class FarthestStrategyTest {
