@@ -8,7 +8,7 @@ import towers.TowerBase;
 import critters.CritterBase;
 
 /**
- * 
+ * This class returns the critter with the nearest distance in the array list.
  * @author Xunrong Xia, Hongrui Guan
  *
  */
