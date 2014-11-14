@@ -72,7 +72,10 @@ public class NearestStrategyTest {
 	}
 	
 	
-
+	/**
+	 * This method test the nearest strategy.
+	 * We test if the nearest strategy would return the critter with the nearest distance in the array list.
+	 */
 	@Test
 	public void testNearestStrategy() {
 		
