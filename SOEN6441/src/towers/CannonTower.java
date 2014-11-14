@@ -44,7 +44,7 @@ public class CannonTower extends TowerBase{
 		this.range = 2*TileMap.getTileMap().getCellWidth();
 		this.refundRate = 0.3;
 		this.towerSpeed = 4;
-		this.upgradeCost = 110;	
+		this.upgradeCost = 20;	
 		this.value = this.cost;
 		this.specialEffect = "Burn";
 		this.targets = new ArrayList<CritterBase>();
@@ -59,8 +59,7 @@ public class CannonTower extends TowerBase{
 	 * @param tileY The Y coordinate of the tile.
 	 * @param tileWidth The width of the tile.
 	 * @param tileHeight The height of the tile.
-	 */
-	
+	 */	
 	public CannonTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
 		this.name = "Cannon Tower";
@@ -78,12 +77,10 @@ public class CannonTower extends TowerBase{
 		this.range = 2*tileWidth;
 		this.refundRate = 0.3;
 		this.towerSpeed = 4;
-		this.upgradeCost = 110;
+		this.upgradeCost = 20;
 		
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
-
-		
 
 		this.specialEffect = "Burn";
 		this.targets = new ArrayList<CritterBase>();
@@ -95,16 +92,15 @@ public class CannonTower extends TowerBase{
 	
 	
 	/**
-	 * When a tower be upgraded, its power, level and upgradeCose would be increased. 
+	 * When a tower will be upgraded, its power, level and upgradeCose would be increased. 
 	 * The method override the upgrade() method of TowerInterface.
 	 */
-	
 	@Override
 	public void upgrade() {
 		this.power += 5;
 		this.level += 1;
 		this.value += upgradeCost;
-		this.upgradeCost += 110;
+		this.upgradeCost += 20;
 		//this.value = level * upgradeCost + cost;
 
 	}
@@ -115,15 +111,20 @@ public class CannonTower extends TowerBase{
 		
 	}
 
+	/**
+	 * To draw special effect on critter if it was attacked by cannon tower. 
+	 * 
+	 */
 	@Override
 	public void draw(Graphics2D g) {
 		drawEffect(g,cannonTowerEffect);
 		
 	}
-	
-	
-	
-	
+		
+	/**
+	 * This function is used for decreasing critter's life depends on different strategies.
+	 * 
+	 */
 	@Override
 	public void fire(CritterBase critter) {
 				
@@ -147,8 +148,7 @@ public class CannonTower extends TowerBase{
 			{
 				this.singleTarget = critter;
 				
-			} 
-			else if(strategy!=null && this.groupAttack==false ){
+			} else if(strategy!=null && this.groupAttack==false ){
 				
 				this.singleTarget = strategy.executeStrategy(targets, this);
 			}
@@ -163,8 +163,7 @@ public class CannonTower extends TowerBase{
 				targets.remove(singleTarget);
 				singleTarget = null;
 			}	
-		} 
-		else { 
+		} else { 
 			
 			if(targets.contains(critter)){
 				singleTarget = null;

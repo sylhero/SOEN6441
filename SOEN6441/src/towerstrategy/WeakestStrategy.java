@@ -12,16 +12,14 @@ import critters.CritterBase;
  * @author  Kun Wang
  *
  */
+
+
 public class WeakestStrategy implements Strategy{
-	private static final int WEAKEST = 1;
 
-	@Override
-	public int getStrategyType() {
-		// TODO Auto-generated method stub
-		return WEAKEST;
-	}
+	/**
+	 * To find the weakest critter among a critter arrayList.
+	 */
 
-		
 	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter)	{

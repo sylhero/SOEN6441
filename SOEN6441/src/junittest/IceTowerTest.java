@@ -53,8 +53,8 @@ public class IceTowerTest {
 		iceTower.upgrade();
 		assertEquals(15, iceTower.getPower());
 		assertEquals(1, iceTower.getLevel());
-		assertEquals(220, iceTower.getUpgradeCost());
-		assertEquals(310, iceTower.getValue());
+		assertEquals(40, iceTower.getUpgradeCost());
+		assertEquals(220, iceTower.getValue());
 	}
 
 	/**

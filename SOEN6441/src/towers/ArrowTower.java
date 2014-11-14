@@ -42,7 +42,7 @@ public class ArrowTower extends TowerBase{
 		this.range = 3*TileMap.getTileMap().getCellWidth();
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 100;	
+		this.upgradeCost = 10;	
 		this.value = this.cost;
 		this.specialEffect = "None";
 		this.targets = new ArrayList<CritterBase>();
@@ -75,7 +75,7 @@ public class ArrowTower extends TowerBase{
 		this.range = 3*tileWidth;
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 100;
+		this.upgradeCost = 10;
 		this.value = this.cost;
 		this.specialEffect = "None";
 		this.targets = new ArrayList<CritterBase>();
@@ -95,14 +95,22 @@ public class ArrowTower extends TowerBase{
 
 		this.value += upgradeCost;
 		//this.value = level * upgradeCost + cost;
-		this.upgradeCost += 100;
+		this.upgradeCost += 10;
 
 		
 	}
-	
-	
-	
-	
+	/**
+	 * <p>
+	 * This method used for tower attack critters. 
+	 * This method will save the critters which in the attack range in an array list. 
+	 * Then based on different strategy to get the critter which should be attacked.
+	 * After the tower attack the critter, it will check if the critter has died or not in the attack range,
+	 * then decided if the critter should move from the array list. 
+	 * <p>
+	 * The arrow tower would only make the critter lose hp. 
+	 * <p>
+	 * 
+	 */	
 	@Override
 	public void fire(CritterBase critter) {	
 		
@@ -115,9 +123,7 @@ public class ArrowTower extends TowerBase{
 			{
 				targets.add(critter);
 			}
-			
-			
-			
+						
 			TowerStrategy strategy = setStrategy();	
 			if (strategy ==null && this.groupAttack==false && singleTarget == null)
 			{
@@ -163,17 +169,12 @@ public class ArrowTower extends TowerBase{
 		
 	}
 	
-			
-			
-		
-			
-		
-	
-
+	/**
+	 * To draw special effect on critter if it was attacked by arrow tower.
+	 */		
 	@Override
 	public void draw(Graphics2D g) {
 		// TODO Auto-generated method stub
-		drawEffect(g,arrowTowerEffect);
-		
+		drawEffect(g,arrowTowerEffect);		
 	}
 }

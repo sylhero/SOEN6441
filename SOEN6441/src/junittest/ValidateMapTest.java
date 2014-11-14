@@ -55,12 +55,13 @@ public class ValidateMapTest {
 		
 		// set expected CorrectRoute
 		expectedRoute = new LinkedList<Point>();
-		expectedRoute.addLast(new Point(0, 1));
-		expectedRoute.addLast(new Point(1, 1));
-		expectedRoute.addLast(new Point(2, 1));
+		expectedRoute.addLast(new Point(3, 0));
 		expectedRoute.addLast(new Point(3, 1));
-		expectedRoute.addLast(new Point(3, 2));
+		expectedRoute.addLast(new Point(4, 1));
+		expectedRoute.addLast(new Point(4, 2));
+		expectedRoute.addLast(new Point(4, 3));
 		expectedRoute.addLast(new Point(3, 3));
+		expectedRoute.addLast(new Point(3, 4));
 	}
 	
 	/**

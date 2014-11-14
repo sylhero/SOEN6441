@@ -60,8 +60,8 @@ public class MagicTowerTest {
 		
 		assertEquals(20, magicTower.getPower());
 		assertEquals(1,magicTower.getLevel());
-		assertEquals(210,magicTower.getUpgradeCost());
-		assertEquals(360, magicTower.getValue());
+		assertEquals(50,magicTower.getUpgradeCost());
+		assertEquals(275, magicTower.getValue());
 	}
 	
 	/**

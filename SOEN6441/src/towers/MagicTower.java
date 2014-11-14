@@ -16,9 +16,11 @@ import usefulfunctions.LoadImage;
  */
 
 public class MagicTower extends TowerBase{
+	
 	public static final Image magicTower         = LoadImage.loadImage("/images/magictower.png");
 	public static final Image magicTowerEffect   = LoadImage.loadImageIcon("/images/magictowereffect.gif").getImage();
 	public static final int MAGICTOWERTYPE  = 7;
+	
 	/**
 	 * This is the constructor with no parameter, assign the initial value of the attributes.
 	 */
@@ -35,12 +37,13 @@ public class MagicTower extends TowerBase{
 		this.range = 2*TileMap.getTileMap().getCellWidth();
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 10;	
+		this.upgradeCost = 25;	
 		this.value = cost;
 
 		this.specialEffect = "Splash";
 		this.targets = new ArrayList<CritterBase>();
 	}
+	
 	/**
 	 * This constructor can assign the value of tile's attributes besides the tower's common attributes.
 	 * 
@@ -72,7 +75,7 @@ public class MagicTower extends TowerBase{
 		
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 10;
+		this.upgradeCost = 25;
 		
 		this.specialEffect = "Splash";
 
@@ -89,7 +92,7 @@ public class MagicTower extends TowerBase{
 		this.power += 10;
 		this.level += 1;
 		this.value +=upgradeCost;
-		this.upgradeCost += 10;
+		this.upgradeCost += 25;
 		//this.value = level * upgradeCost + cost;
 
 	}
@@ -99,6 +102,10 @@ public class MagicTower extends TowerBase{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	/**
+	 * To draw special effect on critter if it was attacked by magic tower.
+	 */
 	@Override
 	public void draw(Graphics2D g) {
 		if(targets.size()!=0){
@@ -109,6 +116,10 @@ public class MagicTower extends TowerBase{
 			}
 		}
 	}
+	
+	/**
+	 * This function is used for decreasing critter's life depends on different strategies.
+	 */
 	@Override
 	public void fire(CritterBase critter) {
 		// TODO Auto-generated method stub
@@ -125,19 +136,16 @@ public class MagicTower extends TowerBase{
 			}
 			
 			critter.decreaseHp(this.power);
-
 				
-				
-				if(critter.getCurrentHp()<=0){
-					coin.increaseCurrency(critter.getValue());
-				}				
-			} 
-		else{
+			if(critter.getCurrentHp()<=0){
+				coin.increaseCurrency(critter.getValue());
+			}				
+		} else{
+			
 			if(targets.contains(critter)){
+				
 				targets.remove(critter);
 			}
-			
-
 		}
 	}
 }

@@ -8,20 +8,19 @@ import towers.TowerBase;
 import critters.CritterBase;
 
 /**
+
  * This class returns the critter with the nearest distance in the array list.
+
  * @author Xunrong Xia, Hongrui Guan
  *
  */
 
 public class NearestStrategy implements Strategy{
-	private static final int NEAREST = 3;
 
-	@Override
-	public int getStrategyType() {
-		// TODO Auto-generated method stub
-		return NEAREST;
-	}
 
+	/**
+	 * To find the nearest critter among a critter arrayList.
+	 */
 	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,TowerBase towerShooter) {
 		// TODO Auto-generated method stub

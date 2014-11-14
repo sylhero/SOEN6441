@@ -9,20 +9,14 @@ import critters.CritterBase;
 
 /**
  * This class returns the critter with the strongest armor and hp.
- * @author Xunrong Xia, Kun Wang
- *
+ * @author Yichen Li, Kun Wang
  */
 public class StrongestStrategy implements Strategy{
-	private static final int STRONGEST = 2;
 
-	@Override
-	public int getStrategyType() {
-		// TODO Auto-generated method stub
-		return STRONGEST;
-	}
-
+	/**
+	 * To find the strongest critter among a critter arrayList.
+	 */
 	
-
 	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter) {

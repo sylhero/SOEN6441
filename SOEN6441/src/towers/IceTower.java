@@ -69,8 +69,8 @@ public class IceTower extends TowerBase {
 
 		this.towerSpeed = 2;
 
-		this.upgradeCost = 110;
-		//this.upgradeCost = 15;
+		this.upgradeCost = 20;
+		
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
 
@@ -146,10 +146,8 @@ public class IceTower extends TowerBase {
 
 		//this.towerSpeed = 3;
 
-		this.upgradeCost = 110;
+		this.upgradeCost = 20;
 
-
-		this.upgradeCost = 15;
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
 
@@ -169,7 +167,7 @@ public class IceTower extends TowerBase {
 	 * 
 	 * When an Ice Tower upgrade, it's power would increase 5,
 	 * 
-	 * level would increase 1. The upgradeCose would increase 5.
+	 * level would increase 1. The upgradeCost would increase 110.
 	 */
 
 	@Override
@@ -181,7 +179,7 @@ public class IceTower extends TowerBase {
 		
 		this.value+=upgradeCost;
 
-		this.upgradeCost += 110;
+		this.upgradeCost += 20;
 		
 		//this.value = level * upgradeCost + cost;
 
@@ -194,6 +192,9 @@ public class IceTower extends TowerBase {
 
 	}
 
+	/**
+	 * To draw special effect on critter if it was attacked by ice tower.
+	 */
 	@Override
 	public void draw(Graphics2D g) {
 
@@ -201,6 +202,14 @@ public class IceTower extends TowerBase {
 
 	}
 
+	/**
+	 * <p>
+	 * This is the attack method of tower. It has the similar way as other tower's attack method.
+	 * It will attack if a critter should be attacked based on the critter's location, the critter's hp
+	 * and the tower's strategy.
+	 * <p>
+	 * The ice tower would make the critter move slowly, and decrease the critter's hp. 
+	 */
 	@Override
 	public void fire(CritterBase critter) {
 
