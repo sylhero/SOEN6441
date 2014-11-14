@@ -6,11 +6,13 @@ import critters.CritterBase;
 
 /**
  * This the interface of Tower.
- * It only contains one method now. 
+ * It contains two method.
  * <code>
  * void upgrade()
+ * void fire(CritterBase critter)
  * </code>
- * since every kind of tower can be upgrade as long as the coin is enough. 
+ * Since every kind of tower can be upgrade as long as the coin is enough. 
+ * And every kind of tower could attack critter if the critter satisfied some condition.
  * 
  * @author Xunrong Xia
  *

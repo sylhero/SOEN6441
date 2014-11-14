@@ -24,7 +24,7 @@ public class LoadImageTest {
 	private static ImageIcon testIcon;
 	/**
 	 * To initialize the variables to be null.
-	 * @throws Exception
+	 * @throws Exception java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {

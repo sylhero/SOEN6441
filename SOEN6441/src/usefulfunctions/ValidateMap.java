@@ -108,12 +108,10 @@ public class ValidateMap {
 	//======================================validate is the entry point adjacent to exit==========================================
 	
 	/**
-	 * This function checks is the exit adjacent to the entry.
+	 * This function checks if the exit adjacent to the entry.
 	 * 
-	 * @param x
-	 * @param y
-	 * @param map
-	 * @return boolean indicates isAdjacent
+	 * @param map Which contains the tile information.
+	 * @return A boolean variable isAdjacent to indicate if the entry is adjacent to the exit. 
 	 */
 	public static boolean isExitAdjacent(Tile [][] map) {
 		
@@ -191,11 +189,8 @@ public class ValidateMap {
 	//======================================validate is the exit point adjacent to entry==========================================
 	/**
 	 * This function checks is the entry adjacent to the exit. 
-	 * 
-	 * @param x
-	 * @param y
-	 * @param map
-	 * @return boolean indicates isAdjacent
+	 * @param map which contains tiles information
+	 * @return A boolean variable which indicate if the exit point adjacent to entry.
 	 */
 	
 	public static boolean isEntryAdjacent(Tile[][] map) {
@@ -365,7 +360,7 @@ public class ValidateMap {
 	 * This function is exclusively used by Junit test to set the flag back to false
 	 * when each test case ends execution
 	 * 
-	 * @param initFlag
+	 * @param initFlag which is boolean to indicate if the data members have been initialized
 	 */
 	public static void setInitFlag(boolean initFlag) {
 		
@@ -380,7 +375,7 @@ public class ValidateMap {
 	 /**
 	 * This function returns an linkedList contains necessary information to reach the exit  
 	 * 
-	 * @param map
+	 * @param map contains map information
 	 * @return a LinkedList contains correct route information.
 	 */
 	

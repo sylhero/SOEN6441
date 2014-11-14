@@ -29,7 +29,7 @@ public class IceTowerTest {
 	
 	/**
 	 * To initialize data members.
-	 * @throws Exception
+	 * @throws Exception java.lang.Exception
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception 

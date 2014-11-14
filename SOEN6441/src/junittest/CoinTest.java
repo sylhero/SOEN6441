@@ -19,7 +19,7 @@ public class CoinTest {
 
 	/**
 	 * Use the initializeCurrency method in the coin class, to set the value of coin to 300.
-	 * @throws Exception
+	 * @throws Exception java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {

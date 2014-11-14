@@ -45,7 +45,7 @@ public class Coin {
 
 	/**
 	 * the amount of coin increased
-	 * @param amount
+	 * @param amount The amount should be add to the coin
 	 */
 	public void increaseCurrency(int amount) {
 		coin += amount; 
@@ -54,7 +54,7 @@ public class Coin {
 
 	/**
 	 * the amount of coin decreased
-	 * @param amount
+	 * @param amount The amount should be decreased to the coin
 	 */
 	
 	public void decreaseCurrency(int amount) {
@@ -83,7 +83,7 @@ public class Coin {
 	/**
 	 * Draw graphics in 2D
 	 * 
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	
 	public void draw(Graphics2D g) {

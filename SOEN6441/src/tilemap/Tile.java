@@ -25,12 +25,12 @@ public class Tile {
 	}
 	/**
 	 * constructor
-	 * @param tileType
-	 * @param image
-	 * @param tileX
-	 * @param tileY
-	 * @param tileWidth
-	 * @param tileHeight
+	 * @param tileType This is the tile type
+	 * @param image This is the image of the tile.
+	 * @param tileX This is the x-coordinate of tile.
+	 * @param tileY This is the y-coordinate of tile.
+	 * @param tileWidth This is the width of the tile.
+	 * @param tileHeight This is the height of the tile.
 	 */
 	public Tile(int tileType,Image image, int tileX, int tileY, 
 			int tileWidth, int tileHeight){
@@ -42,6 +42,10 @@ public class Tile {
 		this.tileType = tileType;
 	}
 	
+	/**
+	 * This is the constructor.
+	 * @param tileType This is the tile type.
+	 */
 	public Tile(int tileType){
 		this.tileType = tileType;
 		
@@ -50,14 +54,14 @@ public class Tile {
 	
 	/**
 	 * get the tile type
-	 * @return
+	 * @return The tile's type.
 	 */
 	public int getTileType() {
 		return tileType;
 	}
 	/**
 	 * set the tile type
-	 * @param tileType
+	 * @param tileType The tile's type
 	 */
 
 	public void setTileType(int tileType) {
@@ -67,7 +71,7 @@ public class Tile {
 
 	/**
 	 * get the image
-	 * @return
+	 * @return The tile's image.
 	 */
 	public Image getTileImage() {
 		return tileImage;
@@ -75,7 +79,7 @@ public class Tile {
 
 	/**
 	 * set the tile image
-	 * @param tileImage
+	 * @param tileImage The tile's image.
 	 */
 	public void setTileImage(Image tileImage) {
 		this.tileImage = tileImage;
@@ -83,7 +87,7 @@ public class Tile {
 
 	/**
 	 * get the tile x
-	 * @return
+	 * @return The x-coordinate of tile.
 	 */
 	public int getTileX() {
 		return tileX;
@@ -91,7 +95,7 @@ public class Tile {
 
 	/**
 	 * set the tile x
-	 * @param tileX
+	 * @param tileX The x-coordinate of tile.
 	 */
 	public void setTileX(int tileX) {
 		this.tileX = tileX;
@@ -99,7 +103,7 @@ public class Tile {
 
 	/**
 	 * get tile y
-	 * @return
+	 * @return The y-coordinate of tile.
 	 */
 	public int getTileY() {
 		return tileY;
@@ -107,7 +111,7 @@ public class Tile {
 
 	/**
 	 * set the tile y
-	 * @param tileY
+	 * @param tileY The y-coordinate of tile.
 	 */
 	public void setTileY(int tileY) {
 		this.tileY = tileY;
@@ -115,7 +119,7 @@ public class Tile {
 
 	/**
 	 * get the tile width
-	 * @return
+	 * @return The tile's width.
 	 */
 	public int getTileWidth() {
 		return tileWidth;
@@ -123,7 +127,7 @@ public class Tile {
 
 	/**
 	 * set the tile width
-	 * @param tileWidth
+	 * @param tileWidth The tile's width.
 	 */
 	public void setTileWidth(int tileWidth) {
 		this.tileWidth = tileWidth;
@@ -131,7 +135,7 @@ public class Tile {
 
 	/**
 	 * get the tile height
-	 * @return
+	 * @return The tile's height.
 	 */
 	public int getTileHeight() {
 		return tileHeight;
@@ -139,7 +143,7 @@ public class Tile {
 
 	/**
 	 * set the tile height
-	 * @param tileHeight
+	 * @param tileHeight The tile's height.
 	 */
 	public void setTileHeight(int tileHeight) {
 		this.tileHeight = tileHeight;

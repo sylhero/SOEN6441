@@ -5,18 +5,12 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.awt.*;
 /**
- * this class is for splitting the image 
+ * This class is for splitting the image 
  * @author Kun Wang
  *
  */
 public class ImageSplitter {
-	
-	/**
-	 * Loads images and processed then splits.
-	 * 
-	 * @param args
-	 * @throws IOException
-	 */
+
     public static void main(String[] args) throws IOException {
 
         File file = new File("/Users/yulongsong/Google Drive/workspace/SOEN6441/SOEN6441/resources/images/fire.png"); // I have bear.jpg in my working directory

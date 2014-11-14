@@ -22,6 +22,7 @@ public class LoadXmlTest {
 	
 	/**
 	 * To initialize a MapParser attribute and some useful variables.
+	 * @throws Exception java.lang.Exception
 	 */
 	
 	@BeforeClass

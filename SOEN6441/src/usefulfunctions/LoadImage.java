@@ -11,9 +11,9 @@ import javax.swing.ImageIcon;
  */
 public class LoadImage {
 	/**
-	 * this method load the image
-	 * @param path
-	 * @return
+	 * This method load the image
+	 * @param path This the image's path.
+	 * @return The image which need to be used.
 	 */
 	public static Image loadImage(String path){
 		Image temp = null;
@@ -32,8 +32,8 @@ public class LoadImage {
 	}
 	/**
 	 * this method load the image icon
-	 * @param path
-	 * @return
+	 * @param path The path of image icon.
+	 * @return The image icon.
 	 */
 	public static ImageIcon loadImageIcon(String path){
 		ImageIcon temp = null;

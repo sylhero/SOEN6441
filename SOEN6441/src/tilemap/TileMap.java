@@ -88,8 +88,8 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * load map
-	 * @param path
-	 * @return map
+	 * @param path The path of the map's xml file.
+	 * @return map The map of the game.
 	 */
 	public Tile[][] loadMap(String path){
 		mapParser.loadXMLFile(path);
@@ -104,77 +104,77 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * set the correct path
-	 * @param path
+	 * @param path The achievable path.
 	 */
 	public void setCorrectPath(LinkedList<Point> path){
 		this.correctPath = path;
 	}
 	/**
 	 * get correct path
-	 * @return correct path
+	 * @return correct path The achievable path.
 	 */
 	public LinkedList<Point> getCorrectPath(){
 		return correctPath;
 	}
 	/**
 	 * get map
-	 * @return
+	 * @return The game's map.
 	 */
 	public Tile[][] getMap(){
 		return this.map;
 	}
 	/**
 	 * get map row
-	 * @return
+	 * @return The number of map's row.
 	 */
 	public int getRow(){
 		return this.mapRow;
 	}
 	/**
 	 * get map column
-	 * @return
+	 * @return The number of map's column.
 	 */
 	public int getCol(){
 		return this.mapCol;
 	}
 	/**
 	 * get map row
-	 * @return
+	 * @return The number of map's row.
 	 */
 	public int getMapRow() {
 		return mapRow;
 	}
 	/**
 	 * get map column
-	 * @return
+	 * @return The number of map's column.
 	 */
 	public int getMapCol() {
 		return mapCol;
 	}
 	/**
 	 * get cell width
-	 * @return
+	 * @return The cell's width.
 	 */
 	public int getCellWidth() {
 		return cellWidth;
 	}
 	/**
 	 * get cell height
-	 * @return
+	 * @return The cell's height.
 	 */
 	public int getCellHeight() {
 		return cellHeight;
 	}
 	/**
 	 * get offset x
-	 * @return
+	 * @return The offset of X-coordinate.
 	 */
 	public int getOffSetX() {
 		return offSetX;
 	}
 	/**
 	 * get offset y
-	 * @return
+	 * @return The offset of Y-coordinate.
 	 */
 	public int getOffSetY() {
 		return offSetY;
@@ -182,7 +182,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	
 	/**
 	 * get the tile map object
-	 * @return
+	 * @return The game map.
 	 */
 	public static TileMap getTileMap(){
 		return tileMap;
@@ -207,7 +207,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 //	}
 	/**
 	 * draw the map
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void drawMap(Graphics2D g){
 		for(int i = 0; i<mapRow; i++){
@@ -317,28 +317,28 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * get upper offset
-	 * @return
+	 * @return The upper offset.
 	 */
 	public int getUpperOffSet() {
 		return upperOffSet;
 	}
 	/**
 	 * set upper offset
-	 * @param upperOffSet
+	 * @param upperOffSet The upper offset.
 	 */
 	public void setUpperOffSet(int upperOffSet) {
 		this.upperOffSet = upperOffSet;
 	}
 	/**
 	 * get lower off set
-	 * @return
+	 * @return The lower set.
 	 */
 	public int getLowerOffSet() {
 		return lowerOffSet;
 	}
 	/**
 	 * set lower off set
-	 * @param lowerOffSet
+	 * @param lowerOffSet The lower offset.
 	 */
 	public void setLowerOffSet(int lowerOffSet) {
 		this.lowerOffSet = lowerOffSet;
@@ -346,7 +346,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	
 	/**
 	 * clear the screen
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void clearScreen(Graphics2D g){
 		g.setColor(Color.BLACK);
@@ -354,7 +354,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * draw
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	public void draw(Graphics2D g) {
 		//clear screen
@@ -368,7 +368,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse click event
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -377,7 +377,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse press event
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {	
@@ -385,7 +385,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse release event
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
@@ -394,7 +394,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse enter event
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -403,7 +403,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse exit event
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
@@ -412,7 +412,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse drag event
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
@@ -421,7 +421,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse move event
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {

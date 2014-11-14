@@ -80,11 +80,10 @@ public class CreateMapState extends GameState{
 		
 		
 	}
+	
 	/**
 	 * drag and draw the pavement or the grass
-	 * @param MouseEvent e
 	 */
-
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		int x = e.getX();
@@ -109,7 +108,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet 
-	 * @param MouseEvent e
 	 */
 
 	@Override
@@ -128,7 +126,7 @@ public class CreateMapState extends GameState{
 	
 	/**
 	 * set name button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void setNamePressed(MouseEvent e){
 		int x = e.getX();
@@ -145,7 +143,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * set row button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void setRowPressed(MouseEvent e){
 		int x = e.getX();
@@ -165,7 +163,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * set column button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void setColumnPressed(MouseEvent e){
 		int x = e.getX();
@@ -184,7 +182,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * initialize map button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void initializePressed(MouseEvent e){
 		int x = e.getX();
@@ -198,7 +196,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * pavement button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void pavementPressed(MouseEvent e){
 		int x = e.getX();
@@ -217,7 +215,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * grass button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void grassPressed(MouseEvent e){
 		int x = e.getX();
@@ -235,7 +233,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * entrance button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void entrancePressed(MouseEvent e){
 		int x = e.getX();
@@ -253,7 +251,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * exit button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void exitPressed(MouseEvent e){
 		int x = e.getX();
@@ -271,7 +269,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * load map button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void loadMapPressed(MouseEvent e){
 		int x = e.getX();
@@ -319,7 +317,7 @@ public class CreateMapState extends GameState{
 	//print path
 	/**
 	 * test use
-	 * @param linkedList
+	 * @param linkedList A data structure used to save points.
 	 */
 	private void printPath(LinkedList<Point> linkedList){
 		for(Point e : linkedList){
@@ -330,7 +328,7 @@ public class CreateMapState extends GameState{
 	
 	/**
 	 * generate button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void generatePressed(MouseEvent e){
 		int x = e.getX();
@@ -385,7 +383,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * back button
-	 * @param e
+	 * @param e The mouse event.
 	 */
 	private void backPressed(MouseEvent e){
 		int x = e.getX();
@@ -400,7 +398,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * detect mouse press
-	 * @param MouseEvent e
+	 * @param MouseEvent e The mouse event.
 	 */
 	
 	@Override
@@ -442,7 +440,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param MouseEvent e
 	 */
 
 	@Override
@@ -452,7 +449,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param e
 	 */
 
 	@Override
@@ -462,7 +458,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param e
 	 */
 
 
@@ -473,7 +468,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param e
 	 */
 
 
@@ -484,7 +478,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param e
 	 */
 
 
@@ -495,7 +488,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param e
 	 */
 
 

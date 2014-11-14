@@ -30,7 +30,7 @@ public class ArrowTowerTest {
 	 * The setUp method would used to initialize the arrowTower object. 
 	 * It will have the default value of its features.
 	 * 
-	 * @throws Exception
+	 * @throws Exception java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {

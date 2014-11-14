@@ -25,7 +25,6 @@ import usefulfunctions.LoadImage;
  * for reloading an existing map on the map editor panel
  *  
  * @author Hongrui Guan
- * @date 2014-09-24 
  *
  */
 
@@ -108,7 +107,7 @@ public class MapParser {
 	 * This method should be invoked before methods getMapName and getMapData.
 	 * The root element will be saved as a property of class.
 	 * 
-	 * @param map_directory
+	 * @param map_directory The directory of map.
 	 * @return Return true if loading xml file successfully
 	 */
 	
@@ -233,9 +232,9 @@ public class MapParser {
 	 * This method writes a format XML file.
 	 * This method will be invoked on method createXMLFile.
 	 * 
-	 * @param xml_document 
-	 * @param map_directory
-	 * @return Return true if xml file creating succeed
+	 * @param xml_document The document of xml.
+	 * @param map_directory The directory of map.
+	 * @return Return true if xml file creating succeed.
 	 * */
 
 	private boolean writeFormatXML(Document xml_document, String map_directory){
@@ -268,7 +267,7 @@ public class MapParser {
 	 * This method check if created XML file has exists in the user directory.
 	 * This method will be invoked on method createXMLFile.
 	 * 
-	 * @param file_name 
+	 * @param file_name The name of the xml file which need to be check.
 	 * @return Return false if XML file does not exist on the directory.
 	 * */
 	

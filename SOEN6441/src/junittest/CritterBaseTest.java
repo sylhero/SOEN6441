@@ -34,7 +34,7 @@ public class CritterBaseTest {
 	/**
 	 * To initialize some data members.
 	 * 
-	 * @throws Exception
+	 * @throws Exception java.lang.Exception
 	 */
 	
 	@BeforeClass
