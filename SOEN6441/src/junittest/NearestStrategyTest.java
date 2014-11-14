@@ -38,6 +38,11 @@ public class NearestStrategyTest {
 	private static TileMap tm;
 	private static Tile[][] test_map;
 	
+	/**
+	 * This method used to set up the object. 
+	 * There are 3 critters, they have different distances between the tower one is nearest
+	 * one is farthest, the rest has the medium distance. 
+	 */
 	@BeforeClass
 	public static void init(){
 		
