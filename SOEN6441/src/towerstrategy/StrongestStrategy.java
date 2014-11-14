@@ -7,6 +7,11 @@ import java.util.Comparator;
 import towers.TowerBase;
 import critters.CritterBase;
 
+/**
+ * This class returns the critter with the strongest armor and hp.
+ * @author Xunrong Xia, Kun Wang
+ *
+ */
 public class StrongestStrategy implements Strategy{
 	private static final int STRONGEST = 2;
 
