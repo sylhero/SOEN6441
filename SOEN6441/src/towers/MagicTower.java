@@ -37,7 +37,7 @@ public class MagicTower extends TowerBase{
 		this.range = 2*TileMap.getTileMap().getCellWidth();
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 10;	
+		this.upgradeCost = 25;	
 		this.value = cost;
 
 		this.specialEffect = "Splash";
@@ -75,7 +75,7 @@ public class MagicTower extends TowerBase{
 		
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 10;
+		this.upgradeCost = 25;
 		
 		this.specialEffect = "Splash";
 
@@ -92,7 +92,7 @@ public class MagicTower extends TowerBase{
 		this.power += 10;
 		this.level += 1;
 		this.value +=upgradeCost;
-		this.upgradeCost += 10;
+		this.upgradeCost += 25;
 		//this.value = level * upgradeCost + cost;
 
 	}

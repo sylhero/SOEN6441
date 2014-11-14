@@ -42,7 +42,7 @@ public class ArrowTower extends TowerBase{
 		this.range = 3*TileMap.getTileMap().getCellWidth();
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 100;	
+		this.upgradeCost = 10;	
 		this.value = this.cost;
 		this.specialEffect = "None";
 		this.targets = new ArrayList<CritterBase>();
@@ -75,7 +75,7 @@ public class ArrowTower extends TowerBase{
 		this.range = 3*tileWidth;
 		this.refundRate = 0.3;
 		this.towerSpeed = 3;
-		this.upgradeCost = 100;
+		this.upgradeCost = 10;
 		this.value = this.cost;
 		this.specialEffect = "None";
 		this.targets = new ArrayList<CritterBase>();
@@ -95,7 +95,7 @@ public class ArrowTower extends TowerBase{
 
 		this.value += upgradeCost;
 		//this.value = level * upgradeCost + cost;
-		this.upgradeCost += 100;
+		this.upgradeCost += 10;
 
 		
 	}

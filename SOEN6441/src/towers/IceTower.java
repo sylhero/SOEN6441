@@ -69,8 +69,8 @@ public class IceTower extends TowerBase {
 
 		this.towerSpeed = 2;
 
-		this.upgradeCost = 110;
-		//this.upgradeCost = 15;
+		this.upgradeCost = 20;
+		
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
 
@@ -146,10 +146,8 @@ public class IceTower extends TowerBase {
 
 		//this.towerSpeed = 3;
 
-		this.upgradeCost = 110;
+		this.upgradeCost = 20;
 
-
-		this.upgradeCost = 15;
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
 
@@ -181,7 +179,7 @@ public class IceTower extends TowerBase {
 		
 		this.value+=upgradeCost;
 
-		this.upgradeCost += 110;
+		this.upgradeCost += 20;
 		
 		//this.value = level * upgradeCost + cost;
 
