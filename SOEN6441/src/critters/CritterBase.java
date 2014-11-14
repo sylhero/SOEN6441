@@ -63,7 +63,7 @@ public abstract class CritterBase {
 	/**
 	 *To decrease HP of critters.
 	 * 
-	 * @param decHP
+	 * @param decHP The amount of HP should be decreased. 
 	 */
 	
 	public void decreaseHp(int decHP)
@@ -96,8 +96,8 @@ public abstract class CritterBase {
 	/**
 	 * To set speed offset.
 	 * 
-	 * @param x
-	 * @param y
+	 * @param x The speed offset x. 
+	 * @param y The speed offset y. 
 	 */
 	
 	public void setSpeedOffset(int x, int y)
@@ -190,7 +190,7 @@ public abstract class CritterBase {
 	/**
 	 * To draw critters HP status on the map.
 	 * 
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	
 	public void drawHP(Graphics2D g){
@@ -216,7 +216,7 @@ public abstract class CritterBase {
 	/**
 	 * To draw critters on the map.
 	 * 
-	 * @param g
+	 * @param g The graphic object. 
 	 */
 	
 	public void draw(Graphics2D g){
@@ -269,7 +269,7 @@ public abstract class CritterBase {
 	/**
 	 * To set Hp.
 	 * 
-	 * @param currentHp
+	 * @param currentHp The current HP.
 	 */
 
 	public void setCurrentHp(int currentHp) {

@@ -108,7 +108,6 @@ public class ArrowTower extends TowerBase{
 	 * then decided if the critter should move from the array list. 
 	 * <p>
 	 * The arrow tower would only make the critter lose hp. 
-	 * <p>
 	 * 
 	 */	
 	@Override

@@ -97,7 +97,7 @@ public class PlayState extends GameState{
 	
 	/**
 	 * constructor
-	 * @param gsm
+	 * @param gsm The game state manager.
 	 */
 	public PlayState(GameStateManager gsm){
 
@@ -588,7 +588,6 @@ public class PlayState extends GameState{
 		
 		/**
 		 * mouse press event
-		 * @param e
 		 */
 	@Override
 
@@ -610,7 +609,6 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * mouse release event
-	 * @param e
 	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
@@ -619,7 +617,6 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * mouse enter event
-	 * @param e
 	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -628,7 +625,6 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * mouse exit event
-	 * @param e
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
@@ -637,7 +633,6 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * mouse drag event
-	 * @param e
 	 */
 	@Override
 
@@ -650,7 +645,6 @@ public class PlayState extends GameState{
 
 	/**
 	 * mouse move event
-	 * @param e
 	 */
 
 	@Override
@@ -666,7 +660,6 @@ public class PlayState extends GameState{
 
 	/**
 	 * mouse click event
-	 * @param e
 	 */
 	@Override
 
@@ -681,7 +674,6 @@ public class PlayState extends GameState{
 
 	/**
 	 * pause
-	 * @param result
 	 */
 	@Override
 	public void pause(boolean result) {
@@ -690,7 +682,6 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * pause
-	 * @param e
 	 */
 	@Override
 	
@@ -706,8 +697,7 @@ public class PlayState extends GameState{
 
 	
 	/**
-	 * init
-	 * @param e
+	 * Initialize method.
 	 */
 	@Override
 	public void init() {
@@ -956,7 +946,6 @@ public class PlayState extends GameState{
 	
 	/**
 	 * mouse drag event
-	 * @param e
 	*/
 	@Override
 	public void draw(Graphics2D g) {
@@ -1022,7 +1011,6 @@ public class PlayState extends GameState{
 	}
 	/**
 	 * resume
-	 * @param e
 	 */
 	
 	@Override

@@ -50,7 +50,7 @@ public class MenuState extends GameState{
 	
 	/**
 	 * constructor
-	 * @param gsm
+	 * @param gsm The game state manager.
 	 */
 	public MenuState(GameStateManager gsm){
 		background   = LoadImage.loadImage("/images/menubackground.jpg");
@@ -79,7 +79,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * draw buttons
-	 * @param g
 	 */
 
 	
@@ -168,7 +167,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * not used yet
-	 * @param e
 	 */
 
 	@Override
@@ -178,7 +176,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * mouse move event
-	 * @param e
 	 */
 
 	@Override
@@ -226,7 +223,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * mouse click event
-	 * @param e
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -234,7 +230,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * mouse press event
-	 * @param e
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -260,7 +255,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * mouse release event
-	 * @param e
 	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
@@ -269,7 +263,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * mouse enter event
-	 * @param e
 	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -278,7 +271,6 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * mouse exit event
-	 * @param e
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
@@ -287,7 +279,7 @@ public class MenuState extends GameState{
 	}
 	/**
 	 * pause event
-	 * @param result
+	 * @param result A boolean variable to indicate if it paused.
 	 */
 
 	@Override

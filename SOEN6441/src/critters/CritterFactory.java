@@ -23,9 +23,9 @@ public class CritterFactory {
 	/**
 	 * To return object according to the given parameters.
 	 * 
-	 * @param criType
-	 * @param correctRoute
-	 * @param movePoint
+	 * @param criType is the type of critter
+	 * @param correctRoute is the correct route
+	 * @param movePoint the space between critters
 	 * @return certain type of critters
 	 */
 	public static CritterBase getCritter(String criType, LinkedList<Point> correctRoute, int movePoint)

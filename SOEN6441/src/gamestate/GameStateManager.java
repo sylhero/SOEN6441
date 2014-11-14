@@ -38,8 +38,7 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * switch among different game states
-	 * @param state
-	 * @param mapPath
+	 * @param state The game state.
 	 */
 	public void switchState(int state){
 		currentState = state;
@@ -48,7 +47,7 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * pause the game
-	 * @return
+	 * @return the corresponding game state's pause().
 	 */
 	public boolean pauseGame(){
 		return gameStates.get(currentState).pause();
@@ -68,14 +67,13 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * draw
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	public void draw(Graphics2D g){
 		gameStates.get(currentState).draw(g);
 	}
 	/**
 	 * mouse drag event
-	 * @param e
 	 */
 
 	@Override
@@ -85,7 +83,6 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse move event
-	 * @param e
 	 */
 
 	@Override
@@ -95,7 +92,6 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse click event
-	 * @param e
 	 */
 
 	@Override
@@ -105,7 +101,6 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse press event
-	 * @param e
 	 */
 
 	@Override
@@ -115,7 +110,6 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse release event
-	 * @param e
 	 */
 
 	@Override
@@ -125,7 +119,6 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse entered event
-	 * @param e
 	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -134,7 +127,6 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 	}
 	/**
 	 * mouse exit event
-	 * @param e
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {

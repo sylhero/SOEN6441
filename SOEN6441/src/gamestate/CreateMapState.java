@@ -61,7 +61,7 @@ public class CreateMapState extends GameState{
 	
 	/**
 	 * constructor
-	 * @param gsm
+	 * @param gsm the game state manager.
 	 */
 	
 	public CreateMapState(GameStateManager gsm){
@@ -398,7 +398,6 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * detect mouse press
-	 * @param MouseEvent e The mouse event.
 	 */
 	
 	@Override
@@ -530,7 +529,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * draw the background of the map and menu
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void drawBackground(Graphics2D g){
 		g.setColor(Color.WHITE);
@@ -667,7 +666,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * draw the loaded map
-	 * @param g
+	 * @param g The graphic object.
 	 */
 
 	private void drawLoadMapArea(Graphics2D g){
@@ -687,7 +686,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * draw the map
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void drawMap(Graphics2D g){
 		if(map != null){
@@ -757,7 +756,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * draw the rect of the selection (entrance)
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void drawEntranceSelection(Graphics2D g){
 		g.setColor(Color.WHITE);
@@ -767,7 +766,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * draw the rect of the selection (exit)
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void drawExitSelection(Graphics2D g){
 		g.setColor(Color.WHITE);
@@ -777,7 +776,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * draw the rect of the selection (grass)
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void drawGrassSelection(Graphics2D g){
 		g.setColor(Color.WHITE);
@@ -787,7 +786,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * draw the rect of the selection (pavement)
-	 * @param g
+	 * @param g The graphic object.
 	 */
 	private void drawPavementSelection(Graphics2D g){
 		g.setColor(Color.WHITE);
@@ -797,7 +796,7 @@ public class CreateMapState extends GameState{
 	}
 	/**
 	 * the draw function to draw all
-	 * @param g
+	 * @param g The graphic object.
 	 */
 
 

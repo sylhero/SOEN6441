@@ -16,9 +16,10 @@ public interface Strategy {
 	
 	/**
 	 * To execute specific strategy.
-	 * @param al
-	 * @param towerShooter
-	 * @return CritterBase a critter
+	 * 
+	 * @param al The array list to save the critters which need to be check.
+	 * @param towerShooter The Tower which use this strategy.
+	 * @return CritterBase Return the critter which should be attacked. 
 	 */
 	CritterBase executeStrategy(ArrayList<CritterBase> al,
 			TowerBase towerShooter);

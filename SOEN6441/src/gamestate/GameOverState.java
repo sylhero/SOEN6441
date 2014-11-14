@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
 public class GameOverState extends GameState{
 	/**
 	 * constructor
-	 * @param gsm
+	 * @param gsm The game state manager.
 	 */
 	public GameOverState(GameStateManager gsm){
 		this.gsm = gsm;

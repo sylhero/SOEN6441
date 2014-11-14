@@ -29,7 +29,7 @@ public class SelectMapState extends GameState{
 	private TileMap tileMap;
 	/**
 	 * constructor
-	 * @param gsm
+	 * @param gsm The game state manager. 
 	 */
 	public SelectMapState(GameStateManager gsm){
 		this.gsm = gsm;
@@ -44,7 +44,6 @@ public class SelectMapState extends GameState{
 	}
 	/**
 	 * mouse drag event
-	 * @param e
 	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
@@ -53,7 +52,6 @@ public class SelectMapState extends GameState{
 	}
 	/**
 	 * mouse move event
-	 * @param e
 	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
@@ -63,7 +61,6 @@ public class SelectMapState extends GameState{
 	}
 	/**
 	 * mouse click event
-	 * @param e
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -72,7 +69,6 @@ public class SelectMapState extends GameState{
 	}
 	/**
 	 * mouse press event
-	 * @param e
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -115,7 +111,6 @@ public class SelectMapState extends GameState{
 	   }
 	/**
 	 * mouse release event
-	 * @param e
 	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
@@ -124,7 +119,6 @@ public class SelectMapState extends GameState{
 	}
 	/**
 	 * mouse enter event
-	 * @param e
 	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -134,7 +128,6 @@ public class SelectMapState extends GameState{
 	}
 	/**
 	 * mouse exit event
-	 * @param e
 	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
@@ -161,7 +154,6 @@ public class SelectMapState extends GameState{
 
 	/**
 	 * draw event
-	 * @param g
 	 */
 	@Override
 	public void draw(Graphics2D g) {
@@ -197,7 +189,6 @@ public class SelectMapState extends GameState{
 	}
 	/**
 	 * pause
-	 * @param result
 	 */
 	@Override
 	public void pause(boolean result) {
