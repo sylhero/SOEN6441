@@ -7,6 +7,11 @@ import java.util.Comparator;
 import towers.TowerBase;
 import critters.CritterBase;
 
+/**
+ * This class returns the critter with the weakest armor and hp.
+ * @author  Kun Wang
+ *
+ */
 public class WeakestStrategy implements Strategy{
 	private static final int WEAKEST = 1;
 
