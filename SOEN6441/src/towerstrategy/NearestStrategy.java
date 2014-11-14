@@ -8,6 +8,7 @@ import towers.TowerBase;
 import critters.CritterBase;
 
 /**
+ * This class implemented Strategy interface and return the nearest critter among an arrayList.
  * 
  * @author Xunrong Xia, Hongrui Guan
  *
@@ -16,6 +17,9 @@ import critters.CritterBase;
 public class NearestStrategy implements Strategy{
 
 
+	/**
+	 * To find the nearest critter among a critter arrayList.
+	 */
 	@Override
 	public CritterBase executeStrategy(ArrayList<CritterBase> al,TowerBase towerShooter) {
 		// TODO Auto-generated method stub

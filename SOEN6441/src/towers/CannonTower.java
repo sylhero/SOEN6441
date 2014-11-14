@@ -92,7 +92,7 @@ public class CannonTower extends TowerBase{
 	
 	
 	/**
-	 * When a tower be upgraded, its power, level and upgradeCose would be increased. 
+	 * When a tower will be upgraded, its power, level and upgradeCose would be increased. 
 	 * The method override the upgrade() method of TowerInterface.
 	 */
 	@Override
