@@ -19,6 +19,11 @@ import towerstrategy.NearestStrategy;
 import towerstrategy.TowerStrategy;
 import usefulfunctions.ValidateMap;
 
+/**
+ * This class used for test the Nearest strategy.
+ * @author Kun Wang
+ *
+ */
 public class NearestStrategyTest {
 	
 	private static TowerStrategy strategy;
