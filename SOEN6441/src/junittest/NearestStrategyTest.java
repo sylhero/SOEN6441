@@ -21,7 +21,7 @@ import usefulfunctions.ValidateMap;
 
 /**
  * This class used for test the Nearest strategy.
- * @author Kun Wang
+ * @author Hongrui Guan, Kun Wang
  *
  */
 public class NearestStrategyTest {
