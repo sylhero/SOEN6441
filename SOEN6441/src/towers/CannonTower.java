@@ -180,7 +180,10 @@ public class CannonTower extends TowerBase{
 	//			critter.setIsBurning(true);
 				critter.setAffectedTimes(--burn_times);
 				critter.decreaseHp(this.power);
-				
+				if(critter.getCurrentHp()<=0){
+					coin.increaseCurrency(critter.getValue());
+					critter.setIsBurning(false);
+				}
 				System.out.println("Critter HP:" + critter.getCurrentHp());
 			} else {
 				critter.setIsBurning(false);
