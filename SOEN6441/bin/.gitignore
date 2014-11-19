@@ -1,3 +1,13 @@
-/towers/
-/junittest/
+/Main/
+/critters/
+/currency/
 /gamemaps/
+/gamepanel/
+/gamestate/
+/images/
+/junittest/
+/tilemap/
+/towers/
+/towerstrategy/
+/usefulfunctions/
+/xml/

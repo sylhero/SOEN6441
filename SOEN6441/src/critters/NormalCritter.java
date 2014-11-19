@@ -20,7 +20,7 @@ public class NormalCritter extends CritterBase {
 	 * Constructor
 	 * 
 	 * @param correctRoute This is the correct route.
-	 * @param movePoint to pass some space between cirtters
+	 * @param movePoint to pass some space between critters.
 	 */
 	public NormalCritter(LinkedList<Point> correctRoute, int movePoint)
 	{

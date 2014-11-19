@@ -9,7 +9,7 @@ import critters.CritterBase;
 import critters.NormalCritter;
 import currency.Coin;
 import tilemap.TileMap;
-import towerstrategy.FarthestStrategy;
+import towerstrategy.NearestToExitStrategy;
 import towerstrategy.NearestStrategy;
 import towerstrategy.StrongestStrategy;
 import towerstrategy.TowerStrategy;

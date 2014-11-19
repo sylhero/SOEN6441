@@ -10,7 +10,7 @@ import org.junit.Test;
 import tilemap.Tile;
 import tilemap.TileMap;
 import towers.ArrowTower;
-import towerstrategy.FarthestStrategy;
+import towerstrategy.NearestToExitStrategy;
 import towerstrategy.NearestStrategy;
 import towerstrategy.TowerStrategy;
 import usefulfunctions.ValidateMap;
@@ -74,7 +74,7 @@ private static TowerStrategy strategy;
 	 */
 	@Test
 	public void testFarestStrategy() {
-		strategy.setStrategy(new FarthestStrategy());
+		strategy.setStrategy(new NearestToExitStrategy());
 		assertSame(farthest, strategy.executeStrategy(al, tower));
 	}
 

@@ -387,6 +387,14 @@ public class ValidateMap {
 		else
 			return null;
 	}
+
+	public static int getExitX() {
+		return exitX;
+	}
+
+	public static int getExitY() {
+		return exitY;
+	}
 	
 }
 

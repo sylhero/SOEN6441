@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 import critters.CritterBase;
 import tilemap.TileMap;
-import towerstrategy.FarthestStrategy;
+import towerstrategy.NearestToExitStrategy;
 import towerstrategy.NearestStrategy;
 import towerstrategy.StrongestStrategy;
 import towerstrategy.TowerStrategy;

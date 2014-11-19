@@ -9,7 +9,7 @@ import critters.CritterBase;
 import currency.Coin;
 import tilemap.Tile;
 import tilemap.TileMap;
-import towerstrategy.FarthestStrategy;
+import towerstrategy.NearestToExitStrategy;
 import towerstrategy.NearestStrategy;
 import towerstrategy.Strategy;
 import towerstrategy.StrongestStrategy;
@@ -274,7 +274,7 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 
 		else if (this.towerStratgyType == 4)
 
-			strategy.setStrategy(new FarthestStrategy());
+			strategy.setStrategy(new NearestToExitStrategy());
 
 		else
 
