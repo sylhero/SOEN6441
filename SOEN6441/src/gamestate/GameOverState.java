@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
+
+import log.GlobalLog;
 /**
  * this is the game over state
  * @author yulongsong
@@ -55,6 +57,7 @@ public class GameOverState extends GameState{
 		int y = e.getY();
 		if(x >= GamePanel.WIDTH/2-70 && x<= GamePanel.WIDTH/2+50
 				&& y >=GamePanel.HEIGHT/2+40 && y<= GamePanel.HEIGHT/2+90){
+			GlobalLog.addToGlobalLog("user press quit button."+"\n");
 			System.exit(0);
 		}
 		

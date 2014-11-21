@@ -97,9 +97,11 @@ public class CreateMapState extends GameState{
 	        if(isPavement){
 	        	 map[row][column] = new Tile(TileMap.PAVEMENT,TileMap.pavement, 
 			        		tileX,tileY,cellWidth, cellHeight);
+	        	 
 	        }else if(isGrass){
 	        	map[row][column] = new Tile(TileMap.GRASS,TileMap.grass, 
 		        		tileX,tileY,cellWidth, cellHeight);
+	        	
 	        }
 			
 		}
@@ -195,6 +197,7 @@ public class CreateMapState extends GameState{
 				x <= GamePanel.WIDTH && y >= 3*buttonHeight + 15 &&
 				y <= 4 * buttonHeight + 15 ){
 			init();
+			GlobalLog.addToGlobalLog("user press initilized button"+"\n");
 		}
 		
 	}
@@ -212,6 +215,7 @@ public class CreateMapState extends GameState{
 			this.isGrass = false;
 			this.isEntrance = false;
 			this.isExit = false;
+			GlobalLog.addToGlobalLog("user sets the pavement"+"\n");
 		}
 		
 		//press other buttons will deselect the image
@@ -231,6 +235,7 @@ public class CreateMapState extends GameState{
 			this.isPavement = false;
 			this.isEntrance = false;
 			this.isExit = false;
+			GlobalLog.addToGlobalLog("user sets the grass"+"\n");
 		}
 		
 		
@@ -247,9 +252,9 @@ public class CreateMapState extends GameState{
 				&& y >= 5*buttonHeight + 25 +18 && y <= 6*buttonHeight +25 +18){
 			this.isEntrance = true;
 			this.isGrass = false;
-			this.isPavement = false;
-			
+			this.isPavement = false;			
 			this.isExit = false;
+			GlobalLog.addToGlobalLog("user sets the entrance"+"\n");
 		}
 		
 	}
@@ -267,7 +272,7 @@ public class CreateMapState extends GameState{
 			this.isGrass = false;
 			this.isPavement = false;
 			this.isEntrance = false;
-			
+			GlobalLog.addToGlobalLog("user sets the exit"+"\n");
 		}
 		
 	}
@@ -283,6 +288,7 @@ public class CreateMapState extends GameState{
 				y >= 6*buttonHeight + 30+18 && y <=  
 				7*buttonHeight + 30+18){
 			init();
+			GlobalLog.addToGlobalLog("user press load map button."+"\n");
 			fileChooser();
 			isLoaded = true;
 			

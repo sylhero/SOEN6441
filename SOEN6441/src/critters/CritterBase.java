@@ -70,6 +70,7 @@ public abstract class CritterBase {
 	
 	public void decreaseHp(int decHP)
 	{
+		
 		this.currentHp -= (1 - this.armorRatio) * decHP;		
 	}
 	

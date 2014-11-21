@@ -224,8 +224,11 @@ public class PlayState extends GameState{
 		int y = e.getY();
 		//arrow tower location
 		if(x >= 1 && x<=41 && y >= 5 && y <= 45){
+			TowerBase.addToAllTowerLog("user press ARROW Tower"+"\n");
+			GlobalLog.addToGlobalLog("user press ARROW Tower."+"\n");
 			isEnoughMoneyToBuild(arrowTower);
 			if(isEnoughCoinToBuild){
+				//GlobalLog.addToGlobalLog("There is enough money to build tower."+"\n");
 				this.isArrowTowerOnMenu = true;
 				this.isCannonTowerOnMenu = false;
 				this.isIceTowerOnMenu = false;
@@ -235,6 +238,8 @@ public class PlayState extends GameState{
 		
 		}
 		else if(x >= 42 && x<=82 && y >= 5 && y <= 45){
+			TowerBase.addToAllTowerLog("user press ICE Tower."+"\n");
+			GlobalLog.addToGlobalLog("user press ICE Tower."+"\n");
 			isEnoughMoneyToBuild(iceTower);
 			if(isEnoughCoinToBuild){
 				this.isArrowTowerOnMenu = false;
@@ -244,6 +249,8 @@ public class PlayState extends GameState{
 			}
 		}
 		else if(x >= 1 && x<=41 && y >= 46 && y <= 86){
+			TowerBase.addToAllTowerLog("user press CANNON Tower."+"\n");
+			GlobalLog.addToGlobalLog("user press CANNON Tower."+"\n");
 			isEnoughMoneyToBuild(cannonTower);
 			if(isEnoughCoinToBuild){
 				this.isArrowTowerOnMenu = false;
@@ -254,6 +261,8 @@ public class PlayState extends GameState{
 			
 		}
 		else if(x >= 42 && x<=82 && y >= 46 && y <= 86){
+			TowerBase.addToAllTowerLog("user press MAGIC Tower."+"\n");
+			GlobalLog.addToGlobalLog("user press MAGIC Tower."+"\n");
 			isEnoughMoneyToBuild(magicTower);
 			if(isEnoughCoinToBuild){
 				this.isArrowTowerOnMenu = false;
@@ -294,7 +303,7 @@ public class PlayState extends GameState{
 	        		//set the tile to arrow tower
 	        		ArrowTower arrowTower = new ArrowTower(tileX,tileY,tileWidth,tileHeight);
 	        		map[row][column] = arrowTower;
-	        		//add tpo log
+	        		//add log
 	        		arrowTower.addIndevidualTowerLog(arrowTower.getName()+"  "+"is created\n");
 	        		TowerBase.addToAllTowerLog(arrowTower.getName()+"  "+"is created\n");
 	        		GlobalLog.addToGlobalLog(arrowTower.getName()+"  "+"is created\n");
@@ -302,6 +311,7 @@ public class PlayState extends GameState{
 	        		towerList.add(arrowTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(arrowTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+arrowTower.getName()+", the coin decrease"+arrowTower.getCost());
 	        		//click once set once
 	        		this.isArrowTowerOnMenu = false;
 	        }
@@ -330,6 +340,7 @@ public class PlayState extends GameState{
 	        		towerList.add(iceTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(iceTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+iceTower.getName()+", the coin decrease"+iceTower.getCost());
 	        		//click once set once
 	        		this.isIceTowerOnMenu = false;
 	        }
@@ -361,6 +372,7 @@ public class PlayState extends GameState{
 	        		GlobalLog.addToGlobalLog(cannonTower.getName()+"  "+"is created\n");
 	        		//decrease the money
 	        		coin.decreaseCurrency(cannonTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+cannonTower.getName()+", the coin decrease"+cannonTower.getCost());
 	        		//click once set once
 	        		this.isCannonTowerOnMenu = false;
 	        }
@@ -391,6 +403,7 @@ public class PlayState extends GameState{
 	        		towerList.add(magicTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(magicTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+magicTower.getName()+", the coin decrease"+magicTower.getCost());
 	        		//click once set once
 	        		this.isMagicTowerOnMenu = false;
 	        }
@@ -483,6 +496,7 @@ public class PlayState extends GameState{
     		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is sold\n");
 	        //increase coin
 	        coin.increaseCurrency((int)(towerTemp.getRefundRate()*towerTemp.getValue()));
+	        GlobalLog.addToGlobalLog("user sells "+towerTemp.getName()+",coin increase"+((int)(towerTemp.getRefundRate()*towerTemp.getValue()))+"\n");
 	        //initialize the cell to grass
 	        map[row][column] = new Tile(TileMap.GRASS,TileMap.grass,
 	        		selectedTower.getTileX(),selectedTower.getTileY(), 
