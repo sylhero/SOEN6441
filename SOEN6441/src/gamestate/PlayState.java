@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import log.GlobalLog;
 import log.WaveLog;
 import critters.CritterBase;
-import critters.CritterFactory;
 import critters.CritterWave;
 import critters.CritterWaveBuilder;
 import currency.Coin;

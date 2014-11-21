@@ -7,25 +7,23 @@ import java.util.ArrayList;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import critters.CritterBase;
-import critters.NormalCritter;
-
 import tilemap.Tile;
 import tilemap.TileMap;
 import towers.ArrowTower;
-import towers.TowerBase;
+import towerstrategy.NearestToExitStrategy;
 import towerstrategy.NearestStrategy;
 import towerstrategy.TowerStrategy;
 import usefulfunctions.ValidateMap;
-
+import critters.CritterBase;
+import critters.NormalCritter;
 /**
- * This class used for test the Nearest strategy.
- * @author Hongrui Guan, Kun Wang
+ * This class used for test the farthest strategy.
+ * @author Hongrui Guan, Xunrong Xia
  *
  */
-public class NearestStrategyTest {
-	
-	private static TowerStrategy strategy;
+public class NearestToExitStrategyTest {
+
+private static TowerStrategy strategy;
 	
 	private static ArrowTower tower;
 	
@@ -33,13 +31,12 @@ public class NearestStrategyTest {
 	private static NormalCritter nearest;
 	private static NormalCritter medium;
 	private static NormalCritter farthest;
-	private static TowerStrategy ts;
 	private static TileMap tm;
 	private static Tile[][] test_map;
 	
 	/**
 	 * This method used to set up the object. 
-	 * There are 3 critters, they have different distances between the tower one is nearest
+	 * There are 3 critters, they have different distances between the tower£¬ one is nearest
 	 * one is farthest, the rest has the medium distance. 
 	 */
 	@BeforeClass
@@ -47,20 +44,20 @@ public class NearestStrategyTest {
 		
 		tm = TileMap.getTileMap();
 		test_map = tm.loadMap("resources/gamemaps/test.xml");
-		nearest =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 1);
-		nearest.setX(20);
-		nearest.setY(20);
+		farthest =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 1);
+		farthest.setX(20);
+		farthest.setY(20);
 		medium =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 2);
 		medium.setX(50);
 		medium.setY(50);
-		farthest =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 3);
-		farthest.setX(100);
-		farthest.setY(100);
+		nearest =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 3);
+		nearest.setX(100);
+		nearest.setY(100);
 		
 		al = new ArrayList<CritterBase>();
-		al.add(nearest);
-		al.add(medium);
 		al.add(farthest);
+		al.add(medium);
+		al.add(nearest);
 				
 		tower = new ArrowTower();
 		tower.setTileX(10);
@@ -70,17 +67,14 @@ public class NearestStrategyTest {
 		
 	}
 	
-	
 	/**
-	 * This method test the nearest strategy.
-	 * We test if the nearest strategy would return the critter with the nearest distance in the array list.
+	 * This method test the farthest strategy.
+	 * We test if the farthest strategy would return the critter with the farthest distance in the array list.
 	 */
 	@Test
-	public void testNearestStrategy() {
-		
-		strategy.setStrategy(new NearestStrategy());
+	public void testFarestStrategy() {
+		strategy.setStrategy(new NearestToExitStrategy());
 		assertSame(nearest, strategy.executeStrategy(al, tower));
-		
 	}
 
 }

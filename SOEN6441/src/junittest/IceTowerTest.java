@@ -10,7 +10,6 @@ import tilemap.Tile;
 import tilemap.TileMap;
 import towers.IceTower;
 import usefulfunctions.ValidateMap;
-import critters.CritterFactory;
 import critters.NormalCritter;
 
 /**
@@ -37,7 +36,7 @@ public class IceTowerTest {
 	{
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
-		critter = (NormalCritter)CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(testMap), 1);
+		critter = new NormalCritter(ValidateMap.getCorrectRoute(testMap), 1);
 		critter.setCurrentHp(100);
 		
 		iceTower = new IceTower();

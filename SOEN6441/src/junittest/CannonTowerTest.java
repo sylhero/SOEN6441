@@ -13,7 +13,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import critters.CritterFactory;
 import critters.NormalCritter;
 
 /**
@@ -41,7 +40,7 @@ public class CannonTowerTest {
 		
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
-		critter = (NormalCritter)CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(testMap), 1);
+		critter = new NormalCritter(ValidateMap.getCorrectRoute(testMap), 1);
 		critter.setCurrentHp(100);
 		
 		cannonTower = new CannonTower();
