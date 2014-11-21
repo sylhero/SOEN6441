@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 import tilemap.TileMap;
 import towers.TowerBase;
@@ -19,6 +20,8 @@ public class GameData implements Serializable{
 	
 	protected TileMap mapData;
 	protected ArrayList<TowerBase> towerList;
+	
+	protected static final String PATH = "/resources/gamedata/";
 	
 
 	public GameData(TileMap map_data, ArrayList<TowerBase> tower_list){
@@ -48,9 +51,11 @@ public class GameData implements Serializable{
 		
 		boolean isTrue = false;
 		
+		String file_name = "asdfjkladf.ser";
+				
 		try{
 			
-			FileOutputStream fos = new FileOutputStream("game.ser");
+			FileOutputStream fos = new FileOutputStream(PATH+file_name);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(this);
 			oos.close();
@@ -65,13 +70,13 @@ public class GameData implements Serializable{
 		
 	}
 	
-	public GameData ReadGameData(){
+	public GameData ReadGameData(String file_name){
 		
 		GameData gd = new GameData();
 		
 		try{
 			
-			FileInputStream fis = new FileInputStream("game.ser");
+			FileInputStream fis = new FileInputStream(PATH+file_name);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			gd = (GameData) ois.readObject();
 			ois.close();

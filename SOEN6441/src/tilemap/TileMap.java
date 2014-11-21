@@ -12,7 +12,6 @@ import java.awt.event.MouseMotionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 import java.text.DateFormat;
@@ -35,12 +34,7 @@ import xml.MapParser;
  * singleton design pattern
  * @author yulongsong
  */
-public class TileMap implements MouseMotionListener,MouseListener, Serializable{
-	
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = 957819596070187898L;
+public class TileMap implements MouseMotionListener,MouseListener{
 	
 	
 	//the map
