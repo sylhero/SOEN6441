@@ -20,7 +20,7 @@ public class GameData implements Serializable{
 	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
 	
-	protected static final String PATH = "/resources/gamedata/";
+	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
 
 	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list){
@@ -59,11 +59,11 @@ public class GameData implements Serializable{
 	
 	
 	
-	public boolean WriteGameData(){
+	public boolean WriteGameData(String mapName){
 		
 		boolean isTrue = false;
 		
-		String file_name = "asdfjkladf.ser";
+		String file_name = mapName+".ser";
 				
 		try{
 			

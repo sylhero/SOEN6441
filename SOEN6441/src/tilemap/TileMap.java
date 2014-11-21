@@ -96,7 +96,9 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	 */
 	public Tile[][] loadMap(String path){
 		File f = new File(path);
-		this.name = f.getName();
+		name = f.getName();
+		System.out.println(name);
+		
 		mapParser.loadXMLFile(path);
 		map = mapParser.getMapData(); 
 		mapRow = map.length;
