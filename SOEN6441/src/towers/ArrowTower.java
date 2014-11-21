@@ -25,13 +25,14 @@ public class ArrowTower extends TowerBase{
 	public static final Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
 	public static final Image arrowTowerEffect   = LoadImage.loadImageIcon("/images/arrowtowereffect.gif").getImage();
 	public static final int ARROWTOWERTYPE  = 4;
+	public static int NAMENUMBER = 0;
 	
 	/**
 	 * This is the constructor with no parameter, assign the initial value of the attributes.
 	 */
 	
 	public ArrowTower(){
-		this.name = "Arrow Tower";
+		this.name = "Arrow Tower" + NAMENUMBER++;
 		this.map = TileMap.getTileMap().getMap();
 		this.tileType  = ARROWTOWERTYPE;
 		this.tileImage = arrowTower;
@@ -48,6 +49,7 @@ public class ArrowTower extends TowerBase{
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
 		this.towerStratgyType = 0;
+		this.individualTowerLog = new ArrayList<String>();
 	}
 	
 	/**
@@ -61,7 +63,7 @@ public class ArrowTower extends TowerBase{
 	
 	public ArrowTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
-		this.name = "Arrow Tower";
+		this.name = "Arrow Tower"+NAMENUMBER++;
 		this.tileType  = ARROWTOWERTYPE;
 		this.tileImage = arrowTower;
 		this.tileX = tileX;
@@ -81,6 +83,7 @@ public class ArrowTower extends TowerBase{
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
 		this.towerStratgyType = 0;
+		this.individualTowerLog = new ArrayList<String>();
 		
 	}
 	
@@ -133,11 +136,15 @@ public class ArrowTower extends TowerBase{
 				
 				this.singleTarget = strategy.executeStrategy(targets, this);
 								
-			}							
+			}
+			this.addIndevidualTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
+			addToAllTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
 			singleTarget.decreaseHp(this.power);
 			
 			if(singleTarget.getCurrentHp()<=0)
 			{
+				this.addIndevidualTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				addToAllTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
 				coin.increaseCurrency(singleTarget.getValue());
 				//remove the dead critter
 				targets.remove(singleTarget);

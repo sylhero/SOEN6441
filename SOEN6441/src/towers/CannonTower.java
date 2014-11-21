@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import log.GlobalLog;
 import critters.CritterBase;
 import tilemap.TileMap;
 import towerstrategy.NearestToExitStrategy;
@@ -26,6 +27,7 @@ public class CannonTower extends TowerBase{
 	public static final Image cannonTower         = LoadImage.loadImage("/images/cannontower.png");
 	public static final Image cannonTowerEffect   = LoadImage.loadImageIcon("/images/cannontowereffect.gif").getImage();
 	public static final int CANNONTOWERTYPE  = 5;
+	public static int NAMENUMBER = 0;
 	
 	
 	/**
@@ -33,7 +35,7 @@ public class CannonTower extends TowerBase{
 	 */
 	
 	public CannonTower(){
-		this.name = "Cannon Tower";
+		this.name = "Cannon Tower"+NAMENUMBER++;
 		this.map = TileMap.getTileMap().getMap();
 		this.tileType  = CANNONTOWERTYPE;
 		this.tileImage = cannonTower;
@@ -50,6 +52,7 @@ public class CannonTower extends TowerBase{
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
 		this.towerStratgyType = 0;
+		this.individualTowerLog = new ArrayList<String>();
 	}
 	
 	/**
@@ -62,7 +65,7 @@ public class CannonTower extends TowerBase{
 	 */	
 	public CannonTower(int tileX, int tileY, 
 			int tileWidth, int tileHeight){
-		this.name = "Cannon Tower";
+		this.name = "Cannon Tower"+NAMENUMBER++;
 		this.map = TileMap.getTileMap().getMap();
 		this.tileType  = CANNONTOWERTYPE;
 		this.tileImage = cannonTower;
@@ -86,6 +89,7 @@ public class CannonTower extends TowerBase{
 		this.targets = new ArrayList<CritterBase>();
 		this.singleTarget = null;
 		this.towerStratgyType = 0;
+		this.individualTowerLog = new ArrayList<String>();
 	}
 	
 	//The above two method will be used in the later builds.
@@ -152,13 +156,20 @@ public class CannonTower extends TowerBase{
 				
 				this.singleTarget = strategy.executeStrategy(targets, this);
 			}
-	
+			
 			singleTarget.decreaseHp(this.power);
+			this.addIndevidualTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
+			addToAllTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
+			GlobalLog.addToGlobalLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
 			singleTarget.setIsBurning(true);
+			
 			singleTarget.setAffectedTimes(80);
 								
 			if(singleTarget.getCurrentHp()<=0)
 			{
+				this.addIndevidualTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				addToAllTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				GlobalLog.addToGlobalLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
 				coin.increaseCurrency(singleTarget.getValue());
 				targets.remove(singleTarget);
 				singleTarget = null;
@@ -179,8 +190,14 @@ public class CannonTower extends TowerBase{
 				
 	//			critter.setIsBurning(true);
 				critter.setAffectedTimes(--burn_times);
+				this.addIndevidualTowerLog(this.name + "burns "+critter.getName()+"HP - "+this.power+"\n");
+				addToAllTowerLog(this.name + "burns "+critter.getName()+"HP - "+this.power+"\n");
+				GlobalLog.addToGlobalLog(this.name + "burns "+critter.getName()+"HP - "+this.power+"\n");
 				critter.decreaseHp(this.power);
 				if(critter.getCurrentHp()<=0){
+					this.addIndevidualTowerLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
+					addToAllTowerLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
+					GlobalLog.addToGlobalLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
 					coin.increaseCurrency(critter.getValue());
 					critter.setIsBurning(false);
 				}

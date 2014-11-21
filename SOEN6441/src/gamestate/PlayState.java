@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import log.GlobalLog;
 import critters.CritterBase;
 import critters.CritterFactory;
 import currency.Coin;
@@ -22,6 +23,7 @@ import towers.MagicTower;
 //import towers.MonsterTest;
 import towers.TowerBase;
 import towers.TowerFactory;
+import usefulfunctions.ShowLog;
 /**
  * 
  * @author yulongsong
@@ -292,6 +294,10 @@ public class PlayState extends GameState{
 	        		//set the tile to arrow tower
 	        		ArrowTower arrowTower = new ArrowTower(tileX,tileY,tileWidth,tileHeight);
 	        		map[row][column] = arrowTower;
+	        		//add tpo log
+	        		arrowTower.addIndevidualTowerLog(arrowTower.getName()+"  "+"is created\n");
+	        		TowerBase.addToAllTowerLog(arrowTower.getName()+"  "+"is created\n");
+	        		GlobalLog.addToGlobalLog(arrowTower.getName()+"  "+"is created\n");
 	        		//add tower to towerlist
 	        		towerList.add(arrowTower);
 	        		//decrease the money
@@ -316,6 +322,10 @@ public class PlayState extends GameState{
 	        		//set the tile to arrow tower
 	        		IceTower iceTower = new IceTower(tileX,tileY,tileWidth,tileHeight);
 	        		map[row][column] = iceTower;
+	        		//add log
+	        		iceTower.addIndevidualTowerLog(iceTower.getName()+"  "+"is created\n");
+	        		TowerBase.addToAllTowerLog(iceTower.getName()+"  "+"is created\n");
+	        		GlobalLog.addToGlobalLog(iceTower.getName()+"  "+"is created\n");
 	        		//add tower to towerlist
 	        		towerList.add(iceTower);
 	        		//decrease the money
@@ -344,6 +354,11 @@ public class PlayState extends GameState{
 	        		map[row][column] = cannonTower;
 	        		//add tower to towerlist
 	        		towerList.add(cannonTower);
+	        		//add log
+	        		
+	        		cannonTower.addIndevidualTowerLog(cannonTower.getName()+"  "+"is created\n");
+	        		TowerBase.addToAllTowerLog(cannonTower.getName()+"  "+"is created\n");
+	        		GlobalLog.addToGlobalLog(cannonTower.getName()+"  "+"is created\n");
 	        		//decrease the money
 	        		coin.decreaseCurrency(cannonTower.getCost());
 	        		//click once set once
@@ -368,6 +383,10 @@ public class PlayState extends GameState{
 	        		//set the tile to magic tower
 	        		MagicTower magicTower = new MagicTower(tileX,tileY,tileWidth,tileHeight);
 	        		map[row][column] = magicTower;
+	        		//add to log
+	        		magicTower.addIndevidualTowerLog(magicTower.getName()+" "+"is created\n");
+	        		TowerBase.addToAllTowerLog(magicTower.getName()+"  "+"is created\n");
+	        		GlobalLog.addToGlobalLog(magicTower.getName()+"  "+"is created\n");
 	        		//add tower to towerlist
 	        		towerList.add(magicTower);
 	        		//decrease the money
@@ -399,6 +418,10 @@ public class PlayState extends GameState{
 	        
 	        if( map[row][column].getClass().getSuperclass() == TowerBase.class){
 	        		selectedTower = (TowerBase) map[row][column];
+	        		selectedTower.addIndevidualTowerLog(selectedTower.getName()+" "+"is inspected\n");
+	        		TowerBase.addToAllTowerLog(selectedTower.getName()+"  "+"is inspected\n");
+	        		GlobalLog.addToGlobalLog(selectedTower.getName()+"  "+"is inspected\n");
+	        		
 	        		isPressedTowerOnMap = true;
 	        }else{
 				selectedTower = null;
@@ -428,6 +451,7 @@ public class PlayState extends GameState{
 		System.out.println(y);
 		if(x >= 204 && x <= 404 && y >=502 && y<=598 ){
 			pauseResult = !pauseResult;
+			GlobalLog.addToGlobalLog("user pauses the game\n");
 		this.pause(pauseResult);
 
 		}
@@ -453,6 +477,10 @@ public class PlayState extends GameState{
 			int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 	        int row =  temp / tileMap.getCellHeight();
 	        TowerBase towerTemp = ((TowerBase) map[row][column]);
+	        //write to log
+	        towerTemp.addIndevidualTowerLog(towerTemp.getName()+" "+"is sold\n");
+	        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"is sold\n");
+    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is sold\n");
 	        //increase coin
 	        coin.increaseCurrency((int)(towerTemp.getRefundRate()*towerTemp.getValue()));
 	        //initialize the cell to grass
@@ -482,6 +510,10 @@ public class PlayState extends GameState{
 				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 		        int row =  temp / tileMap.getCellHeight();
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+" "+"is upgraded\n");
+		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"is upgraded\n");
+	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is upgraded\n");
+		        
 		        coin.decreaseCurrency(towerTemp.getUpgradeCost());
 		        towerTemp.upgrade();
 		        
@@ -500,6 +532,7 @@ public class PlayState extends GameState{
 			if(tempX >= 2 && tempX <= 202 &&
 					tempY >= 502 && tempY <= 598){
 				this.isNextWave = true;
+				GlobalLog.addToGlobalLog("user clicks the next wave button\n");
 			}
 		}
 		/**
@@ -516,6 +549,9 @@ public class PlayState extends GameState{
 				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 		        int row =  temp / tileMap.getCellHeight();
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects weakest strategy\n");
+		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects weakest strategy\n");
+	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects weakest strategy\n");
 		        int weakestStrategy = 1;
 		        towerTemp.setStrategyType(weakestStrategy);
 		        	
@@ -537,6 +573,9 @@ public class PlayState extends GameState{
 				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 		        int row =  temp / tileMap.getCellHeight();
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects strongest strategy\n");
+		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects strongest strategy\n");
+	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects stongest strategy\n");
 		        int strongestStrategy = 2;
 		        towerTemp.setStrategyType(strongestStrategy);
 		        	
@@ -558,6 +597,9 @@ public class PlayState extends GameState{
 				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 		        int row =  temp / tileMap.getCellHeight();
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects farthest strategy\n");
+		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects farthest strategy\n");
+	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects farthest strategy\n");
 		        int farthestStrategy = 4;
 		        towerTemp.setStrategyType(farthestStrategy);
 		        	
@@ -578,11 +620,83 @@ public class PlayState extends GameState{
 				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
 		        int row =  temp / tileMap.getCellHeight();
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects nearest strategy\n");
+		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects nearest strategy\n");
+	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects nearest strategy\n");
 		        int nearestStrategy = 3;
 		        towerTemp.setStrategyType(nearestStrategy);
 		        	
 			}
 	        
+			
+		}
+		/**
+		 * show individual logs
+		 * @param e
+		 */
+		
+		private void pressIndividualTowerLog(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 450 && tempX <= 600 &&
+					tempY >= 502 && tempY <= 547 && isPressedTowerOnMap){
+				//calculate row and column 
+				int column = selectedTower.getTileX() / tileMap.getCellWidth();
+				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
+		        int row =  temp / tileMap.getCellHeight();
+		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+	    		
+	    		TowerBase.addToAllTowerLog("user clicks the individual tower log button\n");
+	    		GlobalLog.addToGlobalLog("user clicks the individual tower log button\n");
+		        String towerLog = towerTemp.getAllIdividualTowerLog();
+		        ShowLog.showLog(towerLog);
+		        
+			}
+			
+		}
+		private void pressCollectiveTowerLog(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 605 && tempX <= 755 &&
+					tempY >= 502 && tempY <= 547 ){ 
+		        TowerBase.addToAllTowerLog("user clicks the collective tower log button\n");
+	    		GlobalLog.addToGlobalLog("user clicks the collective tower log button\n");
+		        String towerLog = TowerBase.getAllTowerLog();
+		        ShowLog.showLog(towerLog);
+		        
+			}
+			
+		}
+		
+		private void pressWaveLog(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 450 && tempX <= 600 &&
+					tempY >= 550 && tempY <= 595 ){
+				//calculate row and column 
+				int column = selectedTower.getTileX() / tileMap.getCellWidth();
+				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
+		        int row =  temp / tileMap.getCellHeight();
+		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+		        TowerBase.addToAllTowerLog("user clicks the wave log button\n");
+	    		GlobalLog.addToGlobalLog("user clicks the wave log button\n");
+		        String towerLog = towerTemp.getAllIdividualTowerLog();
+		        ShowLog.showLog(towerLog);
+		        
+			}
+			
+		}
+		private void pressGlobalLog(MouseEvent e){
+			int tempX = e.getX();
+			int tempY = e.getY();
+			if(tempX >= 605 && tempX <= 755 &&
+					tempY >= 550 && tempY <= 595 ){
+				
+				TowerBase.addToAllTowerLog("user clicks the global log button\n");
+	    		GlobalLog.addToGlobalLog("user clicks the global log button\n");
+		        String towerLog = GlobalLog.getAllGobalLog();
+		        ShowLog.showLog(towerLog);
+			}
 			
 		}
 		
@@ -604,6 +718,10 @@ public class PlayState extends GameState{
 		pressStrongestSrategy(e);
 		pressNearestSrategy(e);
 		pressFarthestSrategy(e);
+		pressIndividualTowerLog(e);
+		pressCollectiveTowerLog(e);
+		pressWaveLog(e);
+		pressGlobalLog(e);
 	
 
 	}
@@ -803,7 +921,7 @@ public class PlayState extends GameState{
 		String name = towerBase.getName();
 		g.drawString(name, 105, 20);
 		String level = "(level: "+String.valueOf(towerBase.getLevel()) + ")";
-		g.drawString(level, 185, 20);
+		g.drawString(level, 200, 20);
 		String cost = "Cost: "+ String.valueOf(towerBase.getCost());
 		g.drawString(cost, 108, 40);
 		String power = "Power: " + String.valueOf(towerBase.getPower());
@@ -940,6 +1058,29 @@ public class PlayState extends GameState{
 			g.setColor(Color.BLACK);
 			String pause = "Pause";
 			g.drawString(pause, 214, 550);
+			if(isPressedTowerOnMap){
+				g.setColor(Color.GREEN);
+				g.fillRect(450, 502, 150, 45);
+			}
+			else{
+				g.setColor(Color.WHITE);
+				g.fillRect(450, 502, 150, 45);
+			}
+				g.setColor(Color.GREEN);
+				g.fillRect(605, 502, 150, 45);
+				g.fillRect(450, 550, 150, 45);
+				g.fillRect(605, 550, 150, 45);
+			
+			
+			g.setColor(Color.BLACK);
+			String individualLog = "Individual";
+			String CollectiveLog = "Collective";
+			String WaveLog       = "Wave";
+			String GlobalLog     = "Global";
+			g.drawString(individualLog, 460, 530);
+			g.drawString(CollectiveLog, 610, 530);
+			g.drawString(WaveLog, 460, 580);
+			g.drawString(GlobalLog, 615, 580);
 			
 			
 		}

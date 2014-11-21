@@ -3,6 +3,7 @@ package towers;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 
 import critters.CritterBase;
@@ -41,7 +42,8 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	protected CritterBase singleTarget;
 	protected int towerStratgyType;
 	protected Coin coin = Coin.getCoinObject();
-	
+	protected ArrayList<String> individualTowerLog;
+	protected static ArrayList<String> ALLTOWERLOG = new ArrayList<String>();
 	
 	/**
 	 * Get the tower's value. 
@@ -114,6 +116,33 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 	 */
 	public void setCost(int cost) {
 		this.cost = cost;
+	}
+	public ArrayList<String> getIndividualTowerLog(){
+		return individualTowerLog;
+	}
+	public static void addToAllTowerLog(String log){
+		Date date = new Date();
+		ALLTOWERLOG.add(date.toString()+"   "+ log);
+	}
+	public void addIndevidualTowerLog(String log){
+		Date date = new Date();
+		individualTowerLog.add(date.toString()+"   "+ log);
+	}
+	public String getAllIdividualTowerLog(){
+		String result = "";
+		for(String s: individualTowerLog){
+			result += s;
+		}
+		return result;
+	}
+	public static String getAllTowerLog(){
+		String result = "";
+		for(String s : ALLTOWERLOG){
+			result += s;
+			
+		}
+		return result;
+		
 	}
 
 	/**
@@ -229,6 +258,8 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 		this.name = name;
 	}
 	
+	
+	
 	/**
 	 * get the critters in the attack range
 	 * @return an array list contain the critters in the attack range.
@@ -326,7 +357,6 @@ public abstract class TowerBase extends Tile implements TowerInterface{
 				tileHeight,null);
 		}
 	}
-
 	
 	public abstract void update();
 	public abstract void draw(Graphics2D g);

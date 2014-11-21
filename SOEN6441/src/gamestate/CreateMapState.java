@@ -15,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import log.GlobalLog;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.ValidateMap;
@@ -137,6 +138,7 @@ public class CreateMapState extends GameState{
 				x <= GamePanel.WIDTH && y >= 0 &&
 				y <= buttonHeight && !isNameGiven){
 			mapName = JOptionPane.showInputDialog("Enter map name: ");
+			GlobalLog.addToGlobalLog("user creates new map: "+mapName+"\n");
 		}
 		
 		
@@ -156,6 +158,7 @@ public class CreateMapState extends GameState{
 				return;
 			}else {
 				mapRow = Integer.parseInt(row);
+				GlobalLog.addToGlobalLog("user sets the row: "+mapRow +"\n");
 			}
 			
 		}
@@ -176,6 +179,7 @@ public class CreateMapState extends GameState{
 				return;
 			}else{
 				mapColumn = Integer.parseInt(column);
+				GlobalLog.addToGlobalLog("user sets the column: "+mapColumn +"\n");
 			}
 			
 		}
@@ -281,6 +285,7 @@ public class CreateMapState extends GameState{
 			init();
 			fileChooser();
 			isLoaded = true;
+			
 			System.out.println("load button");
 			
 		}
@@ -299,6 +304,7 @@ public class CreateMapState extends GameState{
 		int returnValue = chooser.showOpenDialog(null);
 		if(returnValue == JFileChooser.APPROVE_OPTION){
 			java.io.File file = chooser.getSelectedFile();
+			GlobalLog.addToGlobalLog("user loads the map: "+file.getName()+"\n");
 			System.out.println(file.getAbsolutePath());
 			//set the tilemap path
 			String path = file.getAbsolutePath();
@@ -365,6 +371,7 @@ public class CreateMapState extends GameState{
 				}
 				else if(isEntrance && isExit && isCorrectPath){
 					mapParser.createXMLFile(map, mapName);
+					GlobalLog.addToGlobalLog("user generates the map\n");
 					System.out.println("generate");
 					//init
 					{
@@ -391,6 +398,7 @@ public class CreateMapState extends GameState{
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH 
 				&& y >= 8*buttonHeight + 40+18 && y <= 9*buttonHeight + 40+18){
+			GlobalLog.addToGlobalLog("user clicks the back button\n");
 			gsm.switchState(GameStateManager.MENUSTATE);
 		}
 			

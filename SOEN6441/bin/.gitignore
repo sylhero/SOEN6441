@@ -1,7 +1,5 @@
-/Main/
-/critters/
-/currency/
-/gamepanel/
+/log/
+/usefulfunctions/
+/towers/
 /gamestate/
-/junittest/
-/towerstrategy/
+/Main/

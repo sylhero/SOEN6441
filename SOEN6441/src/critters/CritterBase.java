@@ -24,6 +24,8 @@ public abstract class CritterBase {
 	
 	protected TileMap tileMap;
 	protected Tile [][] map;
+	protected String name;
+	protected static int NAMENUMBER;
 	protected LinkedList<Point> correctRoute;
 	protected LinkedList<Point> correctRouteCopy;
 	protected Image image;
@@ -162,7 +164,9 @@ public abstract class CritterBase {
 		}
 	}
 	
-	
+	public String getName(){
+		return this.name;
+	}
 	/**
 	 * To update critters movements.
 	 */
