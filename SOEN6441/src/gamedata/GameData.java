@@ -6,9 +6,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
-import tilemap.TileMap;
+import tilemap.Tile;
 import towers.TowerBase;
 
 public class GameData implements Serializable{
@@ -18,13 +17,13 @@ public class GameData implements Serializable{
 	 */
 	private static final long serialVersionUID = 2444615011686386224L;
 	
-	protected TileMap mapData;
+	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
 	
 	protected static final String PATH = "/resources/gamedata/";
 	
 
-	public GameData(TileMap map_data, ArrayList<TowerBase> tower_list){
+	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list){
 		
 		this.mapData = map_data;
 		this.towerList = tower_list;
@@ -35,10 +34,21 @@ public class GameData implements Serializable{
 		
 	}
 	
-	public TileMap getMapData(){
+	public void setMapData(Tile[][] map_data){
+		
+		this.mapData = map_data;
+		
+	}
+	
+	public Tile[][] getMapData(){
 		
 		return this.mapData;
 		
+	}
+	
+	public void setTowerList(ArrayList<TowerBase> tower_list){
+		
+		this.towerList = tower_list;
 	}
 		
 	public ArrayList<TowerBase> getTowerList(){
@@ -46,6 +56,8 @@ public class GameData implements Serializable{
 		return this.towerList;
 		
 	}
+	
+	
 	
 	public boolean WriteGameData(){
 		
