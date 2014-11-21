@@ -17,7 +17,7 @@ import usefulfunctions.ValidateMap;
 import critters.CritterBase;
 import critters.NormalCritter;
 /**
- * This class used for test the farthest strategy.
+ * This class used for test the nearestToExit strategy.
  * @author Hongrui Guan, Xunrong Xia
  *
  */
@@ -36,7 +36,7 @@ private static TowerStrategy strategy;
 	
 	/**
 	 * This method used to set up the object. 
-	 * There are 3 critters, they have different distances between the tower£¬ one is nearest
+	 * There are 3 critters, they have different distances to the exit point£¬ one is nearest
 	 * one is farthest, the rest has the medium distance. 
 	 */
 	@BeforeClass
@@ -68,8 +68,8 @@ private static TowerStrategy strategy;
 	}
 	
 	/**
-	 * This method test the farthest strategy.
-	 * We test if the farthest strategy would return the critter with the farthest distance in the array list.
+	 * This method test the nearestToExit strategy.
+	 * We test if the farthest strategy would return the critter with the nearest distance in the array list.
 	 */
 	@Test
 	public void testFarestStrategy() {
