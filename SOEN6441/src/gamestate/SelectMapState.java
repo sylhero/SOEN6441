@@ -11,6 +11,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import log.GlobalLog;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
@@ -95,6 +96,7 @@ public class SelectMapState extends GameState{
 		int returnValue = chooser.showOpenDialog(null);
 		if(returnValue == JFileChooser.APPROVE_OPTION){
 			java.io.File file = chooser.getSelectedFile();
+			GlobalLog.addToGlobalLog("user selects the map: "+file.getName()+"\n");
 			System.out.println(file.getAbsolutePath());
 			//set the tilemap path
 			String path = file.getAbsolutePath();

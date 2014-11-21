@@ -5,6 +5,8 @@ import gamepanel.GamePanel;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
+import log.GlobalLog;
 /**
  * 
  * @author yulongsong
@@ -26,7 +28,8 @@ public class StartTD {
 	public static void main(String[] Args){
 		EventQueue.invokeLater(new Runnable() {
             @Override
-            public void run() {                
+            public void run() {  
+            	GlobalLog.addToGlobalLog("user starts the game\n");
                 new StartTD();              
             }
         });

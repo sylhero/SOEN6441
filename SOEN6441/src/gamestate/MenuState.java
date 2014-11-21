@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
+import log.GlobalLog;
 import usefulfunctions.LoadImage;
 /**
  * 
@@ -239,16 +240,19 @@ public class MenuState extends GameState{
 				mouseX <= startGameButton.x + startGameButton.width &&
 				mouseY >= startGameButton.y && 
 				mouseY <= startGameButton.y +startGameButton.height){
+			GlobalLog.addToGlobalLog("user clicks start game button\n");
 			gsm.switchState(GameStateManager.SELECTMAP);
 		}else if (mouseX >= createMapButton.x &&
 				mouseX <= createMapButton.x + createMapButton.width &&
 				mouseY >= createMapButton.y && 
 				mouseY <= createMapButton.y +createMapButton.height){
+			GlobalLog.addToGlobalLog("user clicks create map button\n");
 			gsm.switchState(GameStateManager.CREATEMAP);
 		}else if ( mouseX >= exitButton.x &&
 				mouseX <= exitButton.x + exitButton.width &&
 				mouseY >= exitButton.y && 
 				mouseY <= exitButton.y +exitButton.height){
+			GlobalLog.addToGlobalLog("user clicks exit the game\n");
 			System.exit(0);
 		}
 		

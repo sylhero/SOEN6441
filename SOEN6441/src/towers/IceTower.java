@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import log.GlobalLog;
 import critters.CritterBase;
 import tilemap.TileMap;
 import towerstrategy.NearestToExitStrategy;
@@ -36,6 +37,7 @@ public class IceTower extends TowerBase {
 	public static final Image iceTowerEffect   = LoadImage.
 			loadImageIcon("/images/icetowereffect.gif").getImage();
 	public static final int ICETOWERTYPE = 6;
+	public static int NAMENUMBER = 0;
 
 	/**
 	 * 
@@ -46,7 +48,7 @@ public class IceTower extends TowerBase {
 
 	public IceTower() {
 
-		this.name = "Ice Tower";
+		this.name = "Ice Tower"+NAMENUMBER++;
 
 		this.map = TileMap.getTileMap().getMap();
 
@@ -83,6 +85,8 @@ public class IceTower extends TowerBase {
 		this.singleTarget = null;
 
 		this.towerStratgyType = 0;
+		
+		this.individualTowerLog = new ArrayList<String>();
 
 	}
 
@@ -109,7 +113,7 @@ public class IceTower extends TowerBase {
 
 	int tileWidth, int tileHeight) {
 
-		this.name = "Ice Tower";
+		this.name = "Ice Tower"+NAMENUMBER++;
 
 		this.map = TileMap.getTileMap().getMap();
 
@@ -158,6 +162,8 @@ public class IceTower extends TowerBase {
 		this.singleTarget = null;
 
 		this.towerStratgyType = 0;
+		
+		this.individualTowerLog = new ArrayList<String>();
 
 	}
 
@@ -239,15 +245,20 @@ public class IceTower extends TowerBase {
 			}
 
 			singleTarget.setIsFreezing(true);
-
+			this.addIndevidualTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
+			addToAllTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
 			singleTarget.decreaseHp(this.power);
-
+			this.addIndevidualTowerLog(this.name + "freezes "+singleTarget.getName()+"\n");
+			addToAllTowerLog(this.name + "freezes "+singleTarget.getName()+"\n");
+			GlobalLog.addToGlobalLog(this.name + "freezes "+singleTarget.getName()+"\n");
 			singleTarget.setSpeedOffset(1, 1);
 
 			if (singleTarget.getCurrentHp() <= 0)
 
 			{
-
+				this.addIndevidualTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				addToAllTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				GlobalLog.addToGlobalLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
 				coin.increaseCurrency(singleTarget.getValue());
 
 				targets.remove(singleTarget);
