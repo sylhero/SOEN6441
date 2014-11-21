@@ -226,6 +226,7 @@ public class PlayState extends GameState{
 		int y = e.getY();
 		//arrow tower location
 		if(x >= 1 && x<=41 && y >= 5 && y <= 45){
+			WaveLog.addToWaveLog("user press ARROW Tower"+"\n");
 			TowerBase.addToAllTowerLog("user press ARROW Tower"+"\n");
 			GlobalLog.addToGlobalLog("user press ARROW Tower."+"\n");
 			isEnoughMoneyToBuild(arrowTower);
@@ -240,6 +241,7 @@ public class PlayState extends GameState{
 		
 		}
 		else if(x >= 42 && x<=82 && y >= 5 && y <= 45){
+			WaveLog.addToWaveLog("user press ICE Tower"+"\n");
 			TowerBase.addToAllTowerLog("user press ICE Tower."+"\n");
 			GlobalLog.addToGlobalLog("user press ICE Tower."+"\n");
 			isEnoughMoneyToBuild(iceTower);
@@ -251,6 +253,7 @@ public class PlayState extends GameState{
 			}
 		}
 		else if(x >= 1 && x<=41 && y >= 46 && y <= 86){
+			WaveLog.addToWaveLog("user press CANNON Tower"+"\n");
 			TowerBase.addToAllTowerLog("user press CANNON Tower."+"\n");
 			GlobalLog.addToGlobalLog("user press CANNON Tower."+"\n");
 			isEnoughMoneyToBuild(cannonTower);
@@ -263,6 +266,7 @@ public class PlayState extends GameState{
 			
 		}
 		else if(x >= 42 && x<=82 && y >= 46 && y <= 86){
+			WaveLog.addToWaveLog("user press MAGIC Tower"+"\n");
 			TowerBase.addToAllTowerLog("user press MAGIC Tower."+"\n");
 			GlobalLog.addToGlobalLog("user press MAGIC Tower."+"\n");
 			isEnoughMoneyToBuild(magicTower);
@@ -314,7 +318,7 @@ public class PlayState extends GameState{
 	        		towerList.add(arrowTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(arrowTower.getCost());
-	        		GlobalLog.addToGlobalLog("user build "+arrowTower.getName()+", the coin decrease"+arrowTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+arrowTower.getName()+", the coin -"+arrowTower.getCost()+"\n");
 	        		//click once set once
 	        		this.isArrowTowerOnMenu = false;
 	        }
@@ -344,7 +348,7 @@ public class PlayState extends GameState{
 	        		towerList.add(iceTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(iceTower.getCost());
-	        		GlobalLog.addToGlobalLog("user build "+iceTower.getName()+", the coin decrease"+iceTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+iceTower.getName()+", the coin -"+iceTower.getCost()+"\n");
 	        		//click once set once
 	        		this.isIceTowerOnMenu = false;
 	        }
@@ -378,7 +382,7 @@ public class PlayState extends GameState{
 	        		
 	        		//decrease the money
 	        		coin.decreaseCurrency(cannonTower.getCost());
-	        		GlobalLog.addToGlobalLog("user build "+cannonTower.getName()+", the coin decrease"+cannonTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+cannonTower.getName()+", the coin -"+cannonTower.getCost()+"\n");
 	        		//click once set once
 	        		this.isCannonTowerOnMenu = false;
 	        }
@@ -410,7 +414,7 @@ public class PlayState extends GameState{
 	        		towerList.add(magicTower);
 	        		//decrease the money
 	        		coin.decreaseCurrency(magicTower.getCost());
-	        		GlobalLog.addToGlobalLog("user build "+magicTower.getName()+", the coin decrease"+magicTower.getCost());
+	        		GlobalLog.addToGlobalLog("user build "+magicTower.getName()+", the coin -"+magicTower.getCost()+"\n");
 	        		//click once set once
 	        		this.isMagicTowerOnMenu = false;
 	        }
@@ -472,6 +476,7 @@ public class PlayState extends GameState{
 		System.out.println(y);
 		if(x >= 204 && x <= 404 && y >=502 && y<=598 ){
 			pauseResult = !pauseResult;
+			WaveLog.addToWaveLog("user pauses the game\n");
 			GlobalLog.addToGlobalLog("user pauses the game\n");
 		this.pause(pauseResult);
 
@@ -501,10 +506,10 @@ public class PlayState extends GameState{
 	        //write to log
 	        towerTemp.addIndevidualTowerLog(towerTemp.getName()+" "+"is sold\n");
 	        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"is sold\n");
-    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is sold\n");
+    		//GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is sold\n");
 	        //increase coin
 	        coin.increaseCurrency((int)(towerTemp.getRefundRate()*towerTemp.getValue()));
-	        GlobalLog.addToGlobalLog("user sells "+towerTemp.getName()+",coin increase"+((int)(towerTemp.getRefundRate()*towerTemp.getValue()))+"\n");
+	        GlobalLog.addToGlobalLog("user sells "+towerTemp.getName()+", coin increase "+((int)(towerTemp.getRefundRate()*towerTemp.getValue()))+"\n");
 	        //initialize the cell to grass
 	        map[row][column] = new Tile(TileMap.GRASS,TileMap.grass,
 	        		selectedTower.getTileX(),selectedTower.getTileY(), 
@@ -534,10 +539,11 @@ public class PlayState extends GameState{
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
 		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+" "+"is upgraded\n");
 		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"is upgraded\n");
-	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is upgraded\n");
+	    		//GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is upgraded\n");
 	    		WaveLog.addToWaveLog(towerTemp.getName()+"  "+"is upgraded\n");
 		        
 		        coin.decreaseCurrency(towerTemp.getUpgradeCost());
+		        GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is upgraded, the coin - "+towerTemp.getUpgradeCost()+"\n");
 		        towerTemp.upgrade();
 		        
 				
@@ -675,7 +681,7 @@ public class PlayState extends GameState{
 		        int row =  temp / tileMap.getCellHeight();
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
 	    		
-	    		TowerBase.addToAllTowerLog("user clicks the individual tower log button\n");
+	    		//TowerBase.addToAllTowerLog("user clicks the individual tower log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the individual tower log button\n");
 	    		WaveLog.addToWaveLog("user clicks the individual tower log button\n");
 		        String towerLog = towerTemp.getAllIdividualTowerLog();
@@ -689,7 +695,7 @@ public class PlayState extends GameState{
 			int tempY = e.getY();
 			if(tempX >= 605 && tempX <= 755 &&
 					tempY >= 502 && tempY <= 547 ){ 
-		        TowerBase.addToAllTowerLog("user clicks the collective tower log button\n");
+		        //TowerBase.addToAllTowerLog("user clicks the collective tower log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the collective tower log button\n");
 	    		WaveLog.addToWaveLog("user clicks the collective tower log button\n");
 		        String towerLog = TowerBase.getAllTowerLog();
@@ -706,7 +712,7 @@ public class PlayState extends GameState{
 					tempY >= 550 && tempY <= 595 ){
 				//calculate row and column 
 				
-		        TowerBase.addToAllTowerLog("user clicks the wave log button\n");
+		        //TowerBase.addToAllTowerLog("user clicks the wave log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the wave log button\n");
 	    		WaveLog.addToWaveLog("user clicks the wave log button\n");
 		        ShowWaveLog.showWaveLog();
@@ -720,7 +726,7 @@ public class PlayState extends GameState{
 			if(tempX >= 605 && tempX <= 755 &&
 					tempY >= 550 && tempY <= 595 ){
 				
-				TowerBase.addToAllTowerLog("user clicks the global log button\n");
+				//TowerBase.addToAllTowerLog("user clicks the global log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the global log button\n");
 	    		WaveLog.addToWaveLog("user clicks the global log button\n");
 		        String towerLog = GlobalLog.getAllGobalLog();
@@ -881,6 +887,7 @@ public class PlayState extends GameState{
 				}
 				critter.update();
 				if(critter.isAtExit()){
+					WaveLog.addToWaveLog("one critter arrived exit"+"\n");
 					gsm.switchState(GameStateManager.GAMEOVER);
 				}
 				for(int i = 0; i< towerList.size();i++){
@@ -889,6 +896,7 @@ public class PlayState extends GameState{
 			
 			}
 			if(critterBatch.size()==deadCritterCounter){
+				WaveLog.addToWaveLog("this wave ends"+"\n");
 				String waveString = WaveLog.getAllWaveLog();
 				ShowWaveLog.addWaveTab(waveString);
 				fillBatch();

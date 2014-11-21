@@ -140,17 +140,17 @@ public class MagicTower extends TowerBase{
 			{
 				targets.add(critter);
 			}
-			this.addIndevidualTowerLog(this.name + "attacks "+critter.getName()+"HP - "+this.power+"\n");
-			addToAllTowerLog(this.name + "attacks "+critter.getName()+"HP - "+this.power+"\n");
-			GlobalLog.addToGlobalLog(this.name + "attacks "+critter.getName()+"HP - "+this.power+"\n");
-			WaveLog.addToWaveLog(this.name + "attacks "+critter.getName()+"HP - "+this.power+"\n");
+			this.addIndevidualTowerLog(this.name + " attacks "+critter.getName()+", HP - "+this.power+"\n");
+			addToAllTowerLog(this.name + " attacks "+critter.getName()+", HP - "+this.power+"\n");
+			GlobalLog.addToGlobalLog(this.name + " attacks "+critter.getName()+", HP - "+this.power+"\n");
+			WaveLog.addToWaveLog(this.name + " attacks "+critter.getName()+", HP - "+this.power+"\n");
 			critter.decreaseHp(this.power);
 				
 			if(critter.getCurrentHp()<=0){
-				this.addIndevidualTowerLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
-				addToAllTowerLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
-				GlobalLog.addToGlobalLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
-				WaveLog.addToWaveLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
+				this.addIndevidualTowerLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
+				addToAllTowerLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
+				GlobalLog.addToGlobalLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
+				WaveLog.addToWaveLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
 				coin.increaseCurrency(critter.getValue());
 			}				
 		} else{

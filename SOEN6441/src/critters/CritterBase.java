@@ -7,7 +7,6 @@ import java.awt.Point;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-import currency.Coin;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
