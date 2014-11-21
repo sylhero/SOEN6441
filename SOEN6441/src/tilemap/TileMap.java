@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
@@ -37,6 +38,7 @@ import xml.MapParser;
 public class TileMap implements MouseMotionListener,MouseListener{
 	
 	//the map
+	private String name;
 	private Tile[][] map;
 	private int mapRow;
 	private int mapCol;
@@ -92,6 +94,8 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	 * @return map The map of the game.
 	 */
 	public Tile[][] loadMap(String path){
+		File f = new File(path);
+		this.name = f.getName();
 		mapParser.loadXMLFile(path);
 		map = mapParser.getMapData(); 
 		mapRow = map.length;
@@ -186,6 +190,13 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	 */
 	public static TileMap getTileMap(){
 		return tileMap;
+	}
+	/**
+	 * get map name
+	 * @return name
+	 */
+	public String getMapName(){
+		return name;
 	}
 	
 	
@@ -366,6 +377,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		
 		
 	}
+	
 	/**
 	 * mouse click event
 	 * @param e The mouse event.
@@ -428,6 +440,7 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	
 
 }

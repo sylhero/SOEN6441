@@ -94,7 +94,7 @@ public class PlayState extends GameState{
 	
 	//tower
 	
-	private ArrayList<TowerBase> towerList;
+	public static ArrayList<TowerBase> towerList = new ArrayList<TowerBase>();
 	
 	//boolean isNextWave
 	private boolean isNextWave;
@@ -121,7 +121,6 @@ public class PlayState extends GameState{
 		
 		font          = new Font("Arial",Font.BOLD,12);
 		
-		towerList     = new ArrayList<TowerBase>();
 		
 	}
 
@@ -461,6 +460,7 @@ public class PlayState extends GameState{
 	 * detect pause
 	 * @param e
 	 */
+
 	private void pausePressed(MouseEvent e){
 		
 		int x = e.getX();
@@ -470,7 +470,7 @@ public class PlayState extends GameState{
 		System.out.println(x);
 
 		System.out.println(y);
-		if(x >= 204 && x <= 404 && y >=502 && y<=598 ){
+		if(x >= 204 && x <= 304 && y >=502 && y<=598 ){
 			pauseResult = !pauseResult;
 			GlobalLog.addToGlobalLog("user pauses the game\n");
 		this.pause(pauseResult);
@@ -483,6 +483,20 @@ public class PlayState extends GameState{
 
 		}
 
+	}
+	private void savePressed(MouseEvent e){
+		int x = e.getX();
+
+		int y = e.getY();
+
+		System.out.println(x);
+
+		System.out.println(y);
+		if(x >= 308 && x <= 408 && y >=502 && y<=598 ){
+			System.out.println("save");
+
+		}
+		
 	}
 	/**
 	 * detect if the sell button is clicked
@@ -751,6 +765,7 @@ public class PlayState extends GameState{
 		pressCollectiveTowerLog(e);
 		pressWaveLog(e);
 		pressGlobalLog(e);
+		savePressed(e);
 	
 
 	}
@@ -1085,15 +1100,24 @@ public class PlayState extends GameState{
 			String firstLine = "NEXT WAVE";
 			g.drawString(firstLine, 10, 550);
 			
-			g.fillRect(204, 502, 200, 96);
+			g.fillRect(204, 502, 100, 96);
 			g.setFont(new Font("Arial",Font.BOLD,30));
 			g.setColor(Color.BLACK);
 			String pause = "Pause";
 			g.drawString(pause, 214, 550);
+			g.setColor(Color.magenta);
+			g.fillRect(308, 502, 100, 96);
+			g.setFont(new Font("Arial",Font.BOLD,30));
+			g.setColor(Color.BLACK);
+			String save = "SAVE";
+			g.drawString(save, 318, 550);
+			
+			
 			if(isPressedTowerOnMap){
 				g.setColor(Color.GREEN);
 				g.fillRect(450, 502, 150, 45);
 			}
+			
 			else{
 				g.setColor(Color.WHITE);
 				g.fillRect(450, 502, 150, 45);
