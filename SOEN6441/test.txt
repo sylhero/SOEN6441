@@ -1,31 +1,9 @@
-Creation Time,Edit Time,Play Time,Score
-Fri Nov 21 18:20:42 EST 2014, , ,0
- ,Fri Nov 21 18:20:42 EST 2014 , ,0
- , ,Fri Nov 21 18:20:42 EST 2014 ,89
- , ,Fri Nov 21 18:20:42 EST 2014 ,78
- , ,Fri Nov 21 18:20:42 EST 2014 ,85
- , ,Fri Nov 21 18:20:42 EST 2014 ,12
- , ,Fri Nov 21 18:20:42 EST 2014 ,895
- , ,Fri Nov 21 18:20:42 EST 2014 ,563
- ,Fri Nov 21 18:20:44 EST 2014 , ,0
- , ,Fri Nov 21 18:20:44 EST 2014 ,89
- , ,Fri Nov 21 18:20:44 EST 2014 ,78
- , ,Fri Nov 21 18:20:44 EST 2014 ,85
- , ,Fri Nov 21 18:20:44 EST 2014 ,12
- , ,Fri Nov 21 18:20:44 EST 2014 ,895
- , ,Fri Nov 21 18:20:44 EST 2014 ,563
- ,Fri Nov 21 18:20:51 EST 2014 , ,0
- , ,Fri Nov 21 18:20:51 EST 2014 ,89
- , ,Fri Nov 21 18:20:51 EST 2014 ,78
- , ,Fri Nov 21 18:20:51 EST 2014 ,85
- , ,Fri Nov 21 18:20:51 EST 2014 ,12
- , ,Fri Nov 21 18:20:51 EST 2014 ,895
- , ,Fri Nov 21 18:20:51 EST 2014 ,563
- ,                  Fri Nov 21 18:25:01 EST 2014
-
- , ,Fri Nov 21 18:25:01 EST 2014 ,89
- , ,Fri Nov 21 18:25:01 EST 2014 ,78
- , ,Fri Nov 21 18:25:01 EST 2014 ,85
- , ,Fri Nov 21 18:25:01 EST 2014 ,12
- , ,Fri Nov 21 18:25:01 EST 2014 ,895
- , ,Fri Nov 21 18:25:01 EST 2014 ,563
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 18:39:22 EST 2014 ,                             ,                             ,0
+ ,Fri Nov 21 18:39:22 EST 2014 , ,0
+ , ,Fri Nov 21 18:39:22 EST 2014 ,89
+ , ,Fri Nov 21 18:39:22 EST 2014 ,78
+ , ,Fri Nov 21 18:39:22 EST 2014 ,85
+ , ,Fri Nov 21 18:39:22 EST 2014 ,12
+ , ,Fri Nov 21 18:39:22 EST 2014 ,895
+ , ,Fri Nov 21 18:39:22 EST 2014 ,563
