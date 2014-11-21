@@ -13,6 +13,8 @@ import log.GlobalLog;
 import log.WaveLog;
 import critters.CritterBase;
 import critters.CritterFactory;
+import critters.CritterWave;
+import critters.CritterWaveBuilder;
 import currency.Coin;
 import gamepanel.GamePanel;
 import tilemap.Tile;
@@ -843,9 +845,15 @@ public class PlayState extends GameState{
 	}
 	public void fillBatch(){
 		LinkedList<Point> correctPath = tileMap.getCorrectPath();
-		for(int i =0; i < 5;i++){
-			critterBatch.add(CritterFactory.getCritter("Normal", correctPath, i * 35));	
-		}
+		
+		CritterWaveBuilder cwb = new CritterWaveBuilder();
+		CritterWave cw = cwb.prepareCritterWave(correctPath, 35);
+		
+		critterBatch = cw.getCritterWave();
+		
+//		for(int i =0; i < 5;i++){
+//			critterBatch.add(CritterFactory.getCritter("Normal", correctPath, i * 35));	
+//		}
 		WaveLog.init();
 	}
 
