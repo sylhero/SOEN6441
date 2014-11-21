@@ -24,7 +24,8 @@ import org.junit.runners.Suite.SuiteClasses;
 			   CannonTowerTest.class,
 			   MagicTowerTest.class,
 			   IceTowerTest.class,
-			   NearestToExitStrategyTest.class
+			   NearestToExitStrategyTest.class,
+			   CritterWaveBuilderTest.class
 			   })
 public class AllTests {
 
