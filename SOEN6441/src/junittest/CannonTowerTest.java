@@ -36,8 +36,8 @@ public class CannonTowerTest {
 	 * It will have the default value of its features.
 	 * 
 	 */
-	@BeforeClass
-	public static void setUp() {
+	@Before
+	public void setUp() {
 		
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
@@ -74,11 +74,19 @@ public class CannonTowerTest {
 		cannonTower.fire(critter);
 		
 		assertNotNull(cannonTower.getTarget());
-		assertTrue(critter.getIsBurning());
+		
 		//assertEquals(82,critter.getCurrentHp());
 		
 	}
 	
+	@Test
+	public void testSpecialEffect()
+	{
+		cannonTower.fire(critter);
+		assertTrue(critter.getIsBurning());
+		assertEquals(86, critter.getCurrentHp());
+		assertEquals(80,critter.getAffectedTimes());
+	}
 	
 
 }

@@ -3,6 +3,7 @@ package junittest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -33,8 +34,8 @@ public class MagicTowerTest {
 	 * It will have the default value of its features.
 	 * 
 	 */
-	@BeforeClass
-	public static void setUp() {
+	@Before
+	public void setUp() {
 		
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
@@ -73,7 +74,13 @@ public class MagicTowerTest {
 		magicTower.fire(critter);
 		
 		assertNotNull(magicTower.getTarget());
-		//assertEquals(86,critter.getCurrentHp());
-		
+		//assertEquals(86,critter.getCurrentHp());	
+	}
+	
+	@Test
+	public void testSpecialEffect()
+	{
+		magicTower.fire(critter);
+		assertEquals(93,critter.getCurrentHp());
 	}
 }
