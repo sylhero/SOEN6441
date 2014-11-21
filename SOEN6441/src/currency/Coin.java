@@ -3,6 +3,7 @@ package currency;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.Serializable;
 
 import usefulfunctions.LoadImage;
 /**
@@ -13,11 +14,16 @@ import usefulfunctions.LoadImage;
  * 
  *
  */
-public class Coin {
+public class Coin implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1893854549547122290L;
+
 	private volatile int coin;
 	
-	public static final Image coinImage = LoadImage.loadImage("/images/coins.png"); 
+	public transient static final Image coinImage = LoadImage.loadImage("/images/coins.png"); 
 	
 	private static Coin coinObject = new Coin();
 	
