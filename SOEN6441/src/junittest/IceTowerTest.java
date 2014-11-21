@@ -2,6 +2,7 @@ package junittest;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -31,8 +32,8 @@ public class IceTowerTest {
 	 * To initialize data members.
 	 * @throws Exception java.lang.Exception
 	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception 
+	@Before
+	public void setUpBeforeClass() throws Exception 
 	{
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
@@ -66,5 +67,14 @@ public class IceTowerTest {
 		iceTower.fire(critter);
 		assertNotNull(iceTower.getTarget());
 		assertTrue(critter.getIsFreezing());
+	}
+	
+	@Test
+	public void testSpecialEffect()
+	{
+		iceTower.fire(critter);
+		assertEquals(93, critter.getCurrentHp());
+		assertEquals(1,critter.getSpeedOffsetX());
+		assertEquals(1,critter.getSpeedOffsetY());
 	}
 }
