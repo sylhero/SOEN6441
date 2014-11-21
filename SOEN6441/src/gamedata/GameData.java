@@ -35,13 +35,13 @@ public class GameData implements Serializable{
 		
 	}
 	
-	private TileMap getMapData(){
+	public TileMap getMapData(){
 		
 		return this.mapData;
 		
 	}
 		
-	private ArrayList<TowerBase> getTowerList(){
+	public ArrayList<TowerBase> getTowerList(){
 		
 		return this.towerList;
 		
