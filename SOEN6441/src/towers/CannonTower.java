@@ -159,20 +159,20 @@ public class CannonTower extends TowerBase{
 			}
 			
 			singleTarget.decreaseHp(this.power);
-			this.addIndevidualTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
-			addToAllTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
-			GlobalLog.addToGlobalLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
-			WaveLog.addToWaveLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
+			this.addIndevidualTowerLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
+			addToAllTowerLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
+			GlobalLog.addToGlobalLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
+			WaveLog.addToWaveLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
 			singleTarget.setIsBurning(true);
 			
 			singleTarget.setAffectedTimes(80);
 								
 			if(singleTarget.getCurrentHp()<=0)
 			{
-				this.addIndevidualTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
-				addToAllTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
-				GlobalLog.addToGlobalLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
-				WaveLog.addToWaveLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				this.addIndevidualTowerLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
+				addToAllTowerLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
+				GlobalLog.addToGlobalLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
+				WaveLog.addToWaveLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
 				coin.increaseCurrency(singleTarget.getValue());
 				targets.remove(singleTarget);
 				singleTarget = null;
@@ -193,16 +193,16 @@ public class CannonTower extends TowerBase{
 				
 	//			critter.setIsBurning(true);
 				critter.setAffectedTimes(--burn_times);
-				this.addIndevidualTowerLog(this.name + "burns "+critter.getName()+"HP - "+this.power+"\n");
-				addToAllTowerLog(this.name + "burns "+critter.getName()+"HP - "+this.power+"\n");
-				GlobalLog.addToGlobalLog(this.name + "burns "+critter.getName()+"HP - "+this.power+"\n");
-				WaveLog.addToWaveLog(this.name + "burns "+critter.getName()+"HP - "+this.power+"\n");
+				this.addIndevidualTowerLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
+				addToAllTowerLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
+				GlobalLog.addToGlobalLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
+				WaveLog.addToWaveLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
 				critter.decreaseHp(this.power);
 				if(critter.getCurrentHp()<=0){
-					this.addIndevidualTowerLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
-					addToAllTowerLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
-					GlobalLog.addToGlobalLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
-					WaveLog.addToWaveLog(this.name + "kills "+critter.getName()+"coin + "+" "+critter.getValue()+"\n");
+					this.addIndevidualTowerLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
+					addToAllTowerLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
+					GlobalLog.addToGlobalLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
+					WaveLog.addToWaveLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
 					coin.increaseCurrency(critter.getValue());
 					critter.setIsBurning(false);
 				}

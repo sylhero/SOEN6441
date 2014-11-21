@@ -4,15 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import critters.CritterFactory;
-import critters.NormalCritter;
 import tilemap.Tile;
 import tilemap.TileMap;
 import towers.MagicTower;
 import usefulfunctions.ValidateMap;
+import critters.NormalCritter;
 
 /**
  * This class for used for test MagicTower class in package towers.
@@ -39,7 +37,7 @@ public class MagicTowerTest {
 		
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
-		critter = (NormalCritter)CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(testMap), 1);
+		critter = new NormalCritter(ValidateMap.getCorrectRoute(testMap), 1);
 		critter.setCurrentHp(100);
 
 		

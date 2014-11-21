@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import critters.CritterFactory;
 import critters.NormalCritter;
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -36,7 +35,7 @@ public class ArrowTowerTest {
 	public void setUp() throws Exception {
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
-		critter = (NormalCritter)CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(testMap), 1);
+		critter = new NormalCritter(ValidateMap.getCorrectRoute(testMap), 1);
 		critter.setCurrentHp(100);
 		
 		arrowTower = new ArrowTower();

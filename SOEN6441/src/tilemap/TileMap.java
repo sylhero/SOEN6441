@@ -37,6 +37,7 @@ import xml.MapParser;
  */
 public class TileMap implements MouseMotionListener,MouseListener{
 	
+	
 	//the map
 	private String name;
 	private Tile[][] map;
@@ -440,7 +441,9 @@ public class TileMap implements MouseMotionListener,MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 
 }
+	
+
+
+

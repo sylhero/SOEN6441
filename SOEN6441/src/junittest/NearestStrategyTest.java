@@ -8,7 +8,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import critters.CritterBase;
-import critters.CritterFactory;
 import critters.NormalCritter;
 
 import tilemap.Tile;
@@ -48,13 +47,13 @@ public class NearestStrategyTest {
 		
 		tm = TileMap.getTileMap();
 		test_map = tm.loadMap("resources/gamemaps/test.xml");
-		nearest =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(test_map), 1);
+		nearest =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 1);
 		nearest.setX(20);
 		nearest.setY(20);
-		medium =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(test_map), 2);
+		medium =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 2);
 		medium.setX(50);
 		medium.setY(50);
-		farthest =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(test_map), 3);
+		farthest =  new NormalCritter(ValidateMap.getCorrectRoute(test_map), 3);
 		farthest.setX(100);
 		farthest.setY(100);
 		

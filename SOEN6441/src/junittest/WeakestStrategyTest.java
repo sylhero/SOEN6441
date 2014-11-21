@@ -13,7 +13,6 @@ import towerstrategy.TowerStrategy;
 import towerstrategy.WeakestStrategy;
 import usefulfunctions.ValidateMap;
 import critters.CritterBase;
-import critters.CritterFactory;
 import critters.NormalCritter;
 
 /**
@@ -45,11 +44,11 @@ public class WeakestStrategyTest {
 		tm = TileMap.getTileMap();
 		map = tm.loadMap("resources/gamemaps/test.xml");
 		
-		lowest =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(map), 1);
+		lowest =  new NormalCritter(ValidateMap.getCorrectRoute(map), 1);
 		lowest.setCurrentHp(100);
-		medium =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(map), 2);
+		medium =  new NormalCritter(ValidateMap.getCorrectRoute(map), 2);
 		medium.setCurrentHp(200);
-		highest = (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(map), 3);
+		highest = new NormalCritter(ValidateMap.getCorrectRoute(map), 3);
 		highest.setCurrentHp(300);
 		 
 		al = new ArrayList<CritterBase>();	

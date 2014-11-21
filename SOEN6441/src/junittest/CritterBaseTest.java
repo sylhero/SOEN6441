@@ -9,7 +9,6 @@ import org.junit.Test;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.ValidateMap;
-import critters.CritterFactory;
 import critters.NormalCritter;
 
 /**
@@ -42,7 +41,7 @@ public class CritterBaseTest {
 	{
 		tm = TileMap.getTileMap();
 		map = tm.loadMap("resources/gamemaps/test.xml");
-		testCritter = (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(map), 1);
+		testCritter = new NormalCritter(ValidateMap.getCorrectRoute(map), 1);
 		expectedHp = 7300; 
 		expectedOffSetX = 4;
 		expectedOffSetY = 4;

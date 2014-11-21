@@ -7,16 +7,14 @@ import java.awt.Point;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-import currency.Coin;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
 
 /**
- * An abstract class that is the super-type of all types of objects produced by the CritterFactory.
- * 
+ * An abstract class that is the super-type of all types of objects of critters.
  * @author Yichen LI
- * @version 1.1.5
+ * @version 1.2.1
  *
  */
 

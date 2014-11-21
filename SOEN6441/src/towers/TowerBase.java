@@ -26,6 +26,8 @@ import towerstrategy.WeakestStrategy;
  */
 
 public abstract class TowerBase extends Tile implements TowerInterface{
+		
+	
 	protected String name;
 	protected int level;
 	protected int cost;
