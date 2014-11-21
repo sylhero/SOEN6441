@@ -10,7 +10,7 @@ import usefulfunctions.LoadImage;
  * Heavily armed critters which is a sub-class of CritterBase.
  * 
  * @author Yichen LI
- * @version 1.1.1
+ * @version 1.2.0
  *
  */
 public class HeavilyArmedCritter extends CritterBase{
@@ -44,7 +44,7 @@ public class HeavilyArmedCritter extends CritterBase{
 		this.nextPoint = correctRouteCopy.pollFirst();
 		this.originalHp = 8000;
 		this.currentHp  = 8000;
-		this.image = LoadImage.loadImageIcon("/images/monster1.gif").getImage();
+		this.image = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
 		
 		this.value = 200;
 		this.armorRatio = 0.8f;

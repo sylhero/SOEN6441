@@ -17,7 +17,7 @@ import critters.CritterWaveBuilder;
 /**
  * Test the function of class CritterWaveBuilder.
  * 
- * @author Yichen Li
+ * @author Yichen LI
  * @version 1.2.0
  *
  */
