@@ -5,6 +5,8 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import log.GlobalLog;
+import log.WaveLog;
 import critters.CritterBase;
 import critters.NormalCritter;
 import currency.Coin;
@@ -139,12 +141,16 @@ public class ArrowTower extends TowerBase{
 			}
 			this.addIndevidualTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
 			addToAllTowerLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
+			GlobalLog.addToGlobalLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
+			WaveLog.addToWaveLog(this.name + "attacks "+singleTarget.getName()+"HP - "+this.power+"\n");
 			singleTarget.decreaseHp(this.power);
 			
 			if(singleTarget.getCurrentHp()<=0)
 			{
 				this.addIndevidualTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
 				addToAllTowerLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				GlobalLog.addToGlobalLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
+				WaveLog.addToWaveLog(this.name + "kills "+singleTarget.getName()+"coin + "+" "+singleTarget.getValue()+"\n");
 				coin.increaseCurrency(singleTarget.getValue());
 				//remove the dead critter
 				targets.remove(singleTarget);

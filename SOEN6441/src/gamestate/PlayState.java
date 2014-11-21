@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import log.GlobalLog;
+import log.WaveLog;
 import critters.CritterBase;
 import critters.CritterFactory;
 import currency.Coin;
@@ -24,6 +25,7 @@ import towers.MagicTower;
 import towers.TowerBase;
 import towers.TowerFactory;
 import usefulfunctions.ShowLog;
+import usefulfunctions.ShowWaveLog;
 /**
  * 
  * @author yulongsong
@@ -307,6 +309,7 @@ public class PlayState extends GameState{
 	        		arrowTower.addIndevidualTowerLog(arrowTower.getName()+"  "+"is created\n");
 	        		TowerBase.addToAllTowerLog(arrowTower.getName()+"  "+"is created\n");
 	        		GlobalLog.addToGlobalLog(arrowTower.getName()+"  "+"is created\n");
+	        		WaveLog.addToWaveLog(arrowTower.getName()+"  "+"is created\n");
 	        		//add tower to towerlist
 	        		towerList.add(arrowTower);
 	        		//decrease the money
@@ -336,6 +339,7 @@ public class PlayState extends GameState{
 	        		iceTower.addIndevidualTowerLog(iceTower.getName()+"  "+"is created\n");
 	        		TowerBase.addToAllTowerLog(iceTower.getName()+"  "+"is created\n");
 	        		GlobalLog.addToGlobalLog(iceTower.getName()+"  "+"is created\n");
+	        		WaveLog.addToWaveLog(iceTower.getName()+"  "+"is created\n");
 	        		//add tower to towerlist
 	        		towerList.add(iceTower);
 	        		//decrease the money
@@ -370,6 +374,8 @@ public class PlayState extends GameState{
 	        		cannonTower.addIndevidualTowerLog(cannonTower.getName()+"  "+"is created\n");
 	        		TowerBase.addToAllTowerLog(cannonTower.getName()+"  "+"is created\n");
 	        		GlobalLog.addToGlobalLog(cannonTower.getName()+"  "+"is created\n");
+	        		WaveLog.addToWaveLog(cannonTower.getName()+"  "+"is created\n");
+	        		
 	        		//decrease the money
 	        		coin.decreaseCurrency(cannonTower.getCost());
 	        		GlobalLog.addToGlobalLog("user build "+cannonTower.getName()+", the coin decrease"+cannonTower.getCost());
@@ -399,6 +405,7 @@ public class PlayState extends GameState{
 	        		magicTower.addIndevidualTowerLog(magicTower.getName()+" "+"is created\n");
 	        		TowerBase.addToAllTowerLog(magicTower.getName()+"  "+"is created\n");
 	        		GlobalLog.addToGlobalLog(magicTower.getName()+"  "+"is created\n");
+	        		WaveLog.addToWaveLog(magicTower.getName()+"  "+"is created\n");
 	        		//add tower to towerlist
 	        		towerList.add(magicTower);
 	        		//decrease the money
@@ -434,6 +441,7 @@ public class PlayState extends GameState{
 	        		selectedTower.addIndevidualTowerLog(selectedTower.getName()+" "+"is inspected\n");
 	        		TowerBase.addToAllTowerLog(selectedTower.getName()+"  "+"is inspected\n");
 	        		GlobalLog.addToGlobalLog(selectedTower.getName()+"  "+"is inspected\n");
+	        		WaveLog.addToWaveLog(selectedTower.getName()+"  "+"is inspected\n");
 	        		
 	        		isPressedTowerOnMap = true;
 	        }else{
@@ -527,6 +535,7 @@ public class PlayState extends GameState{
 		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+" "+"is upgraded\n");
 		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"is upgraded\n");
 	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is upgraded\n");
+	    		WaveLog.addToWaveLog(towerTemp.getName()+"  "+"is upgraded\n");
 		        
 		        coin.decreaseCurrency(towerTemp.getUpgradeCost());
 		        towerTemp.upgrade();
@@ -547,6 +556,8 @@ public class PlayState extends GameState{
 					tempY >= 502 && tempY <= 598){
 				this.isNextWave = true;
 				GlobalLog.addToGlobalLog("user clicks the next wave button\n");
+				WaveLog.addToWaveLog("user clicks the next wave button\n");
+				
 			}
 		}
 		/**
@@ -566,6 +577,7 @@ public class PlayState extends GameState{
 		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects weakest strategy\n");
 		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects weakest strategy\n");
 	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects weakest strategy\n");
+	    		WaveLog.addToWaveLog(towerTemp.getName()+"  "+"selects weakest strategy\n");
 		        int weakestStrategy = 1;
 		        towerTemp.setStrategyType(weakestStrategy);
 		        	
@@ -589,7 +601,8 @@ public class PlayState extends GameState{
 		        TowerBase towerTemp = ((TowerBase) map[row][column]);
 		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects strongest strategy\n");
 		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects strongest strategy\n");
-	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects stongest strategy\n");
+	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects strongest strategy\n");
+	    		WaveLog.addToWaveLog(towerTemp.getName()+"  "+"selects strongestest strategy\n");
 		        int strongestStrategy = 2;
 		        towerTemp.setStrategyType(strongestStrategy);
 		        	
@@ -614,6 +627,7 @@ public class PlayState extends GameState{
 		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects farthest strategy\n");
 		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects farthest strategy\n");
 	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects farthest strategy\n");
+	    		WaveLog.addToWaveLog(towerTemp.getName()+"  "+"selects farthest strategy\n");
 		        int farthestStrategy = 4;
 		        towerTemp.setStrategyType(farthestStrategy);
 		        	
@@ -637,6 +651,7 @@ public class PlayState extends GameState{
 		        towerTemp.addIndevidualTowerLog(towerTemp.getName()+"  "+"selects nearest strategy\n");
 		        TowerBase.addToAllTowerLog(towerTemp.getName()+"  "+"selects nearest strategy\n");
 	    		GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"selects nearest strategy\n");
+	    		WaveLog.addToWaveLog(towerTemp.getName()+"  "+"selects nearest strategy\n");
 		        int nearestStrategy = 3;
 		        towerTemp.setStrategyType(nearestStrategy);
 		        	
@@ -662,6 +677,7 @@ public class PlayState extends GameState{
 	    		
 	    		TowerBase.addToAllTowerLog("user clicks the individual tower log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the individual tower log button\n");
+	    		WaveLog.addToWaveLog("user clicks the individual tower log button\n");
 		        String towerLog = towerTemp.getAllIdividualTowerLog();
 		        ShowLog.showLog(towerLog);
 		        
@@ -675,6 +691,7 @@ public class PlayState extends GameState{
 					tempY >= 502 && tempY <= 547 ){ 
 		        TowerBase.addToAllTowerLog("user clicks the collective tower log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the collective tower log button\n");
+	    		WaveLog.addToWaveLog("user clicks the collective tower log button\n");
 		        String towerLog = TowerBase.getAllTowerLog();
 		        ShowLog.showLog(towerLog);
 		        
@@ -688,14 +705,11 @@ public class PlayState extends GameState{
 			if(tempX >= 450 && tempX <= 600 &&
 					tempY >= 550 && tempY <= 595 ){
 				//calculate row and column 
-				int column = selectedTower.getTileX() / tileMap.getCellWidth();
-				int temp = selectedTower.getTileY() - tileMap.getUpperOffSet();
-		        int row =  temp / tileMap.getCellHeight();
-		        TowerBase towerTemp = ((TowerBase) map[row][column]);
+				
 		        TowerBase.addToAllTowerLog("user clicks the wave log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the wave log button\n");
-		        String towerLog = towerTemp.getAllIdividualTowerLog();
-		        ShowLog.showLog(towerLog);
+	    		WaveLog.addToWaveLog("user clicks the wave log button\n");
+		        ShowWaveLog.showWaveLog();
 		        
 			}
 			
@@ -708,6 +722,7 @@ public class PlayState extends GameState{
 				
 				TowerBase.addToAllTowerLog("user clicks the global log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the global log button\n");
+	    		WaveLog.addToWaveLog("user clicks the global log button\n");
 		        String towerLog = GlobalLog.getAllGobalLog();
 		        ShowLog.showLog(towerLog);
 			}
@@ -825,6 +840,7 @@ public class PlayState extends GameState{
 		for(int i =0; i < 5;i++){
 			critterBatch.add(CritterFactory.getCritter("Normal", correctPath, i * 35));	
 		}
+		WaveLog.init();
 	}
 
 	
@@ -873,6 +889,8 @@ public class PlayState extends GameState{
 			
 			}
 			if(critterBatch.size()==deadCritterCounter){
+				String waveString = WaveLog.getAllWaveLog();
+				ShowWaveLog.addWaveTab(waveString);
 				fillBatch();
 				isNextWave = false;
 				
