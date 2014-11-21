@@ -4,11 +4,13 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
 public class HighestScoreState extends GameState {
+	
 	public HighestScoreState(GameStateManager gsm){
 		this.gsm = gsm;
 		
 	}
-
+	
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -24,6 +26,10 @@ public class HighestScoreState extends GameState {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	private void pressMapLog(MouseEvent e){
 		
 	}
 
