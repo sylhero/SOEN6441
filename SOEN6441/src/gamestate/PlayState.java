@@ -15,6 +15,7 @@ import critters.CritterBase;
 import critters.CritterWave;
 import critters.CritterWaveBuilder;
 import currency.Coin;
+import gamedata.GameData;
 import gamepanel.GamePanel;
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -99,6 +100,8 @@ public class PlayState extends GameState{
 	
 	//boolean isNextWave
 	private boolean isNextWave;
+	
+	
 	
 	/**
 	 * constructor
@@ -500,6 +503,8 @@ public class PlayState extends GameState{
 		System.out.println(y);
 		if(x >= 308 && x <= 408 && y >=502 && y<=598 ){
 			System.out.println("save");
+			GameData gameDataSaver =new GameData(map,towerList);
+			
 
 		}
 		
@@ -888,6 +893,7 @@ public class PlayState extends GameState{
 		magicTower  = towerFactory.getTower("magictower");
 		
 		fillBatch();
+		
 			
 	}
 	
