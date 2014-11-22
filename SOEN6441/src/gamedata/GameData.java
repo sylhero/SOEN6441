@@ -7,6 +7,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import currency.Coin;
+
 import tilemap.Tile;
 import towers.TowerBase;
 
@@ -19,14 +21,16 @@ public class GameData implements Serializable{
 	
 	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
+	protected Coin currency;
 	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
 
-	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list){
+	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list, Coin currency){
 		
 		this.mapData = map_data;
 		this.towerList = tower_list;
+		this.currency = currency;
 		
 	}
 	
@@ -64,6 +68,16 @@ public class GameData implements Serializable{
 		
 		return this.towerList;
 		
+	}
+	
+	public void setCoin(Coin cur){
+		
+		this.currency = cur;
+	}
+	
+	public Coin getCurrency(){
+		
+		return this.currency;
 	}
 	
 	
