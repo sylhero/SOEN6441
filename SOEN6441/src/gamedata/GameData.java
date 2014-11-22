@@ -75,9 +75,9 @@ public class GameData implements Serializable{
 		this.currency = cur;
 	}
 	
-	public Coin getCurrency(){
+	public int getMoney(){
 		
-		return this.currency;
+		return this.currency.getCoinObject().getCurrency();
 	}
 	
 	
