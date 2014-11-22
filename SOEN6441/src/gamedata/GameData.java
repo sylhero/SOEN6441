@@ -21,7 +21,7 @@ public class GameData implements Serializable{
 	
 	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
-	protected Integer currency;
+	protected int currency;
 	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
