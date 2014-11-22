@@ -31,8 +31,8 @@ public class ArrowTower extends TowerBase implements Serializable{
 	 */
 	private static final long serialVersionUID = 2806295576326098798L;
 	
-	public transient static final Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
-	public transient static final Image arrowTowerEffect   = LoadImage.loadImageIcon("/images/arrowtowereffect.gif").getImage();
+	public transient static Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
+	public transient static Image arrowTowerEffect   = LoadImage.loadImageIcon("/images/arrowtowereffect.gif").getImage();
 	public static final int ARROWTOWERTYPE  = 4;
 	public static int NAMENUMBER = 0;
 	
