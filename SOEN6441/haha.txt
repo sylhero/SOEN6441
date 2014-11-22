@@ -1,39 +1,32 @@
 Creation Time                ,Edit Time                    ,Play Time                    ,Score
-Fri Nov 21 19:26:53 EST 2014 ,                             ,                             ,0
-                             ,Fri Nov 21 19:26:53 EST 2014 ,                             ,0
-                             ,                             ,Fri Nov 21 19:26:53 EST 2014 ,89
-                             ,                             ,Fri Nov 21 19:26:53 EST 2014 ,78
-                             ,                             ,Fri Nov 21 19:26:53 EST 2014 ,85
-                             ,                             ,Fri Nov 21 19:26:53 EST 2014 ,12
-                             ,                             ,Fri Nov 21 19:26:53 EST 2014 ,895
-                             ,                             ,Fri Nov 21 19:26:53 EST 2014 ,563
-                             ,Fri Nov 21 19:26:56 EST 2014 ,                             ,0
-                             ,                             ,Fri Nov 21 19:26:56 EST 2014 ,89
-                             ,                             ,Fri Nov 21 19:26:56 EST 2014 ,78
-                             ,                             ,Fri Nov 21 19:26:56 EST 2014 ,85
-                             ,                             ,Fri Nov 21 19:26:56 EST 2014 ,12
-                             ,                             ,Fri Nov 21 19:26:56 EST 2014 ,895
-                             ,                             ,Fri Nov 21 19:26:56 EST 2014 ,563
-                             ,Fri Nov 21 19:43:49 EST 2014 ,                             ,0
-                             ,                             ,Fri Nov 21 19:43:49 EST 2014 ,89
-                             ,                             ,Fri Nov 21 19:43:49 EST 2014 ,78
-                             ,                             ,Fri Nov 21 19:43:49 EST 2014 ,85
-                             ,                             ,Fri Nov 21 19:43:49 EST 2014 ,12
-                             ,                             ,Fri Nov 21 19:43:49 EST 2014 ,895
-                             ,                             ,Fri Nov 21 19:43:49 EST 2014 ,563
-                             ,Fri Nov 21 19:44:16 EST 2014 ,                             ,0
-                             ,                             ,Fri Nov 21 19:44:16 EST 2014 ,89
-                             ,                             ,Fri Nov 21 19:44:16 EST 2014 ,78
-                             ,                             ,Fri Nov 21 19:44:16 EST 2014 ,85
-                             ,                             ,Fri Nov 21 19:44:16 EST 2014 ,12
-                             ,                             ,Fri Nov 21 19:44:16 EST 2014 ,895
-                             ,                             ,Fri Nov 21 19:44:16 EST 2014 ,563
-                             ,Fri Nov 21 19:44:37 EST 2014 ,                             ,0
-                             ,                             ,Fri Nov 21 19:44:37 EST 2014 ,89
-                             ,                             ,Fri Nov 21 19:44:37 EST 2014 ,78
-                             ,                             ,Fri Nov 21 19:44:37 EST 2014 ,85
-                             ,                             ,Fri Nov 21 19:44:37 EST 2014 ,12
-                             ,                             ,Fri Nov 21 19:44:37 EST 2014 ,895
-                             ,                             ,Fri Nov 21 19:44:37 EST 2014 ,563
+Fri Nov 21 20:50:16 EST 2014 ,                             ,                             ,0
 Creation Time                ,Edit Time                    ,Play Time                    ,Score
-Fri Nov 21 20:14:01 EST 2014 ,                             ,                             ,0
+Fri Nov 21 20:50:53 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 20:52:30 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 20:54:09 EST 2014 ,                             ,                             ,0
+                             ,Fri Nov 21 20:55:01 EST 2014 ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 20:55:38 EST 2014 ,                             ,                             ,0
+                             ,Fri Nov 21 20:55:38 EST 2014 ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 20:56:22 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:01:06 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:01:16 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:02:09 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:02:43 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:09:21 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:10:12 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:14:56 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,Score
+Fri Nov 21 21:15:17 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,ScoreFri Nov 21 21:17:19 EST 2014 ,                             ,                             ,0
+Creation Time                ,Edit Time                    ,Play Time                    ,ScoreFri Nov 21 21:18:05 EST 2014 ,                             ,                             ,0

@@ -13,7 +13,7 @@ public class ShowLog {
 		JScrollPane scrollPane = new JScrollPane(textArea);  
 		textArea.setLineWrap(true);  
 		textArea.setWrapStyleWord(true); 
-		scrollPane.setPreferredSize( new Dimension( 700, 500 ) );
+		scrollPane.setPreferredSize( new Dimension( 1000, 500 ) );
 		JOptionPane.showMessageDialog(null, scrollPane, "log",  
 		                                       JOptionPane.YES_NO_OPTION);
 	}
