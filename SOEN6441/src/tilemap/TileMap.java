@@ -73,7 +73,7 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 	public transient static final Image pavement    = LoadImage.loadImage("/images/pavement.png");
 	public transient static final Image entrance    = LoadImage.loadImage("/images/entrance.png");
 	public transient static final Image exit        = LoadImage.loadImage("/images/destination.png");
-	public transient static Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
+	
 	
 	
 	//types 
@@ -294,7 +294,7 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);
 					if(map[i][j].getTileImage()==null){
-						((Tile)map[i][j]).setTileImage(arrowTower);
+						((Tile)map[i][j]).setTileImage(ArrowTower.arrowTower);
 					}
 					g.drawImage(map[i][j].getTileImage(),map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
@@ -308,6 +308,9 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 					g.drawImage(grass,map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);
+					if(map[i][j].getTileImage()==null){
+						((Tile)map[i][j]).setTileImage(IceTower.iceTower);
+					}
 					g.drawImage(map[i][j].getTileImage(),map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);
@@ -320,6 +323,9 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 					g.drawImage(grass,map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);
+					if(map[i][j].getTileImage()==null){
+						((Tile)map[i][j]).setTileImage(MagicTower.magicTower);
+					}
 					g.drawImage(map[i][j].getTileImage(),map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);
@@ -331,6 +337,9 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 					g.drawImage(grass,map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);
+					if(map[i][j].getTileImage()==null){
+						((Tile)map[i][j]).setTileImage(CannonTower.cannonTower);
+					}
 					g.drawImage(map[i][j].getTileImage(),map[i][j].getTileX(),
 							map[i][j].getTileY(),map[i][j].getTileWidth(),
 							map[i][j].getTileHeight(), null);

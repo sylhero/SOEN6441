@@ -52,7 +52,7 @@ public abstract class TowerBase extends Tile implements TowerInterface,Serializa
 	protected int towerStratgyType;
 	protected Coin coin = Coin.getCoinObject();
 	protected ArrayList<String> individualTowerLog;
-	protected static ArrayList<String> ALLTOWERLOG = new ArrayList<String>();
+	
 	
 	/**
 	 * Get the tower's value. 
@@ -129,10 +129,7 @@ public abstract class TowerBase extends Tile implements TowerInterface,Serializa
 	public ArrayList<String> getIndividualTowerLog(){
 		return individualTowerLog;
 	}
-	public static void addToAllTowerLog(String log){
-		Date date = new Date();
-		ALLTOWERLOG.add(date.toString()+"   "+ log);
-	}
+	
 	public void addIndevidualTowerLog(String log){
 		Date date = new Date();
 		individualTowerLog.add(date.toString()+"   "+ log);
@@ -144,15 +141,7 @@ public abstract class TowerBase extends Tile implements TowerInterface,Serializa
 		}
 		return result;
 	}
-	public static String getAllTowerLog(){
-		String result = "";
-		for(String s : ALLTOWERLOG){
-			result += s;
-			
-		}
-		return result;
-		
-	}
+	
 
 	/**
 	 * Get the refund rate of the tower. 

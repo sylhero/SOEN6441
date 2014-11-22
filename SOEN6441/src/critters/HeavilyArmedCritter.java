@@ -42,8 +42,8 @@ public class HeavilyArmedCritter extends CritterBase{
 		
 		//set next point
 		this.nextPoint = correctRouteCopy.pollFirst();
-		this.originalHp = 8000;
-		this.currentHp  = 8000;
+		this.originalHp = 5000;
+		this.currentHp  = 5000;
 		this.image = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
 		
 		this.value = 200;

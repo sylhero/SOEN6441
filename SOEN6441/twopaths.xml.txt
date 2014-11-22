@@ -1,9 +1,0 @@
-Creation Time                ,Edit Time                    ,Play Time                    ,Score
-Fri Nov 21 20:06:02 EST 2014 ,                             ,                             ,0
-                             ,Fri Nov 21 20:06:02 EST 2014 ,                             ,0
-                             ,Fri Nov 21 20:06:39 EST 2014 ,                             ,0
-Creation Time                ,Edit Time                    ,Play Time                    ,Score
-Fri Nov 21 20:08:39 EST 2014 ,                             ,                             ,0
-                             ,Fri Nov 21 20:08:39 EST 2014 ,                             ,0
-                             ,Fri Nov 21 20:09:26 EST 2014 ,                             ,0
-                             ,Fri Nov 21 20:10:21 EST 2014 ,                             ,0

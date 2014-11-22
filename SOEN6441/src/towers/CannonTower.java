@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import log.CollectiveLog;
 import log.GlobalLog;
 import log.WaveLog;
 import critters.CritterBase;
@@ -168,7 +169,7 @@ public class CannonTower extends TowerBase implements Serializable{
 			
 			singleTarget.decreaseHp(this.power);
 			this.addIndevidualTowerLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
-			addToAllTowerLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
+			CollectiveLog.addToAllTowerLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
 			GlobalLog.addToGlobalLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
 			WaveLog.addToWaveLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
 			singleTarget.setIsBurning(true);
@@ -178,7 +179,7 @@ public class CannonTower extends TowerBase implements Serializable{
 			if(singleTarget.getCurrentHp()<=0)
 			{
 				this.addIndevidualTowerLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
-				addToAllTowerLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
+				CollectiveLog.addToAllTowerLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
 				GlobalLog.addToGlobalLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
 				WaveLog.addToWaveLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
 				coin.increaseCurrency(singleTarget.getValue());
@@ -202,13 +203,13 @@ public class CannonTower extends TowerBase implements Serializable{
 	//			critter.setIsBurning(true);
 				critter.setAffectedTimes(--burn_times);
 				this.addIndevidualTowerLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
-				addToAllTowerLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
+				CollectiveLog.addToAllTowerLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
 				GlobalLog.addToGlobalLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
 				WaveLog.addToWaveLog(this.name + " burns "+critter.getName()+", HP - "+this.power+"\n");
 				critter.decreaseHp(this.power);
 				if(critter.getCurrentHp()<=0){
 					this.addIndevidualTowerLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
-					addToAllTowerLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
+					CollectiveLog.addToAllTowerLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
 					GlobalLog.addToGlobalLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
 					WaveLog.addToWaveLog(this.name + " kills "+critter.getName()+", coin + "+" "+critter.getValue()+"\n");
 					coin.increaseCurrency(critter.getValue());
