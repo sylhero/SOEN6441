@@ -21,12 +21,12 @@ public class GameData implements Serializable{
 	
 	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
-	protected Coin currency;
+	protected Integer currency;
 	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
 
-	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list, Coin currency){
+	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list, int currency){
 		
 		this.mapData = map_data;
 		this.towerList = tower_list;
@@ -70,14 +70,15 @@ public class GameData implements Serializable{
 		
 	}
 	
-	public void setCoin(Coin cur){
+	public void setCoin(int cur){
 		
 		this.currency = cur;
 	}
 	
 	public int getMoney(){
+		System.out.println(this.currency);
 		
-		return this.currency.getCoinObject().getCurrency();
+		return this.currency;
 	}
 	
 	
