@@ -38,6 +38,7 @@ public class GameStateManager implements MouseMotionListener,MouseListener{
 		gameStates.add(new CreateMapState(this));
 		gameStates.add(new GameOverState(this));
 		gameStates.add(new HighestScoreState(this));
+		gameStates.add(new LoadGameState(this));
 	}
 	/**
 	 * switch among different game states

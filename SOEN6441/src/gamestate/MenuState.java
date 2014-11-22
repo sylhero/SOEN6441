@@ -254,6 +254,12 @@ public class MenuState extends GameState{
 				mouseY <= exitButton.y +exitButton.height){
 			GlobalLog.addToGlobalLog("user clicks exit the game\n");
 			System.exit(0);
+		}else if(mouseX >= loadGameButton.x &&
+				mouseX <= loadGameButton.x + loadGameButton.width &&
+				mouseY >= loadGameButton.y && 
+				mouseY <= loadGameButton.y +loadGameButton.height){
+			gsm.switchState(GameStateManager.LOADGAME);
+			
 		}
 		
 	}

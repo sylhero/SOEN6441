@@ -408,6 +408,17 @@ public class CreateMapState extends GameState{
 			gsm.switchState(GameStateManager.MENUSTATE);
 		}
 			
+	}
+	private void logPressed(MouseEvent e){
+		int x = e.getX();
+		int y = e.getY();
+		if(x >= GamePanel.WIDTH - menuWidth && 
+				x <= GamePanel.WIDTH 
+				&& y >= 9*buttonHeight + 40+18 && y <= 10*buttonHeight + 40+18){
+			GlobalLog.addToGlobalLog("user clicks the log button\n");
+			
+			
+		}
 		
 	}
 	/**
@@ -658,6 +669,13 @@ public class CreateMapState extends GameState{
 		g.setColor(Color.ORANGE);
 		String backToMenu = "Back";
 		g.drawString(backToMenu, GameButtonStartX+5, 8*buttonHeight+80);
+		g.setColor(Color.ORANGE);
+		g.fillRect(GameButtonStartX, 9*buttonHeight + 40+18, 
+					buttonWidth, buttonHeight);
+		g.setColor(Color.BLACK);
+		String mapLog = "Log";
+		g.drawString(mapLog, GameButtonStartX+5, 9*buttonHeight+80);
+		
 		
 		    
 	}
