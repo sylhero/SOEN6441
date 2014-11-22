@@ -59,13 +59,15 @@ public class LoadGameState extends GameState{
 			String path = file.getAbsolutePath();
 			//load the map first
 			
-			Tile[][] tempMap = gameData.ReadGameData(file.getName()).getMapData();
+			gameData.ReadGameData(file.getName());
 			
-			//TODO guan kan zhe li a !!!!!!!!
+			Tile[][] tempMap = gameData.getMapData();
 			
-//			PlayState.towerList = gameData.getTowerList();
-//			System.out.printf("tower list length %d\n",gameData.getTowerList().size());
-			Coin.getCoinObject().setCurrency(gameData.ReadGameData(file.getName()).getMoney());
+			//TODO Fix lalalalalla !!!!!!!!
+			
+			PlayState.towerList = gameData.getTowerList();
+			System.out.printf("tower list length %d\n",gameData.getTowerList().size());
+			Coin.getCoinObject().setCurrency(gameData.getMoney());
 			tileMap.loadGameDataMap(file.getName(), tempMap);
 			//System.out.println(tileMap.getCellHeight());
 			LinkedList<Point> tempPath = ValidateMap.getCorrectRoute(tempMap);
