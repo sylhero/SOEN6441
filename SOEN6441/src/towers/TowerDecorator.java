@@ -7,11 +7,14 @@ import java.awt.Graphics2D;
  *
  */
 public abstract class TowerDecorator extends TowerBase{
+	
 	protected final TowerBase decoratedTower;
+	
 	public TowerDecorator(TowerBase decoratedTower)
 	{
 		this.decoratedTower = decoratedTower;
 	}
+	
 	public void update()
 	{
 		decoratedTower.update();
