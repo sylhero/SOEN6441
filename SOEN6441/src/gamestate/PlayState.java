@@ -1049,8 +1049,8 @@ public class PlayState extends GameState{
 			g.drawString(weakest, 523, 30);
 			String srongest = "Strongest";
 			g.drawString(srongest, 521, 71);
-			String farthest = "Farthest";
-			g.drawString(farthest, 587, 30);
+			String nearestToExit = "NearestToExit";
+			g.drawString(nearestToExit, 587, 30);
 			String nearest ="Nearest";
 			g.drawString(nearest, 587, 71);
 			g.drawImage(Coin.coinImage, 650, 0, 30, 30, null);
@@ -1099,7 +1099,7 @@ public class PlayState extends GameState{
 				g.setColor(Color.GREEN);
 				g.fillRect(582, 5, 60,40);
 				g.setColor(Color.BLACK);
-				g.drawString(farthest, 587, 30);
+				g.drawString(nearestToExit, 587, 30);
 			}
 	}
 		/**
