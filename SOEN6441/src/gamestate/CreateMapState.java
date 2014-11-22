@@ -328,8 +328,8 @@ public class CreateMapState extends GameState{
 			this.mapName = mapParser.getMapName();
 			this.mapRow = map.length;
 			this.mapColumn = map[0].length;
-			mapLog.createLog(file.getName());
-			System.out.println(file.getName());
+			mapLog.createLog(mapName);
+			System.out.println(mapName);
 			mapLog.saveMapLog("edit", 0);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
