@@ -58,7 +58,7 @@ public class LoadGameState extends GameState{
 			//load the map first
 			
 			Tile[][] tempMap = gameData.ReadGameData(file.getName()).getMapData();
-			Coin.getCoinObject().setCurrency(gameData.getMoney());
+			Coin.getCoinObject().setCurrency(gameData.ReadGameData(file.getName()).getMoney());
 			tileMap.loadGameDataMap(file.getName(), tempMap);
 			//System.out.println(tileMap.getCellHeight());
 			tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));
