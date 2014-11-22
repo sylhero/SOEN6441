@@ -12,27 +12,42 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 
+import currency.Coin;
+
 public class MapLog {
-	private String mapName;
+	private static String mapName;
 	private int score;
 	private File mapLog;
-	
-	public MapLog(String mapName) throws IOException
+	String gap = "                             ";
+	private static MapLog mapLogInstance = new MapLog();
+	public static MapLog getMapLogObject()
 	{
-		this.mapName = mapName;
+		return mapLogInstance;
+	}
+	
+	private MapLog()
+	{
+		//this.mapName = mapName;
 		mapLog = new File(mapName+".txt");
 		if(!mapLog.exists())
 		{
-			mapLog.createNewFile();
-			FileWriter writeMapLog = new FileWriter(mapLog.getName(),true);
-			BufferedWriter bwMapLog = new BufferedWriter(writeMapLog);
-			Date date = new Date();
-			bwMapLog.write("Creation Time,Edit Time,Play Time,Score");
-			bwMapLog.newLine();
-			bwMapLog.write(date.toString()+", , ,0");
-			bwMapLog.newLine();
-			bwMapLog.flush();
-			bwMapLog.close();
+			try {
+				mapLog.createNewFile();
+				FileWriter writeMapLog = new FileWriter(mapLog.getName(),true);
+				BufferedWriter bwMapLog = new BufferedWriter(writeMapLog);
+				Date date = new Date();
+				bwMapLog.write("Creation Time"+gap.substring(0,(gap.length()-13))+",Edit Time"+gap.substring(0,(gap.length()-9))+",Play Time"+gap.substring(0,(gap.length()-9))+",Score");
+				bwMapLog.newLine();
+				bwMapLog.write(date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+","+gap+","+"0");
+				bwMapLog.newLine();
+				bwMapLog.flush();
+				bwMapLog.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}	
 	}
 	
@@ -44,13 +59,13 @@ public class MapLog {
 		if(type.equalsIgnoreCase("edit"))
 		{
 			Date date = new Date();
-			bwMapLog.write(" ,"+date.toString()+" , ,0");		
+			bwMapLog.write(gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+",0");		
 			bwMapLog.newLine();
 		}
 		if(type.equalsIgnoreCase("play"))
 		{
 			Date date = new Date();
-			bwMapLog.write(" , ,"+date.toString()+" ,"+Integer.toString(score));
+			bwMapLog.write(gap+","+gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+Integer.toString(score));
 			bwMapLog.newLine();
 		}
 		bwMapLog.flush();
@@ -59,7 +74,24 @@ public class MapLog {
 	
 	public String getLog()
 	{
-		return null;		
+		String log = null;
+		FileReader readLog;
+		try {
+			readLog = new FileReader(mapName+".txt");
+			BufferedReader brLog = new BufferedReader(readLog);
+			String line;
+			while((line = brLog.readLine())!=null)
+			{
+				log+=line;
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return log;		
 	}
 	
 	public int[] topScore() throws IOException
@@ -104,8 +136,8 @@ public class MapLog {
 	public void setGrade(int grade) {
 		this.score = grade;
 	}
-	/*public static void main(String[] Args) throws IOException{
-		MapLog test = new MapLog("test");
+	public static void main(String[] Args) throws IOException{
+		MapLog test = getMapLogObject();
 		test.saveMapLog("edit",0);
 		test.saveMapLog("play",89);
 		test.saveMapLog("play",78);
@@ -122,6 +154,6 @@ public class MapLog {
 			System.out.println(i+":"+testscore[i]);
 		}
 		
-	}*/
+	}
 	
 }

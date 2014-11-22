@@ -2,6 +2,7 @@ package towers;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -25,8 +26,14 @@ import towerstrategy.WeakestStrategy;
  * 
  */
 
-public abstract class TowerBase extends Tile implements TowerInterface{
+public abstract class TowerBase extends Tile implements TowerInterface,Serializable{
 		
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2598169419462915649L;
+	
 	
 	protected String name;
 	protected int level;

@@ -3,6 +3,7 @@ package tilemap;
 
 
 import java.awt.Image;
+import java.io.Serializable;
 /**
  * 
  * @author yulongsong
@@ -10,9 +11,16 @@ import java.awt.Image;
  * 
  */
 
-public class Tile {
+public class Tile implements Serializable{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3049009049133952587L;
+	
 	protected int tileType;
-	protected Image tileImage;
+	protected transient Image tileImage;
 	protected int tileX;
 	protected int tileY;
 	protected int tileWidth;
