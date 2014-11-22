@@ -16,7 +16,7 @@ import currency.Coin;
 
 public class MapLog {
 	private File mapLog;
-	String gap = "                             ";
+	//String gap = "-----------------------------------------------";
 	private static MapLog mapLogObject = new MapLog();
 	public String PATH = System.getProperty("user.dir")+"/resources/maplog/";
 	
@@ -38,13 +38,14 @@ public class MapLog {
 				BufferedWriter bwMapLog = new BufferedWriter(writeMapLog);
 				Date date = new Date();
 				System.out.println("!!");
-				bwMapLog.write("Creation Time"+gap.substring(0,(gap.length()-13))+",Edit Time"+gap.substring(0,(gap.length()-9))+",Play Time"+gap.substring(0,(gap.length()-9))+",Score");
+				//bwMapLog.write("Creation Time"+gap.substring(0,(gap.length()-13))+",Edit Time"+gap.substring(0,(gap.length()-9))+",Play Time"+gap.substring(0,(gap.length()-9))+",Score");
 				System.out.println("!!!");
 				bwMapLog.newLine();
 				System.out.println("!!!");
 				bwMapLog.flush();
 				System.out.println("!!!");
-				bwMapLog.write(date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+","+gap+","+"0");
+				bwMapLog.write(date.toString()+",null,null,0");
+				//bwMapLog.write(date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+","+gap+","+"0");
 				bwMapLog.newLine();
 				bwMapLog.flush();
 				bwMapLog.close();
@@ -66,13 +67,15 @@ public class MapLog {
 			if(type.equalsIgnoreCase("edit"))
 			{
 				Date date = new Date();
-				bwMapLog.write(gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+",0");		
+				//bwMapLog.write("null,"+date.toString()+",null,0");
+				//bwMapLog.write(gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+",0");		
 				bwMapLog.newLine();
 			}
 			if(type.equalsIgnoreCase("play"))
 			{
 				Date date = new Date();
-				bwMapLog.write(gap+","+gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+Integer.toString(score));
+				bwMapLog.write("null,null,"+date.toString()+","+Integer.toString(score));
+				//bwMapLog.write(gap+","+gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+Integer.toString(score));
 				bwMapLog.newLine();
 			}
 			bwMapLog.flush();

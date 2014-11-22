@@ -1,6 +1,6 @@
-Creation Time                ,Edit Time                    ,Play Time                    ,Score
-Fri Nov 21 21:23:57 EST 2014 ,                             ,                             ,0
-                             ,Fri Nov 21 21:23:57 EST 2014 ,                             ,0
-                             ,                             ,Fri Nov 21 21:23:57 EST 2014 ,89
-                             ,                             ,Fri Nov 21 21:23:57 EST 2014 ,78
-                             ,                             ,Fri Nov 21 21:23:57 EST 2014 ,85
+
+Fri Nov 21 22:05:22 EST 2014,null,null,0
+
+null,null,Fri Nov 21 22:05:22 EST 2014,89
+null,null,Fri Nov 21 22:05:22 EST 2014,78
+null,null,Fri Nov 21 22:05:22 EST 2014,85
