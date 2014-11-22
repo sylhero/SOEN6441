@@ -11,6 +11,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import currency.Coin;
 import log.GlobalLog;
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -57,6 +58,7 @@ public class LoadGameState extends GameState{
 			//load the map first
 			
 			Tile[][] tempMap = gameData.ReadGameData(file.getName()).getMapData();
+			fsdafsagameData.getCurrency();
 			tileMap.loadGameDataMap(file.getName(), tempMap);
 			//System.out.println(tileMap.getCellHeight());
 			tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));

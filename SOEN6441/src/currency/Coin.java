@@ -48,6 +48,10 @@ public class Coin implements Serializable{
 	public int getCurrency() {
 		return this.coin;
 	}
+	public void setCurrency(int coin){
+		this.coin = coin;
+		
+	}
 
 	/**
 	 * the amount of coin increased
