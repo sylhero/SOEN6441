@@ -28,6 +28,8 @@ public class CritterWaveBuilderTest {
 	private static CritterWaveBuilder cwb;
 	
 	/**
+	 * Initialize some date members.
+	 * 
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
