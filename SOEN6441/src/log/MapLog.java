@@ -19,15 +19,10 @@ public class MapLog {
 	private int score;
 	private File mapLog;
 	String gap = "                             ";
-	private static MapLog mapLogInstance = new MapLog();
-	public static MapLog getMapLogObject()
-	{
-		return mapLogInstance;
-	}
 	
-	private MapLog()
+	public MapLog(String mapName)
 	{
-		//this.mapName = mapName;
+		this.mapName = mapName;
 		mapLog = new File(mapName+".txt");
 		if(!mapLog.exists())
 		{
@@ -137,7 +132,8 @@ public class MapLog {
 		this.score = grade;
 	}
 	public static void main(String[] Args) throws IOException{
-		MapLog test = getMapLogObject();
+		MapLog test = new MapLog("haha");
+		//test.setMapName("haha");
 		test.saveMapLog("edit",0);
 		test.saveMapLog("play",89);
 		test.saveMapLog("play",78);
