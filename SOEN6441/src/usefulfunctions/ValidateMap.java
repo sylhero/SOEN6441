@@ -6,6 +6,10 @@ import java.util.LinkedList;
 
 import tilemap.Tile;
 import tilemap.TileMap;
+import towers.ArrowTower;
+import towers.CannonTower;
+import towers.IceTower;
+import towers.MagicTower;
 
 /**
  * The ValidateMap class implemented five functions which being used to check
@@ -280,7 +284,19 @@ public class ValidateMap {
 	private static boolean recursiveSolve(int x, int y) {
 	
 		if(x == exitX && y == exitY) return true; // if reached the exit
-		if(localMap[x][y] == TileMap.GRASS || wasHere[x][y])  return false; // if encountered grass or already been here
+		if(localMap[x][y] == TileMap.GRASS || wasHere[x][y])  
+			return false; // if encountered grass or already been here
+		else if(localMap[x][y] == ArrowTower.ARROWTOWERTYPE)
+			return false;
+		else if(localMap[x][y] == CannonTower.CANNONTOWERTYPE)
+			return false;
+		else if(localMap[x][y] == IceTower.ICETOWERTYPE)
+			return false;
+		else if(localMap[x][y] == MagicTower.MAGICTOWERTYPE)
+			return false;
+		
+		
+		
 		
 		wasHere[x][y] = true;
 		

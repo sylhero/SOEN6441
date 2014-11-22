@@ -81,6 +81,7 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 	public static final int ENTRANCE    = 1;
 	public static final int PAVEMENT    = 2;
 	public static final int EXIT        = 3;
+	
 
 	/**
 	 * private constructor	
