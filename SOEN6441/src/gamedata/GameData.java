@@ -66,6 +66,7 @@ public class GameData implements Serializable{
 		
 	public ArrayList<TowerBase> getTowerList(){
 		
+		
 		return this.towerList;
 		
 	}
@@ -95,7 +96,9 @@ public class GameData implements Serializable{
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(this);
 			oos.close();
-			System.out.println("funck!!!!!!!!!!!"+this.currency);
+			System.out.println("Money:"+this.currency);
+			
+			System.out.println("The size of tower list is"+this.towerList.size());
 
 			isTrue = true;
 		} catch(Exception e){
@@ -107,7 +110,7 @@ public class GameData implements Serializable{
 		
 	}
 	
-	public GameData ReadGameData(String file_name){
+	public void ReadGameData(String file_name){
 		
 		GameData gd = new GameData();
 		
@@ -116,6 +119,10 @@ public class GameData implements Serializable{
 			FileInputStream fis = new FileInputStream(PATH+file_name);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			gd = (GameData) ois.readObject();
+			this.mapData = gd.mapData;
+			this.towerList = gd.towerList;
+			this.currency = gd.currency;
+			
 			ois.close();
 			
 		} catch(Exception e){
@@ -123,7 +130,6 @@ public class GameData implements Serializable{
 			e.printStackTrace();
 		}
 		
-		return gd;
 	}
 	
 }
