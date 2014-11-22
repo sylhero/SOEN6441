@@ -26,11 +26,11 @@ public class GameData implements Serializable{
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
 
-	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list, int currency){
+	public GameData(Tile[][] map_data, ArrayList<TowerBase> tower_list, Integer money){
 		
 		this.mapData = map_data;
 		this.towerList = tower_list;
-		this.currency = currency;
+		this.currency = money;
 		
 	}
 	
@@ -70,12 +70,12 @@ public class GameData implements Serializable{
 		
 	}
 	
-	public void setCoin(int cur){
+	public void setCoin(Integer cur){
 		
 		this.currency = cur;
 	}
 	
-	public int getMoney(){
+	public Integer getMoney(){
 		System.out.println(this.currency);
 		
 		return this.currency;
@@ -95,6 +95,7 @@ public class GameData implements Serializable{
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(this);
 			oos.close();
+			System.out.println("funck!!!!!!!!!!!"+this.currency);
 
 			isTrue = true;
 		} catch(Exception e){

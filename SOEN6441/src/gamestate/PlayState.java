@@ -503,8 +503,7 @@ public class PlayState extends GameState{
 		System.out.println(y);
 		if(x >= 308 && x <= 408 && y >=502 && y<=598 ){
 			System.out.println("save");
-			GameData gameDataSaver =new GameData(map,towerList,78);
-			//System.out.println(coin.getCurrency());
+			GameData gameDataSaver =new GameData(map,towerList,new Integer(Coin.getCoinObject().getCurrency()));
 			gameDataSaver.WriteGameData(tileMap.getMapName());
 			
 
