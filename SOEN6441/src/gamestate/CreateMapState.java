@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import log.GlobalLog;
+import log.MapLog;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.ValidateMap;
@@ -49,6 +50,8 @@ public class CreateMapState extends GameState{
 	private boolean isExit;
 	private boolean isGrass;
 	private boolean isLoaded;
+	private MapLog mapLog;
+	
 	
 	//font
 	private Font font;
@@ -77,6 +80,8 @@ public class CreateMapState extends GameState{
 		font         = new Font("Arial",Font.BOLD,12);
 		
 		mapParser    = new MapParser();
+		
+		
 		
 		
 		
@@ -379,6 +384,8 @@ public class CreateMapState extends GameState{
 					mapParser.createXMLFile(map, mapName);
 					GlobalLog.addToGlobalLog("user generates the map\n");
 					System.out.println("generate");
+					mapLog = new MapLog(mapName);
+					
 					//init
 					{
 					printPath(ValidateMap.getCorrectRoute(map));

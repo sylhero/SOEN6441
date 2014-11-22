@@ -1,5 +1,6 @@
 package gamestate;
 
+import gamedata.GameData;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
@@ -12,17 +13,32 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import log.GlobalLog;
 import tilemap.Tile;
+import tilemap.TileMap;
 import usefulfunctions.ValidateMap;
 
 public class LoadGameState extends GameState{
+	private TileMap tileMap;
+	private GameData gameData;
 	public LoadGameState(GameStateManager gsm){
 		this.gsm = gsm;
+		tileMap = tileMap.getTileMap();
+		gameData = new GameData();
 		
 	}
 	private void loadPressed(MouseEvent e){
-//		if(){
-//			
-//		}
+		
+		int x = e.getX();
+
+		int y = e.getY();
+
+		System.out.println(x);
+
+		System.out.println(y);
+		if(x >= 300 && x <= 400 && y >=300 && y<=350 ){
+			fileChooser();
+
+		}
+		
 	}
 	private void fileChooser(){
 	      
@@ -39,9 +55,10 @@ public class LoadGameState extends GameState{
 			//set the tilemap path
 			String path = file.getAbsolutePath();
 			//load the map first
-			//Tile[][] tempMap = tileMap.loadMap(path);
+			
+			Tile[][] tempMap = gameData.ReadGameData(file.getName()).getMapData();
 			//System.out.println(tileMap.getCellHeight());
-			//tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));
+			tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
@@ -71,7 +88,7 @@ public class LoadGameState extends GameState{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		loadPressed(e);
 	}
 
 	@Override
