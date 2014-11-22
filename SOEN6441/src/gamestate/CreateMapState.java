@@ -19,6 +19,7 @@ import log.GlobalLog;
 import log.MapLog;
 import tilemap.Tile;
 import tilemap.TileMap;
+import usefulfunctions.ShowLog;
 import usefulfunctions.ValidateMap;
 import xml.MapParser;
 /**
@@ -80,6 +81,8 @@ public class CreateMapState extends GameState{
 		font         = new Font("Arial",Font.BOLD,12);
 		
 		mapParser    = new MapParser();
+		
+		mapLog       = MapLog.getMapLogObject();
 		
 		
 		
@@ -325,6 +328,9 @@ public class CreateMapState extends GameState{
 			this.mapName = mapParser.getMapName();
 			this.mapRow = map.length;
 			this.mapColumn = map[0].length;
+			mapLog.createLog(file.getName());
+			System.out.println(file.getName());
+			mapLog.saveMapLog("edit", 0);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
 			
@@ -384,7 +390,7 @@ public class CreateMapState extends GameState{
 					mapParser.createXMLFile(map, mapName);
 					GlobalLog.addToGlobalLog("user generates the map\n");
 					System.out.println("generate");
-					mapLog = new MapLog(mapName);
+					mapLog.createLog(mapName);
 					
 					//init
 					{
@@ -423,6 +429,7 @@ public class CreateMapState extends GameState{
 				x <= GamePanel.WIDTH 
 				&& y >= 9*buttonHeight + 40+18 && y <= 10*buttonHeight + 40+18){
 			GlobalLog.addToGlobalLog("user clicks the log button\n");
+			ShowLog.showLog(mapLog.getLog(mapName));
 			
 			
 		}
@@ -468,6 +475,7 @@ public class CreateMapState extends GameState{
 		loadMapPressed(e);
 		generatePressed(e);
 		backPressed(e);
+		logPressed(e);
 	}
 	/**
 	 * not used yet

@@ -18,6 +18,7 @@ public class MapLog {
 	private File mapLog;
 	String gap = "                             ";
 	private static MapLog mapLogObject = new MapLog();
+	public static final String PATH = System.getProperty("user.dir")+"/resources/maplog/";
 	
 	public static MapLog getMapLogObject()
 	{
@@ -26,7 +27,8 @@ public class MapLog {
 	
 	public void createLog(String mapName)
 	{
-		mapLog = new File(mapName+".txt");
+		mapLog = new File(PATH+mapName+".txt");
+		System.out.println(mapLog.getName());
 		if(!mapLog.exists())
 		{
 			try {
@@ -47,9 +49,11 @@ public class MapLog {
 		}
 	}
 	
-	public void saveMapLog(String type, int score) throws IOException
+	public void saveMapLog(String type, int score) 
+	
 	{
-		FileWriter writeMapLog = new FileWriter(mapLog.getName(),true);
+		try{
+		FileWriter writeMapLog = new FileWriter(PATH+mapLog.getName(),true);
 		BufferedWriter bwMapLog = new BufferedWriter(writeMapLog);
 		if(type.equalsIgnoreCase("edit"))
 		{
@@ -65,6 +69,9 @@ public class MapLog {
 		}
 		bwMapLog.flush();
 		bwMapLog.close();		
+	}catch(Exception e){
+		e.printStackTrace();
+	}
 	}
 	
 	public String getLog(String mapName)
@@ -72,7 +79,7 @@ public class MapLog {
 		String log = null;
 		FileReader readLog;
 		try {
-			readLog = new FileReader(mapName+".txt");
+			readLog = new FileReader(PATH+mapName+".txt");
 			BufferedReader brLog = new BufferedReader(readLog);
 			String line;
 			while((line = brLog.readLine())!=null)
@@ -92,7 +99,7 @@ public class MapLog {
 	public int[] topScore(String mapName) throws IOException
 	{
 		int[] topScore = new int[5];
-		FileReader readLog = new FileReader(mapName+".txt");
+		FileReader readLog = new FileReader(PATH+mapName+".txt");
 		BufferedReader brLog = new BufferedReader(readLog);
 		ArrayList scoreList = new ArrayList();
 		String line;
