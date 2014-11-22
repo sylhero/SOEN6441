@@ -74,6 +74,7 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 	public transient static final Image entrance    = LoadImage.loadImage("/images/entrance.png");
 	public transient static final Image exit        = LoadImage.loadImage("/images/destination.png");	
 	
+	
 	//types 
 	public static final int GRASS       = 0;
 	public static final int ENTRANCE    = 1;
@@ -109,6 +110,15 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 		cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;		
 		return map;
 		
+	}
+	public void loadGameDataMap(String mapName, Tile[][] tileMap){
+		name = mapName;
+		map = tileMap;
+		mapRow = map.length;
+		mapCol = map[0].length;
+		cellWidth  = GamePanel.WIDTH / mapCol;
+        //top 100 for menu below 100 for buttons
+		cellHeight = (GamePanel.HEIGHT - upperOffSet - lowerOffSet)/ mapRow;	
 	}
 	/**
 	 * set the correct path
