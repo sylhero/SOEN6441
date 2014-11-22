@@ -1048,7 +1048,7 @@ public class PlayState extends GameState{
 			g.drawString(weakest, 523, 30);
 			String srongest = "Strongest";
 			g.drawString(srongest, 521, 71);
-			String nearestToExit = "NearestToExit";
+			String nearestToExit = "Farthest";
 			g.drawString(nearestToExit, 587, 30);
 			String nearest ="Nearest";
 			g.drawString(nearest, 587, 71);

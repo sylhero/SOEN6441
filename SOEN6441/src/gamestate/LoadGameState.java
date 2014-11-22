@@ -5,8 +5,10 @@ import gamepanel.GamePanel;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.LinkedList;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -58,10 +60,17 @@ public class LoadGameState extends GameState{
 			//load the map first
 			
 			Tile[][] tempMap = gameData.ReadGameData(file.getName()).getMapData();
+			
+			//TODO guan kan zhe li a !!!!!!!!
+			
+//			PlayState.towerList = gameData.getTowerList();
+//			System.out.printf("tower list length %d\n",gameData.getTowerList().size());
 			Coin.getCoinObject().setCurrency(gameData.ReadGameData(file.getName()).getMoney());
 			tileMap.loadGameDataMap(file.getName(), tempMap);
 			//System.out.println(tileMap.getCellHeight());
-			tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));
+			LinkedList<Point> tempPath = ValidateMap.getCorrectRoute(tempMap);
+			tileMap.setCorrectPath(tempPath);
+			
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
