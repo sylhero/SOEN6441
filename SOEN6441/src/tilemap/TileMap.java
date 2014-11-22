@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
 import java.text.DateFormat;
@@ -35,7 +36,7 @@ import xml.MapParser;
  * singleton design pattern
  * @author yulongsong
  */
-public class TileMap implements MouseMotionListener,MouseListener{
+public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 	
 	
 	//the map
@@ -65,13 +66,13 @@ public class TileMap implements MouseMotionListener,MouseListener{
 	
 	//image for menu background
 	
-	public static final Image menuBackground = LoadImage.loadImage("/images/submenubackground.png");
+	public transient static final Image menuBackground = LoadImage.loadImage("/images/submenubackground.png");
 	
 	//images for the map
-	public static final Image grass       = LoadImage.loadImage("/images/grass.png");
-	public static final Image pavement    = LoadImage.loadImage("/images/pavement.png");
-	public static final Image entrance    = LoadImage.loadImage("/images/entrance.png");
-	public static final Image exit        = LoadImage.loadImage("/images/destination.png");	
+	public transient static final Image grass       = LoadImage.loadImage("/images/grass.png");
+	public transient static final Image pavement    = LoadImage.loadImage("/images/pavement.png");
+	public transient static final Image entrance    = LoadImage.loadImage("/images/entrance.png");
+	public transient static final Image exit        = LoadImage.loadImage("/images/destination.png");	
 	
 	//types 
 	public static final int GRASS       = 0;

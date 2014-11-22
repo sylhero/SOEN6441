@@ -2,6 +2,7 @@ package towers;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import log.GlobalLog;
@@ -17,10 +18,15 @@ import usefulfunctions.LoadImage;
  * @author Yulong Song, Xunrong Xia, Hongrui Guan
  */
 
-public class MagicTower extends TowerBase{
+public class MagicTower extends TowerBase implements Serializable{
 	
-	public static final Image magicTower         = LoadImage.loadImage("/images/magictower.png");
-	public static final Image magicTowerEffect   = LoadImage.loadImageIcon("/images/magictowereffect.gif").getImage();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1954593193369181392L;
+	
+	public transient static final Image magicTower         = LoadImage.loadImage("/images/magictower.png");
+	public transient static final Image magicTowerEffect   = LoadImage.loadImageIcon("/images/magictowereffect.gif").getImage();
 	public static final int MAGICTOWERTYPE  = 7;
 	public static int NAMENUMBER = 0;
 	

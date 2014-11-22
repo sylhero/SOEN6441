@@ -2,6 +2,7 @@ package towers;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -23,9 +24,15 @@ import usefulfunctions.LoadImage;
  * 
  * @author Yulong Song, Xunrong Xia
  */
-public class ArrowTower extends TowerBase{
-	public static final Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
-	public static final Image arrowTowerEffect   = LoadImage.loadImageIcon("/images/arrowtowereffect.gif").getImage();
+public class ArrowTower extends TowerBase implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2806295576326098798L;
+	
+	public transient static final Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
+	public transient static final Image arrowTowerEffect   = LoadImage.loadImageIcon("/images/arrowtowereffect.gif").getImage();
 	public static final int ARROWTOWERTYPE  = 4;
 	public static int NAMENUMBER = 0;
 	

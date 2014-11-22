@@ -2,6 +2,7 @@ package towers;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -31,11 +32,16 @@ import usefulfunctions.LoadImage;
  * 
  */
 
-public class IceTower extends TowerBase {
+public class IceTower extends TowerBase implements Serializable {
 
-	public static final Image iceTower = LoadImage
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1441784156335381889L;
+	
+	public transient static final Image iceTower = LoadImage
 			.loadImage("/images/icetower.png");
-	public static final Image iceTowerEffect   = LoadImage.
+	public transient static final Image iceTowerEffect   = LoadImage.
 			loadImageIcon("/images/icetowereffect.gif").getImage();
 	public static final int ICETOWERTYPE = 6;
 	public static int NAMENUMBER = 0;

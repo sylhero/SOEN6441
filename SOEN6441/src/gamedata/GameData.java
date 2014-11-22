@@ -43,6 +43,14 @@ public class GameData implements Serializable{
 	
 	public Tile[][] getMapData(){
 		
+		System.out.println("I can get map data from .ser!!!!!!!!!!!!!!");
+		
+		for(int i=0; i<this.mapData.length; i++){
+			for(int j=0; j<this.mapData[0].length; j++){
+				System.out.println(mapData[i][j].getTileType());
+			}
+		}
+		
 		return this.mapData;
 		
 	}
@@ -101,6 +109,5 @@ public class GameData implements Serializable{
 		
 		return gd;
 	}
-	
 	
 }
