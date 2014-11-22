@@ -15,14 +15,17 @@ import java.util.Date;
 import currency.Coin;
 
 public class MapLog {
-	private static String mapName;
-	private int score;
 	private File mapLog;
 	String gap = "                             ";
+	private static MapLog mapLogObject = new MapLog();
 	
-	public MapLog(String mapName)
+	public static MapLog getMapLogObject()
 	{
-		this.mapName = mapName;
+		return mapLogObject;
+	}
+	
+	public void createLog(String mapName)
+	{
 		mapLog = new File(mapName+".txt");
 		if(!mapLog.exists())
 		{
@@ -40,17 +43,14 @@ public class MapLog {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			
-			
-		}	
+			}			
+		}
 	}
 	
 	public void saveMapLog(String type, int score) throws IOException
 	{
 		FileWriter writeMapLog = new FileWriter(mapLog.getName(),true);
 		BufferedWriter bwMapLog = new BufferedWriter(writeMapLog);
-		this.score = score;
 		if(type.equalsIgnoreCase("edit"))
 		{
 			Date date = new Date();
@@ -67,7 +67,7 @@ public class MapLog {
 		bwMapLog.close();		
 	}
 	
-	public String getLog()
+	public String getLog(String mapName)
 	{
 		String log = null;
 		FileReader readLog;
@@ -89,7 +89,7 @@ public class MapLog {
 		return log;		
 	}
 	
-	public int[] topScore() throws IOException
+	public int[] topScore(String mapName) throws IOException
 	{
 		int[] topScore = new int[5];
 		FileReader readLog = new FileReader(mapName+".txt");
@@ -116,24 +116,10 @@ public class MapLog {
 		brLog.close();
 		return topScore;		
 	}
-	
-	
-	public String getMapName() {
-		return mapName;
-	}
-	public void setMapName(String mapName) {
-		this.mapName = mapName;
-	}
-	
-	public int getGrade() {
-		return score;
-	}
-	public void setGrade(int grade) {
-		this.score = grade;
-	}
+
 	public static void main(String[] Args) throws IOException{
-		MapLog test = new MapLog("haha");
-		//test.setMapName("haha");
+		MapLog test = getMapLogObject();
+		test.createLog("haha");
 		test.saveMapLog("edit",0);
 		test.saveMapLog("play",89);
 		test.saveMapLog("play",78);
@@ -142,9 +128,15 @@ public class MapLog {
 		test.saveMapLog("play",895);
 		test.saveMapLog("play",563);
 		
+		test.createLog("hehe");
+		test.saveMapLog("edit",0);
+		test.saveMapLog("play",89);
+		test.saveMapLog("play",78);
+		test.saveMapLog("play",85);
+		
 		String lint = " , ,Fri Nov 21 17:43:34 EST 2014 ,90";
 		String[] tem = lint.split(",");
-		int[] testscore = test.topScore();
+		int[] testscore = test.topScore("hehe");
 		for(int i=0;i<testscore.length;i++)
 		{
 			System.out.println(i+":"+testscore[i]);
