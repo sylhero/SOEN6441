@@ -11,6 +11,7 @@ import java.util.LinkedList;
 
 import log.CollectiveLog;
 import log.GlobalLog;
+import log.MapLog;
 import log.WaveLog;
 import critters.CritterBase;
 import critters.CritterWave;
@@ -918,6 +919,7 @@ public class PlayState extends GameState{
 				critter.update();
 				if(critter.isAtExit()){
 					WaveLog.addToWaveLog("one critter arrived exit"+"\n");
+					MapLog.getMapLogObject().playMapLog(getScore());
 					gsm.switchState(GameStateManager.GAMEOVER);
 				}
 				for(int i = 0; i< towerList.size();i++){
@@ -936,6 +938,13 @@ public class PlayState extends GameState{
 					
 		}
 		
+	}
+	private int getScore(){
+		int result = coin.getCurrency();
+		for( int i =0; i<towerList.size();i++){
+			result += towerList.get(i).getValue();
+		}
+		return result;
 	}
 //============FROM HERE DRAWING BEGIN==================================
 	/**
