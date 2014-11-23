@@ -15,6 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import currency.Coin;
 import log.GlobalLog;
+import log.MapLog;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.ValidateMap;
@@ -72,7 +73,7 @@ public class LoadGameState extends GameState{
 			//System.out.println(tileMap.getCellHeight());
 			LinkedList<Point> tempPath = ValidateMap.getCorrectRoute(tempMap);
 			tileMap.setCorrectPath(tempPath);
-			
+			MapLog.getMapLogObject().getTopFive(file.getName().trim().split("\\.")[0]);
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
