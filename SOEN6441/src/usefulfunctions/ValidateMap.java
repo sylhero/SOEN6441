@@ -294,10 +294,7 @@ public class ValidateMap {
 			return false;
 		else if(localMap[x][y] == MagicTower.MAGICTOWERTYPE)
 			return false;
-		
-		
-		
-		
+			
 		wasHere[x][y] = true;
 		
 		if(x != 0) // checks if not on Left edge
