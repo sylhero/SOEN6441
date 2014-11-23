@@ -506,8 +506,10 @@ public class PlayState extends GameState{
 		if(x >= 308 && x <= 408 && y >=502 && y<=598 ){
 			System.out.println("save");
 			GameData gameDataSaver =new GameData(map,towerList,new Integer(Coin.getCoinObject().getCurrency()));
-			gameDataSaver.WriteGameData(tileMap.getMapName());
 			
+			System.out.println("Removed suffix of file, file name is "+ tileMap.getMapName().split("\\.")[0]);
+			
+			gameDataSaver.WriteGameData(tileMap.getMapName().split("\\.")[0]);			
 
 		}
 		
