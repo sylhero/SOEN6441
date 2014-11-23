@@ -98,9 +98,10 @@ public class GameData implements Serializable{
 			oos.close();
 			System.out.println("Money:"+this.currency);
 			
-			System.out.println("The size of tower list is"+this.towerList.size());
+			System.out.println("The size of tower list is "+this.towerList.size());
 
 			isTrue = true;
+			
 		} catch(Exception e){
 			
 			e.printStackTrace();
