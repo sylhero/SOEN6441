@@ -15,176 +15,179 @@ import java.util.Date;
 import currency.Coin;
 
 public class MapLog {
-	private File mapLog;
-	//String gap = "-----------------------------------------------";
+	private String mapName;
 	private static MapLog mapLogObject = new MapLog();
-	public String PATH = System.getProperty("user.dir")+"/resources/maplog/";
+	public static final String PATH = System.getProperty("user.dir")+"/resources/maplog/";
 	
+	private MapLog(){
+		
+	}
 	public static MapLog getMapLogObject()
 	{
 		return mapLogObject;
 	}
-	
-	public void createLog(String mapName)
-	{
-		mapLog = new File(PATH + mapName+".txt");
-		System.out.println(mapLog.getName());
-		if(!mapLog.exists())
-		{
-
+	private void writeToFile(String mapName, String log){
+		try {
+			 
+ 
+			File file = new File(PATH+mapName+".txt");
+ 
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+ 
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(log);
+			bw.close();
+ 
+			System.out.println("Done");
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	private String readFromFile(String mapName,String position){
+		BufferedReader br = null;
+		String sCurrentLine="";
+		String temp = "";
+		 
+		try {
+ 
+			br = new BufferedReader(new FileReader(PATH+mapName+".txt"));
+			if(position.equalsIgnoreCase("first")){
+				sCurrentLine = br.readLine();
+			}else if(position.equalsIgnoreCase("last")){
+				while ((temp = br.readLine()) != null) 
+			    {
+					sCurrentLine = temp;
+			    }
+			}else if(position.equalsIgnoreCase("all")){
+				while ((temp = br.readLine()) != null) 
+			    {
+					sCurrentLine += temp+"\n";
+			    }
+				
+			}
+			
+ 
+			
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				mapLog.createNewFile();
-				FileWriter writeMapLog = new FileWriter(PATH + mapLog.getName(),true);
-				BufferedWriter bwMapLog = new BufferedWriter(writeMapLog);
-				Date date = new Date();
-				System.out.println("!!");
-				//bwMapLog.write("Creation Time"+gap.substring(0,(gap.length()-13))+",Edit Time"+gap.substring(0,(gap.length()-9))+",Play Time"+gap.substring(0,(gap.length()-9))+",Score");
-				System.out.println("!!!");
-				bwMapLog.newLine();
-				System.out.println("!!!");
-				bwMapLog.flush();
-				System.out.println("!!!");
-				bwMapLog.write(date.toString()+",null,null,0");
-				//bwMapLog.write(date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+","+gap+","+"0");
-				bwMapLog.newLine();
-				bwMapLog.flush();
-				bwMapLog.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				if (br != null)br.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
 			}
-								
 		}
+		return sCurrentLine;
+ 
+	}
+	
+	
+	private ArrayList<Integer> readScore(String mapName){
+		ArrayList<Integer> tempFive = new ArrayList<Integer>(5);
+		tempFive.add(0);
+		tempFive.add(0);
+		tempFive.add(0);
+		tempFive.add(0);
+		tempFive.add(0);
+		
+		BufferedReader br = null;
+		String current="";
+		 
+		try {
+			br = new BufferedReader(new FileReader(PATH+mapName+".txt"));
+			while ((current = br.readLine()) != null){
+				String[] temp = current.split(",");
+				tempFive.add(Integer.parseInt(temp[temp.length-1]));	
+				
+			}
+ 
+			
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)br.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return tempFive;
 		
 	}
 	
-	public void saveMapLog(String type, int score) 	
-	{
-		System.out.println("save map log"+mapLog.getName());
-		try{
-			FileWriter writeMapLog = new FileWriter(PATH + mapLog.getName(),true);
-			BufferedWriter bwMapLog = new BufferedWriter(writeMapLog);
-			if(type.equalsIgnoreCase("edit"))
-			{
-				Date date = new Date();
-				//bwMapLog.write("null,"+date.toString()+",null,0");
-				//bwMapLog.write(gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+gap+",0");		
-				bwMapLog.newLine();
-			}
-			if(type.equalsIgnoreCase("play"))
-			{
-				Date date = new Date();
-				bwMapLog.write("null,null,"+date.toString()+","+Integer.toString(score));
-				//bwMapLog.write(gap+","+gap+","+date.toString()+gap.substring(0,(gap.length()-date.toString().length()))+","+Integer.toString(score));
-				bwMapLog.newLine();
-			}
-			bwMapLog.flush();
-			bwMapLog.close();		
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+	
+	public String getMapName(){
+		return this.mapName;
 	}
 	
-	public String getLog(String mapName)
+	public void createMapLog(String mapName)
 	{
+		File file = new File(PATH+mapName+".txt");
+		 
+		// if file doesnt exists, then create it
+		if (file.exists()) {
+			return;
+		}else{
+			Date date  = new Date();
+			String log =date.toString()+","+"null,"+"null,"+0+"\n";
+			writeToFile(mapName,log);
+		}
 		
-		String log ="";
-		FileReader readLog;
-		try {
-			readLog = new FileReader(PATH + mapName+".txt");
-			BufferedReader brLog = new BufferedReader(readLog);
-			String line;
-			while((line = brLog.readLine())!=null)
-			{
-				log+=line+"\n";
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		return log;		
+		
+		
+	}
+	public void editMapLog(String mapName){
+		Date date  = new Date();
+		String tempLine = readFromFile(mapName,"first");
+		String creationTime = tempLine.split(",")[0];
+		String log =creationTime+","+date.toString()+","+"null,"+0+"\n";
+		writeToFile(mapName,log);
+		
+	}
+	public void playMapLog(int score){
+		String tempLine = readFromFile(mapName,"last");
+		String[] split = tempLine.split(",");
+		String creationTime = split[0];
+		String editTime = split[1];
+		Date date = new Date();
+		String log = creationTime+","+editTime+","+date.toString()+","+score+"\n";
+		writeToFile(mapName,log);
+		
+		
+	}
+	public ArrayList<Integer> getTopFive(String mapName){
+		this.mapName = mapName;
+		ArrayList<Integer> tempTopFive = readScore(mapName);
+		Collections.sort(tempTopFive);
+		Collections.reverse(tempTopFive);
+		return tempTopFive;
+	
+	}
+	public String getAllMapLog(String mapName){
+		return readFromFile(mapName,"all");
+		
 	}
 	
-	public int[] topScore(String mapName)
-	{
-		int[] topScore = new int[5];
-		FileReader readLog = null;
-		try {
-			readLog = new FileReader(PATH + mapName+".txt");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	
+	public static void main(String[] Args){
+		MapLog mapLog = MapLog.getMapLogObject();
+		mapLog.createMapLog("mypath.xml");
+		ArrayList<Integer> temp = mapLog.getTopFive("mypath.xml");
+		for(Integer i: temp){
+			System.out.println(i);
 		}
-		BufferedReader brLog = new BufferedReader(readLog);
-		ArrayList scoreList = new ArrayList();
-		String line;
-		String[] temp;
-		//String line2;
-		try {
-			line = brLog.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			while((line = brLog.readLine())!=null)
-			{
-				//line = brLog.readLine();
-				System.out.println(line);
-				temp = line.split(",");
-				scoreList.add(Integer.parseInt(temp[3]));
-				System.out.println(temp[3]);
-			}
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Collections.sort(scoreList);
-		Collections.reverse(scoreList);
-		for(int i = 0;i<topScore.length;i++)
-		{
-			topScore[i]=(int) scoreList.get(i);
-		}
-		try {
-			brLog.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return topScore;		
-	}
-
-	public static void main(String[] Args) throws IOException{
-		MapLog test = getMapLogObject();
-		test.createLog("haha");
-		test.saveMapLog("edit",0);
-		test.saveMapLog("play",89);
-		test.saveMapLog("play",78);
-		test.saveMapLog("play",85);
-		test.saveMapLog("play",12);
-		test.saveMapLog("play",895);
-		test.saveMapLog("play",563);
 		
-		test.createLog("hehe");
-		test.saveMapLog("edit",0);
-		test.saveMapLog("play",89);
-		test.saveMapLog("play",78);
-		test.saveMapLog("play",85);
 		
-		//String lint = " , ,Fri Nov 21 17:43:34 EST 2014 ,90";
-		//String[] tem = lint.split(",");
-		//int[] testscore = test.topScore("hehe");
-		//for(int i=0;i<testscore.length;i++)
-		//{
-			//System.out.println(i+":"+testscore[i]);
-		//}
 		
 	}
+	
+	
 	
 }

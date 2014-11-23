@@ -6,8 +6,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+import log.MapLog;
 
 public class HighestScoreState extends GameState {
+	private MapLog mapLog = MapLog.getMapLogObject();
+	private String mapName;
+	private ArrayList<Integer> topFive;
 	
 	public HighestScoreState(GameStateManager gsm){
 		this.gsm = gsm;
@@ -33,14 +39,31 @@ public class HighestScoreState extends GameState {
 		
 	}
 	
-	private void pressMapLog(MouseEvent e){
+	private void pressStart(MouseEvent e){
+		
+		int tempX = e.getX();
+		int tempY = e.getY();
+		if(tempX >= 260 && tempX <= 360 &&
+				tempY >= 430 && tempY <= 480 ){
+			gsm.switchState(GameStateManager.GAMESTART);
+		}
+		
+	}
+	private void pressBack(MouseEvent e){
+		int tempX = e.getX();
+		int tempY = e.getY();
+		if(tempX >= 400 && tempX <= 500 &&
+				tempY >= 430 && tempY <= 480 ){
+			gsm.switchState(GameStateManager.SELECTMAP);
+		}
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		pressStart(e);
+		pressBack(e);
 	}
 
 	@Override
@@ -83,6 +106,9 @@ public class HighestScoreState extends GameState {
 	public void init() {
 		// TODO Auto-generated method stub
 		
+		this.mapName = mapLog.getMapName();
+		topFive = mapLog.getTopFive(mapName);
+		
 	}
 
 	@Override
@@ -99,16 +125,16 @@ public class HighestScoreState extends GameState {
 		g.setColor(Color.black);
 		g.fillRect(0,0, GamePanel.WIDTH, GamePanel.HEIGHT);
 		g.setColor(Color.RED);
-		String mapName = "liyichen.xml";
-		g.setFont(new Font("Arial",Font.BOLD,30));
+		g.setFont(new Font("Arial",Font.BOLD,35));
 		g.setColor(Color.RED);
-		g.drawString(mapName, 300, 200);
+		g.drawString(mapName, 300, 150);
+		g.setFont(new Font("Arial",Font.BOLD,30));
 		g.setColor(Color.WHITE);
-		String score1 = "NO.1 "+"3000";
-		String score2 = "NO.2 "+"2988";
-		String score3 = "NO.3 "+"2480";
-		String score4 = "NO.4 "+"2599";
-		String score5 = "NO.5 "+"2698";
+		String score1 = "NO.1 "+topFive.get(0);
+		String score2 = "NO.2 "+topFive.get(1);
+		String score3 = "NO.3 "+topFive.get(2);
+		String score4 = "NO.4 "+topFive.get(3);
+		String score5 = "NO.5 "+topFive.get(4);
 		g.drawString(score1, 320, 240);
 		g.drawString(score2, 320, 280);
 		g.drawString(score3, 320, 320);

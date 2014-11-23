@@ -328,9 +328,8 @@ public class CreateMapState extends GameState{
 			this.mapName = mapParser.getMapName();
 			this.mapRow = map.length;
 			this.mapColumn = map[0].length;
-			mapLog.createLog(mapName);
+			mapLog.editMapLog(mapName);
 			System.out.println(mapName);
-			mapLog.saveMapLog("edit", 0);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
 			
@@ -390,7 +389,7 @@ public class CreateMapState extends GameState{
 					mapParser.createXMLFile(map, mapName);
 					GlobalLog.addToGlobalLog("user generates the map\n");
 					System.out.println("generate");
-					mapLog.createLog(mapName);
+					mapLog.createMapLog(mapName);
 					
 					//init
 					{
@@ -429,7 +428,7 @@ public class CreateMapState extends GameState{
 				x <= GamePanel.WIDTH 
 				&& y >= 9*buttonHeight + 40+18 && y <= 10*buttonHeight + 40+18){
 			GlobalLog.addToGlobalLog("user clicks the log button\n");
-			ShowLog.showLog(mapLog.getLog(mapName));
+			ShowLog.showLog(mapLog.getAllMapLog(mapName));
 			
 			
 		}

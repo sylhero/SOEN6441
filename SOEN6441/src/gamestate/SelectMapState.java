@@ -12,6 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import log.GlobalLog;
+import log.MapLog;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.LoadImage;
@@ -28,6 +29,7 @@ public class SelectMapState extends GameState{
 	private Image titleImage;
 	private Image mapIcon;
 	private TileMap tileMap;
+	private MapLog mapLog = MapLog.getMapLogObject();
 	/**
 	 * constructor
 	 * @param gsm The game state manager. 
@@ -104,7 +106,11 @@ public class SelectMapState extends GameState{
 			Tile[][] tempMap = tileMap.loadMap(path);
 			//System.out.println(tileMap.getCellHeight());
 			tileMap.setCorrectPath(ValidateMap.getCorrectRoute(tempMap));
-			gsm.switchState(GameStateManager.GAMESTART);
+			System.out.printf("this is select map %s",file.getName());
+			String mapName = file.getName().trim().split("\\.")[0];
+			mapLog.getTopFive(mapName);
+			
+			gsm.switchState(GameStateManager.HIGHEST);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
 			//cancel set none
 			

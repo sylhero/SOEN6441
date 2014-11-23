@@ -6,8 +6,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import log.GlobalLog;
+import log.MapLog;
 /**
  * this is the game over state
  * @author yulongsong
@@ -18,6 +20,10 @@ public class GameOverState extends GameState{
 	 * constructor
 	 * @param gsm The game state manager.
 	 */
+	
+	private String mapName;
+	private MapLog mapLog = MapLog.getMapLogObject();
+	private ArrayList<Integer> topFive;
 	public GameOverState(GameStateManager gsm){
 		this.gsm = gsm;
 	}
@@ -50,13 +56,13 @@ public class GameOverState extends GameState{
 	}
 	/**
 	 * press quit button event
-	 * @param e
+	 * @param e320, 430, 100, 50
 	 */
 	private void pressQuit(MouseEvent e){
 		int x = e.getX();
 		int y = e.getY();
-		if(x >= GamePanel.WIDTH/2-70 && x<= GamePanel.WIDTH/2+50
-				&& y >=GamePanel.HEIGHT/2+40 && y<= GamePanel.HEIGHT/2+90){
+		if(x >= 320 && x<= 420
+				&& y >=430 && y<= 480){
 			GlobalLog.addToGlobalLog("user press quit button."+"\n");
 			System.exit(0);
 		}
@@ -143,6 +149,8 @@ public class GameOverState extends GameState{
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
+		mapName = mapLog.getMapName();
+		topFive = mapLog.getTopFive(mapName);
 		
 	}
 	/**
@@ -163,18 +171,28 @@ public class GameOverState extends GameState{
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT);
 		g.setColor(Color.RED);
-		String GameOver = "Game Over";
-		g.setFont(new Font("Arial",Font.BOLD,30));
-		g.drawString(GameOver, GamePanel.WIDTH/2-80, GamePanel.HEIGHT/2);
-		g.setColor(Color.WHITE);
-		g.fillRect(GamePanel.WIDTH/2-70, GamePanel.HEIGHT/2+40, 120, 50);
+		g.setFont(new Font("Arial",Font.BOLD,35));
 		g.setColor(Color.RED);
-		g.setFont(new Font("Arial",Font.BOLD,20));
-		g.drawString("QUIT", GamePanel.WIDTH/2-40, GamePanel.HEIGHT/2+70);
-//		g.setColor(Color.WHITE);
-//		g.fillRect(GamePanel.WIDTH/2-70, GamePanel.HEIGHT/2+110, 120, 50);
-//		g.setColor(Color.GREEN);
-//		g.drawString("RESTART", GamePanel.WIDTH/2-60, GamePanel.HEIGHT/2+140);
+		g.drawString("Game Over", 300, 150);
+		g.setColor(Color.WHITE);
+		
+		String score1 = "NO.1 "+topFive.get(0);
+		String score2 = "NO.2 "+topFive.get(1);
+		String score3 = "NO.3 "+topFive.get(2);
+		String score4 = "NO.4 "+topFive.get(3);
+		String score5 = "NO.5 "+topFive.get(4);
+		g.drawString(score1, 320, 240);
+		g.drawString(score2, 320, 280);
+		g.drawString(score3, 320, 320);
+		g.drawString(score4, 320, 360);
+		g.drawString(score5, 320, 400);
+		g.setColor(Color.GREEN);
+		g.fillRect(320, 430, 100, 50);
+		g.setColor(Color.BLACK);
+		String start = "QUIT";
+		g.drawString(start, 330, 460);
+		
+		
 	}
 	
 
