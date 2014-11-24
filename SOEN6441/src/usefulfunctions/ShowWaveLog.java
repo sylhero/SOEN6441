@@ -9,15 +9,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
 public class ShowWaveLog {
-	public static int batchCounter = 0;
-	public static  JTabbedPane tpane = new JTabbedPane();
 	
-	
-	public static void addWaveTab(String log){
-		tpane.addTab("Wave"+batchCounter++, null, new JScrollPane(new TextArea(log)));
-		
-	}
-	public static void showWaveLog(){
+	public static void showWaveLog(JTabbedPane tpane){
 		
 			  tpane.setPreferredSize( new Dimension( 800, 600 ) );
 			JOptionPane.showMessageDialog(null, tpane, "wave log",  

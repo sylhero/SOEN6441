@@ -740,7 +740,7 @@ public class PlayState extends GameState{
 		        //CollectiveLog.addToAllTowerLog("user clicks the wave log button\n");
 	    		GlobalLog.addToGlobalLog("user clicks the wave log button\n");
 	    		WaveLog.addToWaveLog("user clicks the wave log button\n");
-		        ShowWaveLog.showWaveLog();
+		        ShowWaveLog.showWaveLog(WaveLog.tpane);
 		        
 			}
 			
@@ -931,8 +931,7 @@ public class PlayState extends GameState{
 			}
 			if(critterBatch.size()==deadCritterCounter){
 				WaveLog.addToWaveLog("this wave ends"+"\n");
-				String waveString = WaveLog.getAllWaveLog();
-				ShowWaveLog.addWaveTab(waveString);
+				WaveLog.addWaveTab();
 				fillBatch();
 				isNextWave = false;
 				
