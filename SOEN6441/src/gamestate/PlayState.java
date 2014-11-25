@@ -17,7 +17,7 @@ import critters.CritterBase;
 import critters.CritterWave;
 import critters.CritterWaveBuilder;
 import currency.Coin;
-import gamedata.GameData;
+import gamedata.GameDataParser;
 import gamepanel.GamePanel;
 import tilemap.Tile;
 import tilemap.TileMap;
@@ -505,7 +505,7 @@ public class PlayState extends GameState{
 		System.out.println(y);
 		if(x >= 308 && x <= 408 && y >=502 && y<=598 ){
 			System.out.println("save");
-			GameData gameDataSaver =new GameData(map,towerList,new Integer(Coin.getCoinObject().getCurrency()));
+			GameDataParser gameDataSaver =new GameDataParser(map,towerList,new Integer(Coin.getCoinObject().getCurrency()));
 			
 			System.out.println("Removed suffix of file, file name is "+ tileMap.getMapName().split("\\.")[0]);
 			

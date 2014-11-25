@@ -1,6 +1,6 @@
 package gamestate;
 
-import gamedata.GameData;
+import gamedata.GameDataParser;
 import gamepanel.GamePanel;
 
 import java.awt.Color;
@@ -26,11 +26,11 @@ import usefulfunctions.ValidateMap;
  */
 public class LoadGameState extends GameState{
 	private TileMap tileMap;
-	private GameData gameData;
+	private GameDataParser gameData;
 	public LoadGameState(GameStateManager gsm){
 		this.gsm = gsm;
 		tileMap = tileMap.getTileMap();
-		gameData = new GameData();
+		gameData = new GameDataParser();
 		
 	}
 	/**
