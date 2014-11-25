@@ -871,9 +871,21 @@ public class PlayState extends GameState{
 		LinkedList<Point> correctPath = tileMap.getCorrectPath();
 		
 		CritterWaveBuilder cwb = new CritterWaveBuilder();
-		CritterWave cw = cwb.prepareCritterWave(correctPath, 35);
+		cwb.prepareCritterWave("mixed");
+		cwb.buildRoute(correctPath);
+		cwb.buildStartPoint();
+		cwb.buildXAndY();
+		cwb.buildNextPoint();
+		cwb.buildMovePoint(35);
 		
-		critterBatch = cw.getCritterWave();
+		critterBatch = cwb.getWave();
+		
+		
+		
+		
+		//CritterWave cw = cwb.prepareCritterWave(correctPath, 35);
+		
+//		critterBatch = cw.getCritterWave();
 		
 //		for(int i =0; i < 5;i++){
 //			critterBatch.add(CritterFactory.getCritter("Normal", correctPath, i * 35));	

@@ -1,6 +1,7 @@
 package critters;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -11,6 +12,9 @@ import java.util.LinkedList;
  */
 public class CritterWaveBuilder {
 
+	CritterWave wave;
+	
+	
 	/**
 	 * Get a wave.
 	 * 
@@ -18,22 +22,94 @@ public class CritterWaveBuilder {
 	 * @param movePoint to keep some space between critters
 	 * @return a critter wave
 	 */
-	public CritterWave prepareCritterWave(LinkedList<Point> CorrectRoute, int movePoint)
+	public void prepareCritterWave(String buildType)
 	{
-		CritterWave wave = new CritterWave();
+		wave = new CritterWave();
 		
-		for (int i = 0; i < 3; i++)
+		
+		if(buildType.equalsIgnoreCase("pureNormal"))
 		{
-			wave.addCritter(new NormalCritter(CorrectRoute, i * movePoint));
+			for (int i = 0; i < 5; i++) 
+			{
+				wave.addCritter(new NormalCritter());
+			}
+						
+		}else if(buildType.equalsIgnoreCase("pureArmed")){
+			
+			for (int i = 0; i < 5; i++) 
+			{
+				wave.addCritter(new HeavilyArmedCritter());
+			}
+			
+		}else if(buildType.equalsIgnoreCase("mixed")){
+			
+			for (int i = 0; i < 3; i++)
+			{
+				wave.addCritter(new NormalCritter());
+			}
+			
+			for (int i = 0; i < 2; i++)
+			{
+				wave.addCritter(new HeavilyArmedCritter());
+			}
 		}
-		
-		for (int i = 0; i < 2; i++)
-		{
-			wave.addCritter(new HeavilyArmedCritter(CorrectRoute, (i + 3) * movePoint));
-		}
-		
-		return wave;
+			
 	}
 
+	public void buildRoute(LinkedList<Point> route)
+	{
+		
+		for (CritterBase critter : wave.getCritterWave())
+		{	
+		
+			critter.setCorrectRouteCopy(route); // set route of each critter
+		
+		}
+	}
+
+	
+	public void buildStartPoint()
+	{
+		for (CritterBase critter : wave.getCritterWave())
+		{
+			critter.setStartPoint(critter.correctRouteCopy);
+		}
+	}
+	
+	public void buildXAndY()
+	{
+		for (CritterBase critter : wave.getCritterWave())
+		{
+			critter.setX();
+			critter.setY();
+		}
+	}
+	
+	public void buildNextPoint()
+	{
+		for (CritterBase critter : wave.getCritterWave())
+		{
+			critter.setNextPoint(critter.getCorrectRouteCopy());
+		}
+	}
+	
+	public void buildMovePoint(int movePoint)
+	{
+		int point = movePoint;
+		for (CritterBase critter : wave.getCritterWave())
+		{
+			
+			critter.setMovePoint( point); // set movePoint
+			point = point + 20;
+			
+		}
+		
+	}
+	
+	public ArrayList<CritterBase> getWave() 
+	{
+		return wave.getCritterWave();
+	}
+	
 }
  

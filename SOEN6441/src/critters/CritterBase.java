@@ -24,13 +24,15 @@ public abstract class CritterBase {
 	protected Tile [][] map;
 	protected String name;
 	protected static int NAMENUMBER;
-	protected LinkedList<Point> correctRoute;
+//	protected LinkedList<Point> correctRoute;
 	protected LinkedList<Point> correctRouteCopy;
 	protected Image image;
 	protected Point nextPoint; 	// move priority
 	protected int speedOffsetX, speedOffsetY; 
 	protected int x, y;
 	protected int movePoint;
+	
+
 	public static int moveStandard = 0;	// benchmark of moving
 	protected Point startPoint;
 	public static final Image freezingImage = LoadImage
@@ -78,7 +80,7 @@ public abstract class CritterBase {
 	 * @return temp a linkedList 
 	 */
 	
-	protected LinkedList<Point> copyCorrectRoute()
+	protected LinkedList<Point> copyCorrectRoute(LinkedList<Point> correctRoute)
 	{
 		LinkedList<Point> temp = new LinkedList<Point>();
 	
@@ -259,6 +261,43 @@ public abstract class CritterBase {
 //============================================setters and getters=========================================================
 	
 	/**
+	 * To set movePoint
+	 * 
+	 * @param movePoint to keep some space between critters
+	 */
+	
+	public void setMovePoint(int movePoint) 
+	{
+		this.movePoint = movePoint;
+	}
+	
+	/**
+	 * To set correctRoute of each critter
+	 * 
+	 * @param correctRoute to lead the critter from entry point to exit point
+	 */
+	public void setCorrectRouteCopy(LinkedList<Point> correctRoute)
+	{
+		this.correctRouteCopy = this.copyCorrectRoute(correctRoute);
+	}
+
+	public LinkedList<Point> getCorrectRouteCopy()
+	{
+		return this.correctRouteCopy;
+	}
+
+	
+	public void setStartPoint(LinkedList<Point> route) {
+		
+		this.startPoint = route.pollFirst();
+	}
+	
+    public void setNextPoint(LinkedList<Point> route) {
+		
+		this.nextPoint = route.pollFirst();
+	}
+
+	/**
 	 * To get Hp.
 	 * 
 	 * @return int Hp
@@ -342,9 +381,9 @@ public abstract class CritterBase {
 	 * 
 	 * @param new_x The new x coordinate.
 	 */
-	public void setX(int new_x){
+	public void setX(){
 		
-		this.x = new_x;
+		this.x = startPoint.y * tileMap.getCellWidth();
 	}
 
 	/**
@@ -363,11 +402,22 @@ public abstract class CritterBase {
 	 * 
 	 * @param new_y The new y coordinate.
 	 */
-	public void setY(int new_y){
+	public void setY(){
 		
-		this.y = new_y;
+		this.y = tileMap.getUpperOffSet() + startPoint.x * tileMap.getCellHeight();
 	}
 	
+	
+	public void setX(int x)
+	{
+		this.x = x;
+	}
+	
+	
+	public void setY(int y)
+	{
+		this.y = y;
+	}
 	/**
 	 * To get critter value.
 	 * 

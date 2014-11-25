@@ -15,6 +15,53 @@ import usefulfunctions.LoadImage;
  */
 public class HeavilyArmedCritter extends CritterBase{
 
+	
+	
+	public HeavilyArmedCritter()
+	{
+		this.tileMap = TileMap.getTileMap();
+		this.map = tileMap.getMap();
+		this.name = "critter"+NAMENUMBER++;
+		//this.correctRoute = correctRoute;
+		//this.correctRouteCopy = super.copyCorrectRoute();
+		
+		//start position
+//		this.startPoint = correctRouteCopy.pollFirst();
+		
+		//initial position
+//		this.x = startPoint.y * tileMap.getCellWidth();
+//		this.y = tileMap.getUpperOffSet() + startPoint.x * tileMap.getCellHeight();
+		
+		//speed offset slow:1 normal:2 fast:4
+		this.speedOffsetX = 2;
+		this.speedOffsetY = 2;
+		
+		//set next point
+//		this.nextPoint = correctRouteCopy.pollFirst();
+		this.originalHp = 8000;
+		this.currentHp  = 8000;
+		this.image = LoadImage.loadImageIcon("/images/monster2.gif").getImage();
+		
+		this.value = 200;
+		this.armorRatio = 0.8f;
+		
+		//keep some space between multiple critters
+		//this.movePoint = movePoint;
+		
+		//set if reached the exit		
+		this.atExit = false;
+		
+		//set status
+		this.isFreezing = false;
+		this.isBurning = false;
+		this.isSplash = false;
+		
+		
+		
+		
+	}
+	
+	
 	/**
 	 * Constructor
 	 * 
@@ -26,8 +73,8 @@ public class HeavilyArmedCritter extends CritterBase{
 		this.tileMap = TileMap.getTileMap();
 		this.map = tileMap.getMap();
 		this.name = "critter"+NAMENUMBER++;
-		this.correctRoute = correctRoute;
-		this.correctRouteCopy = super.copyCorrectRoute();
+//		this.correctRoute = correctRoute;
+//		this.correctRouteCopy = super.copyCorrectRoute();
 		
 		//start position
 		this.startPoint = correctRouteCopy.pollFirst();

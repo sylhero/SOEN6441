@@ -1,6 +1,8 @@
 package critters;
 
+import java.awt.Point;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * A class has a arrayList to store critters.
@@ -13,7 +15,7 @@ public class CritterWave {
 
 	// the arrayList to put critters in a wave
 	private ArrayList<CritterBase> wave= new ArrayList<CritterBase>();
-	
+
 	/**
 	 * Add critters to a wave.
 	 * 
@@ -33,6 +35,8 @@ public class CritterWave {
 	{
 		return wave;
 	}
+
+
 		
 
 }
