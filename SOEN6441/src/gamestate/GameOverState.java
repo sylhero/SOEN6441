@@ -56,7 +56,7 @@ public class GameOverState extends GameState{
 	}
 	/**
 	 * press quit button event
-	 * @param e320, 430, 100, 50
+	 * @param e
 	 */
 	private void pressQuit(MouseEvent e){
 		int x = e.getX();

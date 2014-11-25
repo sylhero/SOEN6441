@@ -95,12 +95,10 @@ public class CritterWaveBuilder {
 	
 	public void buildMovePoint(int movePoint)
 	{
-		int point = movePoint;
-		for (CritterBase critter : wave.getCritterWave())
-		{
-			
-			critter.setMovePoint( point); // set movePoint
-			point = point + 20;
+		ArrayList<CritterBase> waveTemp = wave.getCritterWave();
+		
+		for(int i = 0; i<waveTemp.size(); i++){
+			waveTemp.get(i).setMovePoint(i*movePoint);
 			
 		}
 		

@@ -715,6 +715,10 @@ public class PlayState extends GameState{
 			}
 			
 		}
+		/**
+		 * press collective tower log
+		 * @param e
+		 */
 		private void pressCollectiveTowerLog(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
@@ -729,6 +733,10 @@ public class PlayState extends GameState{
 			}
 			
 		}
+		/**
+		 * press wave log
+		 * @param e
+		 */
 		
 		private void pressWaveLog(MouseEvent e){
 			int tempX = e.getX();
@@ -745,6 +753,10 @@ public class PlayState extends GameState{
 			}
 			
 		}
+		/**
+		 * press global log
+		 * @param e
+		 */
 		private void pressGlobalLog(MouseEvent e){
 			int tempX = e.getX();
 			int tempY = e.getY();
@@ -867,6 +879,9 @@ public class PlayState extends GameState{
 	public boolean pause(){
 		return this.isPaused;
 	}
+	/**
+	 * fill critter batch
+	 */
 	public void fillBatch(){
 		LinkedList<Point> correctPath = tileMap.getCorrectPath();
 		
@@ -952,6 +967,10 @@ public class PlayState extends GameState{
 		}
 		
 	}
+	/**
+	 * get score coin + value of towers
+	 * @return result
+	 */
 	private int getScore(){
 		int result = coin.getCurrency();
 		for( int i =0; i<towerList.size();i++){

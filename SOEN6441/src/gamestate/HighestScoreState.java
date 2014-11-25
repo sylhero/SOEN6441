@@ -9,7 +9,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import log.MapLog;
-
+/**
+ * this class is responsible for displaying highest score
+ * @author yulongsong
+ *
+ */
 public class HighestScoreState extends GameState {
 	private MapLog mapLog = MapLog.getMapLogObject();
 	private String mapName;
@@ -20,24 +24,35 @@ public class HighestScoreState extends GameState {
 		
 	}
 	
-	
+	/**
+	 * mouse drag
+	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * mouse move
+	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse click
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse press
+	 * @param e
+	 */
 	
 	private void pressStart(MouseEvent e){
 		
@@ -49,6 +64,10 @@ public class HighestScoreState extends GameState {
 		}
 		
 	}
+	/**
+	 * back press
+	 * @param e
+	 */
 	private void pressBack(MouseEvent e){
 		int tempX = e.getX();
 		int tempY = e.getY();
@@ -58,6 +77,9 @@ public class HighestScoreState extends GameState {
 		}
 		
 	}
+	/**
+	 * mouse press
+	 */
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -65,42 +87,63 @@ public class HighestScoreState extends GameState {
 		pressStart(e);
 		pressBack(e);
 	}
+	/**
+	 * mouse release
+	 */
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse enter
+	 */
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse exit
+	 */
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * pause
+	 */
 
 	@Override
 	public boolean pause() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	/**
+	 * pause 
+	 */
 
 	@Override
 	public void pause(boolean result) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * resume
+	 */
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * init
+	 */
 
 	@Override
 	public void init() {
@@ -110,6 +153,9 @@ public class HighestScoreState extends GameState {
 		topFive = mapLog.getTopFive(mapName);
 		
 	}
+	/**
+	 * update
+	 */
 
 	@Override
 	public void update() {
@@ -117,7 +163,9 @@ public class HighestScoreState extends GameState {
 		
 	}
 
-	
+	/**
+	 * draw
+	 */
 
 	@Override
 	public void draw(Graphics2D g) {

@@ -6,8 +6,16 @@ import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
+/**
+ * show logs
+ * @author yulongsong
+ *
+ */
 public class ShowLog {
+	/**
+	 * show log
+	 * @param log
+	 */
 	public static void showLog(String log){
 		JTextArea textArea = new JTextArea(log);
 		System.out.println(log);

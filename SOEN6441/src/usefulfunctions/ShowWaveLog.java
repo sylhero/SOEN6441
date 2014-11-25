@@ -7,8 +7,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
-
+/**
+ * show wave log class
+ * @author yulongsong
+ *
+ */
 public class ShowWaveLog {
+	/**
+	 * show wave log
+	 * @param tpane
+	 */
 	
 	public static void showWaveLog(JTabbedPane tpane){
 		

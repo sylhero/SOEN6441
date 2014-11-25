@@ -19,7 +19,11 @@ import log.MapLog;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.ValidateMap;
-
+/**
+ * this class is responsible for loading gamedata
+ * @author yulongsong
+ *
+ */
 public class LoadGameState extends GameState{
 	private TileMap tileMap;
 	private GameData gameData;
@@ -29,6 +33,10 @@ public class LoadGameState extends GameState{
 		gameData = new GameData();
 		
 	}
+	/**
+	 * press load
+	 * @param e
+	 */
 	private void loadPressed(MouseEvent e){
 		
 		int x = e.getX();
@@ -44,6 +52,9 @@ public class LoadGameState extends GameState{
 		}
 		
 	}
+	/**
+	 * choose file
+	 */
 	private void fileChooser(){
 	      
 		JFileChooser chooser = new JFileChooser();
@@ -81,78 +92,117 @@ public class LoadGameState extends GameState{
 		}
 	       
 	   }
+	
+	/**
+	 * mouse drag
+	 */
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse move
+	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse click
+	 */
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse press
+	 */
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		loadPressed(e);
 	}
+	/**
+	 * mouse release
+	 */
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse enter
+	 */
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * mouse exit
+	 */
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * pause
+	 */
 
 	@Override
 	public boolean pause() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	/**
+	 * pause
+	 */
 
 	@Override
 	public void pause(boolean result) {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * resume
+	 */
 
 	@Override
 	public void resume() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * init
+	 */
 
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * update
+	 */
 
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		
 	}
+	/**
+	 * draw
+	 */
 
 	@Override
 	public void draw(Graphics2D g) {
