@@ -75,7 +75,7 @@ public class NormalCritter extends CritterBase {
 		this.map = tileMap.getMap();
 		this.name = "critter"+NAMENUMBER++;
 //		this.correctRoute = correctRoute;
-//		this.correctRouteCopy = super.copyCorrectRoute();
+		this.correctRouteCopy = super.copyCorrectRoute(correctRoute);
 		
 		//start position
 		this.startPoint = correctRouteCopy.pollFirst();
