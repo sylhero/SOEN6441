@@ -30,7 +30,7 @@ public class MagicTower extends TowerBase implements Serializable{
 	public transient static final Image magicTower         = LoadImage.loadImage("/images/magictower.png");
 	public transient static final Image magicTowerEffect   = LoadImage.loadImageIcon("/images/magictowereffect.gif").getImage();
 	public static final int MAGICTOWERTYPE  = 7;
-	public static int NAMENUMBER = 0;
+	
 	
 	/**
 	 * This is the constructor with no parameter, assign the initial value of the attributes.

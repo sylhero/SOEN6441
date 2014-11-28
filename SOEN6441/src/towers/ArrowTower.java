@@ -36,7 +36,7 @@ public class ArrowTower extends TowerBase implements Serializable{
 	public transient static Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
 	public transient static Image arrowTowerEffect   = LoadImage.loadImageIcon("/images/arrowtowereffect.gif").getImage();
 	public static final int ARROWTOWERTYPE  = 4;
-	public static int NAMENUMBER = 0;
+	
 	
 	/**
 	 * This is the constructor with no parameter, assign the initial value of the attributes.

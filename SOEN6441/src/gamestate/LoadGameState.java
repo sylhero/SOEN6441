@@ -6,14 +6,19 @@ import gamepanel.GamePanel;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.TextArea;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
 import javax.swing.JFileChooser;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import critters.CritterBase;
 import currency.Coin;
 import log.CollectiveLog;
 import log.GlobalLog;
@@ -21,6 +26,7 @@ import log.MapLog;
 import log.WaveLog;
 import tilemap.Tile;
 import tilemap.TileMap;
+import towers.TowerBase;
 import usefulfunctions.ValidateMap;
 /**
  * this class is responsible for loading gamedata
@@ -91,9 +97,11 @@ public class LoadGameState extends GameState{
 			tileMap.setCorrectPath(tempPath);
 			CollectiveLog.collectivelLog = gameData.getCollectiveLog();
 			GlobalLog.globalLog = gameData.getGlobalLog();
-			WaveLog.batchCounter = gameData.getWaveBatchCounter();
-			WaveLog.waveLog = gameData.getWaveLog();
-			WaveLog.tpane = gameData.getWaveTpane();
+			WaveLog.batchCounter = gameData.getTotalWaveLog().size();
+			CritterBase.NAMENUMBER = WaveLog.batchCounter*5;
+			TowerBase.NAMENUMBER = gameData.getTowerList().size(); 
+			
+			WaveLog.tpane = getTablePanel(gameData.getTotalWaveLog());
 			System.out.println(WaveLog.tpane == null);
 			MapLog.getMapLogObject().getTopFive(file.getName().trim().split("\\.")[0]);
 			gsm.switchState(GameStateManager.GAMESTART);
@@ -103,6 +111,21 @@ public class LoadGameState extends GameState{
 		}
 	       
 	   }
+	/**
+	 * get new panel
+	 * @param array
+	 * @return
+	 */
+	
+	private  JTabbedPane getTablePanel(ArrayList<String> array){
+		JTabbedPane tpane = new JTabbedPane();
+		for(int i = 0 ; i < array.size();i++){
+			tpane.addTab("Wave"+i, null, new JScrollPane(new TextArea(array.get(i))));
+			
+		}
+		return tpane;
+		
+	}
 	
 	/**
 	 * mouse drag

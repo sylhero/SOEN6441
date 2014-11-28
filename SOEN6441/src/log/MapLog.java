@@ -70,10 +70,6 @@ public class MapLog {
 			    }
 				
 			}
-			
- 
-			
- 
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -140,16 +136,13 @@ public class MapLog {
 			writeToFile(mapName,log);
 		}
 		
-		
-		
 	}
 	public void editMapLog(String mapName){
 		Date date  = new Date();
 		String tempLine = readFromFile(mapName,"first");
 		String creationTime = tempLine.split(",")[0];
 		String log =creationTime+","+date.toString()+","+"null,"+0+"\n";
-		writeToFile(mapName,log);
-		
+		writeToFile(mapName,log);		
 	}
 	public void playMapLog(int score){
 		String tempLine = readFromFile(mapName,"last");
@@ -158,9 +151,7 @@ public class MapLog {
 		String editTime = split[1];
 		Date date = new Date();
 		String log = creationTime+","+editTime+","+date.toString()+","+score+"\n";
-		writeToFile(mapName,log);
-		
-		
+		writeToFile(mapName,log);		
 	}
 	public ArrayList<Integer> getTopFive(String mapName){
 		this.mapName = mapName;

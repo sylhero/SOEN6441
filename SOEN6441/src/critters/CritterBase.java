@@ -23,7 +23,7 @@ public abstract class CritterBase {
 	protected TileMap tileMap;
 	protected Tile [][] map;
 	protected String name;
-	protected static int NAMENUMBER;
+	public static int NAMENUMBER;
 	protected LinkedList<Point> correctRouteCopy;
 	protected Image image;
 	protected Point nextPoint; 	// move priority

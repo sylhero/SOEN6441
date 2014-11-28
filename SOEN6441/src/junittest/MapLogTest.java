@@ -1,6 +1,9 @@
 package junittest;
 
 import static org.junit.Assert.*;
+
+import java.io.File;
+
 import log.MapLog;
 
 import org.junit.Before;
@@ -13,29 +16,24 @@ import org.junit.Test;
  *
  */
 public class MapLogTest {
-	private String name;
+	private static String name;
+	private static MapLog mapLog;
+	public static final String PATH = System.getProperty("user.dir")+"/resources/maplog/";
+	private static File file;
 	/**
-	 * set up the mag log object before testing
+	 * set up the map log object before testing
 	 */
 	@BeforeClass
 	public static void setUpMapLog(){
-		String name = "MapLogTestOnly";
+		name = "MapLogTestOnly";
 		MapLog.getMapLogObject().createMapLog(name);
 	}
 
 	/**
-	 * set up the name
-	 */
-	@Before
-	public void setUp(){
-		name = "MapLogTestOnly";
-		
-	}
-	/**
-	 * test the top five scrore
+	 * test the top five score
 	 */
 	
-	@Ignore
+	@Test
 	public void testReadTopFiveScore(){
 		int size = MapLog.getMapLogObject().getTopFive(name).size();
 		assertEquals(6,size);
@@ -44,7 +42,7 @@ public class MapLogTest {
 	 * test get all logs
 	 */
 	
-	@Ignore
+	@Test
 	public void testGetAllLogs(){
 		assertNotNull(MapLog.getMapLogObject().getAllMapLog(name));
 	}
@@ -57,6 +55,12 @@ public class MapLogTest {
 		assertEquals("MapLogTestOnly",MapLog.getMapLogObject().getMapName());	
 	}
 	
+	@Test 
+	public void testCreateMapLog()
+	{
+		file = new File(PATH+name+".txt");
+		assertTrue(file.exists());
+	}
 	
 	
 

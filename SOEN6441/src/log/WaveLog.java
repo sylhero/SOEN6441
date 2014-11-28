@@ -56,7 +56,7 @@ public class WaveLog implements Serializable{
 		}
 		totalWaveLog.add(result);
 		tpane.addTab("Wave"+batchCounter++, null, new JScrollPane(new TextArea(result)));
-		
+		waveLog = new ArrayList<String>();
 	}
 
 }
