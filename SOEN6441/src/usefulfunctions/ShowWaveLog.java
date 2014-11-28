@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 public class ShowWaveLog {
 	/**
 	 * show wave log
-	 * @param tpane
+	 * @param tpane The JTabbedPane
 	 */
 	
 	public static void showWaveLog(JTabbedPane tpane){

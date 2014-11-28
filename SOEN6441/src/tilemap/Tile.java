@@ -13,10 +13,6 @@ import java.io.Serializable;
 
 public class Tile implements Serializable{
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3049009049133952587L;
 	
 	protected int tileType;
@@ -25,6 +21,7 @@ public class Tile implements Serializable{
 	protected int tileY;
 	protected int tileWidth;
 	protected int tileHeight;
+	
 	/**
 	 * default constructor for inheritance purpose
 	 */

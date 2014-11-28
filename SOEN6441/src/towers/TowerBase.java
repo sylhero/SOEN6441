@@ -27,11 +27,7 @@ import towerstrategy.WeakestStrategy;
  */
 
 public abstract class TowerBase extends Tile implements TowerInterface,Serializable{
-		
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2598169419462915649L;
 	
 	
