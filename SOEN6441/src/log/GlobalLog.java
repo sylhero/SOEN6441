@@ -35,7 +35,6 @@ public class GlobalLog implements Serializable{
 	 * @param date The date of the information saved in the log.
 	 */
 	public void addToGlobalLog(String log, Date date){
-		//Date date = new Date();
 		globalLog.add(date.toString()+"   "+log);
 	}
 	
