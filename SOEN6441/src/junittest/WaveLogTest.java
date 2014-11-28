@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * This class is used for testing WaveLog
  * @author Xunrong Xia
  *
  */

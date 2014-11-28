@@ -16,6 +16,7 @@ import org.junit.Test;
 import towers.ArrowTower;
 
 /**
+ * This class is used for test CollectiveLog
  * @author Xunrong Xia
  *
  */
