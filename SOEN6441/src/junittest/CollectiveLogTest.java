@@ -26,7 +26,7 @@ public class CollectiveLogTest {
 	private static String allLogResult;
 	
 	/**
-	 * 
+	 * This is to set up some parameter for later test.
 	 */
 	@Before
 	public void setUp(){

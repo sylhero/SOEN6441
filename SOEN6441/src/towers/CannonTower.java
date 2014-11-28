@@ -28,13 +28,9 @@ import usefulfunctions.LoadImage;
  */
 
 public class CannonTower extends TowerBase implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -8734927595517857575L;
-	
-	
+		
 	public transient static final Image cannonTower         = LoadImage.loadImage("/images/cannontower.png");
 	public transient static final Image cannonTowerEffect   = LoadImage.loadImageIcon("/images/cannontowereffect.gif").getImage();
 	public static final int CANNONTOWERTYPE  = 5;

@@ -74,7 +74,9 @@ public class MagicTowerTest {
 		assertNotNull(magicTower.getTarget());
 		//assertEquals(86,critter.getCurrentHp());	
 	}
-	
+	/**
+	 * This is to test special effect.
+	 */
 	@Test
 	public void testSpecialEffect()
 	{

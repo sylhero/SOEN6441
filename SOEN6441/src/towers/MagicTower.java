@@ -21,10 +21,7 @@ import usefulfunctions.LoadImage;
  */
 
 public class MagicTower extends TowerBase implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1954593193369181392L;
 	
 	public transient static final Image magicTower         = LoadImage.loadImage("/images/magictower.png");

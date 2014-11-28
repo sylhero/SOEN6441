@@ -68,6 +68,9 @@ public class IceTowerTest {
 		assertTrue(critter.getIsFreezing());
 	}
 	
+	/**
+	 * To test special effect.
+	 */
 	@Test
 	public void testSpecialEffect()
 	{

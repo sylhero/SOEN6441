@@ -20,12 +20,14 @@ import org.junit.Test;
  */
 public class GlobalLogTest {
 
-	/**
-	 * 
-	 */
 	private static GlobalLog globalLog;
 	private static Date date;
 	private static String allLogResult;
+	
+
+	/**
+	 * This is to set up some parameter for later test.
+	 */
 	@Before
 	public void setUp() {
 		globalLog = GlobalLog.getObject();

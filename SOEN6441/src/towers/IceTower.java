@@ -36,9 +36,6 @@ import usefulfunctions.LoadImage;
 
 public class IceTower extends TowerBase implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1441784156335381889L;
 	
 	public transient static final Image iceTower = LoadImage

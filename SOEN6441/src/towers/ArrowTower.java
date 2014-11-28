@@ -27,10 +27,7 @@ import usefulfunctions.LoadImage;
  * @author Yulong Song, Xunrong Xia
  */
 public class ArrowTower extends TowerBase implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2806295576326098798L;
 	
 	public transient static Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");

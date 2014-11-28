@@ -16,6 +16,7 @@ import currency.Coin;
 
 /**
  * this class is responsible for reading and writing map log file.
+ * this class use singleton pattern.
  * @author yulongsong
  *
  */
@@ -23,14 +24,26 @@ public class MapLog {
 	private String mapName;
 	private static MapLog mapLogObject = new MapLog();
 	public static final String PATH = System.getProperty("user.dir")+"/resources/maplog/";
-	
-	private MapLog(){
-		
+	/**
+	 * The constructor.
+	 */
+	private MapLog(){		
 	}
+	
+	/**
+	 * The singleton pattern method.
+	 * @return the mapLog object.
+	 */
 	public static MapLog getMapLogObject()
 	{
 		return mapLogObject;
 	}
+	
+	/**
+	 * Write the map log in a text file.
+	 * @param mapName The name of the text file.
+	 * @param log The information which should be saved in log file
+	 */
 	private void writeToFile(String mapName, String log){
 		try {
 			 
@@ -53,6 +66,14 @@ public class MapLog {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	/**
+	 * Read the map log from the text file.
+	 * @param mapName The name of the text file.
+	 * @param position The position of the saved log file.
+	 * @return
+	 */
 	private String readFromFile(String mapName,String position){
 		BufferedReader br = null;
 		String sCurrentLine="";
@@ -88,7 +109,11 @@ public class MapLog {
  
 	}
 	
-	
+	/**
+	 * Read the score from the log file 
+	 * @param mapName The name of the text file.
+	 * @return the scores saved in the text file.
+	 */
 	private ArrayList<Integer> readScore(String mapName){
 		ArrayList<Integer> tempFive = new ArrayList<Integer>(5);
 		tempFive.add(0);
@@ -123,11 +148,18 @@ public class MapLog {
 		
 	}
 	
-	
+	/**
+	 * get the map name.
+	 * @return the map name.
+	 */
 	public String getMapName(){
 		return this.mapName;
 	}
 	
+	/**
+	 * Save the creation time of the map in the text file.
+	 * @param mapName The name of the text file.
+	 */
 	public void createMapLog(String mapName)
 	{
 		File file = new File(PATH+mapName+".txt");
@@ -142,6 +174,11 @@ public class MapLog {
 		}
 		
 	}
+	
+	/**
+	 * Save the edit time of the map in the text file.
+	 * @param mapName The name of the text file.
+	 */
 	public void editMapLog(String mapName){
 		Date date  = new Date();
 		String tempLine = readFromFile(mapName,"first");
@@ -149,6 +186,11 @@ public class MapLog {
 		String log =creationTime+","+date.toString()+","+"null,"+0+"\n";
 		writeToFile(mapName,log);		
 	}
+	
+	/**
+	 * Save the play time and score in the text file.
+	 * @param score The score of the play.
+	 */
 	public void playMapLog(int score){
 		String tempLine = readFromFile(mapName,"last");
 		String[] split = tempLine.split(",");
@@ -158,6 +200,11 @@ public class MapLog {
 		String log = creationTime+","+editTime+","+date.toString()+","+score+"\n";
 		writeToFile(mapName,log);		
 	}
+	/**
+	 * get the top five score.
+	 * @param mapName The name of the text file.
+	 * @return An array list which contains the top five score.
+	 */
 	public ArrayList<Integer> getTopFive(String mapName){
 		this.mapName = mapName;
 		ArrayList<Integer> tempTopFive = readScore(mapName);
@@ -166,24 +213,13 @@ public class MapLog {
 		return tempTopFive;
 	
 	}
+	/**
+	 * Get the information saved in the text file.
+	 * @param mapName The name of the text file.
+	 * @return All the string saved in the text file.
+	 */
 	public String getAllMapLog(String mapName){
 		return readFromFile(mapName,"all");
 		
 	}
-	
-	
-	public static void main(String[] Args){
-		MapLog mapLog = MapLog.getMapLogObject();
-		mapLog.createMapLog("mypath.xml");
-		ArrayList<Integer> temp = mapLog.getTopFive("mypath.xml");
-		for(Integer i: temp){
-			System.out.println(i);
-		}
-		
-		
-		
-	}
-	
-	
-	
 }

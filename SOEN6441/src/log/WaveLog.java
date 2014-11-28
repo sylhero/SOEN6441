@@ -9,34 +9,43 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 /**
  * wave log
+ * this class use singleton pattern.
  * @author yulongsong
  *
  */
 public class WaveLog implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 3658473829471754341L;
 	
 	public static ArrayList<String> waveLog = new ArrayList<String>();
 	public static ArrayList<String> totalWaveLog = new ArrayList<String>();
 	public static int batchCounter = 0;
 	public static  JTabbedPane tpane = new JTabbedPane();
-	/**
-	 * add to wave log
-	 * @param log
-	 */
-	
 	private static WaveLog waveLogObject = new WaveLog();
+	
+	/**
+	 * The constructor.
+	 */
 	private WaveLog(){};
+	
+	/**
+	 * The singleton pattern method.
+	 * @return the waveLog object.
+	 */
 	public static WaveLog getObject()
 	{
 		return waveLogObject;
 	}
+	
+	/**
+	 * add to wave log.
+	 * @param log The information save in the log.
+	 * @param date The date of the information saved in the log.
+	 */
 	public void addToWaveLog(String log,Date date){
-		//Date date = new Date();
 		waveLog.add(date.toString()+"   "+log);
 	}
+	
 	/**
 	 * init
 	 */
