@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * This class is used for testing GlobalLog.
  * @author Xunrong Xia
  *
  */

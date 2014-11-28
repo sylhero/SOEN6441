@@ -30,8 +30,7 @@ public class GameDataParser implements Serializable{
 	protected int currency;
 	protected ArrayList<String> collectiveLog;
 	protected ArrayList<String> globalLog;
-	protected ArrayList<String> totalWaveLog;
-	
+	protected ArrayList<String> totalWaveLog;	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
 
@@ -43,15 +42,13 @@ public class GameDataParser implements Serializable{
 		this.collectiveLog = CollectiveLog.getObject().collectivelLog;
 		this.globalLog = GlobalLog.getObject().globalLog;
 		this.totalWaveLog = WaveLog.getObject().totalWaveLog;
-		
-		
+				
 		
 	}
 	
+	public GameDataParser(){}
 	
-	public GameDataParser(){
-		
-	}
+
 	
 	public void setMapData(Tile[][] map_data){
 		
@@ -96,8 +93,8 @@ public class GameDataParser implements Serializable{
 		
 		return this.currency;
 	}
-		
 	
+
 	public ArrayList<String> getTotalWaveLog(){
 		
 		return this.totalWaveLog;
@@ -152,13 +149,13 @@ public class GameDataParser implements Serializable{
 		
 		boolean isTrue = false;
 		
-		GameDataParser gd = new GameDataParser();
+		//GameDataParser gd = new GameDataParser();
 		
 		try{
 			
 			FileInputStream fis = new FileInputStream(PATH+file_name);
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			gd = (GameDataParser) ois.readObject();
+			GameDataParser gd = (GameDataParser) ois.readObject();
 			this.mapData = gd.mapData;
 			this.towerList = gd.towerList;
 			this.currency = gd.currency;

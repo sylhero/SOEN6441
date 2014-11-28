@@ -14,6 +14,11 @@ import java.util.Date;
 
 import currency.Coin;
 
+/**
+ * this class is responsible for reading and writing map log file.
+ * @author yulongsong
+ *
+ */
 public class MapLog {
 	private String mapName;
 	private static MapLog mapLogObject = new MapLog();
