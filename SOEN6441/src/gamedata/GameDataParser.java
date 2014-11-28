@@ -7,6 +7,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import log.CollectiveLog;
+import log.GlobalLog;
+import log.WaveLog;
+
 import currency.Coin;
 
 import tilemap.Tile;
@@ -22,6 +26,9 @@ public class GameDataParser implements Serializable{
 	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
 	protected int currency;
+	public CollectiveLog collectiveLog;
+	public GlobalLog globalLog;
+	public WaveLog waveLog;
 	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
@@ -31,6 +38,10 @@ public class GameDataParser implements Serializable{
 		this.mapData = map_data;
 		this.towerList = tower_list;
 		this.currency = money;
+		this.collectiveLog = CollectiveLog.getObject();
+		this.globalLog = GlobalLog.getObject();
+		this.waveLog = WaveLog.getObject();
+		
 		
 	}
 	
@@ -47,17 +58,18 @@ public class GameDataParser implements Serializable{
 	
 	public Tile[][] getMapData(){
 		
-		System.out.println("I can get map data from .ser!!!!!!!!!!!!!!");
+		//System.out.println("I can get map data from .ser!!!!!!!!!!!!!!");
 		
-		for(int i=0; i<this.mapData.length; i++){
-			for(int j=0; j<this.mapData[0].length; j++){
-				System.out.println(mapData[i][j].getTileType());
-			}
-		}
+		//for(int i=0; i<this.mapData.length; i++){
+			//for(int j=0; j<this.mapData[0].length; j++){
+				//System.out.println(mapData[i][j].getTileType());
+			//}
+		//}
 		
-		return this.mapData;
-		
+		return this.mapData;		
 	}
+	
+	
 	
 	public void setTowerList(ArrayList<TowerBase> tower_list){
 		
@@ -71,13 +83,13 @@ public class GameDataParser implements Serializable{
 		
 	}
 	
-	public void setCoin(Integer cur){
+	public void setMoney(Integer cur){
 		
 		this.currency = cur;
 	}
 	
 	public Integer getMoney(){
-		System.out.println(this.currency);
+		//System.out.println(this.currency);
 		
 		return this.currency;
 	}
@@ -96,9 +108,9 @@ public class GameDataParser implements Serializable{
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(this);
 			oos.close();
-			System.out.println("Money:"+this.currency);
+			//System.out.println("Money:"+this.currency);
 			
-			System.out.println("The size of tower list is "+this.towerList.size());
+			//System.out.println("The size of tower list is "+this.towerList.size());
 
 			isTrue = true;
 			
@@ -111,7 +123,9 @@ public class GameDataParser implements Serializable{
 		
 	}
 	
-	public void ReadGameData(String file_name){
+	public boolean ReadGameData(String file_name){
+		
+		boolean isTrue = false;
 		
 		GameDataParser gd = new GameDataParser();
 		
@@ -123,13 +137,20 @@ public class GameDataParser implements Serializable{
 			this.mapData = gd.mapData;
 			this.towerList = gd.towerList;
 			this.currency = gd.currency;
+			this.collectiveLog = gd.collectiveLog;
+			this.globalLog = gd.globalLog;
+			this.waveLog = gd.waveLog;
 			
 			ois.close();
+			
+			isTrue = true;
 			
 		} catch(Exception e){
 			
 			e.printStackTrace();
 		}
+		
+		return isTrue;
 		
 	}
 	
