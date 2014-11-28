@@ -16,7 +16,9 @@ import usefulfunctions.LoadImage;
 public class HeavilyArmedCritter extends CritterBase{
 
 	
-	
+	/**
+	 * Constructor
+	 */
 	public HeavilyArmedCritter()
 	{
 		this.tileMap = TileMap.getTileMap();
