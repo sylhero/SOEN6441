@@ -19,7 +19,7 @@ import towers.TowerBase;
 public class GameDataParser implements Serializable{
 	
 	/**
-	 * automatically generate serial version ID for version control
+	 * automatically generate serial version ID for version control. For version control
 	 */
 	private static final long serialVersionUID = 2444615011686386224L;
 	
