@@ -30,10 +30,7 @@ public class GameDataParser implements Serializable{
 	protected int currency;
 	protected ArrayList<String> collectiveLog;
 	protected ArrayList<String> globalLog;
-	protected ArrayList<String> waveLog;
 	protected ArrayList<String> totalWaveLog;
-	protected int wBatchCounter;
-	protected JTabbedPane wtpane;
 	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
@@ -45,9 +42,7 @@ public class GameDataParser implements Serializable{
 		this.currency = money;
 		this.collectiveLog = CollectiveLog.getObject().collectivelLog;
 		this.globalLog = GlobalLog.getObject().globalLog;
-		this.waveLog = WaveLog.getObject().waveLog;
-		this.wBatchCounter = WaveLog.getObject().batchCounter;
-		this.wtpane = WaveLog.getObject().tpane;
+		this.totalWaveLog = WaveLog.getObject().totalWaveLog;
 		
 		
 		
@@ -101,21 +96,11 @@ public class GameDataParser implements Serializable{
 		
 		return this.currency;
 	}
+		
 	
-	public ArrayList<String> getWaveLog(){
+	public ArrayList<String> getTotalWaveLog(){
 		
-		return this.waveLog;
-		
-	}
-	
-	public Integer getWaveBatchCounter(){
-		
-		return this.wBatchCounter;
-	}
-	
-	public JTabbedPane getWaveTpane(){
-		
-		return this.wtpane;
+		return this.totalWaveLog;
 	}
 	
 	public ArrayList<String> getGlobalLog(){
@@ -180,7 +165,7 @@ public class GameDataParser implements Serializable{
 			this.collectiveLog = gd.collectiveLog;
 			//System.out.println(gd.collectiveLog.collectivelLog.size());
 			this.globalLog = gd.globalLog;
-			this.waveLog = gd.waveLog;
+			this.totalWaveLog = gd.totalWaveLog;
 			
 			ois.close();
 			

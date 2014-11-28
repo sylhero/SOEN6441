@@ -92,8 +92,8 @@ public class LoadGameState extends GameState{
 			CollectiveLog.collectivelLog = gameData.getCollectiveLog();
 			GlobalLog.globalLog = gameData.getGlobalLog();
 			WaveLog.batchCounter = gameData.getWaveBatchCounter();
-			WaveLog.waveLog = gameData.getWaveLog();
-			WaveLog.tpane = gameData.getWaveTpane();
+			//WaveLog.waveLog = gameData.getWaveLog();
+			//WaveLog.tpane = gameData.getWaveTpane();
 			System.out.println(WaveLog.tpane == null);
 			MapLog.getMapLogObject().getTopFive(file.getName().trim().split("\\.")[0]);
 			gsm.switchState(GameStateManager.GAMESTART);
