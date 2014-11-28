@@ -16,6 +16,7 @@ import currency.Coin;
 
 /**
  * this class is responsible for reading and writing map log file.
+ * this class use singleton pattern.
  * @author yulongsong
  *
  */
@@ -23,14 +24,26 @@ public class MapLog {
 	private String mapName;
 	private static MapLog mapLogObject = new MapLog();
 	public static final String PATH = System.getProperty("user.dir")+"/resources/maplog/";
-	
-	private MapLog(){
-		
+	/**
+	 * The constructor.
+	 */
+	private MapLog(){		
 	}
+	
+	/**
+	 * The singleton pattern method.
+	 * @return the mapLog object.
+	 */
 	public static MapLog getMapLogObject()
 	{
 		return mapLogObject;
 	}
+	
+	/**
+	 * Write the map log in a text file.
+	 * @param mapName The name of the text file.
+	 * @param log The information which should be saved in log file
+	 */
 	private void writeToFile(String mapName, String log){
 		try {
 			 
@@ -53,6 +66,14 @@ public class MapLog {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	/**
+	 * Read the map log from the text file.
+	 * @param mapName The name of the text file.
+	 * @param position The position of the saved log file.
+	 * @return
+	 */
 	private String readFromFile(String mapName,String position){
 		BufferedReader br = null;
 		String sCurrentLine="";

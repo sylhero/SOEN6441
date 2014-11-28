@@ -24,9 +24,6 @@ import gamedata.GameDataParser;
  */
 public class GameDataParserTest  {
 
-	
-
-
 	private static GameDataParser gameParser;
 	
 	private static TileMap tm;

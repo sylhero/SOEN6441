@@ -55,6 +55,9 @@ public class MapLogTest {
 		assertEquals("MapLogTestOnly",MapLog.getMapLogObject().getMapName());	
 	}
 	
+	/**
+	 * test the createMapLog method.
+	 */
 	@Test 
 	public void testCreateMapLog()
 	{
