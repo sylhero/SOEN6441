@@ -1,0 +1,9 @@
+
+Fri Nov 21 22:05:22 EST 2014,null,null,0
+
+null,null,Fri Nov 21 22:05:22 EST 2014,89
+null,null,Fri Nov 21 22:05:22 EST 2014,78
+null,null,Fri Nov 21 22:05:22 EST 2014,85
+null,null,Fri Nov 21 22:05:22 EST 2014,12
+null,null,Fri Nov 21 22:05:22 EST 2014,895
+null,null,Fri Nov 21 22:05:22 EST 2014,563
