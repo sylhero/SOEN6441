@@ -300,6 +300,16 @@ public abstract class CritterBase {
 	}
 	
 	/**
+	 * To get the start point.
+	 * 
+	 * @return startPoint of a critter
+	 */
+	
+	public Point getStartPoint(){
+		
+		return this.startPoint;
+	}
+	/**
 	 * To set the next point of a critter.
 	 * 
 	 * @param route of a critter

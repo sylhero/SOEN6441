@@ -26,7 +26,7 @@ import org.junit.runners.Suite.SuiteClasses;
 			   IceTowerTest.class,
 			   NearestToExitStrategyTest.class,
 			   CritterWaveTest.class,
-			   MapLogTest.class
+			   CritterWaveBuilderTest.class
 			   })
 public class AllTests {
 

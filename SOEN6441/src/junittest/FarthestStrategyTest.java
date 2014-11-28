@@ -11,9 +11,7 @@ import tilemap.Tile;
 import tilemap.TileMap;
 import towers.ArrowTower;
 import towerstrategy.NearestToExitStrategy;
-import towerstrategy.NearestStrategy;
 import towerstrategy.TowerStrategy;
-import usefulfunctions.ValidateMap;
 import critters.CritterBase;
 import critters.NormalCritter;
 /**
@@ -33,8 +31,6 @@ private static TowerStrategy strategy;
 	private static NormalCritter medium;
 	private static NormalCritter farthest;
 	private static TileMap tm;
-	private static Tile[][] test_map;
-	
 	/**
 	 * This method used to set up the object. 
 	 * There are 3 critters, they have different distances between the exit point£¬ one is nearest
@@ -44,17 +40,17 @@ private static TowerStrategy strategy;
 	public static void init(){
 		
 		tm = TileMap.getTileMap();
-		test_map = tm.loadMap("resources/gamemaps/test.xml");
+		tm.loadMap("resources/gamemaps/test.xml");
 		
-		//nearest =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(test_map), 1);
+
 		farthest = new NormalCritter();
 		farthest.setX(20);
 		farthest.setY(20);
-		//medium =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(test_map), 2);
+
 		medium = new NormalCritter();
 		medium.setX(50);
 		medium.setY(50);
-		//farthest =  (NormalCritter) CritterFactory.getCritter("Normal", ValidateMap.getCorrectRoute(test_map), 3);
+
 		nearest = new NormalCritter();
 		nearest.setX(100);
 		nearest.setY(100);
@@ -74,7 +70,7 @@ private static TowerStrategy strategy;
 	
 	/**
 	 * This method test the farthest strategy.
-	 * We test if the farthest strategy would return the critter with the farthest distance in the array list.
+	 * We test if the farthest strategy would return the critter with the nearest distance in the array list.
 	 */
 	@Test
 	public void testFarestStrategy() {
