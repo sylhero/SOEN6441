@@ -76,7 +76,7 @@ public class IceTower extends TowerBase implements Serializable {
 
 		this.range = 2 * TileMap.getTileMap().getCellWidth();
 
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 
 		this.towerSpeed = 2;
 
@@ -152,7 +152,7 @@ public class IceTower extends TowerBase implements Serializable {
 
 		this.range = 2*tileWidth;
 
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 
 
 		this.towerSpeed = 2;

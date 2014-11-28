@@ -55,7 +55,7 @@ public class CannonTower extends TowerBase implements Serializable{
 		this.groupAttack = false;
 		this.power = 20;
 		this.range = 2*TileMap.getTileMap().getCellWidth();
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 4;
 		this.upgradeCost = 20;	
 		this.value = this.cost;
@@ -89,7 +89,7 @@ public class CannonTower extends TowerBase implements Serializable{
 		this.groupAttack = false;
 		this.power = 20;
 		this.range = 2*tileWidth;
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 4;
 		this.upgradeCost = 20;
 		
