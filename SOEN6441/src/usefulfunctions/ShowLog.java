@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 public class ShowLog {
 	/**
 	 * show log
-	 * @param log
+	 * @param log The string need to be show.
 	 */
 	public static void showLog(String log){
 		JTextArea textArea = new JTextArea(log);

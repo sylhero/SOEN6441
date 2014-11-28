@@ -113,6 +113,12 @@ public class TileMap implements MouseMotionListener,MouseListener, Serializable{
 		return map;
 		
 	}
+	
+	/**
+	 * load the game data map.
+	 * @param mapName The name of map.
+	 * @param tileMap The tile map.
+	 */
 	public void loadGameDataMap(String mapName, Tile[][] tileMap){
 		name = mapName;
 		map = tileMap;

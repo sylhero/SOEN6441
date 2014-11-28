@@ -28,13 +28,9 @@ import usefulfunctions.LoadImage;
  */
 
 public class CannonTower extends TowerBase implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -8734927595517857575L;
-	
-	
+		
 	public transient static final Image cannonTower         = LoadImage.loadImage("/images/cannontower.png");
 	public transient static final Image cannonTowerEffect   = LoadImage.loadImageIcon("/images/cannontowereffect.gif").getImage();
 	public static final int CANNONTOWERTYPE  = 5;
@@ -55,7 +51,7 @@ public class CannonTower extends TowerBase implements Serializable{
 		this.groupAttack = false;
 		this.power = 20;
 		this.range = 2*TileMap.getTileMap().getCellWidth();
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 4;
 		this.upgradeCost = 20;	
 		this.value = this.cost;
@@ -89,7 +85,7 @@ public class CannonTower extends TowerBase implements Serializable{
 		this.groupAttack = false;
 		this.power = 20;
 		this.range = 2*tileWidth;
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 4;
 		this.upgradeCost = 20;
 		

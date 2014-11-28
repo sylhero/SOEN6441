@@ -22,24 +22,17 @@ public class IndividualTowerLogTest {
 	private static Date date;
 	private static ArrayList log;
 	private static String allLogResult;
+	
 	/**
-	 * @throws java.lang.Exception
+	 * This is to set up some parameter for later test.
 	 */	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		tower = new ArrowTower();
 		date = new Date();
 		log =null;
 		allLogResult = null;
 	}
-
-	/**
-	 * Test method for {@link towers.TowerBase#getIndividualTowerLog()}.
-	 */
-	//@Ignore
-	//public void testGetIndividualTowerLog() {
-		//fail("Not yet implemented");
-	//}
 
 	/**
 	 * Test method for {@link towers.TowerBase#addIndevidualTowerLog(java.lang.String, java.util.Date)}.

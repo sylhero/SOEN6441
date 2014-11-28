@@ -27,10 +27,7 @@ import usefulfunctions.LoadImage;
  * @author Yulong Song, Xunrong Xia
  */
 public class ArrowTower extends TowerBase implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2806295576326098798L;
 	
 	public transient static Image arrowTower         = LoadImage.loadImage("/images/arrowtower.png");
@@ -52,7 +49,7 @@ public class ArrowTower extends TowerBase implements Serializable{
 		this.groupAttack = false;
 		this.power = 10;
 		this.range = 3*TileMap.getTileMap().getCellWidth();
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 3;
 		this.upgradeCost = 10;	
 		this.value = this.cost;
@@ -86,7 +83,7 @@ public class ArrowTower extends TowerBase implements Serializable{
 		this.groupAttack = false;
 		this.power = 10;
 		this.range = 3*tileWidth;
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 3;
 		this.upgradeCost = 10;
 		this.value = this.cost;

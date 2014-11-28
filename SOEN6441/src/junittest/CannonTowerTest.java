@@ -77,7 +77,9 @@ public class CannonTowerTest {
 		//assertEquals(82,critter.getCurrentHp());
 		
 	}
-	
+	/**
+	 * This is to test the special effect.
+	 */
 	@Test
 	public void testSpecialEffect()
 	{

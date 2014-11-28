@@ -36,9 +36,6 @@ import usefulfunctions.LoadImage;
 
 public class IceTower extends TowerBase implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1441784156335381889L;
 	
 	public transient static final Image iceTower = LoadImage
@@ -76,7 +73,7 @@ public class IceTower extends TowerBase implements Serializable {
 
 		this.range = 2 * TileMap.getTileMap().getCellWidth();
 
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 
 		this.towerSpeed = 2;
 
@@ -152,7 +149,7 @@ public class IceTower extends TowerBase implements Serializable {
 
 		this.range = 2*tileWidth;
 
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 
 
 		this.towerSpeed = 2;

@@ -538,8 +538,9 @@ public class PlayState extends GameState{
 	        towerTemp.addIndevidualTowerLog(towerTemp.getName()+" "+"is sold\n",date);
 	        CollectiveLog.getObject().addToAllTowerLog(towerTemp.getName()+"  "+"is sold\n",date);
     		//GlobalLog.addToGlobalLog(towerTemp.getName()+"  "+"is sold\n");
+	        int increase = (int)(towerTemp.getRefundRate()*towerTemp.getValue());
 	        //increase coin
-	        coin.increaseCurrency((int)(towerTemp.getRefundRate()*towerTemp.getValue()));
+	        coin.increaseCurrency(increase);
 	        Date dateCoin = new Date();
 	        GlobalLog.getObject().addToGlobalLog("user sells "+towerTemp.getName()+", coin + "+((int)(towerTemp.getRefundRate()*towerTemp.getValue()))+"\n",dateCoin);
 	        //initialize the cell to grass

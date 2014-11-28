@@ -21,10 +21,7 @@ import usefulfunctions.LoadImage;
  */
 
 public class MagicTower extends TowerBase implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1954593193369181392L;
 	
 	public transient static final Image magicTower         = LoadImage.loadImage("/images/magictower.png");
@@ -46,7 +43,7 @@ public class MagicTower extends TowerBase implements Serializable{
 		this.groupAttack = true;
 		this.power = 10;
 		this.range = 2*TileMap.getTileMap().getCellWidth();
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 3;
 		this.upgradeCost = 10;	
 		this.value = cost;
@@ -85,7 +82,7 @@ public class MagicTower extends TowerBase implements Serializable{
 		this.value = this.cost;
 		//this.value = level * upgradeCost + cost;
 		
-		this.refundRate = 0.3;
+		this.refundRate = 0.8;
 		this.towerSpeed = 3;
 		this.upgradeCost = 25;
 		
