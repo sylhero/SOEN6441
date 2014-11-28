@@ -270,6 +270,15 @@ public abstract class CritterBase {
 	}
 	
 	/**
+	 * To get move point
+	 * @return move point 
+	 */
+	
+	public int getMovePoint(){
+		
+		return this.movePoint;
+	}
+	/**
 	 * To set correctRoute of each critter
 	 * 
 	 * @param correctRoute to lead the critter from entry point to exit point
@@ -319,6 +328,16 @@ public abstract class CritterBase {
 		this.nextPoint = route.pollFirst();
 	}
 
+    /**
+     * To get next point of a critter.
+     * @return next point of a critter
+     */
+    
+    public Point getNextPoint(){
+    	
+    	return this.nextPoint;
+    }
+    
 	/**
 	 * To get Hp.
 	 * 

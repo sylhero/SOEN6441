@@ -73,7 +73,7 @@ public class CritterWaveBuilderTest {
 	}
 	
 	/**
-	 * Test function startPoint.
+	 * Test function buildStartPoint.
 	 */
 	@Test
 	public void testStartPoint()
@@ -90,5 +90,40 @@ public class CritterWaveBuilderTest {
 			assertSame(route.getFirst(), critter.getStartPoint());
 		}
 		
+	}
+	
+	/**
+	 * Test function buildNextPoint
+	 */
+	@Test
+	public void testBuildNextPoint()
+	{
+		cwb.prepareCritterWave("mixed");
+		cwb.buildRoute(route);
+		critters = cwb.getWave(); // fetch the wave of critters
+		
+		cwb.buildStartPoint();
+		cwb.buildNextPoint();
+		
+		for(CritterBase critter : critters)
+		{
+			// test if the next points are the same
+			assertSame(route.get(1), critter.getNextPoint());
+		}
+	}
+	
+	/**
+	 * Test function buildMovePoint.
+	 */
+	@Test
+	public void testBuildMovePoint()
+	{
+		cwb.prepareCritterWave("mixed");
+		cwb.buildMovePoint(10);
+		
+		for(CritterBase critter : critters)
+		{
+			assertNotNull(critter.getMovePoint());
+		}
 	}
 }
