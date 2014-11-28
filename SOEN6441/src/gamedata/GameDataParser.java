@@ -31,6 +31,7 @@ public class GameDataParser implements Serializable{
 	protected ArrayList<String> collectiveLog;
 	protected ArrayList<String> globalLog;
 	protected ArrayList<String> waveLog;
+	protected ArrayList<String> totalWaveLog;
 	protected int wBatchCounter;
 	protected JTabbedPane wtpane;
 	
@@ -47,6 +48,7 @@ public class GameDataParser implements Serializable{
 		this.waveLog = WaveLog.getObject().waveLog;
 		this.wBatchCounter = WaveLog.getObject().batchCounter;
 		this.wtpane = WaveLog.getObject().tpane;
+		
 		
 		
 	}

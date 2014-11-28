@@ -19,6 +19,7 @@ public class WaveLog implements Serializable{
 	private static final long serialVersionUID = 3658473829471754341L;
 	
 	public static ArrayList<String> waveLog = new ArrayList<String>();
+	public static ArrayList<String> totalWaveLog = new ArrayList<String>();
 	public static int batchCounter = 0;
 	public static  JTabbedPane tpane = new JTabbedPane();
 	/**
@@ -43,6 +44,7 @@ public class WaveLog implements Serializable{
 		waveLog = new ArrayList<String>();
 	}
 	
+	 
 	
 	/**
 	 * add wave tab
@@ -52,6 +54,7 @@ public class WaveLog implements Serializable{
 		for(String s : waveLog){
 			result+=s;
 		}
+		totalWaveLog.add(result);
 		tpane.addTab("Wave"+batchCounter++, null, new JScrollPane(new TextArea(result)));
 		
 	}

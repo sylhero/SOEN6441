@@ -94,6 +94,7 @@ public class LoadGameState extends GameState{
 			WaveLog.batchCounter = gameData.getWaveBatchCounter();
 			WaveLog.waveLog = gameData.getWaveLog();
 			WaveLog.tpane = gameData.getWaveTpane();
+			System.out.println(WaveLog.tpane == null);
 			MapLog.getMapLogObject().getTopFive(file.getName().trim().split("\\.")[0]);
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
