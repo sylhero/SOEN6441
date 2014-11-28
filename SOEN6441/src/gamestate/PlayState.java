@@ -908,7 +908,8 @@ public class PlayState extends GameState{
 		cwb.prepareCritterWave("mixed");
 		cwb.buildRoute(correctPath);
 		cwb.buildStartPoint();
-		cwb.buildXAndY();
+		cwb.buildX();
+		cwb.buildY();
 		cwb.buildNextPoint();
 		cwb.buildMovePoint(35);
 		
