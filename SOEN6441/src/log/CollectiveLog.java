@@ -1,5 +1,6 @@
 package log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 /**
@@ -7,14 +8,20 @@ import java.util.Date;
  * @author yulongsong
  *
  */
-public class CollectiveLog {
+public class CollectiveLog implements Serializable {
 	
-public static ArrayList<String> collectivelLog = new ArrayList<String>();
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2918986659756346995L;
+	
+	public static ArrayList<String> collectivelLog = new ArrayList<String>();
 	/**
 	 * add to collective log
 	 * @param log
 	 */
 	private static CollectiveLog collectiveLogObject = new CollectiveLog();
+	
 	private CollectiveLog(){};
 	public static CollectiveLog getObject()
 	{

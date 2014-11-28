@@ -25,9 +25,9 @@ public class GameDataParserTest extends GameDataParser {
 	private static Tile[][] mapData;
 	private static int currency;
 	private static ArrayList<TowerBase> towerList;
-	private static CollectiveLog cLog;
-	private static GlobalLog gLog;
-	private static WaveLog wLog;
+	private static CollectiveLog cLog = CollectiveLog.getObject();
+	private static GlobalLog gLog = GlobalLog.getObject();
+	private static WaveLog wLog = WaveLog.getObject();
 	
 	@BeforeClass
 	public static void init(){
