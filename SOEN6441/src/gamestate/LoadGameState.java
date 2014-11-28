@@ -18,6 +18,7 @@ import currency.Coin;
 import log.CollectiveLog;
 import log.GlobalLog;
 import log.MapLog;
+import log.WaveLog;
 import tilemap.Tile;
 import tilemap.TileMap;
 import usefulfunctions.ValidateMap;
@@ -88,7 +89,11 @@ public class LoadGameState extends GameState{
 			//System.out.println(tileMap.getCellHeight());
 			LinkedList<Point> tempPath = ValidateMap.getCorrectRoute(tempMap);
 			tileMap.setCorrectPath(tempPath);
-			
+			CollectiveLog.collectivelLog = gameData.getCollectiveLog().collectivelLog;
+			GlobalLog.globalLog = gameData.getGlobalLog().globalLog;
+			WaveLog.batchCounter = gameData.getWaveLog().batchCounter;
+			WaveLog.waveLog = gameData.getWaveLog().waveLog;
+			WaveLog.tpane = gameData.getWaveLog().tpane;
 			MapLog.getMapLogObject().getTopFive(file.getName().trim().split("\\.")[0]);
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
