@@ -12,6 +12,7 @@ import org.junit.Test;
 import towers.ArrowTower;
 
 /**
+ * This class is used for testing individual tower log.
  * @author Xunrong Xia
  *
  */
