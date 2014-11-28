@@ -976,7 +976,6 @@ public class PlayState extends GameState{
 				}
 			
 			}
-			fdfdfddff
 			if(critterBatch.size()==deadCritterCounter){
 				Date date = new Date();
 				WaveLog.getObject().addToWaveLog("this wave ends"+"\n",date);
