@@ -7,6 +7,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.swing.JTabbedPane;
+
 import log.CollectiveLog;
 import log.GlobalLog;
 import log.WaveLog;
@@ -26,9 +28,11 @@ public class GameDataParser implements Serializable{
 	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
 	protected int currency;
-	protected CollectiveLog collectiveLog;
-	protected GlobalLog globalLog;
-	protected WaveLog waveLog;
+	protected ArrayList<String> collectiveLog;
+	protected ArrayList<String> globalLog;
+	protected ArrayList<String> waveLog;
+	protected int wBatchCounter;
+	protected JTabbedPane wtpane;
 	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
@@ -38,9 +42,11 @@ public class GameDataParser implements Serializable{
 		this.mapData = map_data;
 		this.towerList = tower_list;
 		this.currency = money;
-		this.collectiveLog = CollectiveLog.getObject();
-		this.globalLog = GlobalLog.getObject();
-		this.waveLog = WaveLog.getObject();
+		this.collectiveLog = CollectiveLog.getObject().collectivelLog;
+		this.globalLog = GlobalLog.getObject().globalLog;
+		this.waveLog = WaveLog.getObject().waveLog;
+		this.wBatchCounter = WaveLog.getObject().batchCounter;
+		this.wtpane = WaveLog.getObject().tpane;
 		
 		
 	}
@@ -94,21 +100,33 @@ public class GameDataParser implements Serializable{
 		return this.currency;
 	}
 	
-	public WaveLog getWaveLog(){
+	public ArrayList<String> getWaveLog(){
 		
 		return this.waveLog;
 		
 	}
 	
-	public GlobalLog getGlobalLog(){
+	public Integer getWaveBatchCounter(){
+		
+		return this.wBatchCounter;
+	}
+	
+	public JTabbedPane getWaveTpane(){
+		
+		return this.wtpane;
+	}
+	
+	public ArrayList<String> getGlobalLog(){
 		
 		return this.globalLog;
 		
 	}
 	
-	public CollectiveLog getCollectiveLog(){
+	public ArrayList<String> getCollectiveLog(){
 		
+		//System.out.println("Loaded size of collective log is "+this.collectiveLog.collectivelLog.size());
 		return this.collectiveLog;
+		
 		
 	}
 	
@@ -129,6 +147,8 @@ public class GameDataParser implements Serializable{
 			//System.out.println("Money:"+this.currency);
 			
 			//System.out.println("The size of tower list is "+this.towerList.size());
+			
+			//System.out.println("The size of collective log is "+this.collectiveLog.collectivelLog.size());
 
 			isTrue = true;
 			
@@ -156,6 +176,7 @@ public class GameDataParser implements Serializable{
 			this.towerList = gd.towerList;
 			this.currency = gd.currency;
 			this.collectiveLog = gd.collectiveLog;
+			//System.out.println(gd.collectiveLog.collectivelLog.size());
 			this.globalLog = gd.globalLog;
 			this.waveLog = gd.waveLog;
 			

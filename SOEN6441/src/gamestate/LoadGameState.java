@@ -89,11 +89,11 @@ public class LoadGameState extends GameState{
 			//System.out.println(tileMap.getCellHeight());
 			LinkedList<Point> tempPath = ValidateMap.getCorrectRoute(tempMap);
 			tileMap.setCorrectPath(tempPath);
-			CollectiveLog.collectivelLog = gameData.getCollectiveLog().collectivelLog;
-			GlobalLog.globalLog = gameData.getGlobalLog().globalLog;
-			WaveLog.batchCounter = gameData.getWaveLog().batchCounter;
-			WaveLog.waveLog = gameData.getWaveLog().waveLog;
-			WaveLog.tpane = gameData.getWaveLog().tpane;
+			CollectiveLog.collectivelLog = gameData.getCollectiveLog();
+			GlobalLog.globalLog = gameData.getGlobalLog();
+			WaveLog.batchCounter = gameData.getWaveBatchCounter();
+			WaveLog.waveLog = gameData.getWaveLog();
+			WaveLog.tpane = gameData.getWaveTpane();
 			MapLog.getMapLogObject().getTopFive(file.getName().trim().split("\\.")[0]);
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){

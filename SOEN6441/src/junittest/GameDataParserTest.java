@@ -81,5 +81,30 @@ public class GameDataParserTest extends GameDataParser {
 		assertNotNull(gameParser.getTowerList());
 	}
 	
+	@Test
+	public void testGetWaveLog(){
+		
+		gameParser.ReadGameData("demoMap.xml.ser");
 
+		assertNotNull(gameParser.getWaveLog());		
+		
+	}
+	
+	@Test
+	public void testGetGlobalLog(){
+		
+		gameParser.ReadGameData("demoMap.xml.ser");
+		
+		assertNotNull(gameParser.getGlobalLog());
+
+	}
+	
+	@Test
+	public void testGetCollectiveLog(){
+		
+		gameParser.ReadGameData("demoMap.xml.ser");
+		
+		assertNotNull(gameParser.getCollectiveLog());
+
+	}
 }
