@@ -1,5 +1,7 @@
 package junittest;
 
+import gamedata.GameDataParser;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -12,7 +14,8 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	           ValidateMapTest.class, 
+	   		   GameDataParser.class,
+			   ValidateMapTest.class, 
 	           CoinTest.class, 
 	           LoadImageTest.class,
 	           LoadXmlTest.class,
