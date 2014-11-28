@@ -422,7 +422,7 @@ public abstract class CritterBase {
 	/**
 	 * To set X coordinate.
 	 * 
-	 * @param x axis 
+	 * @param x axes.
 	 */
 	public void setX(int x)
 	{
@@ -432,7 +432,7 @@ public abstract class CritterBase {
 	/**
 	 * To set Y coordinate.
 	 * 
-	 * @param y axis
+	 * @param y axes.
 	 */
 	public void setY(int y)
 	{
