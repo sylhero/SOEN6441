@@ -45,9 +45,9 @@ public class GameDataParser implements Serializable{
 				
 		
 	}
-	
-	public GameDataParser(){}
-	
+	public GameDataParser(){
+		
+	}
 
 	
 	public void setMapData(Tile[][] map_data){

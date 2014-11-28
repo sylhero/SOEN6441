@@ -17,7 +17,7 @@ import towers.TowerBase;
 
 import gamedata.GameDataParser;
 
-public class GameDataParserTest extends GameDataParser {
+public class GameDataParserTest {
 	
 
 

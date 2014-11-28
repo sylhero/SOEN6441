@@ -14,7 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	   		   GameDataParser.class,
+	   		   GameDataParserTest.class,
 			   ValidateMapTest.class, 
 	           CoinTest.class, 
 	           LoadImageTest.class,
