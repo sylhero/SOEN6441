@@ -16,12 +16,14 @@ import tilemap.TileMap;
 import towers.TowerBase;
 
 import gamedata.GameDataParser;
+
 /**
  * This class used for test the GameDataParser.
  * @author Yulong Song
  *
  */
-public class GameDataParserTest extends GameDataParser {
+public class GameDataParserTest  {
+
 	
 
 
