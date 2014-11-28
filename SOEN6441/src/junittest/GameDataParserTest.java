@@ -91,6 +91,13 @@ public class GameDataParserTest extends GameDataParser {
 	}
 	
 	@Test
+	public void testGetWaveBatchCounter(){
+		
+		gameParser.ReadGameData("demoMap.xml.ser");
+		assertEquals(gameParser.getWaveBatchCounter(),new Integer(0));
+	}
+	
+	@Test
 	public void testGetGlobalLog(){
 		
 		gameParser.ReadGameData("demoMap.xml.ser");
