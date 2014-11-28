@@ -12,6 +12,11 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * this class is responsible for reading and writing certain user's map log file.
+ * @author yulongsong
+ *
+ */
 /*
  * 1. Create only one map file log
  * 2. before creation, you'd check if the mapLog object is created, if not create one

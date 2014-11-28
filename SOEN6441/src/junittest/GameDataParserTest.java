@@ -17,7 +17,13 @@ import towers.TowerBase;
 
 import gamedata.GameDataParser;
 
-public class GameDataParserTest {
+/**
+ * This class used for test the GameDataParser.
+ * @author Yulong Song
+ *
+ */
+public class GameDataParserTest  {
+
 	
 
 
