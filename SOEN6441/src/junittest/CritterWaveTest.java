@@ -51,9 +51,9 @@ public class CritterWaveTest {
 	 */
 	
 	@Test
-	public void getCritterWave() 
+	public void testGetCritterWave() 
 	{
-		cw.addCritter(nc);
+		cw.addCritter(nc); // add one critter 
 		ArrayList<CritterBase> al = cw.getCritterWave();
 		
 		for (ListIterator<CritterBase> iterator = al.listIterator(); iterator.hasNext();) 

@@ -8,6 +8,7 @@ import java.util.LinkedList;
  * A builder class to corporate different types critters into a wave.
  * 
  * @author Yichen LI
+ * @version 1.2.0
  *
  */
 public class CritterWaveBuilder {
