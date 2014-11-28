@@ -129,10 +129,10 @@ public class CritterWaveBuilderTest {
 	
 	
 	/**
-	 * Test function buildXAndY
+	 * Test function buildX
 	 */
 	@Test
-	public void testBuildXAndY()
+	public void testBuildX()
 	{
 		cwb.prepareCritterWave("mixed");
 		cwb.buildRoute(route);
@@ -140,12 +140,32 @@ public class CritterWaveBuilderTest {
 		
 		cwb.buildStartPoint();
 		cwb.buildNextPoint();
+		cwb.buildX();
 		
 		for(CritterBase critter : critters)
 		{
-			
-		}
+			assertNotNull(critter.getX());
+		}		
+	}
+	
+	/**
+	 * Test function buildY
+	 */
+	@Test
+	public void testBuildY()
+	{
+		cwb.prepareCritterWave("mixed");
+		cwb.buildRoute(route);
+		critters = cwb.getWave(); // fetch the wave of critters
 		
+		cwb.buildStartPoint();
+		cwb.buildNextPoint();
+		cwb.buildX();
+		cwb.buildY();
 		
+		for(CritterBase critter : critters)
+		{
+			assertNotNull(critter.getY());
+		}		
 	}
 }
