@@ -46,7 +46,7 @@ public class IceTower extends TowerBase implements Serializable {
 	public transient static final Image iceTowerEffect   = LoadImage.
 			loadImageIcon("/images/icetowereffect.gif").getImage();
 	public static final int ICETOWERTYPE = 6;
-	public static int NAMENUMBER = 0;
+	
 
 	/**
 	 * 

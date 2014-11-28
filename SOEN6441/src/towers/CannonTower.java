@@ -38,7 +38,7 @@ public class CannonTower extends TowerBase implements Serializable{
 	public transient static final Image cannonTower         = LoadImage.loadImage("/images/cannontower.png");
 	public transient static final Image cannonTowerEffect   = LoadImage.loadImageIcon("/images/cannontowereffect.gif").getImage();
 	public static final int CANNONTOWERTYPE  = 5;
-	public static int NAMENUMBER = 0;
+	
 	
 	
 	/**

@@ -52,6 +52,7 @@ public abstract class TowerBase extends Tile implements TowerInterface,Serializa
 	protected int towerStratgyType;
 	protected Coin coin = Coin.getCoinObject();
 	protected ArrayList<String> individualTowerLog;
+	public static int NAMENUMBER = 0;
 	
 	
 	/**
