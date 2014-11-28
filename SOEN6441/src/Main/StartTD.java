@@ -3,6 +3,7 @@ package Main;
 import gamepanel.GamePanel;
 
 import java.awt.EventQueue;
+import java.util.Date;
 
 import javax.swing.JFrame;
 
@@ -29,7 +30,8 @@ public class StartTD {
 		EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {  
-            	GlobalLog.addToGlobalLog("user starts the game\n");
+            	Date date = new Date();
+            	GlobalLog.getObject().addToGlobalLog("user starts the game\n",date);
                 new StartTD();              
             }
         });

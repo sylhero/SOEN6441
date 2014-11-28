@@ -19,8 +19,15 @@ public class WaveLog {
 	 * add to wave log
 	 * @param log
 	 */
-	public static void addToWaveLog(String log){
-		Date date = new Date();
+	
+	private static WaveLog waveLogObject = new WaveLog();
+	private WaveLog(){};
+	public static WaveLog getObject()
+	{
+		return waveLogObject;
+	}
+	public void addToWaveLog(String log,Date date){
+		//Date date = new Date();
 		waveLog.add(date.toString()+"   "+log);
 	}
 	/**

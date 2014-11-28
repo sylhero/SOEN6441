@@ -15,8 +15,17 @@ public class GlobalLog {
 	 * add to global log
 	 * @param log
 	 */
-	public static void addToGlobalLog(String log){
-		Date date = new Date();
+	private static GlobalLog globalLogObject = new GlobalLog();
+	private GlobalLog(){};
+	
+	public static GlobalLog getObject()
+	{
+		return globalLogObject;
+	}
+	
+	
+	public void addToGlobalLog(String log, Date date){
+		//Date date = new Date();
 		globalLog.add(date.toString()+"   "+log);
 	}
 	/**

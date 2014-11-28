@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.Date;
 import java.util.LinkedList;
 
 import javax.swing.JFileChooser;
@@ -33,6 +34,7 @@ public class LoadGameState extends GameState{
 		gameData = new GameDataParser();
 		
 	}
+	//private GlobalLog globalLog;
 	/**
 	 * press load
 	 * @param e
@@ -65,7 +67,8 @@ public class LoadGameState extends GameState{
 		int returnValue = chooser.showOpenDialog(null);
 		if(returnValue == JFileChooser.APPROVE_OPTION){
 			java.io.File file = chooser.getSelectedFile();
-			GlobalLog.addToGlobalLog("user selects the game data: "+file.getName()+"\n");
+			Date date = new Date();
+			GlobalLog.getObject().addToGlobalLog("user selects the game data: "+file.getName()+"\n",date);
 			System.out.println(file.getAbsolutePath());
 			//set the tilemap path
 			String path = file.getAbsolutePath();

@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 
 import javax.swing.JFileChooser;
@@ -52,7 +53,7 @@ public class CreateMapState extends GameState{
 	private boolean isGrass;
 	private boolean isLoaded;
 	private MapLog mapLog;
-	
+	private GlobalLog globalObject;
 	
 	//font
 	private Font font;
@@ -64,6 +65,7 @@ public class CreateMapState extends GameState{
 	private MapParser mapParser;
 	
 	
+
 	/**
 	 * constructor
 	 * @param gsm the game state manager.
@@ -83,6 +85,8 @@ public class CreateMapState extends GameState{
 		mapParser    = new MapParser();
 		
 		mapLog       = MapLog.getMapLogObject();
+		
+		globalObject = GlobalLog.getObject();
 		
 		
 		
@@ -148,7 +152,8 @@ public class CreateMapState extends GameState{
 				x <= GamePanel.WIDTH && y >= 0 &&
 				y <= buttonHeight && !isNameGiven){
 			mapName = JOptionPane.showInputDialog("Enter map name: ");
-			GlobalLog.addToGlobalLog("user creates new map: "+mapName+"\n");
+			Date date = new Date();
+			globalObject.addToGlobalLog("user creates new map: "+mapName+"\n", date);
 		}
 		
 		
@@ -168,7 +173,8 @@ public class CreateMapState extends GameState{
 				return;
 			}else {
 				mapRow = Integer.parseInt(row);
-				GlobalLog.addToGlobalLog("user sets the row: "+mapRow +"\n");
+				Date date = new Date();
+				globalObject.addToGlobalLog("user sets the row: "+mapRow +"\n",date);
 			}
 			
 		}
@@ -189,7 +195,8 @@ public class CreateMapState extends GameState{
 				return;
 			}else{
 				mapColumn = Integer.parseInt(column);
-				GlobalLog.addToGlobalLog("user sets the column: "+mapColumn +"\n");
+				Date date = new Date();
+				globalObject.addToGlobalLog("user sets the column: "+mapColumn +"\n",date);
 			}
 			
 		}
@@ -205,7 +212,8 @@ public class CreateMapState extends GameState{
 				x <= GamePanel.WIDTH && y >= 3*buttonHeight + 15 &&
 				y <= 4 * buttonHeight + 15 ){
 			init();
-			GlobalLog.addToGlobalLog("user press initilized button"+"\n");
+			Date date = new Date();
+			globalObject.addToGlobalLog("user initilizes the map"+"\n",date);
 		}
 		
 	}
@@ -223,7 +231,8 @@ public class CreateMapState extends GameState{
 			this.isGrass = false;
 			this.isEntrance = false;
 			this.isExit = false;
-			GlobalLog.addToGlobalLog("user sets the pavement"+"\n");
+			//Date date = new Date();
+			//GlobalLog.addToGlobalLog("user sets the pavement"+"\n",date);
 		}
 		
 		//press other buttons will deselect the image
@@ -243,7 +252,8 @@ public class CreateMapState extends GameState{
 			this.isPavement = false;
 			this.isEntrance = false;
 			this.isExit = false;
-			GlobalLog.addToGlobalLog("user sets the grass"+"\n");
+			//Date date = new Date();
+			//GlobalLog.addToGlobalLog("user sets the grass"+"\n",date);
 		}
 		
 		
@@ -262,7 +272,8 @@ public class CreateMapState extends GameState{
 			this.isGrass = false;
 			this.isPavement = false;			
 			this.isExit = false;
-			GlobalLog.addToGlobalLog("user sets the entrance"+"\n");
+			//Date date = new Date();
+			//GlobalLog.addToGlobalLog("user sets the entrance"+"\n",date);
 		}
 		
 	}
@@ -280,7 +291,7 @@ public class CreateMapState extends GameState{
 			this.isGrass = false;
 			this.isPavement = false;
 			this.isEntrance = false;
-			GlobalLog.addToGlobalLog("user sets the exit"+"\n");
+			//GlobalLog.addToGlobalLog("user sets the exit"+"\n");
 		}
 		
 	}
@@ -296,7 +307,7 @@ public class CreateMapState extends GameState{
 				y >= 6*buttonHeight + 30+18 && y <=  
 				7*buttonHeight + 30+18){
 			init();
-			GlobalLog.addToGlobalLog("user press load map button."+"\n");
+			//GlobalLog.addToGlobalLog("user press load map button."+"\n");
 			fileChooser();
 			isLoaded = true;
 			
@@ -318,7 +329,8 @@ public class CreateMapState extends GameState{
 		int returnValue = chooser.showOpenDialog(null);
 		if(returnValue == JFileChooser.APPROVE_OPTION){
 			java.io.File file = chooser.getSelectedFile();
-			GlobalLog.addToGlobalLog("user loads the map: "+file.getName()+"\n");
+			Date date = new Date();
+			globalObject.addToGlobalLog("user loads the map: "+file.getName()+"\n",date);
 			System.out.println(file.getAbsolutePath());
 			//set the tilemap path
 			String path = file.getAbsolutePath();
@@ -387,7 +399,8 @@ public class CreateMapState extends GameState{
 				}
 				else if(isEntrance && isExit && isCorrectPath){
 					mapParser.createXMLFile(map, mapName);
-					GlobalLog.addToGlobalLog("user generates the map\n");
+					Date date = new Date();
+					globalObject.addToGlobalLog("user generates the map\n",date);
 					System.out.println("generate");
 					mapLog.createMapLog(mapName);
 					
@@ -416,7 +429,8 @@ public class CreateMapState extends GameState{
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH 
 				&& y >= 8*buttonHeight + 40+18 && y <= 9*buttonHeight + 40+18){
-			GlobalLog.addToGlobalLog("user clicks the back button\n");
+			//Date date = new Date();
+			//globalObject.getObject().addToGlobalLog("user clicks the back button\n", date);
 			gsm.switchState(GameStateManager.MENUSTATE);
 		}
 			
@@ -427,7 +441,8 @@ public class CreateMapState extends GameState{
 		if(x >= GamePanel.WIDTH - menuWidth && 
 				x <= GamePanel.WIDTH 
 				&& y >= 9*buttonHeight + 40+18 && y <= 10*buttonHeight + 40+18){
-			GlobalLog.addToGlobalLog("user clicks the log button\n");
+			Date date = new Date();
+			globalObject.addToGlobalLog("user check the log.\n",date);
 			ShowLog.showLog(mapLog.getAllMapLog(mapName));
 			
 			

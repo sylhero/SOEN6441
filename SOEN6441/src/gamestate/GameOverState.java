@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Date;
 
 import log.GlobalLog;
 import log.MapLog;
@@ -27,6 +28,8 @@ public class GameOverState extends GameState{
 	public GameOverState(GameStateManager gsm){
 		this.gsm = gsm;
 	}
+	
+	private GlobalLog globalLog;
 	/**
 	 * mouse drag
 	 */
@@ -63,7 +66,8 @@ public class GameOverState extends GameState{
 		int y = e.getY();
 		if(x >= 320 && x<= 420
 				&& y >=430 && y<= 480){
-			GlobalLog.addToGlobalLog("user press quit button."+"\n");
+			Date date = new Date();
+			globalLog.getObject().addToGlobalLog("user press quit button."+"\n",date);
 			System.exit(0);
 		}
 		

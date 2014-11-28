@@ -14,8 +14,15 @@ public static ArrayList<String> collectivelLog = new ArrayList<String>();
 	 * add to collective log
 	 * @param log
 	 */
-	public static void addToAllTowerLog(String log){
-		Date date = new Date();
+	private static CollectiveLog collectiveLogObject = new CollectiveLog();
+	private CollectiveLog(){};
+	public static CollectiveLog getObject()
+	{
+		return collectiveLogObject;
+	}
+	
+	public void addToAllTowerLog(String log, Date date){
+		//Date date = new Date();
 		collectivelLog.add(date.toString()+"   "+log);
 	}
 	/**
