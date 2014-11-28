@@ -26,9 +26,9 @@ public class GameDataParser implements Serializable{
 	protected Tile[][] mapData;
 	protected ArrayList<TowerBase> towerList;
 	protected int currency;
-	public CollectiveLog collectiveLog;
-	public GlobalLog globalLog;
-	public WaveLog waveLog;
+	protected CollectiveLog collectiveLog;
+	protected GlobalLog globalLog;
+	protected WaveLog waveLog;
 	
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
@@ -92,6 +92,24 @@ public class GameDataParser implements Serializable{
 		//System.out.println(this.currency);
 		
 		return this.currency;
+	}
+	
+	public WaveLog getWaveLog(){
+		
+		return this.waveLog;
+		
+	}
+	
+	public GlobalLog getGlobalLog(){
+		
+		return this.globalLog;
+		
+	}
+	
+	public CollectiveLog getCollectiveLog(){
+		
+		return this.collectiveLog;
+		
 	}
 	
 	

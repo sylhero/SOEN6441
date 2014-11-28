@@ -1,6 +1,7 @@
 package log;
 
 import java.awt.TextArea;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,7 +12,12 @@ import javax.swing.JTabbedPane;
  * @author yulongsong
  *
  */
-public class WaveLog {
+public class WaveLog implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3658473829471754341L;
+	
 	public static ArrayList<String> waveLog = new ArrayList<String>();
 	public static int batchCounter = 0;
 	public static  JTabbedPane tpane = new JTabbedPane();

@@ -1,5 +1,6 @@
 package log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,7 +9,12 @@ import java.util.Date;
  * @author yulongsong
  *
  */
-public class GlobalLog {
+public class GlobalLog implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4748986207589833325L;
 	
 	public static ArrayList<String> globalLog = new ArrayList<String>();
 	/**
