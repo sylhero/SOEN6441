@@ -32,7 +32,7 @@ public class ArrowTowerTest {
 	 * @throws Exception java.lang.Exception
 	 */
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		temp = TileMap.getTileMap();
 		testMap = temp.loadMap("resources/gamemaps/test.xml");
 		critter = new NormalCritter(ValidateMap.getCorrectRoute(testMap), 1);
