@@ -130,8 +130,8 @@ public abstract class TowerBase extends Tile implements TowerInterface,Serializa
 		return individualTowerLog;
 	}
 	
-	public void addIndevidualTowerLog(String log){
-		Date date = new Date();
+	public void addIndevidualTowerLog(String log,Date date){
+		//Date date = new Date();
 		individualTowerLog.add(date.toString()+"   "+ log);
 	}
 	public String getAllIdividualTowerLog(){

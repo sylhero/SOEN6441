@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import java.util.Date;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -240,19 +241,22 @@ public class MenuState extends GameState{
 				mouseX <= startGameButton.x + startGameButton.width &&
 				mouseY >= startGameButton.y && 
 				mouseY <= startGameButton.y +startGameButton.height){
-			GlobalLog.addToGlobalLog("user clicks start game button\n");
+			Date date = new Date();
+			GlobalLog.getObject().addToGlobalLog("user clicks start game button\n",date);
 			gsm.switchState(GameStateManager.SELECTMAP);
 		}else if (mouseX >= createMapButton.x &&
 				mouseX <= createMapButton.x + createMapButton.width &&
 				mouseY >= createMapButton.y && 
 				mouseY <= createMapButton.y +createMapButton.height){
-			GlobalLog.addToGlobalLog("user clicks create map button\n");
+			Date date = new Date();
+			GlobalLog.getObject().addToGlobalLog("user clicks create map button\n",date);
 			gsm.switchState(GameStateManager.CREATEMAP);
 		}else if ( mouseX >= exitButton.x &&
 				mouseX <= exitButton.x + exitButton.width &&
 				mouseY >= exitButton.y && 
 				mouseY <= exitButton.y +exitButton.height){
-			GlobalLog.addToGlobalLog("user clicks exit the game\n");
+			Date date = new Date();
+			GlobalLog.getObject().addToGlobalLog("user clicks exit the game\n",date);
 			System.exit(0);
 		}else if(mouseX >= loadGameButton.x &&
 				mouseX <= loadGameButton.x + loadGameButton.width &&

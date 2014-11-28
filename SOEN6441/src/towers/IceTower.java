@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import log.CollectiveLog;
@@ -253,24 +254,18 @@ public class IceTower extends TowerBase implements Serializable {
 			}
 
 			singleTarget.setIsFreezing(true);
-			this.addIndevidualTowerLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
-			CollectiveLog.addToAllTowerLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
-			GlobalLog.addToGlobalLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
-			WaveLog.addToWaveLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n");
+			Date date = new Date();
+			WaveLog.getObject().addToWaveLog(this.name + " attacks "+singleTarget.getName()+", HP - "+this.power+"\n",date);
 			singleTarget.decreaseHp(this.power);
-			this.addIndevidualTowerLog(this.name + " freezes "+singleTarget.getName()+"\n");
-			CollectiveLog.addToAllTowerLog(this.name + " freezes "+singleTarget.getName()+"\n");
-			GlobalLog.addToGlobalLog(this.name + " freezes "+singleTarget.getName()+"\n");
-			WaveLog.addToWaveLog(this.name + " freezes "+singleTarget.getName()+"\n");
+			Date date1 = new Date();
+			WaveLog.getObject().addToWaveLog(this.name + " freezes "+singleTarget.getName()+"\n",date1);
 			singleTarget.setSpeedOffset(1, 1);
 
 			if (singleTarget.getCurrentHp() <= 0)
 
 			{
-				this.addIndevidualTowerLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
-				CollectiveLog.addToAllTowerLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
-				GlobalLog.addToGlobalLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
-				WaveLog.addToWaveLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n");
+				Date date2 = new Date();
+				WaveLog.getObject().addToWaveLog(this.name + " kills "+singleTarget.getName()+", coin + "+" "+singleTarget.getValue()+"\n",date2);
 				coin.increaseCurrency(singleTarget.getValue());
 
 				targets.remove(singleTarget);

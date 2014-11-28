@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.Date;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -98,7 +99,8 @@ public class SelectMapState extends GameState{
 		int returnValue = chooser.showOpenDialog(null);
 		if(returnValue == JFileChooser.APPROVE_OPTION){
 			java.io.File file = chooser.getSelectedFile();
-			GlobalLog.addToGlobalLog("user selects the map: "+file.getName()+"\n");
+			Date date = new Date();
+			GlobalLog.getObject().addToGlobalLog("user selects the map: "+file.getName()+"\n",date);
 			System.out.println(file.getAbsolutePath());
 			//set the tilemap path
 			String path = file.getAbsolutePath();
