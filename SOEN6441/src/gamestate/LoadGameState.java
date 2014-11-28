@@ -87,6 +87,7 @@ public class LoadGameState extends GameState{
 			//System.out.println(tileMap.getCellHeight());
 			LinkedList<Point> tempPath = ValidateMap.getCorrectRoute(tempMap);
 			tileMap.setCorrectPath(tempPath);
+			
 			MapLog.getMapLogObject().getTopFive(file.getName().trim().split("\\.")[0]);
 			gsm.switchState(GameStateManager.GAMESTART);
 		} else if(returnValue == JFileChooser.CANCEL_OPTION){
