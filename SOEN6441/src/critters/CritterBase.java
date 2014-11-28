@@ -24,7 +24,6 @@ public abstract class CritterBase {
 	protected Tile [][] map;
 	protected String name;
 	protected static int NAMENUMBER;
-//	protected LinkedList<Point> correctRoute;
 	protected LinkedList<Point> correctRouteCopy;
 	protected Image image;
 	protected Point nextPoint; 	// move priority
@@ -165,9 +164,8 @@ public abstract class CritterBase {
 		}
 	}
 	
-	public String getName(){
-		return this.name;
-	}
+
+	
 	/**
 	 * To update critters movements.
 	 */
@@ -281,17 +279,31 @@ public abstract class CritterBase {
 		this.correctRouteCopy = this.copyCorrectRoute(correctRoute);
 	}
 
+	/**
+	 * To get correct route.
+	 * 
+	 * @return a linkedList of correct route
+	 */
 	public LinkedList<Point> getCorrectRouteCopy()
 	{
 		return this.correctRouteCopy;
 	}
 
-	
+	/**
+	 * To set the start point of the critter.
+	 * 
+	 * @param route of a critter
+	 */
 	public void setStartPoint(LinkedList<Point> route) {
 		
 		this.startPoint = route.pollFirst();
 	}
 	
+	/**
+	 * To set the next point of a critter.
+	 * 
+	 * @param route of a critter
+	 */
     public void setNextPoint(LinkedList<Point> route) {
 		
 		this.nextPoint = route.pollFirst();
@@ -407,17 +419,38 @@ public abstract class CritterBase {
 		this.y = tileMap.getUpperOffSet() + startPoint.x * tileMap.getCellHeight();
 	}
 	
-	
+	/**
+	 * To set X coordinate.
+	 * 
+	 * @param x axes.
+	 */
 	public void setX(int x)
 	{
 		this.x = x;
 	}
 	
-	
+	/**
+	 * To set Y coordinate.
+	 * 
+	 * @param y axes.
+	 */
 	public void setY(int y)
 	{
 		this.y = y;
 	}
+	
+	/**
+	 * To get critter name. 
+	 * 
+	 * @return a string name 
+	 */
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	
+	
 	/**
 	 * To get critter value.
 	 * 

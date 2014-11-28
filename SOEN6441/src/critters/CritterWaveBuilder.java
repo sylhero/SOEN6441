@@ -56,6 +56,12 @@ public class CritterWaveBuilder {
 			
 	}
 
+	
+	/**
+	 * Build the route of each critter.
+	 * 
+	 * @param route of a critter
+	 */
 	public void buildRoute(LinkedList<Point> route)
 	{
 		
@@ -67,7 +73,9 @@ public class CritterWaveBuilder {
 		}
 	}
 
-	
+	/**
+	 * Build start point of a critter.
+	 */
 	public void buildStartPoint()
 	{
 		for (CritterBase critter : wave.getCritterWave())
@@ -76,6 +84,10 @@ public class CritterWaveBuilder {
 		}
 	}
 	
+	
+	/**
+	 * Build x and y axis.
+	 */
 	public void buildXAndY()
 	{
 		for (CritterBase critter : wave.getCritterWave())
@@ -85,6 +97,9 @@ public class CritterWaveBuilder {
 		}
 	}
 	
+	/**
+	 * Build next point after start point.
+	 */
 	public void buildNextPoint()
 	{
 		for (CritterBase critter : wave.getCritterWave())
@@ -93,17 +108,27 @@ public class CritterWaveBuilder {
 		}
 	}
 	
+	/**
+	 * Keep some spaces between critters.
+	 * 
+	 * @param movePoint of each critter
+	 */
 	public void buildMovePoint(int movePoint)
 	{
 		ArrayList<CritterBase> waveTemp = wave.getCritterWave();
 		
-		for(int i = 0; i<waveTemp.size(); i++){
-			waveTemp.get(i).setMovePoint(i*movePoint);
+		for(int i = 0; i < waveTemp.size(); i++){
+			waveTemp.get(i).setMovePoint(i * movePoint);
 			
 		}
 		
 	}
 	
+	/**
+	 * Get a wave of critters.
+	 * 
+	 * @return a wave of critters
+	 */
 	public ArrayList<CritterBase> getWave() 
 	{
 		return wave.getCritterWave();

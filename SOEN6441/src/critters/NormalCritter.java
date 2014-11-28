@@ -16,7 +16,9 @@ import usefulfunctions.LoadImage;
 
 public class NormalCritter extends CritterBase {
 
-	
+	/**
+	 * Constructor
+	 */
 	public NormalCritter()
 	{
 		this.tileMap = TileMap.getTileMap();
