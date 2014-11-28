@@ -15,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import currency.Coin;
+import log.CollectiveLog;
 import log.GlobalLog;
 import log.MapLog;
 import tilemap.Tile;
