@@ -37,6 +37,9 @@ public class GameDataParserTest  {
 	private static ArrayList<String> gLog = GlobalLog.getObject().globalLog;
 	private static ArrayList wLog = WaveLog.getObject().totalWaveLog;
 	
+	/**
+	 * To initialize class
+	 */
 	@BeforeClass
 	public static void init(){
 				
@@ -52,7 +55,9 @@ public class GameDataParserTest  {
 				
 	}
 	
-
+	/**
+	 * Test writeGameData method.
+	 */
 	@Test
 	public void testWriteGameData() {
 		
@@ -60,12 +65,18 @@ public class GameDataParserTest  {
 		assertTrue(gameParser.WriteGameData("demoMap.xml"));
 	}
 	
+	/**
+	 * Test readGameData method.
+	 */
 	@Test
 	public void testReadGameData(){
 		
 		assertTrue(gameParser.ReadGameData("demoMap.xml.ser"));
 	}
 	
+	/**
+	 * Test getMoney method.
+	 */
 	@Test
 	public void testGetMoney(){
 		
@@ -74,6 +85,9 @@ public class GameDataParserTest  {
 		assertEquals(gameParser.getMoney(),new Integer(1000));
 	}
 	
+	/**
+	 * Test getMapData method.
+	 */
 	@Test
 	public void testGetMapData(){
 		
@@ -83,6 +97,9 @@ public class GameDataParserTest  {
 
 	}
 	
+	/**
+	 * Test getTowerList method.
+	 */
 	@Test
 	public void testGetTowerList(){
 		
@@ -91,6 +108,9 @@ public class GameDataParserTest  {
 		assertNotNull(gameParser.getTowerList());
 	}
 	
+	/**
+	 * Test getTotalWaveLog method.
+	 */
 	@Test
 	public void testGetTotalWaveLog(){
 		
@@ -101,6 +121,9 @@ public class GameDataParserTest  {
 	}
 	
 	
+	/**
+	 * Test getGlobalLog method.
+	 */
 	@Test
 	public void testGetGlobalLog(){
 		
@@ -110,6 +133,9 @@ public class GameDataParserTest  {
 
 	}
 	
+	/**
+	 * Test getCollectiveLog method.
+	 */
 	@Test
 	public void testGetCollectiveLog(){
 		

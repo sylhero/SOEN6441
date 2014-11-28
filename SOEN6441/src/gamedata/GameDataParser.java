@@ -18,10 +18,15 @@ import currency.Coin;
 import tilemap.Tile;
 import towers.TowerBase;
 
+/**
+ * Parse game data class
+ * @author hongruiguan
+ *
+ */
 public class GameDataParser implements Serializable{
 	
 	/**
-	 * automatically generate serial version ID for version control. For version control
+	 * automatically generate serial version ID for version control. 
 	 */
 	private static final long serialVersionUID = 2444615011686386224L;
 	
@@ -34,6 +39,12 @@ public class GameDataParser implements Serializable{
 	protected static final String PATH = System.getProperty("user.dir")+"/resources/gamedata/";
 	
 
+	/**
+	 * GameDataParser Constructor aims to get game information which will be saved as objects.
+	 * @param map_data
+	 * @param tower_list
+	 * @param money
+	 */
 	public GameDataParser(Tile[][] map_data, ArrayList<TowerBase> tower_list, Integer money){
 		
 		this.mapData = map_data;
@@ -49,13 +60,11 @@ public class GameDataParser implements Serializable{
 		
 	}
 
-	
-	public void setMapData(Tile[][] map_data){
-		
-		this.mapData = map_data;
-		
-	}
-	
+
+	/**
+	 * Get map information from saved file.
+	 * @return a two dimensional array for map data.
+	 */
 	public Tile[][] getMapData(){
 		
 		//System.out.println("I can get map data from .ser!!!!!!!!!!!!!!");
@@ -69,13 +78,11 @@ public class GameDataParser implements Serializable{
 		return this.mapData;		
 	}
 	
-	
-	
-	public void setTowerList(ArrayList<TowerBase> tower_list){
-		
-		this.towerList = tower_list;
-	}
-		
+
+	/**
+	 * Get a tower list from saved file.	
+	 * @return an array list for tower list.
+	 */
 	public ArrayList<TowerBase> getTowerList(){
 		
 		
@@ -83,29 +90,40 @@ public class GameDataParser implements Serializable{
 		
 	}
 	
-	public void setMoney(Integer cur){
-		
-		this.currency = cur;
-	}
-	
+
+	/**
+	 * Get currency from saved file.
+	 * @return currency
+	 */
 	public Integer getMoney(){
 		//System.out.println(this.currency);
 		
 		return this.currency;
 	}
 	
-
+	/**
+	 * Get wave log from saved file.
+	 * @return wave log
+	 */
 	public ArrayList<String> getTotalWaveLog(){
 		
 		return this.totalWaveLog;
 	}
 	
+	/**
+	 * Get global log from saved file.
+	 * @return global log
+	 */
 	public ArrayList<String> getGlobalLog(){
 		
 		return this.globalLog;
 		
 	}
 	
+	/**
+	 * Get collective log from saved file.
+	 * @return collective log
+	 */
 	public ArrayList<String> getCollectiveLog(){
 		
 		//System.out.println("Loaded size of collective log is "+this.collectiveLog.collectivelLog.size());
@@ -115,7 +133,11 @@ public class GameDataParser implements Serializable{
 	}
 	
 	
-	
+	/**
+	 * Write game information as objects to a file
+	 * @param mapName make it as a file name
+	 * @return return true if write successfully.
+	 */
 	public boolean WriteGameData(String mapName){
 		
 		boolean isTrue = false;
@@ -145,6 +167,11 @@ public class GameDataParser implements Serializable{
 		
 	}
 	
+	/**
+	 * Read game information
+	 * @param file_name offer a file name to read a specific file
+	 * @return return true if read file successfully.
+	 */
 	public boolean ReadGameData(String file_name){
 		
 		boolean isTrue = false;
