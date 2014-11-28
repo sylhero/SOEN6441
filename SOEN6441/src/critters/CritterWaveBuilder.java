@@ -87,13 +87,23 @@ public class CritterWaveBuilder {
 	
 	
 	/**
-	 * Build x and y axis.
+	 * Build x axis.
 	 */
-	public void buildXAndY()
+	public void buildX()
 	{
 		for (CritterBase critter : wave.getCritterWave())
 		{
 			critter.setX();
+		}
+	}
+	
+	/**
+	 * Build y axis.
+	 */
+	public void buildY()
+	{
+		for (CritterBase critter : wave.getCritterWave())
+		{
 			critter.setY();
 		}
 	}
