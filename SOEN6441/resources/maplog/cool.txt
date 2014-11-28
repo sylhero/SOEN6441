@@ -1,3 +1,0 @@
-Fri Nov 28 12:49:12 EST 2014,null,null,0
-Fri Nov 28 12:49:12 EST 2014,null,Fri Nov 28 12:49:46 EST 2014,3500
-Fri Nov 28 12:49:12 EST 2014,null,Fri Nov 28 12:50:33 EST 2014,3500

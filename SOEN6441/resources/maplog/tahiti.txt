@@ -1,4 +1,0 @@
-Tue Nov 25 16:45:12 EST 2014,null,null,0
-Tue Nov 25 16:45:12 EST 2014,Tue Nov 25 16:45:21 EST 2014,null,0
-Tue Nov 25 16:45:12 EST 2014,Tue Nov 25 16:45:47 EST 2014,null,0
-Tue Nov 25 16:45:12 EST 2014,Tue Nov 25 16:46:05 EST 2014,null,0
